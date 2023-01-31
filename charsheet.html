@@ -1,0 +1,1195 @@
+<h4 style="display:inline">Advantage:</h4>
+<input type="number" name="attr_advantage" step="1" value="0"/>
+<br>
+
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Name:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text" name="attr_character_name" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Species:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text"/>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Size:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text"/>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Total Level:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_level" />
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Background:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text"/>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Alignment:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text"/>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Player Name:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text"/>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4 style="display:inline">Specialty:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_specialty" value="0" readonly="true"/>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="display: table-cell; border-style: groove;">
+            <h4 style="display:inline">Awareness:</h4>
+            <input type="number" name="attr_awareness" step="1" value="0"/>
+            <input type="number" name="attr_awrmod" step="1" value="0" readonly="true"/>
+            <br>
+    
+            <input type="checkbox" name="attr_detection_spec" value="1">
+            <input type="number" name="attr_detection_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_detection">Detection</button>
+            <br>
+            <input type="checkbox" name="attr_intuition_spec" value="1">
+            <input type="number" name="attr_intuition_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_intuition">Intuition</button>
+            <br>
+            <input type="checkbox" name="attr_wilderness_spec" value="1">
+            <input type="number" name="attr_wilderness_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_wilderness">Wilderness</button>
+        </div>
+        
+        <div style="display: table-cell; border-style: groove;">
+            <h4 style="display:inline">Charisma:</h4>
+            <input type="number" name="attr_charisma" step="1" value="0"/>
+            <input type="number" name="attr_chamod" step="1" value="0" readonly="true"/>
+            <br>
+    
+            <input type="checkbox" name="attr_convince_spec" value="1">
+            <input type="number" name="attr_convince_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_convince">Convince</button>
+            <br>
+            <input type="checkbox" name="attr_flair_spec" value="1">
+            <input type="number" name="attr_flair_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_flair">Flair</button>
+            <br>
+            <input type="checkbox" name="attr_interaction_spec" value="1">
+            <input type="number" name="attr_interaction_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_interaction">Interaction</button>
+        </div>
+        
+        <div style="display: table-cell; border-style: groove;">
+            <h4 style="display:inline">Coordination:</h4>
+            <input type="number" name="attr_coordination" step="1" value="0"/>
+            <input type="number" name="attr_cormod" step="1" value="0" readonly="true"/>
+            <br>
+    
+            <input type="checkbox" name="attr_agility_spec" value="1">
+            <input type="number" name="attr_agility_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_agility">Agility</button>
+            <br>
+            <input type="checkbox" name="attr_dexterity_spec" value="1">
+            <input type="number" name="attr_dexterity_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_dexterity">Dexterity</button>
+            <br>
+            <input type="checkbox" name="attr_stealth_spec" value="1">
+            <input type="number" name="attr_stealth_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_stealth">Stealth</button>
+        </div>
+        
+        <div style="display: table-cell; border-style: groove;">
+            <h4 style="display:inline">Intelligence:</h4>
+            <input type="number" name="attr_intelligence" step="1" value="0"/>
+            <input type="number" name="attr_intmod" step="1" value="0" readonly="true"/>
+            <br>
+    
+            <input type="checkbox" name="attr_knowledge_spec" value="1">
+            <input type="number" name="attr_knowledge_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_knowledge">Knowledge</button>
+            <br>
+            <input type="checkbox" name="attr_magic_spec" value="1">
+            <input type="number" name="attr_magic_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_magic">Magic</button>
+            <br>
+            <input type="checkbox" name="attr_medicine_spec" value="1">
+            <input type="number" name="attr_medicine_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_medicine">Medicine</button>
+        </div>
+        
+        <div style="display: table-cell; border-style: groove;">
+            <h4 style="display:inline">Strength:</h4>
+            <input type="number" name="attr_strength" step="1" value="0"/>
+            <input type="number" name="attr_strmod" step="1" value="0" readonly="true"/>
+            <br>
+    
+            <input type="checkbox" name="attr_grip_spec" value="1">
+            <input type="number" name="attr_grip_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_grip">Grip</button>
+            <br>
+            <input type="checkbox" name="attr_physicality_spec" value="1">
+            <input type="number" name="attr_physicality_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_physicality">Physicality</button>
+            <br>
+            <input type="checkbox" name="attr_presence_spec" value="1">
+            <input type="number" name="attr_presence_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_presence">Presence</button>
+        </div>
+        
+        <div style="display: table-cell; border-style: groove;">
+            <h4 style="display:inline">Withstand:</h4>
+            <input type="number" name="attr_withstand" step="1" value="0"/>
+            <input type="number" name="attr_wsdmod" step="1" value="0" readonly="true"/>
+            <br>
+    
+            <input type="checkbox" name="attr_endure_spec" value="1">
+            <input type="number" name="attr_endure_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_endure">Endure</button>
+            <br>
+            <input type="checkbox" name="attr_recovery_spec" value="1">
+            <input type="number" name="attr_recovery_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_recovery">Recovery</button>
+            <br>
+            <input type="checkbox" name="attr_toughness_spec" value="1">
+            <input type="number" name="attr_toughness_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_toughness">Toughness</button>
+        </div>
+        
+        <div style="display: table-cell; border-style: groove;">
+            <h4 style="display:inline">Resolve:</h4>
+            <input type="number" name="attr_resolve" step="1" value="0"/>
+            <input type="number" name="attr_resmod" step="1" value="0" readonly="true"/>
+            <br>
+    
+            <input type="checkbox" name="attr_resistance_spec" value="1">
+            <input type="number" name="attr_resistance_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_resistance">Resistance</button>
+            <br>
+            <input type="checkbox" name="attr_restore_spec" value="1">
+            <input type="number" name="attr_restore_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_restore">Restore</button>
+            <br>
+            <input type="checkbox" name="attr_willpower_spec" value="1">
+            <input type="number" name="attr_willpower_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_willpower">Willpower</button>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <h4>Health:</h4>
+            <input type="number" name="attr_health" />
+            <input type="number" name="attr_health_max" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Temp HP:</h4>
+            <input type="number" name="attr_temphp" />
+            <input type="number" name="attr_temphp_max" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Mana:</h4>
+            <input type="number" name="attr_mana" />
+            <input type="number" name="attr_mana_max" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Health Dice:</h4>
+            <input type="number" name="attr_healthdice" />
+            <input type="text" name="attr_healthdice_type" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Concentration:</h4>
+            <input type="number" name="attr_concentration" />
+            <input type="number" name="attr_concentration_max" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Limit Break:</h4>
+            <input type="number" name="attr_limit" />
+            <input type="number" name="attr_limit_max" />
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <h4>Nat. Armor:</h4>
+            <input type="number" name="attr_natarmor" />
+            <input type="number" name="attr_natarmor_max" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Body Armor:</h4>
+            <input type="number" name="attr_bodyarmor" />
+            <input type="number" name="attr_bodyarmor_max" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Shield:</h4>
+            <input type="number" name="attr_shield" />
+            <input type="number" name="attr_shield_max" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Mana Dice:</h4>
+            <input type="number" name="attr_manadice" />
+            <input type="text" name="attr_manadice_type" />
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Fatigue:</h4>
+            <input type="number" name="attr_fatigue" />
+            <input type="number" name="attr_fatigue_max" value="6"/>
+        </div>
+        
+        <div style="display: table-cell;">
+            <input type="checkbox" name="attr_block_spec" value="1">
+            <input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_block">Block</button>
+            <br>
+            <input type="checkbox" name="attr_dodge_spec" value="1">
+            <input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_dodge">Dodge</button>
+            <br>
+            <input type="checkbox" name="attr_parry_spec" value="1">
+            <input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_parry">Parry</button>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100%; display: table; border-style: groove;">
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <h4>Weapons:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <h4>Hit Stat:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <h4>Damage:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <h4>Damage Stat:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <h4>Crit Damage:</h4>
+        </div>
+        <div style="display: table-cell;">
+            <h4>Fumble Damage:</h4>
+        </div>
+    </div>
+    
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <button type="action" name="act_attack1">Attack!</button>
+            <input type="checkbox" name="attr_attack1_spec" value="1">
+        </div>
+        <div style="display: table-cell;">
+            <select name="attr_attack1_hitstat">
+                <option value="0">Awareness</option>
+                <option value="1">Charisma</option>
+                <option value="2" selected="selected">Coordination</option>
+                <option value="3">Intelligence</option>
+                <option value="4">Strength</option>
+                <option value="5">Withstand</option>
+                <option value="6">Resolve</option>
+            </select>
+            <input type="number" name="attr_attack1_hitvalue" step="1" value="0" readonly="true"/>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text" name="attr_attack1_damage" step="1" value="0"/>
+        </div>
+        <div style="display: table-cell;">
+            <select name="attr_attack1_damstat">
+                <option value="0">Awareness</option>
+                <option value="1">Charisma</option>
+                <option value="2">Coordination</option>
+                <option value="3">Intelligence</option>
+                <option value="4" selected="selected">Strength</option>
+                <option value="5">Withstand</option>
+                <option value="6">Resolve</option>
+            </select>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_attack1_crit" step="1" value="0"/>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_attack1_fumble" step="1" value="0"/>
+        </div>
+    </div>
+    
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <button type="action" name="act_attack2">Attack!</button>
+            <input type="checkbox" name="attr_attack2_spec" value="1">
+        </div>
+        <div style="display: table-cell;">
+            <select name="attr_attack2_hitstat">
+                <option value="0">Awareness</option>
+                <option value="1">Charisma</option>
+                <option value="2" selected="selected">Coordination</option>
+                <option value="3">Intelligence</option>
+                <option value="4">Strength</option>
+                <option value="5">Withstand</option>
+                <option value="6">Resolve</option>
+            </select>
+            <input type="number" name="attr_attack2_hitvalue" step="1" value="0" readonly="true"/>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text" name="attr_attack2_damage" step="1" value="0"/>
+        </div>
+        <div style="display: table-cell;">
+            <select name="attr_attack2_damstat">
+                <option value="0">Awareness</option>
+                <option value="1">Charisma</option>
+                <option value="2">Coordination</option>
+                <option value="3">Intelligence</option>
+                <option value="4" selected="selected">Strength</option>
+                <option value="5">Withstand</option>
+                <option value="6">Resolve</option>
+            </select>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_attack2_crit" step="1" value="0"/>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_attack2_fumble" step="1" value="0"/>
+        </div>
+    </div>
+    
+    <div style="display: table-row">
+        <div style="display: table-cell;">
+            <button type="action" name="act_attack3">Attack!</button>
+            <input type="checkbox" name="attr_attack3_spec" value="1">
+        </div>
+        <div style="display: table-cell;">
+            <select name="attr_attack3_hitstat">
+                <option value="0">Awareness</option>
+                <option value="1">Charisma</option>
+                <option value="2" selected="selected">Coordination</option>
+                <option value="3">Intelligence</option>
+                <option value="4">Strength</option>
+                <option value="5">Withstand</option>
+                <option value="6">Resolve</option>
+            </select>
+            <input type="number" name="attr_attack3_hitvalue" step="1" value="0" readonly="true"/>
+        </div>
+        <div style="display: table-cell;">
+            <input type="text" name="attr_attack3_damage" step="1" value="0"/>
+        </div>
+        <div style="display: table-cell;">
+            <select name="attr_attack3_damstat">
+                <option value="0">Awareness</option>
+                <option value="1">Charisma</option>
+                <option value="2">Coordination</option>
+                <option value="3">Intelligence</option>
+                <option value="4" selected="selected">Strength</option>
+                <option value="5">Withstand</option>
+                <option value="6">Resolve</option>
+            </select>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_attack3_crit" step="1" value="0"/>
+        </div>
+        <div style="display: table-cell;">
+            <input type="number" name="attr_attack3_fumble" step="1" value="0"/>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="display: table-cell; width: 10%">
+            <h4>Tolerances and Weaknesses:</h4>
+            
+            <input type="number"/>
+            <h4 style="display:inline">Blunt</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Caustic:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Darkness:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Death:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Electric:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Heat:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Life:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Misc.:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Overload:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Poison:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Psychic:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Puncture:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Sharp:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Sound:</h4>
+            <br>
+            <input type="number"/>
+            <h4 style="display:inline">Wind:</h4>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Equipment:</h4>
+            <textarea></textarea>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Spells:</h4>
+            <textarea></textarea>
+        </div>
+        
+        <div style="display: table-cell;">
+            <h4>Abilities:</h4>
+            <textarea></textarea>
+        </div>
+    </div>
+</div>
+
+
+
+<rolltemplate class="sheet-rolltemplate-r_template">
+    <div class="sheet-template-container" style="border-style: groove;">
+        <h3>{{name}}</h3>
+        <div class="sheet-results">
+            <!-- If crit success, show crit value in green -->
+            {{#rollGreater() computed::roll1 roll1}}
+                <h4 style="color:#00D300;">{{computed::roll1}}</h4>
+                <!-- If an attack, show damage -->
+                {{#rollTotal() type1 1}}
+                    <h4>Damage = {{damage2}}</h4>
+                {{/rollTotal() type1 1}}
+            {{/rollGreater() computed::roll1 roll1}}
+            <!-- If crit fail, show crit value in red -->
+            {{#rollLess() computed::roll1 roll1}}
+                <h4 style="color:red;">{{computed::roll1}}</h4>
+                <!-- If an attack, show damage -->
+                {{#rollTotal() type1 1}}
+                    <h4>Damage = {{damage3}}</h4>
+                {{/rollTotal() type1 1}}
+            {{/rollLess() computed::roll1 roll1}}
+            <!-- Otherwise, show default roll -->
+            {{#rollTotal() computed::roll1 roll1}}
+                <h4>{{roll1}}</h4>
+                <!-- If an attack, show damage -->
+                {{#rollTotal() type1 1}}
+                    <h4>Damage = {{damage1}}</h4>
+                {{/rollTotal() type1 1}}
+            {{/rollTotal() computed::roll1 roll1}}
+            
+            <h4>Advantage = {{advan1}}</h4>
+            <h4>Stat = {{stat1}}</h4>
+            <h4>Specialty = {{spec1}}</h4>
+        </div>
+    </div>
+</rolltemplate>
+
+<script type="text/worker">
+    
+    on("change:level sheet:opened", function() {
+        getAttrs(["level"], function(values) {
+            let value = Math.ceil((parseInt(values.level)||0)/2)
+            setAttrs({
+                specialty: value
+            });
+        });
+    });
+    
+    on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack1_hitstat change:attack1_spec change:specialty sheet:opened", function() {
+        getAttrs(["attack1_hitstat", "specialty", "attack1_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
+            let mod = 0;
+            if(values.attack1_hitstat == "0"){
+                mod = values.awrmod;
+            } else if(values.attack1_hitstat == "1"){
+                mod = values.chamod;
+            } else if(values.attack1_hitstat == "2"){
+                mod = values.cormod;
+            } else if(values.attack1_hitstat == "3"){
+                mod = values.intmod;
+            } else if(values.attack1_hitstat == "4"){
+                mod = values.strmod;
+            } else if(values.attack1_hitstat == "5"){
+                mod = values.wsdmod;
+            }
+            else{
+                mod = values.resmod;
+            }
+            let value = mod + values.specialty * values.attack1_spec;
+            setAttrs({
+                attack1_hitvalue: value
+            });
+        });
+    });
+    
+    on('clicked:attack1', (info) => {
+        getAttrs(["attack1_hitstat", "attack1_damage", "attack1_crit", "attack1_fumble", "attack1_damstat", "attack1_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
+            let hitmod = 0;
+            if(values.attack1_hitstat == "0"){
+                hitmod = values.awrmod;
+            } else if(values.attack1_hitstat == "1"){
+                hitmod = values.chamod;
+            } else if(values.attack1_hitstat == "2"){
+                hitmod = values.cormod;
+            } else if(values.attack1_hitstat == "3"){
+                hitmod = values.intmod;
+            } else if(values.attack1_hitstat == "4"){
+                hitmod = values.strmod;
+            } else if(values.attack1_hitstat == "5"){
+                hitmod = values.wsdmod;
+            }
+            else{
+                hitmod = values.resmod;
+            }
+            
+            let dammod = 0;
+            if(values.attack1_hitstat == "0"){
+                dammod = values.awrmod;
+            } else if(values.attack1_hitstat == "1"){
+                dammod = values.chamod;
+            } else if(values.attack1_hitstat == "2"){
+                dammod = values.cormod;
+            } else if(values.attack1_hitstat == "3"){
+                dammod = values.intmod;
+            } else if(values.attack1_hitstat == "4"){
+                dammod = values.strmod;
+            } else if(values.attack1_hitstat == "5"){
+                dammod = values.wsdmod;
+            }
+            else{
+                dammod = values.resmod;
+            }
+            
+            advRoll("attack", "Attack", hitmod, dammod, values.attack1_damage, parseInt(values.attack1_crit), parseInt(values.attack1_fumble), values.attack1_spec, values.attack1_spec);
+        });
+    });
+    
+    on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack2_hitstat change:attack2_spec change:specialty sheet:opened", function() {
+        getAttrs(["attack2_hitstat", "specialty", "attack2_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
+            let mod = 0;
+            if(values.attack2_hitstat == "0"){
+                mod = values.awrmod;
+            } else if(values.attack2_hitstat == "1"){
+                mod = values.chamod;
+            } else if(values.attack2_hitstat == "2"){
+                mod = values.cormod;
+            } else if(values.attack2_hitstat == "3"){
+                mod = values.intmod;
+            } else if(values.attack2_hitstat == "4"){
+                mod = values.strmod;
+            } else if(values.attack2_hitstat == "5"){
+                mod = values.wsdmod;
+            }
+            else{
+                mod = values.resmod;
+            }
+            let value = mod + values.specialty * values.attack2_spec;
+            setAttrs({
+                attack2_hitvalue: value
+            });
+        });
+    });
+    
+    on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack3_hitstat change:attack3_spec change:specialty sheet:opened", function() {
+        getAttrs(["attack3_hitstat", "specialty", "attack3_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
+            let mod = 0;
+            if(values.attack3_hitstat == "0"){
+                mod = values.awrmod;
+            } else if(values.attack3_hitstat == "1"){
+                mod = values.chamod;
+            } else if(values.attack3_hitstat == "2"){
+                mod = values.cormod;
+            } else if(values.attack3_hitstat == "3"){
+                mod = values.intmod;
+            } else if(values.attack3_hitstat == "4"){
+                mod = values.strmod;
+            } else if(values.attack3_hitstat == "5"){
+                mod = values.wsdmod;
+            }
+            else{
+                mod = values.resmod;
+            }
+            let value = mod + values.specialty * values.attack3_spec;
+            setAttrs({
+                attack3_hitvalue: value
+            });
+        });
+    });
+    
+    on('clicked:attack2', (info) => {
+        getAttrs(["attack2_hitstat", "attack2_damage", "attack2_crit", "attack2_fumble", "attack2_damstat", "attack2_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
+            let hitmod = 0;
+            if(values.attack2_hitstat == "0"){
+                hitmod = values.awrmod;
+            } else if(values.attack2_hitstat == "1"){
+                hitmod = values.chamod;
+            } else if(values.attack2_hitstat == "2"){
+                hitmod = values.cormod;
+            } else if(values.attack2_hitstat == "3"){
+                hitmod = values.intmod;
+            } else if(values.attack2_hitstat == "4"){
+                hitmod = values.strmod;
+            } else if(values.attack2_hitstat == "5"){
+                hitmod = values.wsdmod;
+            }
+            else{
+                hitmod = values.resmod;
+            }
+            
+            let dammod = 0;
+            if(values.attack2_hitstat == "0"){
+                dammod = values.awrmod;
+            } else if(values.attack2_hitstat == "1"){
+                dammod = values.chamod;
+            } else if(values.attack2_hitstat == "2"){
+                dammod = values.cormod;
+            } else if(values.attack2_hitstat == "3"){
+                dammod = values.intmod;
+            } else if(values.attack2_hitstat == "4"){
+                dammod = values.strmod;
+            } else if(values.attack2_hitstat == "5"){
+                dammod = values.wsdmod;
+            }
+            else{
+                dammod = values.resmod;
+            }
+            
+            advRoll("attack", "Attack", hitmod, dammod, values.attack2_damage, parseInt(values.attack2_crit), parseInt(values.attack2_fumble), values.attack2_spec, values.attack2_spec);
+        });
+    });
+    
+    on('clicked:attack3', (info) => {
+        getAttrs(["attack3_hitstat", "attack3_damage", "attack3_crit", "attack3_fumble", "attack3_damstat", "attack3_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
+            let hitmod = 0;
+            if(values.attack3_hitstat == "0"){
+                hitmod = values.awrmod;
+            } else if(values.attack3_hitstat == "1"){
+                hitmod = values.chamod;
+            } else if(values.attack3_hitstat == "2"){
+                hitmod = values.cormod;
+            } else if(values.attack3_hitstat == "3"){
+                hitmod = values.intmod;
+            } else if(values.attack3_hitstat == "4"){
+                hitmod = values.strmod;
+            } else if(values.attack3_hitstat == "5"){
+                hitmod = values.wsdmod;
+            }
+            else{
+                hitmod = values.resmod;
+            }
+            
+            let dammod = 0;
+            if(values.attack3_hitstat == "0"){
+                dammod = values.awrmod;
+            } else if(values.attack3_hitstat == "1"){
+                dammod = values.chamod;
+            } else if(values.attack3_hitstat == "2"){
+                dammod = values.cormod;
+            } else if(values.attack3_hitstat == "3"){
+                dammod = values.intmod;
+            } else if(values.attack3_hitstat == "4"){
+                dammod = values.strmod;
+            } else if(values.attack3_hitstat == "5"){
+                dammod = values.wsdmod;
+            }
+            else{
+                dammod = values.resmod;
+            }
+            
+            advRoll("attack", "Attack", hitmod, dammod, values.attack3_damage, parseInt(values.attack3_crit), parseInt(values.attack3_fumble), values.attack3_spec, values.attack3_spec);
+        });
+    });
+    
+    {
+    on("change:awareness sheet:opened", function() {
+        getAttrs(["awareness"], function(values) {
+            let value = Math.ceil((parseInt(values.awareness)||0)/2 - 5)
+            setAttrs({
+                awrmod: value
+            });
+        });
+    });
+    
+    on("change:awrmod change:detection_spec change:specialty sheet:opened", function() {
+        getAttrs(["awrmod", "specialty", "detection_spec"], function(values) {
+            let value = parseInt(values.awrmod) + parseInt(values.specialty) * parseInt(values.detection_spec)
+            setAttrs({
+                detection_mod: value
+            });
+        });
+    });
+    
+    on('clicked:detection', (info) => {
+        getAttrs(["awrmod", "detection_spec"], function(values) {
+            advRoll("trait", "Detection", values.awrmod, null, null, null, null, values.detection_spec, null);
+        });
+    });
+    
+    on("change:awrmod change:intuition_spec change:specialty sheet:opened", function() {
+        getAttrs(["awrmod", "specialty", "intuition_spec"], function(values) {
+            let value = parseInt(values.awrmod) + parseInt(values.specialty) * parseInt(values.intuition_spec)
+            setAttrs({
+                intuition_mod: value
+            });
+        });
+    });
+    
+    on('clicked:intuition', (info) => {
+        getAttrs(["awrmod", "intuition_spec"], function(values) {
+            advRoll("trait", "Intuition", values.awrmod, null, null, null, null, values.intuition_spec, null);
+        });
+    });
+    
+    on("change:awrmod change:wilderness_spec change:specialty sheet:opened", function() {
+        getAttrs(["awrmod", "specialty", "wilderness_spec"], function(values) {
+            let value = parseInt(values.awrmod) + parseInt(values.specialty) * parseInt(values.wilderness_spec)
+            setAttrs({
+                wilderness_mod: value
+            });
+        });
+    });
+    
+    on('clicked:wilderness', (info) => {
+        getAttrs(["awrmod", "wilderness_spec"], function(values) {
+            advRoll("trait", "Wilderness", values.awrmod, null, null, null, null, values.wilderness_spec, null);
+        });
+    });
+    }
+    {
+    on("change:charisma sheet:opened", function() {
+        getAttrs(["charisma"], function(values) {
+            let value = Math.ceil((parseInt(values.charisma)||0)/2 - 5)
+            setAttrs({
+                chamod: value
+            });
+        });
+    });
+    
+    on("change:chamod change:convince_spec change:specialty sheet:opened", function() {
+        getAttrs(["chamod", "specialty", "convince_spec"], function(values) {
+            let value = parseInt(values.chamod) + parseInt(values.specialty) * parseInt(values.convince_spec)
+            setAttrs({
+                convince_mod: value
+            });
+        });
+    });
+    
+    on('clicked:convince', (info) => {
+        getAttrs(["chamod", "convince_spec"], function(values) {
+            advRoll("trait", "Convince", values.chamod, null, null, null, null, values.convince_spec, null);
+        });
+    });
+    
+    on("change:chamod change:flair_spec change:specialty sheet:opened", function() {
+        getAttrs(["chamod", "specialty", "flair_spec"], function(values) {
+            let value = parseInt(values.chamod) + parseInt(values.specialty) * parseInt(values.flair_spec)
+            setAttrs({
+                flair_mod: value
+            });
+        });
+    });
+    
+    on('clicked:flair', (info) => {
+        getAttrs(["chamod", "flair_spec"], function(values) {
+            advRoll("trait", "Flair", values.chamod, null, null, null, null, values.flair_spec, null);
+        });
+    });
+    
+    on("change:chamod change:interaction_spec change:specialty sheet:opened", function() {
+        getAttrs(["chamod", "specialty", "interaction_spec"], function(values) {
+            let value = parseInt(values.chamod) + parseInt(values.specialty) * parseInt(values.interaction_spec)
+            setAttrs({
+                interaction_mod: value
+            });
+        });
+    });
+    
+    on('clicked:interaction', (info) => {
+        getAttrs(["chamod", "interaction_spec"], function(values) {
+            advRoll("trait", "Interaction", values.chamod, null, null, null, null, values.interaction_spec, null);
+        });
+    });
+    }
+    {
+    on("change:coordination sheet:opened", function() {
+        getAttrs(["coordination"], function(values) {
+            let value = Math.ceil((parseInt(values.coordination)||0)/2 - 5)
+            setAttrs({
+                cormod: value
+            });
+        });
+    });
+    
+    on("change:cormod change:agility_spec change:specialty sheet:opened", function() {
+        getAttrs(["cormod", "specialty", "agility_spec"], function(values) {
+            let value = parseInt(values.cormod) + parseInt(values.specialty) * parseInt(values.agility_spec)
+            setAttrs({
+                agility_mod: value
+            });
+        });
+    });
+    
+    on('clicked:agility', (info) => {
+        getAttrs(["cormod", "agility_spec"], function(values) {
+            advRoll("trait", "Agility", values.cormod, null, null, null, null, values.agility_spec, null);
+        });
+    });
+    
+    on("change:cormod change:dexterity_spec change:specialty sheet:opened", function() {
+        getAttrs(["cormod", "specialty", "dexterity_spec"], function(values) {
+            let value = parseInt(values.cormod) + parseInt(values.specialty) * parseInt(values.dexterity_spec)
+            setAttrs({
+                dexterity_mod: value
+            });
+        });
+    });
+    
+    on('clicked:dexterity', (info) => {
+        getAttrs(["cormod", "dexterity_spec"], function(values) {
+            advRoll("trait", "Dexterity", values.cormod, null, null, null, null, values.dexterity_spec, null);
+        });
+    });
+    
+    on("change:cormod change:stealth_spec change:specialty sheet:opened", function() {
+        getAttrs(["cormod", "specialty", "stealth_spec"], function(values) {
+            let value = parseInt(values.cormod) + parseInt(values.specialty) * parseInt(values.stealth_spec)
+            setAttrs({
+                stealth_mod: value
+            });
+        });
+    });
+    
+    on('clicked:stealth', (info) => {
+        getAttrs(["cormod", "stealth_spec"], function(values) {
+            advRoll("trait", "Stealth", values.cormod, null, null, null, null, values.stealth_spec, null);
+        });
+    });
+    }
+    {
+    on("change:intelligence sheet:opened", function() {
+        getAttrs(["intelligence"], function(values) {
+            let value = Math.ceil((parseInt(values.intelligence)||0)/2 - 5)
+            setAttrs({
+                intmod: value
+            });
+        });
+    });
+    
+    on("change:intmod change:knowledge_spec change:specialty sheet:opened", function() {
+        getAttrs(["intmod", "specialty", "knowledge_spec"], function(values) {
+            let value = parseInt(values.intmod) + parseInt(values.specialty) * parseInt(values.knowledge_spec)
+            setAttrs({
+                knowledge_mod: value
+            });
+        });
+    });
+    
+    on('clicked:knowledge', (info) => {
+        getAttrs(["intmod", "knowledge_spec"], function(values) {
+            advRoll("trait", "Knowledge", values.intmod, null, null, null, null, values.knowledge_spec, null);
+        });
+    });
+    
+    on("change:intmod change:magic_spec change:specialty sheet:opened", function() {
+        getAttrs(["intmod", "specialty", "magic_spec"], function(values) {
+            let value = parseInt(values.intmod) + parseInt(values.specialty) * parseInt(values.magic_spec)
+            setAttrs({
+                magic_mod: value
+            });
+        });
+    });
+    
+    on('clicked:magic', (info) => {
+        getAttrs(["intmod", "magic_spec"], function(values) {
+            advRoll("trait", "Magic", values.intmod, null, null, null, null, values.magic_spec, null);
+        });
+    });
+    
+    on("change:intmod change:medicine_spec change:specialty sheet:opened", function() {
+        getAttrs(["intmod", "specialty", "medicine_spec"], function(values) {
+            let value = parseInt(values.intmod) + parseInt(values.specialty) * parseInt(values.medicine_spec)
+            setAttrs({
+                medicine_mod: value
+            });
+        });
+    });
+    
+    on('clicked:medicine', (info) => {
+        getAttrs(["intmod", "medicine_spec"], function(values) {
+            advRoll("trait", "Medicine", values.intmod, null, null, null, null, values.medicine_spec, null);
+        });
+    });
+    }
+    {
+    on("change:strength sheet:opened", function() {
+        getAttrs(["strength"], function(values) {
+            let value = Math.ceil((parseInt(values.strength)||0)/2 - 5)
+            setAttrs({
+                strmod: value
+            });
+        });
+    });
+    
+    on("change:strmod change:grip_spec change:specialty sheet:opened", function() {
+        getAttrs(["strmod", "specialty", "grip_spec"], function(values) {
+            let value = parseInt(values.strmod) + parseInt(values.specialty) * parseInt(values.grip_spec)
+            setAttrs({
+                grip_mod: value
+            });
+        });
+    });
+    
+    on('clicked:grip', (info) => {
+        getAttrs(["strmod", "grip_spec"], function(values) {
+            advRoll("trait", "Grip", values.strmod, null, null, null, null, values.grip_spec, null);
+        });
+    });
+    
+    on("change:strmod change:physicality_spec change:specialty sheet:opened", function() {
+        getAttrs(["strmod", "specialty", "physicality_spec"], function(values) {
+            let value = parseInt(values.strmod) + parseInt(values.specialty) * parseInt(values.physicality_spec)
+            setAttrs({
+                physicality_mod: value
+            });
+        });
+    });
+    
+    on('clicked:physicality', (info) => {
+        getAttrs(["strmod", "physicality_spec"], function(values) {
+            advRoll("trait", "Physicality", values.strmod, null, null, null, null, values.physicality_spec, null);
+        });
+    });
+    
+    on("change:strmod change:presence_spec change:specialty sheet:opened", function() {
+        getAttrs(["strmod", "specialty", "presence_spec"], function(values) {
+            let value = parseInt(values.strmod) + parseInt(values.specialty) * parseInt(values.presence_spec)
+            setAttrs({
+                presence_mod: value
+            });
+        });
+    });
+    
+    on('clicked:presence', (info) => {
+        getAttrs(["strmod", "presence_spec"], function(values) {
+            advRoll("trait", "Presence", values.strmod, null, null, null, null, values.presence_spec, null);
+        });
+    });
+    }
+    {
+    on("change:withstand sheet:opened", function() {
+        getAttrs(["withstand"], function(values) {
+            let value = Math.ceil((parseInt(values.withstand)||0)/2 - 5)
+            setAttrs({
+                wsdmod: value
+            });
+        });
+    });
+    
+    on("change:wsdmod change:endure_spec change:specialty sheet:opened", function() {
+        getAttrs(["wsdmod", "specialty", "endure_spec"], function(values) {
+            let value = parseInt(values.wsdmod) + parseInt(values.specialty) * parseInt(values.endure_spec)
+            setAttrs({
+                endure_mod: value
+            });
+        });
+    });
+    
+    on('clicked:endure', (info) => {
+        getAttrs(["wsdmod", "endure_spec"], function(values) {
+            advRoll("trait", "Endure", values.wsdmod, null, null, null, null, values.endure_spec, null);
+        });
+    });
+    
+    on("change:wsdmod change:recovery_spec change:specialty sheet:opened", function() {
+        getAttrs(["wsdmod", "specialty", "recovery_spec"], function(values) {
+            let value = parseInt(values.wsdmod) + parseInt(values.specialty) * parseInt(values.recovery_spec)
+            setAttrs({
+                recovery_mod: value
+            });
+        });
+    });
+    
+    on('clicked:recovery', (info) => {
+        getAttrs(["wsdmod", "recovery_spec"], function(values) {
+            advRoll("trait", "Recovery", values.wsdmod, null, null, null, null, values.recovery_spec, null);
+        });
+    });
+    
+    on("change:wsdmod change:toughness_spec change:specialty sheet:opened", function() {
+        getAttrs(["wsdmod", "specialty", "toughness_spec"], function(values) {
+            let value = parseInt(values.wsdmod) + parseInt(values.specialty) * parseInt(values.toughness_spec)
+            setAttrs({
+                toughness_mod: value
+            });
+        });
+    });
+    
+    on('clicked:toughness', (info) => {
+        getAttrs(["wsdmod", "toughness_spec"], function(values) {
+            advRoll("trait", "Toughness", values.wsdmod, null, null, null, null, values.toughness_spec, null);
+        });
+    });
+    }
+    {
+    on("change:resolve sheet:opened", function() {
+        getAttrs(["resolve"], function(values) {
+            let value = Math.ceil((parseInt(values.resolve)||0)/2 - 5)
+            setAttrs({
+                resmod: value
+            });
+        });
+    });
+    
+    on("change:resmod change:resistance_spec change:specialty sheet:opened", function() {
+        getAttrs(["resmod", "specialty", "resistance_spec"], function(values) {
+            let value = parseInt(values.resmod) + parseInt(values.specialty) * parseInt(values.resistance_spec)
+            setAttrs({
+                resistance_mod: value
+            });
+        });
+    });
+    
+    on('clicked:resistance', (info) => {
+        getAttrs(["resmod", "resistance_spec"], function(values) {
+            advRoll("trait", "Resistance", values.resmod, null, null, null, null, values.resistance_spec, null);
+        });
+    });
+    
+    on("change:resmod change:restore_spec change:specialty sheet:opened", function() {
+        getAttrs(["resmod", "specialty", "restore_spec"], function(values) {
+            let value = parseInt(values.resmod) + parseInt(values.specialty) * parseInt(values.restore_spec)
+            setAttrs({
+                restore_mod: value
+            });
+        });
+    });
+    
+    on('clicked:restore', (info) => {
+        getAttrs(["resmod", "restore_spec"], function(values) {
+            advRoll("trait", "Restore", values.resmod, null, null, null, null, values.restore_spec, null);
+        });
+    });
+    
+    on("change:resmod change:willpower_spec change:specialty sheet:opened", function() {
+        getAttrs(["resmod", "specialty", "willpower_spec"], function(values) {
+            let value = parseInt(values.resmod) + parseInt(values.specialty) * parseInt(values.willpower_spec)
+            setAttrs({
+                willpower_mod: value
+            });
+        });
+    });
+    
+    on('clicked:willpower', (info) => {
+        getAttrs(["resmod", "willpower_spec"], function(values) {
+            advRoll("trait", "Willpower", values.resmod, null, null, null, null, values.willpower_spec, null);
+        });
+    });
+    }
+    
+    
+    
+    //Roll a number with (dis)advantage
+    const advRoll = (type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2) => {
+        getAttrs(["advantage", "specialty"], function(values) {
+            //get current advantage/specialty value
+            let advan = parseInt(values.advantage);
+            let spec = parseInt(values.specialty) * spec_bool;
+            let spec2 = parseInt(values.specialty) * spec_bool2;
+            
+            let rolltext = "";
+            if(advan >= 0){
+                //If player has advantage, take highest
+                rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${stat} + ${spec}`
+            } else {
+                //If player has disadvanatage, take lowest
+                //I have no idea why "2 + ${advan} * -1" works, but "2 - ${advan}" doesn't
+                rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${stat} + ${spec}`
+            }
+            
+            let damagetext = "0";
+            let crittext = "0";
+            let mintext = "0";
+            if(type == "attack"){
+                damagetext = `${damage} + ${stat2} + ${spec2}`
+                crittext = `${damage} + ${stat2} + ${spec2} + ${critdamage}`
+                mintext = `${mindamage}d1 + ${stat2} + ${spec2}`
+            }
+            
+            let rolltype = "";
+            if(type == "trait"){
+                rolltype = "0"
+            }
+            else{
+                rolltype = "1"
+            }
+            
+            startRoll(`&{template:r_template} {{name=${name}}} {{type1=[[${rolltype}]]}} {{advan1=${advan}}} {{stat1=${stat}}} {{spec1=${spec}}} {{roll1=[[${rolltext}]]}} {{damage1=[[${damagetext}]]}} {{damage2=[[${crittext}]]}} {{damage3=[[${mintext}]]}}`, (results) => {
+                let original = results.results.roll1.result
+                let computed = original - spec - stat;
+                
+                //Determines if the number is a crit
+                //computed cannot be directly compared to an integer using "==", so comparisons are instead made using ">"
+                if(computed > 19){
+                    computed  = original * 2;
+                }else if(computed < 3) {
+                    computed = Math.ceil(original / 2);
+                } else {
+                    computed = original;
+                }
+
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll1: computed
+                    }
+                );
+            });
+        });
+    }
+</script>
