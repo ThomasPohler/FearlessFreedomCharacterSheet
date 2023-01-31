@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<style>
-			body {background-color: #f4f0e8;}
-			h4   {display:inline;}
-		</style>
-	</head>
+    <head>
+        <style>
+            body {background-color: #F9F7F2;}
+			h1   {display:inline;}
+            h4   {display:inline;}
+        </style>
+    </head>
 <body>
 
 <h1>Fearless Freedom Character Sheet</h1>
 
-<h4>Advantage:</h4>
-<input type="number" name="attr_advantage" step="1" value="0"/>
+<!-- Div puts advantage in the top right where it is easily accessible -->
+<div style="float:right">
+    <!-- Line break pushes the rest down so that it's closer to the rest of the content -->
+	<br>
+	<!-- This controls how many stacks of advantage a player will have whenever they roll the dice -->
+    <h4>Advantage:</h4>
+    <input type="number" name="attr_advantage" step="1" value="0"/>
+</div>
+
+<br>
 <br>
 
+<!-- Section containing information about the character -->
 <div style="width: 100%; display: table;">
     <div style="display: table-row">
         <div style="display: table-cell;">
@@ -35,13 +45,6 @@
         </div>
         <div style="display: table-cell;">
             <input type="text"/>
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Total Level:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <input type="number" name="attr_level" />
         </div>
     </div>
     <div style="display: table-row">
@@ -65,15 +68,24 @@
         <div style="display: table-cell;">
             <input type="text"/>
         </div>
-        
-        <div style="display: table-cell;">
-            <h4>Specialty:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <input type="number" name="attr_specialty" value="0" readonly="true"/>
-        </div>
     </div>
 </div>
+
+<div style="display: table-cell;">
+    <h4>Total Level:</h4>
+</div>
+<div style="display: table-cell;">
+    <input type="number" name="attr_level" />
+</div>
+
+<div style="display: table-cell;">
+    <h4>Specialty:</h4>
+</div>
+<div style="display: table-cell;">
+    <input type="number" name="attr_specialty" value="0" readonly="true"/>
+</div>
+
+<br>
 
 <div style="width: 100%; display: table;">
     <div style="display: table-row">
