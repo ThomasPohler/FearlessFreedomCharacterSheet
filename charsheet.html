@@ -15,6 +15,8 @@
 		background-color:#E5E5E5;
 		text-align:center;
 	}
+	
+	button {width: 105px;}
 </style>
 </head>
 <body>
@@ -109,6 +111,31 @@
 </table>
 
 </div>
+
+<br>
+
+<table>
+<tr>
+<td>
+	<h4>Awareness:</h4>
+    <input type="number" name="attr_awareness" step="1" value="0"/>
+    <input type="number" name="attr_awrmod" step="1" value="0" readonly="true"/>
+    <br>
+    
+    <input type="checkbox" name="attr_detection_spec" value="1">
+    <input type="number" name="attr_detection_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_detection">Detection</button>
+    <br>
+    <input type="checkbox" name="attr_intuition_spec" value="1">
+    <input type="number" name="attr_intuition_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_intuition">Intuition</button>
+    <br>
+    <input type="checkbox" name="attr_wilderness_spec" value="1">
+    <input type="number" name="attr_wilderness_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_wilderness">Wilderness</button>
+</td>
+</tr>
+</table>
 
 <br>
 
