@@ -1,89 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            body {background-color: #F9F7F2;}
-			h1   {display:inline;}
-            h4   {display:inline;}
-        </style>
-    </head>
+<head>
+<style>
+    body {background-color: #F2F2F2;}
+	h1   {display:inline;text-decoration-line:overline underline;}
+    h4   {display:inline;}
+	table{border: 2px solid black; background-color:#E5E5E5;}
+	
+	input[type='number']{
+        width: 40px;
+    } 
+</style>
+</head>
 <body>
 
-<h1>Fearless Freedom Character Sheet</h1>
+<h1 style="text-align:right">Fearless Freedom Character Sheet</h1>
 
 <!-- Div puts advantage in the top right where it is easily accessible -->
-<div style="float:right">
-    <!-- Line break pushes the rest down so that it's closer to the rest of the content -->
-	<br>
-	<!-- This controls how many stacks of advantage a player will have whenever they roll the dice -->
-    <h4>Advantage:</h4>
-    <input type="number" name="attr_advantage" step="1" value="0"/>
-</div>
-
+<table style="float:right; margin-bottom:5px;">
+    <tr>
+	    <td>
+            <h4>Level:</h4>
+		</td>
+		<td>
+            <input type="number" name="attr_level">
+	    </td>
+		<td>
+		    <!-- This controls how many stacks of advantage a player will have whenever they roll the dice -->
+            <h4>Advantage:</h4>
+		</td>
+		<td>
+            <input type="number" name="attr_advantage" size="3" step="1" value="0">
+	    </td>
+	</tr>
+	<tr>
+	    <td>
+		    <h4>Specialty:</h4>
+		</td>
+	    <td>
+		    <input type="number" name="attr_specialty" value="0" readonly="true"/>
+		</td>
+		<td>
+		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
+	        <h4>Adv. Reset:</h4>
+		</td>
+		<td>
+	        <input type="checkbox" name="attr_advantage_reset" value="0">
+	    </td>
+	</tr>
+</table>
 <br>
+
 <br>
 
 <!-- Section containing information about the character -->
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell;">
+<table>
+    <tr>
+        <td>
             <h4>Name:</h4>
-        </div>
-        <div style="display: table-cell;">
+        </td>
+        <td>
+			<!-- TODO: Make the rolls include the character's name if possible -->
             <input type="text" name="attr_character_name" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Species:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <input type="text"/>
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Size:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <input type="text"/>
-        </div>
-    </div>
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4>Background:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <input type="text"/>
-        </div>
-        
-        <div style="display: table-cell;">
+        </td>
+		
+        <td>
             <h4>Alignment:</h4>
-        </div>
-        <div style="display: table-cell;">
+        </td>
+        <td>
             <input type="text"/>
-        </div>
+        </td>
         
-        <div style="display: table-cell;">
-            <h4>Player Name:</h4>
-        </div>
-        <div style="display: table-cell;">
+        <td>
+            <h4>Player:</h4>
+        </td>
+        <td>
             <input type="text"/>
-        </div>
-    </div>
-</div>
-
-<div style="display: table-cell;">
-    <h4>Total Level:</h4>
-</div>
-<div style="display: table-cell;">
-    <input type="number" name="attr_level" />
-</div>
-
-<div style="display: table-cell;">
-    <h4>Specialty:</h4>
-</div>
-<div style="display: table-cell;">
-    <input type="number" name="attr_specialty" value="0" readonly="true"/>
-</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Species:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+        
+        <td>
+            <h4>Size:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+        
+        <td>
+            <h4>Background:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+    </tr>
+</table>
 
 <br>
 
