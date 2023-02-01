@@ -16,7 +16,7 @@
 		text-align:center;
 	}
 	
-	button {width: 105px;}
+	button {width: 100px;}
 </style>
 </head>
 <body>
@@ -114,7 +114,7 @@
 
 <br>
 
-<table>
+<table style="display:inline-table">
 <tr>
 <td>
 	<h4>Awareness:</h4>
@@ -137,144 +137,145 @@
 </tr>
 </table>
 
-<br>
+<table>
+<tr>
+<td>
+	<h4>Charisma:</h4>
+    <input type="number" name="attr_charisma" step="1" value="0"/>
+    <input type="number" name="attr_chamod" step="1" value="0" readonly="true"/>
+    <br>
+    
+    <input type="checkbox" name="attr_convince_spec" value="1">
+    <input type="number" name="attr_convince_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_convince">Convince</button>
+    <br>
+    <input type="checkbox" name="attr_flair_spec" value="1">
+    <input type="number" name="attr_flair_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_flair">Flair</button>
+    <br>
+    <input type="checkbox" name="attr_interaction_spec" value="1">
+    <input type="number" name="attr_interaction_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_interaction">Interaction</button>
+</td>
+</tr>
+</table>
 
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell; border-style: groove;">
-            <h4>Awareness:</h4>
-            <input type="number" name="attr_awareness" step="1" value="0"/>
-            <input type="number" name="attr_awrmod" step="1" value="0" readonly="true"/>
-            <br>
+<table>
+<tr>
+<td>
+	<h4>Coordination:</h4>
+    <input type="number" name="attr_coordination" step="1" value="0"/>
+    <input type="number" name="attr_cormod" step="1" value="0" readonly="true"/>
+    <br>
     
-            <input type="checkbox" name="attr_detection_spec" value="1">
-            <input type="number" name="attr_detection_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_detection">Detection</button>
-            <br>
-            <input type="checkbox" name="attr_intuition_spec" value="1">
-            <input type="number" name="attr_intuition_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_intuition">Intuition</button>
-            <br>
-            <input type="checkbox" name="attr_wilderness_spec" value="1">
-            <input type="number" name="attr_wilderness_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_wilderness">Wilderness</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4>Charisma:</h4>
-            <input type="number" name="attr_charisma" step="1" value="0"/>
-            <input type="number" name="attr_chamod" step="1" value="0" readonly="true"/>
-            <br>
+    <input type="checkbox" name="attr_agility_spec" value="1">
+    <input type="number" name="attr_agility_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_agility">Agility</button>
+    <br>
+    <input type="checkbox" name="attr_dexterity_spec" value="1">
+    <input type="number" name="attr_dexterity_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_dexterity">Dexterity</button>
+    <br>
+    <input type="checkbox" name="attr_stealth_spec" value="1">
+    <input type="number" name="attr_stealth_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_stealth">Stealth</button>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+	<h4>Intelligence:</h4>
+    <input type="number" name="attr_intelligence" step="1" value="0"/>
+    <input type="number" name="attr_intmod" step="1" value="0" readonly="true"/>
+    <br>
     
-            <input type="checkbox" name="attr_convince_spec" value="1">
-            <input type="number" name="attr_convince_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_convince">Convince</button>
-            <br>
-            <input type="checkbox" name="attr_flair_spec" value="1">
-            <input type="number" name="attr_flair_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_flair">Flair</button>
-            <br>
-            <input type="checkbox" name="attr_interaction_spec" value="1">
-            <input type="number" name="attr_interaction_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_interaction">Interaction</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4>Coordination:</h4>
-            <input type="number" name="attr_coordination" step="1" value="0"/>
-            <input type="number" name="attr_cormod" step="1" value="0" readonly="true"/>
-            <br>
+    <input type="checkbox" name="attr_knowledge_spec" value="1">
+    <input type="number" name="attr_knowledge_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_knowledge">Knowledge</button>
+    <br>
+    <input type="checkbox" name="attr_magic_spec" value="1">
+    <input type="number" name="attr_magic_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_magic">Magic</button>
+    <br>
+    <input type="checkbox" name="attr_medicine_spec" value="1">
+    <input type="number" name="attr_medicine_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_medicine">Medicine</button>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+    <h4>Strength:</h4>
+    <input type="number" name="attr_strength" step="1" value="0"/>
+    <input type="number" name="attr_strmod" step="1" value="0" readonly="true"/>
+    <br>
     
-            <input type="checkbox" name="attr_agility_spec" value="1">
-            <input type="number" name="attr_agility_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_agility">Agility</button>
-            <br>
-            <input type="checkbox" name="attr_dexterity_spec" value="1">
-            <input type="number" name="attr_dexterity_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_dexterity">Dexterity</button>
-            <br>
-            <input type="checkbox" name="attr_stealth_spec" value="1">
-            <input type="number" name="attr_stealth_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_stealth">Stealth</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4>Intelligence:</h4>
-            <input type="number" name="attr_intelligence" step="1" value="0"/>
-            <input type="number" name="attr_intmod" step="1" value="0" readonly="true"/>
-            <br>
+    <input type="checkbox" name="attr_grip_spec" value="1">
+    <input type="number" name="attr_grip_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_grip">Grip</button>
+    <br>
+    <input type="checkbox" name="attr_physicality_spec" value="1">
+    <input type="number" name="attr_physicality_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_physicality">Physicality</button>
+    <br>
+    <input type="checkbox" name="attr_presence_spec" value="1">
+    <input type="number" name="attr_presence_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_presence">Presence</button>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+    <h4>Withstand:</h4>
+    <input type="number" name="attr_withstand" step="1" value="0"/>
+    <input type="number" name="attr_wsdmod" step="1" value="0" readonly="true"/>
+    <br>
     
-            <input type="checkbox" name="attr_knowledge_spec" value="1">
-            <input type="number" name="attr_knowledge_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_knowledge">Knowledge</button>
-            <br>
-            <input type="checkbox" name="attr_magic_spec" value="1">
-            <input type="number" name="attr_magic_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_magic">Magic</button>
-            <br>
-            <input type="checkbox" name="attr_medicine_spec" value="1">
-            <input type="number" name="attr_medicine_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_medicine">Medicine</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4>Strength:</h4>
-            <input type="number" name="attr_strength" step="1" value="0"/>
-            <input type="number" name="attr_strmod" step="1" value="0" readonly="true"/>
-            <br>
+    <input type="checkbox" name="attr_endure_spec" value="1">
+    <input type="number" name="attr_endure_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_endure">Endure</button>
+    <br>
+    <input type="checkbox" name="attr_recovery_spec" value="1">
+    <input type="number" name="attr_recovery_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_recovery">Recovery</button>
+    <br>
+    <input type="checkbox" name="attr_toughness_spec" value="1">
+    <input type="number" name="attr_toughness_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_toughness">Toughness</button>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+    <h4>Resolve:</h4>
+    <input type="number" name="attr_resolve" step="1" value="0"/>
+    <input type="number" name="attr_resmod" step="1" value="0" readonly="true"/>
+    <br>
     
-            <input type="checkbox" name="attr_grip_spec" value="1">
-            <input type="number" name="attr_grip_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_grip">Grip</button>
-            <br>
-            <input type="checkbox" name="attr_physicality_spec" value="1">
-            <input type="number" name="attr_physicality_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_physicality">Physicality</button>
-            <br>
-            <input type="checkbox" name="attr_presence_spec" value="1">
-            <input type="number" name="attr_presence_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_presence">Presence</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4>Withstand:</h4>
-            <input type="number" name="attr_withstand" step="1" value="0"/>
-            <input type="number" name="attr_wsdmod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_endure_spec" value="1">
-            <input type="number" name="attr_endure_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_endure">Endure</button>
-            <br>
-            <input type="checkbox" name="attr_recovery_spec" value="1">
-            <input type="number" name="attr_recovery_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_recovery">Recovery</button>
-            <br>
-            <input type="checkbox" name="attr_toughness_spec" value="1">
-            <input type="number" name="attr_toughness_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_toughness">Toughness</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4>Resolve:</h4>
-            <input type="number" name="attr_resolve" step="1" value="0"/>
-            <input type="number" name="attr_resmod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_resistance_spec" value="1">
-            <input type="number" name="attr_resistance_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_resistance">Resistance</button>
-            <br>
-            <input type="checkbox" name="attr_restore_spec" value="1">
-            <input type="number" name="attr_restore_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_restore">Restore</button>
-            <br>
-            <input type="checkbox" name="attr_willpower_spec" value="1">
-            <input type="number" name="attr_willpower_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_willpower">Willpower</button>
-        </div>
-    </div>
-</div>
+    <input type="checkbox" name="attr_resistance_spec" value="1">
+    <input type="number" name="attr_resistance_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_resistance">Resistance</button>
+    <br>
+    <input type="checkbox" name="attr_restore_spec" value="1">
+    <input type="number" name="attr_restore_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_restore">Restore</button>
+    <br>
+    <input type="checkbox" name="attr_willpower_spec" value="1">
+    <input type="number" name="attr_willpower_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_willpower">Willpower</button>
+</td>
+</tr>
+</table>
+
+<br>
 
 <div style="width: 100%; display: table;">
     <div style="display: table-row">
