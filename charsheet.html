@@ -390,23 +390,26 @@
 			<br>
             <input type="number" name="attr_mana_max" />
 		</td>
+		<td style="padding:8px; border:1px grey solid;">
+			<div style="display: table-cell;">
+				<input type="checkbox" name="attr_block_spec" value="1">
+				<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
+				<button type="action" name="act_block">Block</button>
+				<br>
+				<input type="checkbox" name="attr_dodge_spec" value="1">
+				<input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
+				<button type="action" name="act_dodge">Dodge</button>
+				<br>
+				<input type="checkbox" name="attr_parry_spec" value="1">
+				<input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
+				<button type="action" name="act_parry">Parry</button>
+			</div>
+		</td>
 	</tr>
 </table>
 
-<div style="display: table-cell;">
-            <input type="checkbox" name="attr_block_spec" value="1">
-            <input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_block">Block</button>
-            <br>
-            <input type="checkbox" name="attr_dodge_spec" value="1">
-            <input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_dodge">Dodge</button>
-            <br>
-            <input type="checkbox" name="attr_parry_spec" value="1">
-            <input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_parry">Parry</button>
-        </div>
-		
+<br>
+
 <table style="text-align:center;margin:0px auto;padding:5px;">
     <tr>
 	    <td>
