@@ -17,103 +17,19 @@
 		width: 30px;
 	}
 	
-	button {width: 100px;}
+	button {
+	    width: 100px;
+		background-color:#F9F9F9;
+		border:1px grey solid;
+		padding-bottom:2px;
+		padding-top:2px;
+	}
 </style>
 </head>
 <body>
 
-<div style="width:762px; margin: 0px auto;">
-<h1>Fearless Freedom Character Sheet</h1>
-
-<!-- Div puts advantage in the top right where it is easily accessible -->
-<table style="float:right; margin-bottom:5px;">
-    <tr>
-	    <td>
-            <h4>Level:</h4>
-		</td>
-		<td>
-            <input type="number" name="attr_level">
-	    </td>
-		<td>
-		    <!-- This controls how many stacks of advantage a player will have whenever they roll the dice -->
-            <h4>Advantage:</h4>
-		</td>
-		<td>
-            <input type="number" name="attr_advantage" size="3" step="1" value="0">
-	    </td>
-	</tr>
-	<tr>
-	    <td>
-		    <h4>Specialty:</h4>
-		</td>
-	    <td>
-		    <input type="number" style="width:40px;" name="attr_specialty" value="0" readonly="true"/>
-		</td>
-		<td>
-		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
-	        <h4>Adv. Reset:</h4>
-		</td>
-		<td>
-	        <input type="checkbox" name="attr_advantage_reset" value="0">
-	    </td>
-	</tr>
-</table>
-<br>
-
-<br>
-
-<!-- Section containing information about the character -->
-<table>
-    <tr>
-        <td>
-            <h4>Name:</h4>
-        </td>
-        <td>
-			<!-- TODO: Make the rolls include the character's name if possible -->
-            <input type="text" name="attr_character_name" />
-        </td>
-		
-        <td>
-            <h4>Alignment:</h4>
-        </td>
-        <td>
-            <input type="text"/>
-        </td>
-        
-        <td>
-            <h4>Player:</h4>
-        </td>
-        <td>
-            <input type="text"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h4>Species:</h4>
-        </td>
-        <td>
-            <input type="text"/>
-        </td>
-        
-        <td>
-            <h4>Size:</h4>
-        </td>
-        <td>
-            <input type="text"/>
-        </td>
-        
-        <td>
-            <h4>Background:</h4>
-        </td>
-        <td>
-            <input type="text"/>
-        </td>
-    </tr>
-</table>
-</div>
-
-<br>
-
+<!-- Left sidebar div containing stats and traits -->
+<div style="width:215;position:absolute;">
 <table style="width:205px;margin-bottom:8px;">
 <tr>
 <td>
@@ -302,6 +218,102 @@
 </td>
 </tr>
 </table>
+
+</div>
+
+<!-- Main div containing everything else -->
+<div style="margin-left:215px;">
+
+<div style="width:762px; margin: 0px auto;">
+<h1>Fearless Freedom Character Sheet</h1>
+
+<!-- Div puts advantage in the top right where it is easily accessible -->
+<table style="float:right; margin-bottom:5px;">
+    <tr>
+	    <td>
+            <h4>Level:</h4>
+		</td>
+		<td>
+            <input type="number" name="attr_level">
+	    </td>
+		<td>
+		    <!-- This controls how many stacks of advantage a player will have whenever they roll the dice -->
+            <h4>Advantage:</h4>
+		</td>
+		<td>
+            <input type="number" name="attr_advantage" size="3" step="1" value="0">
+	    </td>
+	</tr>
+	<tr>
+	    <td>
+		    <h4>Specialty:</h4>
+		</td>
+	    <td>
+		    <input type="number" style="width:40px;" name="attr_specialty" value="0" readonly="true"/>
+		</td>
+		<td>
+		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
+	        <h4>Adv. Clear:</h4>
+		</td>
+		<td>
+	        <input type="checkbox" name="attr_advantage_reset" value="0">
+	    </td>
+	</tr>
+</table>
+<br>
+
+<br>
+
+<!-- Section containing information about the character -->
+<table>
+    <tr>
+        <td>
+            <h4>Name:</h4>
+        </td>
+        <td>
+			<!-- TODO: Make the rolls include the character's name if possible -->
+            <input type="text" name="attr_character_name" />
+        </td>
+		
+        <td>
+            <h4>Alignment:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+        
+        <td>
+            <h4>Player:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Species:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+        
+        <td>
+            <h4>Size:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+        
+        <td>
+            <h4>Background:</h4>
+        </td>
+        <td>
+            <input type="text"/>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
 
 <br>
 
