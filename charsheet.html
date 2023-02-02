@@ -16,7 +16,7 @@
 		text-align:center;
 		width: 30px;
 		border: 1px #3F3F3F solid;
-		border-radius:4px;
+		border-radius:2px;
 	}
 	
 	button {
@@ -25,7 +25,7 @@
 		border:1px #3F3F3F solid;
 		padding-bottom:2px;
 		padding-top:2px;
-		border-radius:4px;
+		border-radius:6px;
 	}
 	button:hover {
 	    background-color: #F2F2F2;
@@ -325,76 +325,75 @@
 
 <br>
 
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4>Health:</h4>
+<table style="text-align:center;margin:0px auto;">
+    <tr>
+	    <td style="padding:8px; border:1px grey solid;">
+		    <h4>Health</h4>
+			<br>
             <input type="number" name="attr_health" />
+			<br>
             <input type="number" name="attr_health_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Temp HP:</h4>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Temp HP</h4>
+			<br>
             <input type="number" name="attr_temphp" />
+			<br>
             <input type="number" name="attr_temphp_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Mana:</h4>
-            <input type="number" name="attr_mana" />
-            <input type="number" name="attr_mana_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Health Dice:</h4>
-            <input type="number" name="attr_healthdice" />
-            <input type="text" name="attr_healthdice_type" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Concentration:</h4>
-            <input type="number" name="attr_concentration" />
-            <input type="number" name="attr_concentration_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Limit Break:</h4>
-            <input type="number" name="attr_limit" />
-            <input type="number" name="attr_limit_max" />
-        </div>
-    </div>
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4>Nat. Armor:</h4>
-            <input type="number" name="attr_natarmor" />
-            <input type="number" name="attr_natarmor_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Body Armor:</h4>
-            <input type="number" name="attr_bodyarmor" />
-            <input type="number" name="attr_bodyarmor_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Shield:</h4>
-            <input type="number" name="attr_shield" />
-            <input type="number" name="attr_shield_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Mana Dice:</h4>
-            <input type="number" name="attr_manadice" />
-            <input type="text" name="attr_manadice_type" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Fatigue:</h4>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Fatigue</h4>
+			<br>
             <input type="number" name="attr_fatigue" />
-            <input type="number" name="attr_fatigue_max" value="6"/>
-        </div>
-        
-        <div style="display: table-cell;">
+			<br>
+            <input type="number" name="attr_fatigue_max" value="6" readonly="true" style="width:40px"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Nat. Armor</h4>
+			<br>
+            <input type="number" name="attr_natarmor" />
+			<br>
+            <input type="number" name="attr_natarmor_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Body Armor</h4>
+			<br>
+            <input type="number" name="attr_bodyarmor" />
+			<br>
+            <input type="number" name="attr_bodyarmor_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Shield</h4>
+			<br>
+            <input type="number" name="attr_shield" />
+			<br>
+            <input type="number" name="attr_shield_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Stored Crits</h4>
+			<br>
+            <input type="number" name="attr_limit" />
+			<br>
+            <input type="number" name="attr_limit_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Concentration</h4>
+			<br>
+            <input type="number" name="attr_concentration" />
+			<br>
+            <input type="number" name="attr_concentration_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Mana</h4>
+			<br>
+            <input type="number" name="attr_mana" />
+			<br>
+            <input type="number" name="attr_mana_max" />
+		</td>
+	</tr>
+</table>
+
+<div style="display: table-cell;">
             <input type="checkbox" name="attr_block_spec" value="1">
             <input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
             <button type="action" name="act_block">Block</button>
@@ -407,8 +406,7 @@
             <input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
             <button type="action" name="act_parry">Parry</button>
         </div>
-    </div>
-</div>
+
 
 <div style="width: 100%; display: table; border-style: groove;">
     <div style="display: table-row">
@@ -546,6 +544,19 @@
         </div>
         <div style="display: table-cell;">
             <input type="number" name="attr_attack3_fumble" step="1" value="0"/>
+        </div>
+		<div style="display: table-cell;">
+            <input type="checkbox" name="attr_block_spec" value="1">
+            <input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_block">Block</button>
+            <br>
+            <input type="checkbox" name="attr_dodge_spec" value="1">
+            <input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_dodge">Dodge</button>
+            <br>
+            <input type="checkbox" name="attr_parry_spec" value="1">
+            <input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
+            <button type="action" name="act_parry">Parry</button>
         </div>
     </div>
 </div>
