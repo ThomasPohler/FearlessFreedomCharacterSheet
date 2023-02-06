@@ -1,319 +1,521 @@
-<h4 style="display:inline">Advantage:</h4>
-<input type="number" name="attr_advantage" step="1" value="0"/>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body  {background-color: #F2F2F2;}
+	h1    {display:inline;text-decoration-line:overline underline;}
+    h4    {display:inline;}
+	table {border: 2px solid black; background-color:#E5E5E5;}
+	
+	input[type='number']{
+        width: 40px;
+    }
+	
+	input[readonly='true']{
+		background-color:#EDEDED;
+		text-align:center;
+		width: 30px;
+		border: 1px #3F3F3F solid;
+		border-radius:2px;
+	}
+	
+	button {
+	    width: 100px;
+		background-color:#F9F9F9;
+		border:1px #3F3F3F solid;
+		padding-bottom:2px;
+		padding-top:2px;
+		border-radius:6px;
+	}
+	button:hover {
+	    background-color: #F2F2F2;
+	}
+	button:active {
+	    background-color: #E5E5E5;
+	}
+</style>
+</head>
+<body>
+
+<!-- Left sidebar div containing stats and traits -->
+<div style="width:215;position:absolute;">
+<table style="width:205px;margin-bottom:8px;">
+<tr>
+<td>
+	<h4>Awareness:</h4>
+	<input type="number" name="attr_awareness" step="1" value="0"/>
+	<div style="display:inline; float:right; clear:both;">
+        <input type="number" name="attr_awrmod" step="1" value="0" readonly="true"/>
+    </div>
+</td>
+</tr>
+<tr>
+<td>	
+    <input type="checkbox" name="attr_detection_spec" value="1">
+    <input type="number" name="attr_detection_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_detection">Detection</button>
+    <br>
+    <input type="checkbox" name="attr_intuition_spec" value="1">
+    <input type="number" name="attr_intuition_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_intuition">Intuition</button>
+    <br>
+    <input type="checkbox" name="attr_wilderness_spec" value="1">
+    <input type="number" name="attr_wilderness_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_wilderness">Wilderness</button>
+</td>
+</tr>
+</table>
+
+<table style="width:205px;margin-bottom:8px;">
+<tr>
+<td>
+	<h4>Charisma:</h4>
+	<input type="number" name="attr_charisma" step="1" value="0"/>
+	<div style="display:inline; float:right; clear:both;">
+        <input type="number" name="attr_chamod" step="1" value="0" readonly="true"/>
+    </div>
+</td>
+</tr>
+<tr>
+<td>
+    <input type="checkbox" name="attr_convince_spec" value="1">
+    <input type="number" name="attr_convince_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_convince">Convince</button>
+    <br>
+    <input type="checkbox" name="attr_flair_spec" value="1">
+    <input type="number" name="attr_flair_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_flair">Flair</button>
+    <br>
+    <input type="checkbox" name="attr_interaction_spec" value="1">
+    <input type="number" name="attr_interaction_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_interaction">Interaction</button>
+</td>
+</tr>
+</table>
+
+<table style="width:205px;margin-bottom:8px;">
+<tr>
+<td>
+	<h4>Coordination:</h4>
+	<input type="number" name="attr_coordination" step="1" value="0"/>
+	<div style="display:inline; float:right; clear:both;">
+        <input type="number" name="attr_cormod" step="1" value="0" readonly="true"/>
+    </div>
+</td>
+</tr>
+<tr>
+<td>
+    <input type="checkbox" name="attr_agility_spec" value="1">
+    <input type="number" name="attr_agility_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_agility">Agility</button>
+    <br>
+    <input type="checkbox" name="attr_dexterity_spec" value="1">
+    <input type="number" name="attr_dexterity_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_dexterity">Dexterity</button>
+    <br>
+    <input type="checkbox" name="attr_stealth_spec" value="1">
+    <input type="number" name="attr_stealth_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_stealth">Stealth</button>
+</td>
+</tr>
+</table>
+
+<table style="width:205px;margin-bottom:8px;">
+<tr>
+<td>
+	<h4>Intelligence:</h4>
+	<input type="number" name="attr_intelligence" step="1" value="0"/>
+	<div style="display:inline; float:right; clear:both;">
+        <input type="number" name="attr_intmod" step="1" value="0" readonly="true"/>
+    </div>
+</td>
+</tr>
+<tr>
+<td>    
+    <input type="checkbox" name="attr_knowledge_spec" value="1">
+    <input type="number" name="attr_knowledge_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_knowledge">Knowledge</button>
+    <br>
+    <input type="checkbox" name="attr_magic_spec" value="1">
+    <input type="number" name="attr_magic_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_magic">Magic</button>
+    <br>
+    <input type="checkbox" name="attr_medicine_spec" value="1">
+    <input type="number" name="attr_medicine_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_medicine">Medicine</button>
+</td>
+</tr>
+</table>
+
+<table style="width:205px;margin-bottom:8px;">
+<tr>
+<td>
+    <h4>Strength:</h4>
+	<input type="number" name="attr_strength" step="1" value="0"/>
+	<div style="display:inline; float:right; clear:both;">
+        <input type="number" name="attr_strmod" step="1" value="0" readonly="true"/>
+    </div>
+</td>
+</tr>
+<tr>
+<td>    
+    <input type="checkbox" name="attr_grip_spec" value="1">
+    <input type="number" name="attr_grip_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_grip">Grip</button>
+    <br>
+    <input type="checkbox" name="attr_physicality_spec" value="1">
+    <input type="number" name="attr_physicality_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_physicality">Physicality</button>
+    <br>
+    <input type="checkbox" name="attr_presence_spec" value="1">
+    <input type="number" name="attr_presence_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_presence">Presence</button>
+</td>
+</tr>
+</table>
+
+<table style="width:205px;margin-bottom:8px;">
+<tr>
+<td>
+    <h4>Resolve:</h4>
+	<input type="number" name="attr_resolve" step="1" value="0"/>
+	<div style="display:inline; float:right; clear:both;">
+        <input type="number" name="attr_resmod" step="1" value="0" readonly="true"/>
+    </div>
+</td>
+</tr>
+<tr>
+<td>    
+    <input type="checkbox" name="attr_resistance_spec" value="1">
+    <input type="number" name="attr_resistance_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_resistance">Resistance</button>
+    <br>
+    <input type="checkbox" name="attr_restore_spec" value="1">
+    <input type="number" name="attr_restore_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_restore">Restore</button>
+    <br>
+    <input type="checkbox" name="attr_willpower_spec" value="1">
+    <input type="number" name="attr_willpower_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_willpower">Willpower</button>
+</td>
+</tr>
+</table>
+
+<table style="width:205px;margin-bottom:8px;">
+<tr>
+<td>
+    <h4>Withstand:</h4>
+	<input type="number" name="attr_withstand" step="1" value="0"/>
+	<div style="display:inline; float:right; clear:both;">
+        <input type="number" name="attr_wsdmod" step="1" value="0" readonly="true"/>
+    </div>
+</td>
+</tr>
+<tr>
+<td>
+    <input type="checkbox" name="attr_endure_spec" value="1">
+    <input type="number" name="attr_endure_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_endure">Endure</button>
+    <br>
+    <input type="checkbox" name="attr_recovery_spec" value="1">
+    <input type="number" name="attr_recovery_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_recovery">Recovery</button>
+    <br>
+    <input type="checkbox" name="attr_toughness_spec" value="1">
+    <input type="number" name="attr_toughness_mod" step="1" value="0" readonly="true"/>
+    <button type="action" name="act_toughness">Toughness</button>
+</td>
+</tr>
+</table>
+
+</div>
+
+<!-- Main div containing everything else -->
+<div style="margin-left:215px;">
+
+<div style="width:762px; margin: 0px auto;">
+<h1>Fearless Freedom Character Sheet</h1>
+
+<!-- Div puts advantage in the top right where it is easily accessible -->
+<table style="float:right; margin-bottom:5px;">
+    <tr>
+	    <td>
+            <h4>Level:</h4>
+		</td>
+		<td>
+            <input type="number" name="attr_level">
+	    </td>
+		<td>
+		    <!-- This controls how many stacks of advantage a player will have whenever they roll the dice -->
+            <h4>Advantage:</h4>
+		</td>
+		<td>
+            <input type="number" name="attr_advantage" size="3" step="1" value="0">
+	    </td>
+	</tr>
+	<tr>
+	    <td>
+		    <h4>Specialty:</h4>
+		</td>
+	    <td>
+		    <input type="number" style="width:40px;" name="attr_specialty" value="0" readonly="true"/>
+		</td>
+		<td>
+		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
+	        <h4>Adv. Clear:</h4>
+		</td>
+		<td>
+	        <input type="checkbox" name="attr_advantage_reset" value="0">
+	    </td>
+	</tr>
+</table>
 <br>
 
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Name:</h4>
-        </div>
-        <div style="display: table-cell;">
+<br>
+
+<!-- Section containing information about the character -->
+<table>
+    <tr>
+        <td>
+            <h4>Name:</h4>
+        </td>
+        <td>
+			<!-- TODO: Make the rolls include the character's name if possible -->
             <input type="text" name="attr_character_name" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Species:</h4>
-        </div>
-        <div style="display: table-cell;">
+        </td>
+		
+        <td>
+            <h4>Alignment:</h4>
+        </td>
+        <td>
             <input type="text"/>
-        </div>
+        </td>
         
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Size:</h4>
-        </div>
-        <div style="display: table-cell;">
+        <td>
+            <h4>Player:</h4>
+        </td>
+        <td>
             <input type="text"/>
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Total Level:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <input type="number" name="attr_level" />
-        </div>
-    </div>
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Background:</h4>
-        </div>
-        <div style="display: table-cell;">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>Species:</h4>
+        </td>
+        <td>
             <input type="text"/>
-        </div>
+        </td>
         
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Alignment:</h4>
-        </div>
-        <div style="display: table-cell;">
+        <td>
+            <h4>Size:</h4>
+        </td>
+        <td>
             <input type="text"/>
-        </div>
+        </td>
         
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Player Name:</h4>
-        </div>
-        <div style="display: table-cell;">
+        <td>
+            <h4>Background:</h4>
+        </td>
+        <td>
             <input type="text"/>
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4 style="display:inline">Specialty:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <input type="number" name="attr_specialty" value="0" readonly="true"/>
-        </div>
-    </div>
+        </td>
+    </tr>
+</table>
 </div>
 
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell; border-style: groove;">
-            <h4 style="display:inline">Awareness:</h4>
-            <input type="number" name="attr_awareness" step="1" value="0"/>
-            <input type="number" name="attr_awrmod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_detection_spec" value="1">
-            <input type="number" name="attr_detection_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_detection">Detection</button>
-            <br>
-            <input type="checkbox" name="attr_intuition_spec" value="1">
-            <input type="number" name="attr_intuition_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_intuition">Intuition</button>
-            <br>
-            <input type="checkbox" name="attr_wilderness_spec" value="1">
-            <input type="number" name="attr_wilderness_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_wilderness">Wilderness</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4 style="display:inline">Charisma:</h4>
-            <input type="number" name="attr_charisma" step="1" value="0"/>
-            <input type="number" name="attr_chamod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_convince_spec" value="1">
-            <input type="number" name="attr_convince_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_convince">Convince</button>
-            <br>
-            <input type="checkbox" name="attr_flair_spec" value="1">
-            <input type="number" name="attr_flair_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_flair">Flair</button>
-            <br>
-            <input type="checkbox" name="attr_interaction_spec" value="1">
-            <input type="number" name="attr_interaction_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_interaction">Interaction</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4 style="display:inline">Coordination:</h4>
-            <input type="number" name="attr_coordination" step="1" value="0"/>
-            <input type="number" name="attr_cormod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_agility_spec" value="1">
-            <input type="number" name="attr_agility_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_agility">Agility</button>
-            <br>
-            <input type="checkbox" name="attr_dexterity_spec" value="1">
-            <input type="number" name="attr_dexterity_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_dexterity">Dexterity</button>
-            <br>
-            <input type="checkbox" name="attr_stealth_spec" value="1">
-            <input type="number" name="attr_stealth_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_stealth">Stealth</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4 style="display:inline">Intelligence:</h4>
-            <input type="number" name="attr_intelligence" step="1" value="0"/>
-            <input type="number" name="attr_intmod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_knowledge_spec" value="1">
-            <input type="number" name="attr_knowledge_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_knowledge">Knowledge</button>
-            <br>
-            <input type="checkbox" name="attr_magic_spec" value="1">
-            <input type="number" name="attr_magic_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_magic">Magic</button>
-            <br>
-            <input type="checkbox" name="attr_medicine_spec" value="1">
-            <input type="number" name="attr_medicine_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_medicine">Medicine</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4 style="display:inline">Strength:</h4>
-            <input type="number" name="attr_strength" step="1" value="0"/>
-            <input type="number" name="attr_strmod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_grip_spec" value="1">
-            <input type="number" name="attr_grip_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_grip">Grip</button>
-            <br>
-            <input type="checkbox" name="attr_physicality_spec" value="1">
-            <input type="number" name="attr_physicality_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_physicality">Physicality</button>
-            <br>
-            <input type="checkbox" name="attr_presence_spec" value="1">
-            <input type="number" name="attr_presence_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_presence">Presence</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4 style="display:inline">Withstand:</h4>
-            <input type="number" name="attr_withstand" step="1" value="0"/>
-            <input type="number" name="attr_wsdmod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_endure_spec" value="1">
-            <input type="number" name="attr_endure_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_endure">Endure</button>
-            <br>
-            <input type="checkbox" name="attr_recovery_spec" value="1">
-            <input type="number" name="attr_recovery_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_recovery">Recovery</button>
-            <br>
-            <input type="checkbox" name="attr_toughness_spec" value="1">
-            <input type="number" name="attr_toughness_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_toughness">Toughness</button>
-        </div>
-        
-        <div style="display: table-cell; border-style: groove;">
-            <h4 style="display:inline">Resolve:</h4>
-            <input type="number" name="attr_resolve" step="1" value="0"/>
-            <input type="number" name="attr_resmod" step="1" value="0" readonly="true"/>
-            <br>
-    
-            <input type="checkbox" name="attr_resistance_spec" value="1">
-            <input type="number" name="attr_resistance_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_resistance">Resistance</button>
-            <br>
-            <input type="checkbox" name="attr_restore_spec" value="1">
-            <input type="number" name="attr_restore_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_restore">Restore</button>
-            <br>
-            <input type="checkbox" name="attr_willpower_spec" value="1">
-            <input type="number" name="attr_willpower_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_willpower">Willpower</button>
-        </div>
-    </div>
-</div>
+<br>
 
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4>Health:</h4>
+<table style="text-align:center;margin:0px auto;">
+    <tr>
+	    <td style="padding:8px; border:1px grey solid;">
+		    <h4>Health</h4>
+			<br>
             <input type="number" name="attr_health" />
+			<br>
             <input type="number" name="attr_health_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Temp HP:</h4>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Temp HP</h4>
+			<br>
             <input type="number" name="attr_temphp" />
+			<br>
             <input type="number" name="attr_temphp_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Mana:</h4>
-            <input type="number" name="attr_mana" />
-            <input type="number" name="attr_mana_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Health Dice:</h4>
-            <input type="number" name="attr_healthdice" />
-            <input type="text" name="attr_healthdice_type" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Concentration:</h4>
-            <input type="number" name="attr_concentration" />
-            <input type="number" name="attr_concentration_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Limit Break:</h4>
-            <input type="number" name="attr_limit" />
-            <input type="number" name="attr_limit_max" />
-        </div>
-    </div>
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4>Nat. Armor:</h4>
-            <input type="number" name="attr_natarmor" />
-            <input type="number" name="attr_natarmor_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Body Armor:</h4>
-            <input type="number" name="attr_bodyarmor" />
-            <input type="number" name="attr_bodyarmor_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Shield:</h4>
-            <input type="number" name="attr_shield" />
-            <input type="number" name="attr_shield_max" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Mana Dice:</h4>
-            <input type="number" name="attr_manadice" />
-            <input type="text" name="attr_manadice_type" />
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Fatigue:</h4>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Fatigue</h4>
+			<br>
             <input type="number" name="attr_fatigue" />
-            <input type="number" name="attr_fatigue_max" value="6"/>
-        </div>
-        
-        <div style="display: table-cell;">
-            <input type="checkbox" name="attr_block_spec" value="1">
-            <input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_block">Block</button>
-            <br>
-            <input type="checkbox" name="attr_dodge_spec" value="1">
-            <input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_dodge">Dodge</button>
-            <br>
-            <input type="checkbox" name="attr_parry_spec" value="1">
-            <input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
-            <button type="action" name="act_parry">Parry</button>
-        </div>
-    </div>
-</div>
+			<br>
+            <input type="number" name="attr_fatigue_max" value="6" readonly="true" style="width:40px"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Nat. Armor</h4>
+			<br>
+            <input type="number" name="attr_natarmor" />
+			<br>
+            <input type="number" name="attr_natarmor_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Body Armor</h4>
+			<br>
+            <input type="number" name="attr_bodyarmor" />
+			<br>
+            <input type="number" name="attr_bodyarmor_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Shield</h4>
+			<br>
+            <input type="number" name="attr_shield" />
+			<br>
+            <input type="number" name="attr_shield_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Stored Crits</h4>
+			<br>
+            <input type="number" name="attr_limit" />
+			<br>
+            <input type="number" name="attr_limit_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Concentration</h4>
+			<br>
+            <input type="number" name="attr_concentration" />
+			<br>
+            <input type="number" name="attr_concentration_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Mana</h4>
+			<br>
+            <input type="number" name="attr_mana" />
+			<br>
+            <input type="number" name="attr_mana_max" />
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+			<div style="display: table-cell;">
+				<input type="checkbox" name="attr_block_spec" value="1">
+				<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
+				<button type="action" name="act_block">Block</button>
+				<br>
+				<input type="checkbox" name="attr_dodge_spec" value="1">
+				<input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
+				<button type="action" name="act_dodge">Dodge</button>
+				<br>
+				<input type="checkbox" name="attr_parry_spec" value="1">
+				<input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
+				<button type="action" name="act_parry">Parry</button>
+			</div>
+		</td>
+	</tr>
+</table>
 
-<div style="width: 100%; display: table; border-style: groove;">
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <h4>Weapons:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <h4>Hit Stat:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <h4>Damage:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <h4>Damage Stat:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <h4>Crit Damage:</h4>
-        </div>
-        <div style="display: table-cell;">
-            <h4>Fumble Damage:</h4>
-        </div>
-    </div>
-    
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <button type="action" name="act_attack1">Attack!</button>
-            <input type="checkbox" name="attr_attack1_spec" value="1">
-        </div>
-        <div style="display: table-cell;">
-            <select name="attr_attack1_hitstat">
+<br>
+
+<table style="text-align:center;margin:0px auto;">
+    <tr>
+	    <td style="padding:8px; border:1px grey solid;">
+            <h4>Blunt</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Caustic</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Cold</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Death</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Electric</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Heat</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Light</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Misc.</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Poison</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Psychic</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Puncture</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Sharp</h4>
+			<br>
+			<input type="number"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Sound</h4>
+			<br>
+			<input type="number"/>
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<table style="text-align:center;margin:0px auto;padding:5px;">
+    <tr>
+	    <td>
+		</td>
+		<td>
+		    <h4>Weapons:</h4>
+		</td>
+		<td>
+		    <h4>Hit Stat:</h4>
+		</td>
+		<td>
+		    <h4>Damage:</h4>
+		</td>
+		<td>
+		    <h4>Dmg. Stat<h4>
+		</td>
+		<td>
+		    <h4>Crit Dmg.<h4>
+		</td>
+		<td></td>
+		<td>
+		    <h4>Fumble Dmg.<h4>
+		</td>
+	<tr>
+	<tr>
+		<td>
+		    <button type="action" name="act_attack1">Attack!</button>
+		</td>
+	    <td>
+		    <input type="text">
+		</td>
+		<td>
+		    <input type="checkbox" name="attr_attack1_spec" value="1">
+		    <select name="attr_attack1_hitstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
                 <option value="2" selected="selected">Coordination</option>
@@ -323,12 +525,12 @@
                 <option value="6">Resolve</option>
             </select>
             <input type="number" name="attr_attack1_hitvalue" step="1" value="0" readonly="true"/>
-        </div>
-        <div style="display: table-cell;">
-            <input type="text" name="attr_attack1_damage" step="1" value="0"/>
-        </div>
-        <div style="display: table-cell;">
-            <select name="attr_attack1_damstat">
+		</td>
+		<td>
+		    <input type="text" name="attr_attack1_damage"/>
+		</td>
+		<td>
+		    <select name="attr_attack1_damstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
                 <option value="2">Coordination</option>
@@ -337,22 +539,26 @@
                 <option value="5">Withstand</option>
                 <option value="6">Resolve</option>
             </select>
-        </div>
-        <div style="display: table-cell;">
+		</td>
+		<td>
             <input type="number" name="attr_attack1_crit" step="1" value="0"/>
-        </div>
-        <div style="display: table-cell;">
+        </td>
+		<td></td>
+        <td>
             <input type="number" name="attr_attack1_fumble" step="1" value="0"/>
-        </div>
-    </div>
-    
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <button type="action" name="act_attack2">Attack!</button>
-            <input type="checkbox" name="attr_attack2_spec" value="1">
-        </div>
-        <div style="display: table-cell;">
-            <select name="attr_attack2_hitstat">
+        </td>
+	</tr>
+	
+	<tr>
+		<td>
+		    <button type="action" name="act_attack2">Attack!</button>
+		</td>
+	    <td>
+		    <input type="text">
+		</td>
+		<td>
+		    <input type="checkbox" name="attr_attack2_spec" value="1">
+		    <select name="attr_attack2_hitstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
                 <option value="2" selected="selected">Coordination</option>
@@ -362,12 +568,12 @@
                 <option value="6">Resolve</option>
             </select>
             <input type="number" name="attr_attack2_hitvalue" step="1" value="0" readonly="true"/>
-        </div>
-        <div style="display: table-cell;">
-            <input type="text" name="attr_attack2_damage" step="1" value="0"/>
-        </div>
-        <div style="display: table-cell;">
-            <select name="attr_attack2_damstat">
+		</td>
+		<td>
+		    <input type="text" name="attr_attack2_damage"/>
+		</td>
+		<td>
+		    <select name="attr_attack2_damstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
                 <option value="2">Coordination</option>
@@ -376,22 +582,25 @@
                 <option value="5">Withstand</option>
                 <option value="6">Resolve</option>
             </select>
-        </div>
-        <div style="display: table-cell;">
+		</td>
+		<td>
             <input type="number" name="attr_attack2_crit" step="1" value="0"/>
-        </div>
-        <div style="display: table-cell;">
+        </td>
+		<td></td>
+        <td>
             <input type="number" name="attr_attack2_fumble" step="1" value="0"/>
-        </div>
-    </div>
-    
-    <div style="display: table-row">
-        <div style="display: table-cell;">
-            <button type="action" name="act_attack3">Attack!</button>
-            <input type="checkbox" name="attr_attack3_spec" value="1">
-        </div>
-        <div style="display: table-cell;">
-            <select name="attr_attack3_hitstat">
+        </td>
+	</tr>
+	<tr>
+		<td>
+		    <button type="action" name="act_attack3">Attack!</button>
+		</td>
+	    <td>
+		    <input type="text">
+		</td>
+		<td>
+		    <input type="checkbox" name="attr_attack3_spec" value="1">
+		    <select name="attr_attack3_hitstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
                 <option value="2" selected="selected">Coordination</option>
@@ -401,12 +610,12 @@
                 <option value="6">Resolve</option>
             </select>
             <input type="number" name="attr_attack3_hitvalue" step="1" value="0" readonly="true"/>
-        </div>
-        <div style="display: table-cell;">
-            <input type="text" name="attr_attack3_damage" step="1" value="0"/>
-        </div>
-        <div style="display: table-cell;">
-            <select name="attr_attack3_damstat">
+		</td>
+		<td>
+		    <input type="text" name="attr_attack3_damage"/>
+		</td>
+		<td>
+		    <select name="attr_attack3_damstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
                 <option value="2">Coordination</option>
@@ -415,85 +624,33 @@
                 <option value="5">Withstand</option>
                 <option value="6">Resolve</option>
             </select>
-        </div>
-        <div style="display: table-cell;">
+		</td>
+		<td>
             <input type="number" name="attr_attack3_crit" step="1" value="0"/>
-        </div>
-        <div style="display: table-cell;">
+        </td>
+		<td></td>
+        <td>
             <input type="number" name="attr_attack3_fumble" step="1" value="0"/>
-        </div>
-    </div>
+        </td>
+	</tr>
+</table>
+
+<br>
+
+<div style="width:45%;text-align:center;display:inline-block;margin-left:3%">
+    <h4>Equipment<h4>
+	<br>
+	<textarea style="width:100%;" rows="18"></textarea>
 </div>
 
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-        <div style="display: table-cell; width: 10%">
-            <h4>Tolerances and Weaknesses:</h4>
-            
-            <input type="number"/>
-            <h4 style="display:inline">Blunt</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Caustic:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Darkness:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Death:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Electric:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Heat:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Life:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Misc.:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Overload:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Poison:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Psychic:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Puncture:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Sharp:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Sound:</h4>
-            <br>
-            <input type="number"/>
-            <h4 style="display:inline">Wind:</h4>
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Equipment:</h4>
-            <textarea></textarea>
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Spells:</h4>
-            <textarea></textarea>
-        </div>
-        
-        <div style="display: table-cell;">
-            <h4>Abilities:</h4>
-            <textarea></textarea>
-        </div>
-    </div>
+<div style="width:45%;text-align:center;display:inline-block;margin-left:2%;">
+    <h4>Abilities<h4>
+	<br>
+	<textarea style="width:100%;" rows="18"></textarea>
 </div>
 
-
+<!-- End div for main panel -->
+</div>
 
 <rolltemplate class="sheet-rolltemplate-r_template">
     <div class="sheet-template-container" style="border-style: groove;">
