@@ -1,40 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-    body  {background-color: #F2F2F2;}
-	h1    {display:inline;text-decoration-line:overline underline;}
-    h4    {display:inline;}
-	table {border: 2px solid black; background-color:#E5E5E5;}
-	
-	input[type='number']{
-        width: 40px;
-    }
-	
-	input[readonly='true']{
-		background-color:#EDEDED;
-		text-align:center;
-		width: 30px;
-		border: 1px #3F3F3F solid;
-		border-radius:2px;
-	}
-	
-	button {
-	    width: 100px;
-		background-color:#F9F9F9;
-		border:1px #3F3F3F solid;
-		padding-bottom:2px;
-		padding-top:2px;
-		border-radius:6px;
-	}
-	button:hover {
-	    background-color: #F2F2F2;
-	}
-	button:active {
-	    background-color: #E5E5E5;
-	}
-</style>
-</head>
 <body>
 
 <!-- Left sidebar div containing stats and traits -->
@@ -515,6 +480,7 @@
 		</td>
 		<td>
 		    <input type="checkbox" name="attr_attack1_spec" value="1">
+            <input type="number" name="attr_attack1_hitvalue" step="1" value="0" readonly="true"/>
 		    <select name="attr_attack1_hitstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
@@ -524,7 +490,6 @@
                 <option value="5">Withstand</option>
                 <option value="6">Resolve</option>
             </select>
-            <input type="number" name="attr_attack1_hitvalue" step="1" value="0" readonly="true"/>
 		</td>
 		<td>
 		    <input type="text" name="attr_attack1_damage"/>
@@ -558,6 +523,7 @@
 		</td>
 		<td>
 		    <input type="checkbox" name="attr_attack2_spec" value="1">
+            <input type="number" name="attr_attack2_hitvalue" step="1" value="0" readonly="true"/>
 		    <select name="attr_attack2_hitstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
@@ -567,7 +533,6 @@
                 <option value="5">Withstand</option>
                 <option value="6">Resolve</option>
             </select>
-            <input type="number" name="attr_attack2_hitvalue" step="1" value="0" readonly="true"/>
 		</td>
 		<td>
 		    <input type="text" name="attr_attack2_damage"/>
@@ -600,6 +565,7 @@
 		</td>
 		<td>
 		    <input type="checkbox" name="attr_attack3_spec" value="1">
+            <input type="number" name="attr_attack3_hitvalue" step="1" value="0" readonly="true"/>
 		    <select name="attr_attack3_hitstat">
                 <option value="0">Awareness</option>
                 <option value="1">Charisma</option>
@@ -609,7 +575,6 @@
                 <option value="5">Withstand</option>
                 <option value="6">Resolve</option>
             </select>
-            <input type="number" name="attr_attack3_hitvalue" step="1" value="0" readonly="true"/>
 		</td>
 		<td>
 		    <input type="text" name="attr_attack3_damage"/>
@@ -648,6 +613,10 @@
 	<br>
 	<textarea style="width:100%;" rows="18"></textarea>
 </div>
+
+<!-- Awful dirty way of making the background color reach the bottom of the stats sidepane -->
+<!-- TODO: fix -->
+<br><br><br><br><br><br><br><br><br><br>
 
 <!-- End div for main panel -->
 </div>
