@@ -729,7 +729,7 @@
     //Specialty bonus
     on("change:level sheet:opened", function() {
         getAttrs(["level"], function(values) {
-            let value = Math.ceil((parseInt(values.level)||0)/2))
+            let value = Math.ceil((parseInt(values.level)||0)/2)
             setAttrs({
                 specialty: value
             });
