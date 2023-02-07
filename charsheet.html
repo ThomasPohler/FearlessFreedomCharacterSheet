@@ -388,67 +388,67 @@
 	    <td style="padding:8px; border:1px grey solid;">
             <h4>Blunt</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance1"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Caustic</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance2"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Cold</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance3"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Death</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance4"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Electric</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance5"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Heat</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance6"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Light</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance7"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Misc.</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance8"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Poison</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance9"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Psychic</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance10"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Puncture</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance11"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Sharp</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance12"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Sound</h4>
 			<br>
-			<input type="number"/>
+			<input type="number" name="tolerance13"/>
 		</td>
 	</tr>
 </table>
@@ -484,7 +484,7 @@
 		    <button type="action" name="act_attack1">Attack!</button>
 		</td>
 	    <td>
-		    <input type="text">
+		    <input type="text" name="attr_attack1name">
 		</td>
 		<td>
 		    <input type="checkbox" name="attr_attack1_spec" value="1">
@@ -501,6 +501,7 @@
 		</td>
 		<td>
 		    <input type="text" name="attr_attack1_damage"/>
+		    <input type="text" name="attr_attack1_damagetypes"/>
 		</td>
 		<td>
 		    <select name="attr_attack1_damstat">
@@ -527,7 +528,7 @@
 		    <button type="action" name="act_attack2">Attack!</button>
 		</td>
 	    <td>
-		    <input type="text">
+		    <input type="text" name="attr_attack2name">
 		</td>
 		<td>
 		    <input type="checkbox" name="attr_attack2_spec" value="1">
@@ -544,6 +545,7 @@
 		</td>
 		<td>
 		    <input type="text" name="attr_attack2_damage"/>
+		    <input type="text" name="attr_attack2_damagetypes"/>
 		</td>
 		<td>
 		    <select name="attr_attack2_damstat">
@@ -569,7 +571,7 @@
 		    <button type="action" name="act_attack3">Attack!</button>
 		</td>
 	    <td>
-		    <input type="text">
+		    <input type="text" name="attr_attack3name">
 		</td>
 		<td>
 		    <input type="checkbox" name="attr_attack3_spec" value="1">
@@ -586,6 +588,7 @@
 		</td>
 		<td>
 		    <input type="text" name="attr_attack3_damage"/>
+		    <input type="text" name="attr_attack3_damagetypes"/>
 		</td>
 		<td>
 		    <select name="attr_attack3_damstat">
@@ -1459,6 +1462,14 @@
     }
     
     
+    //const adv_reset() => {
+    //    setAttrs({
+    //        advantage: 0
+    //        disadvantage: 0
+    //    });
+    //}
+    
+    
     
     //Function to roll a number with (dis)advantage
     const advRoll = (type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2) => {
@@ -1479,12 +1490,8 @@
                 rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${stat} + ${spec}`
             }
             
-            //TODO: fix
-            //if(parseInt(values.adv_reset) == 0){
-            //    setAttrs({
-            //        advantage: 0
-            //        disadvantage: 0
-            //    });
+            //if(parseInt(values.adv_reset) == 1){
+                //adv_reset();
             //}
             
             let damagetext = "0";
