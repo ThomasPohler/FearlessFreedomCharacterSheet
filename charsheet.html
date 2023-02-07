@@ -8,9 +8,8 @@
 <tr>
 <td>
 	<h4>Awareness:</h4>
-	<input type="number" name="attr_awareness" step="1" value="0"/>
 	<div style="display:inline; float:right; clear:both;">
-        <input type="number" name="attr_awrmod" step="1" value="0" readonly="true"/>
+        <input type="number" name="attr_awrmod" step="1" value="0"/>
     </div>
 </td>
 </tr>
@@ -35,9 +34,8 @@
 <tr>
 <td>
 	<h4>Charisma:</h4>
-	<input type="number" name="attr_charisma" step="1" value="0"/>
 	<div style="display:inline; float:right; clear:both;">
-        <input type="number" name="attr_chamod" step="1" value="0" readonly="true"/>
+        <input type="number" name="attr_chamod" step="1" value="0"/>
     </div>
 </td>
 </tr>
@@ -62,9 +60,8 @@
 <tr>
 <td>
 	<h4>Coordination:</h4>
-	<input type="number" name="attr_coordination" step="1" value="0"/>
 	<div style="display:inline; float:right; clear:both;">
-        <input type="number" name="attr_cormod" step="1" value="0" readonly="true"/>
+        <input type="number" name="attr_cormod" step="1" value="0"/>
     </div>
 </td>
 </tr>
@@ -89,9 +86,8 @@
 <tr>
 <td>
 	<h4>Intelligence:</h4>
-	<input type="number" name="attr_intelligence" step="1" value="0"/>
 	<div style="display:inline; float:right; clear:both;">
-        <input type="number" name="attr_intmod" step="1" value="0" readonly="true"/>
+        <input type="number" name="attr_intmod" step="1" value="0"/>
     </div>
 </td>
 </tr>
@@ -116,9 +112,8 @@
 <tr>
 <td>
     <h4>Strength:</h4>
-	<input type="number" name="attr_strength" step="1" value="0"/>
 	<div style="display:inline; float:right; clear:both;">
-        <input type="number" name="attr_strmod" step="1" value="0" readonly="true"/>
+        <input type="number" name="attr_strmod" step="1" value="0"/>
     </div>
 </td>
 </tr>
@@ -143,9 +138,8 @@
 <tr>
 <td>
     <h4>Resolve:</h4>
-	<input type="number" name="attr_resolve" step="1" value="0"/>
 	<div style="display:inline; float:right; clear:both;">
-        <input type="number" name="attr_resmod" step="1" value="0" readonly="true"/>
+        <input type="number" name="attr_resmod" step="1" value="0"/>
     </div>
 </td>
 </tr>
@@ -170,9 +164,8 @@
 <tr>
 <td>
     <h4>Withstand:</h4>
-	<input type="number" name="attr_withstand" step="1" value="0"/>
 	<div style="display:inline; float:right; clear:both;">
-        <input type="number" name="attr_wsdmod" step="1" value="0" readonly="true"/>
+        <input type="number" name="attr_wsdmod" step="1" value="0"/>
     </div>
 </td>
 </tr>
@@ -736,7 +729,7 @@
     //Specialty bonus
     on("change:level sheet:opened", function() {
         getAttrs(["level"], function(values) {
-            let value = Math.max(1, Math.floor((parseInt(values.level)||0)/2))
+            let value = Math.ceil((parseInt(values.level)||0)/2))
             setAttrs({
                 specialty: value
             });
@@ -746,15 +739,6 @@
     //Main stat/trait bonuses
     //Awareness
     {
-    on("change:awareness sheet:opened", function() {
-        getAttrs(["awareness"], function(values) {
-            let value = Math.ceil((parseInt(values.awareness)||0)/2 - 5)
-            setAttrs({
-                awrmod: value
-            });
-        });
-    });
-    
     on("change:awrmod change:detection_spec change:specialty sheet:opened", function() {
         getAttrs(["awrmod", "specialty", "detection_spec"], function(values) {
             let value = parseInt(values.awrmod) + parseInt(values.specialty) * parseInt(values.detection_spec)
@@ -784,15 +768,6 @@
     }
     //Charisma
     {
-    on("change:charisma sheet:opened", function() {
-        getAttrs(["charisma"], function(values) {
-            let value = Math.ceil((parseInt(values.charisma)||0)/2 - 5)
-            setAttrs({
-                chamod: value
-            });
-        });
-    });
-    
     on("change:chamod change:convince_spec change:specialty sheet:opened", function() {
         getAttrs(["chamod", "specialty", "convince_spec"], function(values) {
             let value = parseInt(values.chamod) + parseInt(values.specialty) * parseInt(values.convince_spec)
@@ -822,15 +797,6 @@
     }
     //Coordination
     {
-    on("change:coordination sheet:opened", function() {
-        getAttrs(["coordination"], function(values) {
-            let value = Math.ceil((parseInt(values.coordination)||0)/2 - 5)
-            setAttrs({
-                cormod: value
-            });
-        });
-    });
-    
     on("change:cormod change:agility_spec change:specialty sheet:opened", function() {
         getAttrs(["cormod", "specialty", "agility_spec"], function(values) {
             let value = parseInt(values.cormod) + parseInt(values.specialty) * parseInt(values.agility_spec)
@@ -860,15 +826,6 @@
     }
     //Intelligence
     {
-    on("change:intelligence sheet:opened", function() {
-        getAttrs(["intelligence"], function(values) {
-            let value = Math.ceil((parseInt(values.intelligence)||0)/2 - 5)
-            setAttrs({
-                intmod: value
-            });
-        });
-    });
-    
     on("change:intmod change:knowledge_spec change:specialty sheet:opened", function() {
         getAttrs(["intmod", "specialty", "knowledge_spec"], function(values) {
             let value = parseInt(values.intmod) + parseInt(values.specialty) * parseInt(values.knowledge_spec)
@@ -898,15 +855,6 @@
     }
     //Strength
     {
-    on("change:strength sheet:opened", function() {
-        getAttrs(["strength"], function(values) {
-            let value = Math.ceil((parseInt(values.strength)||0)/2 - 5)
-            setAttrs({
-                strmod: value
-            });
-        });
-    });
-    
     on("change:strmod change:grip_spec change:specialty sheet:opened", function() {
         getAttrs(["strmod", "specialty", "grip_spec"], function(values) {
             let value = parseInt(values.strmod) + parseInt(values.specialty) * parseInt(values.grip_spec)
@@ -936,15 +884,6 @@
     }
     //Resolve
     {
-    on("change:resolve sheet:opened", function() {
-        getAttrs(["resolve"], function(values) {
-            let value = Math.ceil((parseInt(values.resolve)||0)/2 - 5)
-            setAttrs({
-                resmod: value
-            });
-        });
-    });
-    
     on("change:resmod change:resistance_spec change:specialty sheet:opened", function() {
         getAttrs(["resmod", "specialty", "resistance_spec"], function(values) {
             let value = parseInt(values.resmod) + parseInt(values.specialty) * parseInt(values.resistance_spec)
@@ -974,15 +913,6 @@
     }
     //Withstand
     {
-    on("change:withstand sheet:opened", function() {
-        getAttrs(["withstand"], function(values) {
-            let value = Math.ceil((parseInt(values.withstand)||0)/2 - 5)
-            setAttrs({
-                wsdmod: value
-            });
-        });
-    });
-    
     on("change:wsdmod change:endure_spec change:specialty sheet:opened", function() {
         getAttrs(["wsdmod", "specialty", "endure_spec"], function(values) {
             let value = parseInt(values.wsdmod) + parseInt(values.specialty) * parseInt(values.endure_spec)
