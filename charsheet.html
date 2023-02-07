@@ -1100,6 +1100,18 @@
     //Blocks of code to initiate rolls
     {
     
+    //advRoll arguments:
+    //advRoll(type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2)
+    //type = "trait" / "attack" / "defense"
+    //name = name of roll to put in chat
+    //stat = stat to use for roll
+    //stat2 = stat to use for damage rolls (if applicable)
+    //damage = damage dice
+    //critdamage = extra damage on a crit
+    //mindamage = minimum damage to do on a fumble
+    //spec_bool = specialization bonus for rolling to hit
+    //spec_bool2 = TODO: delete
+    
     //Trait rolls
     {
     //Awareness
@@ -1408,9 +1420,9 @@
             let crittext = "0";
             let mintext = "0";
             if(type == "attack"){
-                damagetext = `${damage} + ${stat2} + ${spec2}`
-                crittext = `${damage} + ${stat2} + ${spec2} + ${critdamage}`
-                mintext = `${mindamage}d1 + ${stat2} + ${spec2}`
+                damagetext = `${damage} + ${stat2}`
+                crittext = `${damage} + ${stat2} + ${critdamage}`
+                mintext = `${mindamage}d1 + ${stat2}`
             }
             
             let rolltype = "";
