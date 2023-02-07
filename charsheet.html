@@ -227,10 +227,10 @@
 		</td>
 		<td>
 		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
-	        <h4>Adv. Clear:</h4>
+	        <h4>Hide Rolls:</h4>
 		</td>
 		<td>
-	        <input type="checkbox" name="attr_advantage_reset" value="0">
+	        <input type="checkbox" name="attr_gmroll" value="1">
 	    </td>
 	</tr>
 </table>
@@ -334,13 +334,6 @@
             <input type="number" name="attr_shield" />
 			<br>
             <input type="number" name="attr_shield_max" />
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Stored Crits</h4>
-			<br>
-            <input type="number" name="attr_limit" />
-			<br>
-            <input type="number" name="attr_limit_max" />
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
 		    <h4>Concentration</h4>
@@ -627,6 +620,29 @@
 <!-- Hidden on the character sheet inside Roll20, but displays oddly if this file is loaded as pure .html -->
 <!-- TODO: Beautify -->
 <rolltemplate class="sheet-rolltemplate-r_template">
+    <!-- For some reason, it does not appear that Roll20's StartRoll() function
+    is inherently capable of creating GM-only rolls (i.e. rolls that only the GM can see).
+    As this was client-requested behaviour, a work-around had to be introduced.
+    
+    The following is a nasty trick to hide rolls from clients. In essence, if the "hide-rolls"
+    button is checked, the roll template will output a roll set to 'display:none;'. 
+    In order for the GM to see the roll, they need to set up a third-party browser extension
+    (such as Stylus) with the following snippet of CSS:
+    div.sheet-template-container {
+        display:block !important;
+    }
+    
+    This will force the rolls to show on the GM's screen and allow them to make "hidden" rolls.
+    These rolls are entirely insecure, as not only can any user configure such a browser extension,
+    they can also right-click and select "Inspect" to view the roll's result regardless.
+    However, as most players will presumably not be inherently aware of these options, security
+    on a very small scale will most likely be a non-issue.
+    
+    As a side-note, this feature has mild quality-of-life issues, as hidden rolls still take up
+    space in the chat for all players. -->
+    
+    <!-- Version of the roll shown to all players -->
+    {{#rollTotal() hide 1}}
     <div class="sheet-template-container" style="border-style:groove; padding-left:10px;">
         <h3>{{name}}</h3>
         <div class="sheet-results">
@@ -660,6 +676,44 @@
             <h4>Specialty = {{spec1}}</h4>
         </div>
     </div>
+    {{/rollTotal() hide 1}}
+    
+    <!-- Version of the roll only shown to players using a third-party application to specifically force it to show -->
+    {{#rollTotal() hide 2}}
+    <div class="sheet-template-container" style="border-style:groove; padding-left:10px; display:none;">
+        <h3>{{name}}</h3>
+        <div class="sheet-results">
+            <!-- If crit success, show crit roll value in green -->
+            {{#rollGreater() computed::roll1 roll1}}
+                <h4 style="color:#00D300;">{{computed::roll1}}</h4>
+                <!-- If an attack, show damage -->
+                {{#rollTotal() type1 1}}
+                    <h4>Damage = {{damage2}}</h4>
+                {{/rollTotal() type1 1}}
+            {{/rollGreater() computed::roll1 roll1}}
+            <!-- If fumble, show fumble roll value in red -->
+            {{#rollLess() computed::roll1 roll1}}
+                <h4 style="color:red;">{{computed::roll1}}</h4>
+                <!-- If an attack, show damage -->
+                {{#rollTotal() type1 1}}
+                    <h4>Damage = {{damage3}}</h4>
+                {{/rollTotal() type1 1}}
+            {{/rollLess() computed::roll1 roll1}}
+            <!-- Otherwise, show default roll value -->
+            {{#rollTotal() computed::roll1 roll1}}
+                <h4>{{roll1}}</h4>
+                <!-- If an attack, show damage -->
+                {{#rollTotal() type1 1}}
+                    <h4>Damage = {{damage1}}</h4>
+                {{/rollTotal() type1 1}}
+            {{/rollTotal() computed::roll1 roll1}}
+            
+            <h4>Advantage = {{advan1}}</h4>
+            <h4>Stat = {{stat1}}</h4>
+            <h4>Specialty = {{spec1}}</h4>
+        </div>
+    </div>
+    {{/rollTotal() hide 2}}
 </rolltemplate>
 
 <script type="text/worker">
@@ -1311,11 +1365,12 @@
     
     //Function to roll a number with (dis)advantage
     const advRoll = (type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2) => {
-        getAttrs(["advantage", "specialty"], function(values) {
+        getAttrs(["advantage", "specialty", "gmroll"], function(values) {
             //get current advantage/specialty value
             let advan = parseInt(values.advantage);
             let spec = parseInt(values.specialty) * spec_bool;
             let spec2 = parseInt(values.specialty) * spec_bool2;
+            let hiddenroll = parseInt(values.gmroll);
             
             let rolltext = "";
             if(advan >= 0){
@@ -1354,7 +1409,8 @@
             //damage1   = type of dice to roll for damage
             //damage2   = extra damage to add on a crit
             //damage3   = minimum damage to set roll to on a fumble
-            startRoll(`&{template:r_template} {{name=${name}}} {{type1=[[${rolltype}]]}} {{advan1=${advan}}} {{stat1=${stat}}} {{spec1=${spec}}} {{roll1=[[${rolltext}]]}} {{damage1=[[${damagetext}]]}} {{damage2=[[${crittext}]]}} {{damage3=[[${mintext}]]}}`, (results) => {
+            //hide1     = whether the roll should be hidden for only the GM
+            startRoll(`&{template:r_template} {{name=${name}}} {{type1=[[${rolltype}]]}} {{advan1=${advan}}} {{stat1=${stat}}} {{spec1=${spec}}} {{roll1=[[${rolltext}]]}} {{damage1=[[${damagetext}]]}} {{damage2=[[${crittext}]]}} {{damage3=[[${mintext}]]}} {{hide=${hiddenroll}}}`, (results) => {
                 let original = results.results.roll1.result
                 let computed = original - spec - stat;
                 
