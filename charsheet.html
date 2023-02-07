@@ -296,6 +296,11 @@
 <table style="text-align:center;margin:0px auto;">
     <tr>
 	    <td style="padding:8px; border:1px grey solid;">
+		    <h4>TC</h4>
+			<br>
+            <input type="number" name="attr_traitcheck" readonly="true"/>
+		</td>
+	    <td style="padding:8px; border:1px grey solid;">
 		    <h4>Health</h4>
 			<br>
             <input type="number" name="attr_health" />
@@ -342,7 +347,7 @@
 			<br>
             <input type="number" name="attr_concentration" />
 			<br>
-            <input type="number" name="attr_concentration_max" />
+            <input type="number" name="attr_concentration_max" readonly="true" />
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
 		    <h4>Mana</h4>
@@ -732,6 +737,25 @@
             let value = Math.ceil((parseInt(values.level)||0)/2)
             setAttrs({
                 specialty: value
+            });
+        });
+    });
+    
+    //Concentration
+    on("change:health_max sheet:opened", function() {
+        getAttrs(["health_max"], function(values) {
+            let value = Math.ceil((parseInt(values.health_max)||0)/2)
+            setAttrs({
+                concentration_max: value
+            });
+        });
+    });
+    
+    on("change:specialty sheet:opened", function() {
+        getAttrs(["specialty"], function(values) {
+            let value = parseInt(values.specialty) + 11
+            setAttrs({
+                traitcheck: value
             });
         });
     });
