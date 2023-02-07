@@ -218,11 +218,11 @@
             <input type="number" name="attr_advantage" size="3" step="1" value="0">
 	    </td>
 	    <td>
-		    <!-- This will reset the player's advantage after they roll -->
-            <h4>Adv Reset:</h4>
+		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
+	        <h4 class="sheet-template-container" style="display:none;">Hide Roll:</h4>
 		</td>
 		<td>
-            <input type="checkbox" name="attr_adv_reset" value="1">
+	        <input type="checkbox" name="attr_gmroll" value="1" class="sheet-template-container" style="display:none;">
 	    </td>
 	</tr>
 	<tr>
@@ -239,13 +239,8 @@
 		<td>
             <input type="number" name="attr_disadvantage" size="3" step="1" value="0">
 	    </td>
-		<td>
-		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
-	        <h4 class="sheet-template-container" style="display:none;">Hide Rolls:</h4>
-		</td>
-		<td>
-	        <input type="checkbox" name="attr_gmroll" value="1" class="sheet-template-container" style="display:none;">
-	    </td>
+		<td></td>
+		<td></td>
 	</tr>
 </table>
 
@@ -388,67 +383,67 @@
 	    <td style="padding:8px; border:1px grey solid;">
             <h4>Blunt</h4>
 			<br>
-			<input type="number" name="tolerance1"/>
+			<input type="number" name="attr_tolerance1"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Caustic</h4>
 			<br>
-			<input type="number" name="tolerance2"/>
+			<input type="number" name="attr_tolerance2"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Cold</h4>
 			<br>
-			<input type="number" name="tolerance3"/>
+			<input type="number" name="attr_tolerance3"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Death</h4>
 			<br>
-			<input type="number" name="tolerance4"/>
+			<input type="number" name="attr_tolerance4"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Electric</h4>
 			<br>
-			<input type="number" name="tolerance5"/>
+			<input type="number" name="attr_tolerance5"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Heat</h4>
 			<br>
-			<input type="number" name="tolerance6"/>
+			<input type="number" name="attr_tolerance6"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Light</h4>
 			<br>
-			<input type="number" name="tolerance7"/>
+			<input type="number" name="attr_tolerance7"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Misc.</h4>
 			<br>
-			<input type="number" name="tolerance8"/>
+			<input type="number" name="attr_tolerance8"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Poison</h4>
 			<br>
-			<input type="number" name="tolerance9"/>
+			<input type="number" name="attr_tolerance9"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Psychic</h4>
 			<br>
-			<input type="number" name="tolerance10"/>
+			<input type="number" name="attr_tolerance10"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Puncture</h4>
 			<br>
-			<input type="number" name="tolerance11"/>
+			<input type="number" name="attr_tolerance11"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Sharp</h4>
 			<br>
-			<input type="number" name="tolerance12"/>
+			<input type="number" name="attr_tolerance12"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Sound</h4>
 			<br>
-			<input type="number" name="tolerance13"/>
+			<input type="number" name="attr_tolerance13"/>
 		</td>
 	</tr>
 </table>
@@ -1462,18 +1457,10 @@
     }
     
     
-    //const adv_reset() => {
-    //    setAttrs({
-    //        advantage: 0
-    //        disadvantage: 0
-    //    });
-    //}
-    
-    
     
     //Function to roll a number with (dis)advantage
     const advRoll = (type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2) => {
-        getAttrs(["advantage", "disadvantage", "specialty", "gmroll", "adv_reset"], function(values) {
+        getAttrs(["advantage", "disadvantage", "specialty", "gmroll"], function(values) {
             //get current advantage/specialty value
             let advan = parseInt(values.advantage) - parseInt(values.disadvantage);
             let spec = parseInt(values.specialty) * spec_bool;
@@ -1489,10 +1476,6 @@
                 //I have no idea why "2 + ${advan} * -1" works, but "2 - ${advan}" doesn't
                 rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${stat} + ${spec}`
             }
-            
-            //if(parseInt(values.adv_reset) == 1){
-                //adv_reset();
-            //}
             
             let damagetext = "0";
             let crittext = "0";
