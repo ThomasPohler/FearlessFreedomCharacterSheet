@@ -1018,22 +1018,29 @@
     on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack1_hitstat change:attack1_spec change:specialty sheet:opened", function() {
         getAttrs(["attack1_hitstat", "specialty", "attack1_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
             let mod = 0;
-            if(values.attack1_hitstat == "0"){
-                mod = values.awrmod;
-            } else if(values.attack1_hitstat == "1"){
-                mod = values.chamod;
-            } else if(values.attack1_hitstat == "2"){
-                mod = values.cormod;
-            } else if(values.attack1_hitstat == "3"){
-                mod = values.intmod;
-            } else if(values.attack1_hitstat == "4"){
-                mod = values.strmod;
-            } else if(values.attack1_hitstat == "5"){
-                mod = values.wsdmod;
-            }
-            else{
-                mod = values.resmod;
-            }
+	    switch(values.attack1_hitstat){
+	    	case 0:
+		    mod = values.awrmod;
+		    break;
+		case 1:
+		    mod = values.chamod;
+		    break;
+		case 2:
+		    mod = values.cormod;
+		    break;
+		case 3:
+		    mod = values.intmod;
+		    break;
+		case 4:
+		    mod = values.strmod;
+		    break;
+		case 5:
+		    mod = values.wsdmod;
+		    break;
+		case 6:
+		    mod = values.resmod;
+		    break;
+	    }
             let value = mod + values.specialty * values.attack1_spec;
             setAttrs({
                 attack1_hitvalue: value
@@ -1044,22 +1051,29 @@
     on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack2_hitstat change:attack2_spec change:specialty sheet:opened", function() {
         getAttrs(["attack2_hitstat", "specialty", "attack2_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
             let mod = 0;
-            if(values.attack2_hitstat == "0"){
-                mod = values.awrmod;
-            } else if(values.attack2_hitstat == "1"){
-                mod = values.chamod;
-            } else if(values.attack2_hitstat == "2"){
-                mod = values.cormod;
-            } else if(values.attack2_hitstat == "3"){
-                mod = values.intmod;
-            } else if(values.attack2_hitstat == "4"){
-                mod = values.strmod;
-            } else if(values.attack2_hitstat == "5"){
-                mod = values.wsdmod;
-            }
-            else{
-                mod = values.resmod;
-            }
+            switch(values.attack2_hitstat){
+	    	case 0:
+		    mod = values.awrmod;
+		    break;
+		case 1:
+		    mod = values.chamod;
+		    break;
+		case 2:
+		    mod = values.cormod;
+		    break;
+		case 3:
+		    mod = values.intmod;
+		    break;
+		case 4:
+		    mod = values.strmod;
+		    break;
+		case 5:
+		    mod = values.wsdmod;
+		    break;
+		case 6:
+		    mod = values.resmod;
+		    break;
+	    }
             let value = mod + values.specialty * values.attack2_spec;
             setAttrs({
                 attack2_hitvalue: value
@@ -1070,22 +1084,29 @@
     on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack3_hitstat change:attack3_spec change:specialty sheet:opened", function() {
         getAttrs(["attack3_hitstat", "specialty", "attack3_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
             let mod = 0;
-            if(values.attack3_hitstat == "0"){
-                mod = values.awrmod;
-            } else if(values.attack3_hitstat == "1"){
-                mod = values.chamod;
-            } else if(values.attack3_hitstat == "2"){
-                mod = values.cormod;
-            } else if(values.attack3_hitstat == "3"){
-                mod = values.intmod;
-            } else if(values.attack3_hitstat == "4"){
-                mod = values.strmod;
-            } else if(values.attack3_hitstat == "5"){
-                mod = values.wsdmod;
-            }
-            else{
-                mod = values.resmod;
-            }
+            switch(values.attack3_hitstat){
+	    	case 0:
+		    mod = values.awrmod;
+		    break;
+		case 1:
+		    mod = values.chamod;
+		    break;
+		case 2:
+		    mod = values.cormod;
+		    break;
+		case 3:
+		    mod = values.intmod;
+		    break;
+		case 4:
+		    mod = values.strmod;
+		    break;
+		case 5:
+		    mod = values.wsdmod;
+		    break;
+		case 6:
+		    mod = values.resmod;
+		    break;
+	    }
             let value = mod + values.specialty * values.attack3_spec;
             setAttrs({
                 attack3_hitvalue: value
