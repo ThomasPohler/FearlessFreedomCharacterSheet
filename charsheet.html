@@ -239,6 +239,7 @@
 <br>
 
 <!-- Section containing information about the character -->
+<!-- Warning! Each input field must contain a name or else the information is not stored between sessions -->
 <table>
     <tr>
         <td>
@@ -253,14 +254,14 @@
             <h4>Alignment:</h4>
         </td>
         <td>
-            <input type="text"/>
+            <input type="text" name="attr_character_alignment" />
         </td>
         
         <td>
             <h4>Player:</h4>
         </td>
         <td>
-            <input type="text"/>
+            <input type="text" name="attr_character_player" />
         </td>
     </tr>
     <tr>
@@ -268,21 +269,21 @@
             <h4>Species:</h4>
         </td>
         <td>
-            <input type="text"/>
+            <input type="text" name="attr_character_species" />
         </td>
         
         <td>
             <h4>Size:</h4>
         </td>
         <td>
-            <input type="text"/>
+            <input type="text"  name="attr_character_size" />
         </td>
         
         <td>
             <h4>Background:</h4>
         </td>
         <td>
-            <input type="text"/>
+            <input type="text" name="attr_character_background" />
         </td>
     </tr>
 </table>
@@ -605,13 +606,13 @@
 <div style="width:45%;text-align:center;display:inline-block;margin-left:3%">
     <h4>Equipment<h4>
 	<br>
-	<textarea style="width:100%;" rows="18"></textarea>
+	<textarea style="width:100%;" rows="18" name="attr_equipment"></textarea>
 </div>
 
 <div style="width:45%;text-align:center;display:inline-block;margin-left:2%;">
     <h4>Abilities<h4>
 	<br>
-	<textarea style="width:100%;" rows="18"></textarea>
+	<textarea style="width:100%;" rows="18" name="attr_abilities"></textarea>
 </div>
 
 <!-- Awful dirty way of making the background color reach the bottom of the stats sidepane -->
@@ -621,11 +622,13 @@
 <!-- End div for main panel -->
 </div>
 
+<!-- Displays roll results in Roll20's chat -->
+<!-- Hidden inside Roll20, but displays oddly if this file is loaded as pure .html -->
 <rolltemplate class="sheet-rolltemplate-r_template">
-    <div class="sheet-template-container" style="border-style: groove;">
+    <div class="sheet-template-container" style="border-style: groove;padding-left:10px;">
         <h3>{{name}}</h3>
         <div class="sheet-results">
-            <!-- If crit success, show crit value in green -->
+            <!-- If crit success, show crit roll value in green -->
             {{#rollGreater() computed::roll1 roll1}}
                 <h4 style="color:#00D300;">{{computed::roll1}}</h4>
                 <!-- If an attack, show damage -->
@@ -633,7 +636,7 @@
                     <h4>Damage = {{damage2}}</h4>
                 {{/rollTotal() type1 1}}
             {{/rollGreater() computed::roll1 roll1}}
-            <!-- If crit fail, show crit value in red -->
+            <!-- If fumble, show fumble roll value in red -->
             {{#rollLess() computed::roll1 roll1}}
                 <h4 style="color:red;">{{computed::roll1}}</h4>
                 <!-- If an attack, show damage -->
@@ -641,7 +644,7 @@
                     <h4>Damage = {{damage3}}</h4>
                 {{/rollTotal() type1 1}}
             {{/rollLess() computed::roll1 roll1}}
-            <!-- Otherwise, show default roll -->
+            <!-- Otherwise, show default roll value -->
             {{#rollTotal() computed::roll1 roll1}}
                 <h4>{{roll1}}</h4>
                 <!-- If an attack, show damage -->
@@ -659,9 +662,10 @@
 
 <script type="text/worker">
     
+    //Update the specialty bonus when the character's level is changed or the sheet is opened
     on("change:level sheet:opened", function() {
         getAttrs(["level"], function(values) {
-            let value = Math.ceil((parseInt(values.level)||0)/2)
+            let value = Math.max(1, Math.floor((parseInt(values.level)||0)/2))
             setAttrs({
                 specialty: value
             });
