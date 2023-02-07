@@ -1114,6 +1114,36 @@
         });
     });
     }
+    
+    //Defensive actions
+    {
+    on("change:strmod change:block_spec change:specialty sheet:opened", function() {
+        getAttrs(["strmod", "specialty", "block_spec"], function(values) {
+            let value = parseInt(values.strmod) + parseInt(values.specialty) * parseInt(values.block_spec)
+            setAttrs({
+                block_mod: value
+            });
+        });
+    });
+    
+    on("change:cormod change:dodge_spec change:specialty sheet:opened", function() {
+        getAttrs(["cormod", "specialty", "dodge_spec"], function(values) {
+            let value = parseInt(values.cormod) + parseInt(values.specialty) * parseInt(values.dodge_spec)
+            setAttrs({
+                dodge_mod: value
+            });
+        });
+    });
+    
+    on("change:awrmod change:parry_spec change:specialty sheet:opened", function() {
+        getAttrs(["awrmod", "specialty", "parry_spec"], function(values) {
+            let value = parseInt(values.awrmod) + parseInt(values.specialty) * parseInt(values.parry_spec)
+            setAttrs({
+                parry_mod: value
+            });
+        });
+    });
+    }
     }
     
     
@@ -1406,6 +1436,26 @@
     });
     }
     
+    //Defensive actions
+    {
+    on('clicked:block', (info) => {
+        getAttrs(["strmod", "block_spec"], function(values) {
+            advRoll("defense", "Block", values.strmod, null, null, null, null, values.block_spec, null);
+        });
+    });
+    
+    on('clicked:dodge', (info) => {
+        getAttrs(["cormod", "dodge_spec"], function(values) {
+            advRoll("defense", "Dodge", values.cormod, null, null, null, null, values.dodge_spec, null);
+        });
+    });
+    
+    on('clicked:parry', (info) => {
+        getAttrs(["awrmod", "parry_spec"], function(values) {
+            advRoll("defense", "Parry", values.awrmod, null, null, null, null, values.parry_spec, null);
+        });
+    });
+    }
     }
     
     
@@ -1447,7 +1497,7 @@
             }
             
             let rolltype = "";
-            if(type == "trait"){
+            if(type == "trait" || type == "defense"){
                 rolltype = "0"
             }
             else{
