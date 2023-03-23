@@ -300,6 +300,13 @@
 			<br>
             <input type="number" name="attr_traitcheck" readonly="true"/>
 		</td>
+		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Hit Dice</h4>
+			<br>
+            <input type="number" name="attr_healthdice" />
+			<br>
+            <input type="text" name="attr_healthdice_type" style="width:50px;"/>
+		</td>
 	    <td style="padding:8px; border:1px grey solid;">
 		    <h4>Health</h4>
 			<br>
@@ -357,6 +364,13 @@
             <input type="number" name="attr_mana_max" />
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
+		    <h4>Mana Dice</h4>
+			<br>
+            <input type="number" name="attr_manadice" />
+			<br>
+            <input type="text" name="attr_manadice_type" style="width:50px;"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
 			<div style="display: table-cell;">
 				<input type="checkbox" name="attr_block_spec" value="1">
 				<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
@@ -370,6 +384,58 @@
 				<input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
 				<button type="action" name="act_parry">Parry</button>
 			</div>
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<table style="text-align:center;margin:0px auto;">
+    <tr>
+	    <td style="padding:8px; border:1px grey solid;">
+            <h4>Walking</h4>
+			<br>
+			<input type="number" name="attr_walking"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Swimming</h4>
+			<br>
+			<input type="number" name="attr_swimming"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Flying</h4>
+			<br>
+			<input type="number" name="attr_flying"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Hovering</h4>
+			<br>
+			<input type="number" name="attr_hovering"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Burrow</h4>
+			<br>
+			<input type="number" name="attr_burrow"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Climbing</h4>
+			<br>
+			<input type="number" name="attr_climbing"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Crawling</h4>
+			<br>
+			<input type="number" name="attr_crawling"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Long Jump</h4>
+			<br>
+			<input type="number" name="attr_longjump"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>High Jump</h4>
+			<br>
+			<input type="number" name="attr_highjump"/>
 		</td>
 	</tr>
 </table>
@@ -607,15 +673,21 @@
 <br>
 
 <div style="width:45%;text-align:center;display:inline-block;margin-left:3%">
+    <h4>Spells</h4><h4>
+    <br>
+    <textarea style="width:100%;" rows="4" name="attr_spells"></textarea>
     <h4>Equipment<h4>
 	<br>
-	<textarea style="width:100%;" rows="18" name="attr_equipment"></textarea>
+	<textarea style="width:100%;" rows="13" name="attr_equipment"></textarea>
 </div>
 
 <div style="width:45%;text-align:center;display:inline-block;margin-left:2%;">
     <h4>Abilities<h4>
 	<br>
 	<textarea style="width:100%;" rows="18" name="attr_abilities"></textarea>
+	<h4>Class Levels<h4>
+	<br>
+	<textarea style="width:100%;" rows="18" name="attr_classlevels"></textarea>
 </div>
 
 <!-- Dirty way of making the background color reach the bottom of the stats sidepane -->
@@ -970,30 +1042,23 @@
     on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack1_hitstat change:attack1_spec change:specialty sheet:opened", function() {
         getAttrs(["attack1_hitstat", "specialty", "attack1_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
             let mod = 0;
-	    switch(values.attack1_hitstat){
-	    	case 0:
-		    mod = values.awrmod;
-		    break;
-		case 1:
-		    mod = values.chamod;
-		    break;
-		case 2:
-		    mod = values.cormod;
-		    break;
-		case 3:
-		    mod = values.intmod;
-		    break;
-		case 4:
-		    mod = values.strmod;
-		    break;
-		case 5:
-		    mod = values.wsdmod;
-		    break;
-		case 6:
-		    mod = values.resmod;
-		    break;
-	    }
-            let value = mod + values.specialty * values.attack1_spec;
+            if(values.attack1_hitstat == "0"){
+                mod = values.awrmod;
+            } else if(values.attack1_hitstat == "1"){
+                mod = values.chamod;
+            } else if(values.attack1_hitstat == "2"){
+                mod = values.cormod;
+            } else if(values.attack1_hitstat == "3"){
+                mod = values.intmod;
+            } else if(values.attack1_hitstat == "4"){
+                mod = values.strmod;
+            } else if(values.attack1_hitstat == "5"){
+                mod = values.wsdmod;
+            }
+            else{
+                mod = values.resmod;
+            }
+            let value = parseInt(mod)+ values.specialty * values.attack1_spec;
             setAttrs({
                 attack1_hitvalue: value
             });
@@ -1003,30 +1068,23 @@
     on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack2_hitstat change:attack2_spec change:specialty sheet:opened", function() {
         getAttrs(["attack2_hitstat", "specialty", "attack2_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
             let mod = 0;
-            switch(values.attack2_hitstat){
-	    	case 0:
-		    mod = values.awrmod;
-		    break;
-		case 1:
-		    mod = values.chamod;
-		    break;
-		case 2:
-		    mod = values.cormod;
-		    break;
-		case 3:
-		    mod = values.intmod;
-		    break;
-		case 4:
-		    mod = values.strmod;
-		    break;
-		case 5:
-		    mod = values.wsdmod;
-		    break;
-		case 6:
-		    mod = values.resmod;
-		    break;
-	    }
-            let value = mod + values.specialty * values.attack2_spec;
+            if(values.attack2_hitstat == "0"){
+                mod = values.awrmod;
+            } else if(values.attack2_hitstat == "1"){
+                mod = values.chamod;
+            } else if(values.attack2_hitstat == "2"){
+                mod = values.cormod;
+            } else if(values.attack2_hitstat == "3"){
+                mod = values.intmod;
+            } else if(values.attack2_hitstat == "4"){
+                mod = values.strmod;
+            } else if(values.attack2_hitstat == "5"){
+                mod = values.wsdmod;
+            }
+            else{
+                mod = values.resmod;
+            }
+            let value = parseInt(mod)+ values.specialty * values.attack2_spec;
             setAttrs({
                 attack2_hitvalue: value
             });
@@ -1036,30 +1094,23 @@
     on("change:awrmod change:chamod change:cormod change:intmod change:strmod change:wsdmod change:resmod change:attack3_hitstat change:attack3_spec change:specialty sheet:opened", function() {
         getAttrs(["attack3_hitstat", "specialty", "attack3_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
             let mod = 0;
-            switch(values.attack3_hitstat){
-	    	case 0:
-		    mod = values.awrmod;
-		    break;
-		case 1:
-		    mod = values.chamod;
-		    break;
-		case 2:
-		    mod = values.cormod;
-		    break;
-		case 3:
-		    mod = values.intmod;
-		    break;
-		case 4:
-		    mod = values.strmod;
-		    break;
-		case 5:
-		    mod = values.wsdmod;
-		    break;
-		case 6:
-		    mod = values.resmod;
-		    break;
-	    }
-            let value = mod + values.specialty * values.attack3_spec;
+            if(values.attack3_hitstat == "0"){
+                mod = values.awrmod;
+            } else if(values.attack3_hitstat == "1"){
+                mod = values.chamod;
+            } else if(values.attack3_hitstat == "2"){
+                mod = values.cormod;
+            } else if(values.attack3_hitstat == "3"){
+                mod = values.intmod;
+            } else if(values.attack3_hitstat == "4"){
+                mod = values.strmod;
+            } else if(values.attack3_hitstat == "5"){
+                mod = values.wsdmod;
+            }
+            else{
+                mod = values.resmod;
+            }
+            let value = parseInt(mod)+ values.specialty * values.attack3_spec;
             setAttrs({
                 attack3_hitvalue: value
             });
@@ -1282,17 +1333,17 @@
             }
             
             let dammod = 0;
-            if(values.attack1_hitstat == "0"){
+            if(values.attack1_damstat == "0"){
                 dammod = values.awrmod;
-            } else if(values.attack1_hitstat == "1"){
+            } else if(values.attack1_damstat == "1"){
                 dammod = values.chamod;
-            } else if(values.attack1_hitstat == "2"){
+            } else if(values.attack1_damstat == "2"){
                 dammod = values.cormod;
-            } else if(values.attack1_hitstat == "3"){
+            } else if(values.attack1_damstat == "3"){
                 dammod = values.intmod;
-            } else if(values.attack1_hitstat == "4"){
+            } else if(values.attack1_damstat == "4"){
                 dammod = values.strmod;
-            } else if(values.attack1_hitstat == "5"){
+            } else if(values.attack1_damstat == "5"){
                 dammod = values.wsdmod;
             }
             else{
@@ -1326,15 +1377,15 @@
             let dammod = 0;
             if(values.attack2_hitstat == "0"){
                 dammod = values.awrmod;
-            } else if(values.attack2_hitstat == "1"){
+            } else if(values.attack2_damstat == "1"){
                 dammod = values.chamod;
-            } else if(values.attack2_hitstat == "2"){
+            } else if(values.attack2_damstat == "2"){
                 dammod = values.cormod;
-            } else if(values.attack2_hitstat == "3"){
+            } else if(values.attack2_damstat == "3"){
                 dammod = values.intmod;
-            } else if(values.attack2_hitstat == "4"){
+            } else if(values.attack2_damstat == "4"){
                 dammod = values.strmod;
-            } else if(values.attack2_hitstat == "5"){
+            } else if(values.attack2_damstat == "5"){
                 dammod = values.wsdmod;
             }
             else{
@@ -1368,15 +1419,15 @@
             let dammod = 0;
             if(values.attack3_hitstat == "0"){
                 dammod = values.awrmod;
-            } else if(values.attack3_hitstat == "1"){
+            } else if(values.attack3_damstat == "1"){
                 dammod = values.chamod;
-            } else if(values.attack3_hitstat == "2"){
+            } else if(values.attack3_damstat == "2"){
                 dammod = values.cormod;
-            } else if(values.attack3_hitstat == "3"){
+            } else if(values.attack3_damstat == "3"){
                 dammod = values.intmod;
-            } else if(values.attack3_hitstat == "4"){
+            } else if(values.attack3_damstat == "4"){
                 dammod = values.strmod;
-            } else if(values.attack3_hitstat == "5"){
+            } else if(values.attack3_damstat == "5"){
                 dammod = values.wsdmod;
             }
             else{
