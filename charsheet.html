@@ -9,7 +9,7 @@
 <body>
 
 <!-- Left sidebar div containing stats and traits -->
-<div style="width:215;position:absolute;">
+<div style="width:175;position:absolute;">
 
 <table style="width:165px;margin-bottom:8px;">
 <td>
@@ -26,103 +26,91 @@
 </td>
 </table>
 
-<table style="width:205px;margin-bottom:8px;">
+<table style="width:165px;margin-bottom:8px;">
 <td>
-	<h4>Charisma:</h4>
-    <input type="checkbox" name="attr_convince_spec" value="1">
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Charisma</h4>
+	
     <input type="number" name="attr_convince_mod" step="1" value="0"/>
     <button type="action" name="act_convince">Convince</button>
     <br>
-    <input type="checkbox" name="attr_flair_spec" value="1">
     <input type="number" name="attr_flair_mod" step="1" value="0"/>
     <button type="action" name="act_flair">Flair</button>
     <br>
-    <input type="checkbox" name="attr_interaction_spec" value="1">
     <input type="number" name="attr_interaction_mod" step="1" value="0"/>
     <button type="action" name="act_interaction">Interaction</button>
 </td>
 </table>
 
-<table style="width:205px;margin-bottom:8px;">
+<table style="width:165px;margin-bottom:8px;">
 <td>
-	<h4>Coordination:</h4>
-    <input type="checkbox" name="attr_agility_spec" value="1">
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Coordination</h4>
+	
     <input type="number" name="attr_agility_mod" step="1" value="0"/>
     <button type="action" name="act_agility">Agility</button>
     <br>
-    <input type="checkbox" name="attr_dexterity_spec" value="1">
     <input type="number" name="attr_dexterity_mod" step="1" value="0"/>
     <button type="action" name="act_dexterity">Dexterity</button>
     <br>
-    <input type="checkbox" name="attr_stealth_spec" value="1">
     <input type="number" name="attr_stealth_mod" step="1" value="0"/>
     <button type="action" name="act_stealth">Stealth</button>
 </td>
 </table>
 
-<table style="width:205px;margin-bottom:8px;">
+<table style="width:165px;margin-bottom:8px;">
 <td>
-	<h4>Intelligence:</h4>    
-    <input type="checkbox" name="attr_knowledge_spec" value="1">
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Intelligence</h4>
+	
     <input type="number" name="attr_knowledge_mod" step="1" value="0"/>
     <button type="action" name="act_knowledge">Knowledge</button>
     <br>
-    <input type="checkbox" name="attr_magic_spec" value="1">
     <input type="number" name="attr_magic_mod" step="1" value="0"/>
     <button type="action" name="act_magic">Magic</button>
     <br>
-    <input type="checkbox" name="attr_medicine_spec" value="1">
     <input type="number" name="attr_medicine_mod" step="1" value="0"/>
     <button type="action" name="act_medicine">Medicine</button>
 </td>
 </table>
 
-<table style="width:205px;margin-bottom:8px;">
+<table style="width:165px;margin-bottom:8px;">
 <td>
-	<h4>Strength:</h4>
-    <input type="checkbox" name="attr_grip_spec" value="1">
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Strength</h4>
+	
     <input type="number" name="attr_grip_mod" step="1" value="0"/>
     <button type="action" name="act_grip">Grip</button>
     <br>
-    <input type="checkbox" name="attr_physicality_spec" value="1">
     <input type="number" name="attr_physicality_mod" step="1" value="0"/>
     <button type="action" name="act_physicality">Physicality</button>
     <br>
-    <input type="checkbox" name="attr_presence_spec" value="1">
     <input type="number" name="attr_presence_mod" step="1" value="0"/>
     <button type="action" name="act_presence">Presence</button>
 </td>
 </table>
 
-<table style="width:205px;margin-bottom:8px;">
+<table style="width:165px;margin-bottom:8px;">
 <td>
-	<h4>Resolve:</h4>
-    <input type="checkbox" name="attr_resistance_spec" value="1">
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Resolve</h4>
+	
     <input type="number" name="attr_resistance_mod" step="1" value="0"/>
     <button type="action" name="act_resistance">Resistance</button>
     <br>
-    <input type="checkbox" name="attr_restore_spec" value="1">
     <input type="number" name="attr_restore_mod" step="1" value="0"/>
     <button type="action" name="act_restore">Restore</button>
     <br>
-    <input type="checkbox" name="attr_willpower_spec" value="1">
     <input type="number" name="attr_willpower_mod" step="1" value="0"/>
     <button type="action" name="act_willpower">Willpower</button>
 </td>
 </table>
 
-<table style="width:205px;margin-bottom:8px;">
+<table style="width:165px;margin-bottom:8px;">
 <td>
-	<h4>Withstand:</h4>
-    <input type="checkbox" name="attr_endure_spec" value="1">
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Withstand</h4>
+	
     <input type="number" name="attr_endure_mod" step="1" value="0"/>
     <button type="action" name="act_endure">Endure</button>
     <br>
-    <input type="checkbox" name="attr_recovery_spec" value="1">
     <input type="number" name="attr_recovery_mod" step="1" value="0"/>
     <button type="action" name="act_recovery">Recovery</button>
     <br>
-    <input type="checkbox" name="attr_toughness_spec" value="1">
     <input type="number" name="attr_toughness_mod" step="1" value="0"/>
     <button type="action" name="act_toughness">Toughness</button>
 </td>
@@ -264,7 +252,7 @@
             <input type="number" name="attr_temphp_max" />
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Fatigue</h4>
+		    <h4>Death Stacks</h4>
 			<br>
             <input type="number" name="attr_fatigue" />
 			<br>
@@ -314,15 +302,12 @@
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
 			<div style="display: table-cell;">
-				<input type="checkbox" name="attr_block_spec" value="1">
 				<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
 				<button type="action" name="act_block">Block</button>
 				<br>
-				<input type="checkbox" name="attr_dodge_spec" value="1">
 				<input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
 				<button type="action" name="act_dodge">Dodge</button>
 				<br>
-				<input type="checkbox" name="attr_parry_spec" value="1">
 				<input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
 				<button type="action" name="act_parry">Parry</button>
 			</div>
@@ -488,32 +473,8 @@
 		    <input type="text" name="attr_attack1name">
 		</td>
 		<td>
-		    <input type="checkbox" name="attr_attack1_spec" value="1">
-            <input type="number" name="attr_attack1_hitvalue" step="1" value="0" readonly="true"/>
-		    <select name="attr_attack1_hitstat">
-                <option value="0">Awareness</option>
-                <option value="1">Charisma</option>
-                <option value="2" selected="selected">Coordination</option>
-                <option value="3">Intelligence</option>
-                <option value="4">Strength</option>
-                <option value="5">Withstand</option>
-                <option value="6">Resolve</option>
-            </select>
-		</td>
-		<td>
 		    <input type="text" name="attr_attack1_damage"/>
 		    <input type="text" name="attr_attack1_damagetypes"/>
-		</td>
-		<td>
-		    <select name="attr_attack1_damstat">
-                <option value="0">Awareness</option>
-                <option value="1">Charisma</option>
-                <option value="2">Coordination</option>
-                <option value="3">Intelligence</option>
-                <option value="4" selected="selected">Strength</option>
-                <option value="5">Withstand</option>
-                <option value="6">Resolve</option>
-            </select>
 		</td>
 		<td>
             <input type="number" name="attr_attack1_crit" step="1" value="0"/>
@@ -532,32 +493,8 @@
 		    <input type="text" name="attr_attack2name">
 		</td>
 		<td>
-		    <input type="checkbox" name="attr_attack2_spec" value="1">
-            <input type="number" name="attr_attack2_hitvalue" step="1" value="0" readonly="true"/>
-		    <select name="attr_attack2_hitstat">
-                <option value="0">Awareness</option>
-                <option value="1">Charisma</option>
-                <option value="2" selected="selected">Coordination</option>
-                <option value="3">Intelligence</option>
-                <option value="4">Strength</option>
-                <option value="5">Withstand</option>
-                <option value="6">Resolve</option>
-            </select>
-		</td>
-		<td>
 		    <input type="text" name="attr_attack2_damage"/>
 		    <input type="text" name="attr_attack2_damagetypes"/>
-		</td>
-		<td>
-		    <select name="attr_attack2_damstat">
-                <option value="0">Awareness</option>
-                <option value="1">Charisma</option>
-                <option value="2">Coordination</option>
-                <option value="3">Intelligence</option>
-                <option value="4" selected="selected">Strength</option>
-                <option value="5">Withstand</option>
-                <option value="6">Resolve</option>
-            </select>
 		</td>
 		<td>
             <input type="number" name="attr_attack2_crit" step="1" value="0"/>
@@ -575,32 +512,8 @@
 		    <input type="text" name="attr_attack3name">
 		</td>
 		<td>
-		    <input type="checkbox" name="attr_attack3_spec" value="1">
-            <input type="number" name="attr_attack3_hitvalue" step="1" value="0" readonly="true"/>
-		    <select name="attr_attack3_hitstat">
-                <option value="0">Awareness</option>
-                <option value="1">Charisma</option>
-                <option value="2" selected="selected">Coordination</option>
-                <option value="3">Intelligence</option>
-                <option value="4">Strength</option>
-                <option value="5">Withstand</option>
-                <option value="6">Resolve</option>
-            </select>
-		</td>
-		<td>
 		    <input type="text" name="attr_attack3_damage"/>
 		    <input type="text" name="attr_attack3_damagetypes"/>
-		</td>
-		<td>
-		    <select name="attr_attack3_damstat">
-                <option value="0">Awareness</option>
-                <option value="1">Charisma</option>
-                <option value="2">Coordination</option>
-                <option value="3">Intelligence</option>
-                <option value="4" selected="selected">Strength</option>
-                <option value="5">Withstand</option>
-                <option value="6">Resolve</option>
-            </select>
 		</td>
 		<td>
             <input type="number" name="attr_attack3_crit" step="1" value="0"/>
