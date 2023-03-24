@@ -6,11 +6,14 @@
 <link rel="stylesheet" href="charsheet.css">
 </head>
 
+<!-- TODO: remove this tag when integrating as well, as it apparently causes errors with Roll20's API. -->
 <body>
 
 <!-- Left sidebar div containing stats and traits -->
-<div style="width:175;position:absolute;">
+<div style="width:175px;position:absolute;">
 
+
+<!-- TODO: make these not tables. -->
 <table style="width:165px;margin-bottom:8px;">
 <td>
 	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Awareness</h4>
@@ -36,8 +39,8 @@
     <input type="number" name="attr_flair_mod" step="1" value="0"/>
     <button type="action" name="act_flair">Flair</button>
     <br>
-    <input type="number" name="attr_interaction_mod" step="1" value="0"/>
-    <button type="action" name="act_interaction">Interaction</button>
+    <input type="number" name="attr_performance_mod" step="1" value="0"/>
+    <button type="action" name="act_performance">Performance</button>
 </td>
 </table>
 
@@ -58,16 +61,46 @@
 
 <table style="width:165px;margin-bottom:8px;">
 <td>
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Endurance</h4>
+	
+    <input type="number" name="attr_endure_mod" step="1" value="0"/>
+    <button type="action" name="act_endure">Constitution</button>
+    <br>
+    <input type="number" name="attr_recovery_mod" step="1" value="0"/>
+    <button type="action" name="act_recovery">Persistance</button>
+    <br>
+    <input type="number" name="attr_toughness_mod" step="1" value="0"/>
+    <button type="action" name="act_toughness">Toughness</button>
+</td>
+</table>
+
+<table style="width:165px;margin-bottom:8px;">
+<td>
 	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Intelligence</h4>
 	
+    <input type="number" name="attr_engineering_mod" step="1" value="0"/>
+    <button type="action" name="act_engineering">Engineering</button>
+	<br>
     <input type="number" name="attr_knowledge_mod" step="1" value="0"/>
     <button type="action" name="act_knowledge">Knowledge</button>
     <br>
     <input type="number" name="attr_magic_mod" step="1" value="0"/>
     <button type="action" name="act_magic">Magic</button>
+</td>
+</table>
+
+<table style="width:165px;margin-bottom:8px;">
+<td>
+	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Spirit</h4>
+	
+    <input type="number" name="attr_resistance_mod" step="1" value="0"/>
+    <button type="action" name="act_resistance">Faith</button>
     <br>
-    <input type="number" name="attr_medicine_mod" step="1" value="0"/>
-    <button type="action" name="act_medicine">Medicine</button>
+    <input type="number" name="attr_restore_mod" step="1" value="0"/>
+    <button type="action" name="act_restore">Interaction</button>
+    <br>
+    <input type="number" name="attr_willpower_mod" step="1" value="0"/>
+    <button type="action" name="act_willpower">Willpower</button>
 </td>
 </table>
 
@@ -86,40 +119,10 @@
 </td>
 </table>
 
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Resolve</h4>
-	
-    <input type="number" name="attr_resistance_mod" step="1" value="0"/>
-    <button type="action" name="act_resistance">Resistance</button>
-    <br>
-    <input type="number" name="attr_restore_mod" step="1" value="0"/>
-    <button type="action" name="act_restore">Restore</button>
-    <br>
-    <input type="number" name="attr_willpower_mod" step="1" value="0"/>
-    <button type="action" name="act_willpower">Willpower</button>
-</td>
-</table>
-
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Withstand</h4>
-	
-    <input type="number" name="attr_endure_mod" step="1" value="0"/>
-    <button type="action" name="act_endure">Endure</button>
-    <br>
-    <input type="number" name="attr_recovery_mod" step="1" value="0"/>
-    <button type="action" name="act_recovery">Recovery</button>
-    <br>
-    <input type="number" name="attr_toughness_mod" step="1" value="0"/>
-    <button type="action" name="act_toughness">Toughness</button>
-</td>
-</table>
-
 </div>
 
 <!-- Main div containing everything else -->
-<div style="margin-left:215px;">
+<div style="margin-left:175px;">
 
 <div style="width:860px; margin: 0px auto;">
 <h1>Fearless Freedom Character Sheet</h1>
@@ -141,7 +144,7 @@
             <input type="number" name="attr_advantage" size="3" step="1" value="0">
 	    </td>
 	    <td>
-		    <!-- If toggled, this will reset the player's stacks of advantage after each roll -->
+		    <!-- TODO: If toggled, this will reset the player's stacks of advantage after each roll -->
 	        <h4 class="sheet-template-container" style="display:none;">Hide Roll:</h4>
 		</td>
 		<td>
@@ -455,14 +458,7 @@
 		    <h4>Damage:</h4>
 		</td>
 		<td>
-		    <h4>Dmg. Stat<h4>
-		</td>
-		<td>
 		    <h4>Crit Dmg.<h4>
-		</td>
-		<td></td>
-		<td>
-		    <h4>Fumble Dmg.<h4>
 		</td>
 	<tr>
 	<tr>
@@ -479,7 +475,6 @@
 		<td>
             <input type="number" name="attr_attack1_crit" step="1" value="0"/>
         </td>
-		<td></td>
         <td>
             <input type="number" name="attr_attack1_fumble" step="1" value="0"/>
         </td>
@@ -499,7 +494,6 @@
 		<td>
             <input type="number" name="attr_attack2_crit" step="1" value="0"/>
         </td>
-		<td></td>
         <td>
             <input type="number" name="attr_attack2_fumble" step="1" value="0"/>
         </td>
@@ -518,7 +512,6 @@
 		<td>
             <input type="number" name="attr_attack3_crit" step="1" value="0"/>
         </td>
-		<td></td>
         <td>
             <input type="number" name="attr_attack3_fumble" step="1" value="0"/>
         </td>
@@ -669,6 +662,7 @@
     
     
     //Blocks of code to initiate rolls
+	//TODO: actually all of this has to be redone
     {
     
     //advRoll arguments:
@@ -721,7 +715,7 @@
     
     on('clicked:interaction', (info) => {
         getAttrs(["chamod", "interaction_spec"], function(values) {
-            advRoll("trait", "Interaction", values.chamod, null, null, null, null, values.interaction_spec, null);
+            advRoll("trait", "Performance", values.chamod, null, null, null, null, values.interaction_spec, null);
         });
     });
     }
@@ -980,25 +974,28 @@
     
     
     
-    //Function to roll a number with (dis)advantage
-    const advRoll = (type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2) => {
-        getAttrs(["advantage", "disadvantage", "specialty", "gmroll"], function(values) {
-            //get current advantage/specialty value
-            let advan = parseInt(values.advantage) - parseInt(values.disadvantage);
-            let spec = parseInt(values.specialty) * spec_bool;
-            let spec2 = parseInt(values.specialty) * spec_bool2;
+    //Function to make a dice roll
+	//TODO: const _makeRoll = (type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2) => {
+	const _makeRoll = (rollname, rolltype, bonus, rolldice) => {
+        getAttrs(["advantage", "gmroll", "character_name"], function(values) {
+            //get global values
+            let advan = parseInt(values.advantage);
             let hiddenroll = parseInt(values.gmroll);
+			let charname = parseInt(values.character_name);
             
+			//determine dice roll
             let rolltext = "";
             if(advan >= 0){
                 //If player has advantage, take highest
-                rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${stat} + ${spec}`
+                rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${bonus}`
             } else {
                 //If player has disadvanatage, take lowest
                 //I have no idea why "2 + ${advan} * -1" works, but "2 - ${advan}" doesn't
-                rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${stat} + ${spec}`
+                rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${bonus}`
             }
             
+			
+			
             let damagetext = "0";
             let crittext = "0";
             let mintext = "0";
@@ -1016,6 +1013,7 @@
                 rolltype = "1"
             }
             
+			//TODO: old
             //Function to make rolls is part of Roll20's API
             //name      = name of roll
             //type1     = type of roll (attack/trait/defense)
@@ -1027,6 +1025,19 @@
             //damage2   = extra damage to add on a crit
             //damage3   = minimum damage to set roll to on a fumble
             //hide1     = whether the roll should be hidden for only the GM to see
+			
+			//TODO: roll parameters::
+			//>Name of roll
+			//>Name of roll's instigator
+			//>Type of roll (whether should do damage, whether thrown or spellcast, etc.)
+			//>Bonus to the roll
+			//>Amount of advantage on the roll
+			//>Type of dice to roll
+			//>Damage required
+			//??Extra damage on a crit
+			//>Whether the roll should be hidden
+			//??Can you decompose rolls? Because if so, then it'd be great to show every roll immediately with advantage
+			//??In fact, whether the roll's internals should be shown at all is a legitimate question
             startRoll(`&{template:r_template} {{name=${name}}} {{type1=[[${rolltype}]]}} {{advan1=${advan}}} {{stat1=${stat}}} {{spec1=${spec}}} {{roll1=[[${rolltext}]]}} {{damage1=[[${damagetext}]]}} {{damage2=[[${crittext}]]}} {{damage3=[[${mintext}]]}} {{hide=[[${hiddenroll}d1]]}}`, (results) => {
                 let original = results.results.roll1.result
                 let computed = original - spec - stat;
