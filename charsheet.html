@@ -1,177 +1,167 @@
-<!DOCTYPE html>
-<html>
-
-<!-- TODO: Remove when integrating into Roll20 -->
-<head>
-<link rel="stylesheet" href="charsheet.css">
-</head>
-
-<!-- TODO: remove this tag when integrating as well, as it apparently causes errors with Roll20's API. -->
-<body>
+<div class="background-type"></div> <!--TODO: make bottom of the page update based on page size using javascript. Might be possible? -->
 
 <!-- Left sidebar div containing stats and traits -->
 <div style="width:175px;position:absolute;">
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+		<h4 style="margin:0px; margin-bottom:3px; text-align:center">Trait Total</h4>
+		<input type="number" name="attr_totaltrait" readonly="true" style="float:right;"/>
+		<h4 class="sheet-template-container" style="display:none;">Hide Roll:</h4>
+        <input type="checkbox" name="attr_gmroll" value="1" class="sheet-template-container" style="display:none;">
+	</div>
 
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Awareness</h4>
+		
+		<input type="number" name="attr_detection_mod" step="1" value="0"/>
+		<button type="action" name="act_detection">Detection</button>
+		<input type="checkbox" name="attr_detection_change">
+		<br>
+		<input type="number" name="attr_intuition_mod" step="1" value="0"/>
+		<button type="action" name="act_intuition">Intuition</button>
+		<input type="checkbox" name="attr_intuition_change">
+		<br>
+		<input type="number" name="attr_wilderness_mod" step="1" value="0"/>
+		<button type="action" name="act_wilderness">Wilderness</button>
+		<input type="checkbox" name="attr_wilderness_change">
+	</div>
 
-<!-- TODO: make these not tables. -->
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Awareness</h4>
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Charisma</h4>
+		
+		<input type="number" name="attr_convince_mod" step="1" value="0"/>
+		<button type="action" name="act_convince">Convince</button>
+		<input type="checkbox" name="attr_convince_change">
+		<br>
+		<input type="number" name="attr_flair_mod" step="1" value="0"/>
+		<button type="action" name="act_flair">Flair</button>
+		<input type="checkbox" name="attr_flair_change">
+		<br>
+		<input type="number" name="attr_performance_mod" step="1" value="0"/>
+		<button type="action" name="act_performance">Performance</button>
+		<input type="checkbox" name="attr_performance_change">
+	</div>
+
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Coordination</h4>
+		
+		<input type="number" name="attr_agility_mod" step="1" value="0"/>
+		<button type="action" name="act_agility">Agility</button>
+		<input type="checkbox" name="attr_agility_change">
+		<br>
+		<input type="number" name="attr_dexterity_mod" step="1" value="0"/>
+		<button type="action" name="act_dexterity">Dexterity</button>
+		<input type="checkbox" name="attr_dexterity_change">
+		<br>
+		<input type="number" name="attr_stealth_mod" step="1" value="0"/>
+		<button type="action" name="act_stealth">Stealth</button>
+		<input type="checkbox" name="attr_stealth_change">
+	</div>
+
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Endurance</h4>
+		
+		<input type="number" name="attr_constitution_mod" step="1" value="0"/>
+		<button type="action" name="act_constitution">Constitution</button>
+		<input type="checkbox" name="attr_constitution_change">
+		<br>
+		<input type="number" name="attr_persistence_mod" step="1" value="0"/>
+		<button type="action" name="act_persistence">Persistence</button>
+		<input type="checkbox" name="attr_persistence_change">
+		<br>
+		<input type="number" name="attr_toughness_mod" step="1" value="0"/>
+		<button type="action" name="act_toughness">Toughness</button>
+		<input type="checkbox" name="attr_toughness_change">
+	</div>
+
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Intelligence</h4>
+		
+		<input type="number" name="attr_engineering_mod" step="1" value="0"/>
+		<button type="action" name="act_engineering">Engineering</button>
+		<input type="checkbox" name="attr_engineering_change">
+		<br>
+		<input type="number" name="attr_knowledge_mod" step="1" value="0"/>
+		<button type="action" name="act_knowledge">Knowledge</button>
+		<input type="checkbox" name="attr_knowledge_change">
+		<br>
+		<input type="number" name="attr_magic_mod" step="1" value="0"/>
+		<button type="action" name="act_magic">Magic</button>
+		<input type="checkbox" name="attr_magic_change">
+	</div>
+
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Power</h4>
+		
+		<input type="number" name="attr_grip_mod" step="1" value="0"/>
+		<button type="action" name="act_grip">Grip</button>
+		<input type="checkbox" name="attr_grip_change">
+		<br>
+		<input type="number" name="attr_physicality_mod" step="1" value="0"/>
+		<button type="action" name="act_physicality">Physicality</button>
+		<input type="checkbox" name="attr_physicality_change">
+		<br>
+		<input type="number" name="attr_presence_mod" step="1" value="0"/>
+		<button type="action" name="act_presence">Presence</button>
+		<input type="checkbox" name="attr_presence_change">
+	</div>
 	
-    <input type="number" name="attr_detection_mod" step="1" value="0"/>
-    <button type="action" name="act_detection">Detection</button>
-    <br>
-    <input type="number" name="attr_intuition_mod" step="1" value="0"/>
-    <button type="action" name="act_intuition">Intuition</button>
-    <br>
-    <input type="number" name="attr_wilderness_mod" step="1" value="0"/>
-    <button type="action" name="act_wilderness">Wilderness</button>
-</td>
-</table>
-
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Charisma</h4>
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Spirit</h4>
+		
+		<input type="number" name="attr_faith_mod" step="1" value="0"/>
+		<button type="action" name="act_faith">Faith</button>
+		<input type="checkbox" name="attr_faith_change">
+		<br>
+		<input type="number" name="attr_interaction_mod" step="1" value="0"/>
+		<button type="action" name="act_interaction">Interaction</button>
+		<input type="checkbox" name="attr_interaction_change">
+		<br>
+		<input type="number" name="attr_willpower_mod" step="1" value="0"/>
+		<button type="action" name="act_willpower">Willpower</button>
+		<input type="checkbox" name="attr_willpower_change">
+	</div>
 	
-    <input type="number" name="attr_convince_mod" step="1" value="0"/>
-    <button type="action" name="act_convince">Convince</button>
-    <br>
-    <input type="number" name="attr_flair_mod" step="1" value="0"/>
-    <button type="action" name="act_flair">Flair</button>
-    <br>
-    <input type="number" name="attr_performance_mod" step="1" value="0"/>
-    <button type="action" name="act_performance">Performance</button>
-</td>
-</table>
-
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Coordination</h4>
-	
-    <input type="number" name="attr_agility_mod" step="1" value="0"/>
-    <button type="action" name="act_agility">Agility</button>
-    <br>
-    <input type="number" name="attr_dexterity_mod" step="1" value="0"/>
-    <button type="action" name="act_dexterity">Dexterity</button>
-    <br>
-    <input type="number" name="attr_stealth_mod" step="1" value="0"/>
-    <button type="action" name="act_stealth">Stealth</button>
-</td>
-</table>
-
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Endurance</h4>
-	
-    <input type="number" name="attr_endure_mod" step="1" value="0"/>
-    <button type="action" name="act_endure">Constitution</button>
-    <br>
-    <input type="number" name="attr_recovery_mod" step="1" value="0"/>
-    <button type="action" name="act_recovery">Persistance</button>
-    <br>
-    <input type="number" name="attr_toughness_mod" step="1" value="0"/>
-    <button type="action" name="act_toughness">Toughness</button>
-</td>
-</table>
-
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Intelligence</h4>
-	
-    <input type="number" name="attr_engineering_mod" step="1" value="0"/>
-    <button type="action" name="act_engineering">Engineering</button>
-	<br>
-    <input type="number" name="attr_knowledge_mod" step="1" value="0"/>
-    <button type="action" name="act_knowledge">Knowledge</button>
-    <br>
-    <input type="number" name="attr_magic_mod" step="1" value="0"/>
-    <button type="action" name="act_magic">Magic</button>
-</td>
-</table>
-
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Spirit</h4>
-	
-    <input type="number" name="attr_resistance_mod" step="1" value="0"/>
-    <button type="action" name="act_resistance">Faith</button>
-    <br>
-    <input type="number" name="attr_restore_mod" step="1" value="0"/>
-    <button type="action" name="act_restore">Interaction</button>
-    <br>
-    <input type="number" name="attr_willpower_mod" step="1" value="0"/>
-    <button type="action" name="act_willpower">Willpower</button>
-</td>
-</table>
-
-<table style="width:165px;margin-bottom:8px;">
-<td>
-	<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Strength</h4>
-	
-    <input type="number" name="attr_grip_mod" step="1" value="0"/>
-    <button type="action" name="act_grip">Grip</button>
-    <br>
-    <input type="number" name="attr_physicality_mod" step="1" value="0"/>
-    <button type="action" name="act_physicality">Physicality</button>
-    <br>
-    <input type="number" name="attr_presence_mod" step="1" value="0"/>
-    <button type="action" name="act_presence">Presence</button>
-</td>
-</table>
-
+	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
+	    <input type="checkbox" name="attr_mb">
+		<input type="number" name="attr_melee_mod" step="1" value="3"/>
+		<h4>Melee Bonus</h4>
+		<br>
+		<input type="checkbox" name="attr_rb">
+		<input type="number" name="attr_ranged_mod" step="1" value="3"/>
+		<h4>Ranged Bonus</h4>
+		<br>
+		<input type="checkbox" name="attr_tb">
+		<input type="number" name="attr_thrown_mod" step="1" value="3"/>
+		<h4>Thrown Bonus</h4>
+		<br>
+		<input type="checkbox" name="attr_sb">
+		<input type="number" name="attr_spell_mod" step="1" value="3"/>
+		<h4>Spell Bonus</h4>
+		<br>
+		<input type="checkbox" name="attr_bb">
+		<input type="number" name="attr_block_mod" step="1" value="0"/>
+		<h4>Block Bonus</h4>
+		<br>
+		<input type="checkbox" name="attr_db">
+		<input type="number" name="attr_dodge_mod" step="1" value="0"/>
+		<h4>Dodge Bonus</h4>
+		<br>
+		<input type="checkbox" name="attr_pb">
+		<input type="number" name="attr_parry_mod" step="1" value="0"/>
+		<h4>Parry Bonus</h4>
+		<br>
+		<input type="checkbox" name="attr_shield_bonus">
+		<input type="number" name="attr_shield_mod" step="1" value="0"/>
+		<h4>Shield</h4>
+	</div>
 </div>
 
 <!-- Main div containing everything else -->
-<div style="margin-left:175px;">
+<div style="margin-left:195px;position:absolute;width:800px;">
 
-<div style="width:860px; margin: 0px auto;">
-<h1>Fearless Freedom Character Sheet</h1>
+<h1 style="margin-left:150px;">Legends Unbound Character Sheet</h1>
 
-<!-- Div puts advantage in the top right where it is easily accessible -->
-<table style="float:right; margin-bottom:5px;">
-    <tr>
-	    <td>
-            <h4>Level:</h4>
-		</td>
-		<td>
-            <input type="number" name="attr_level">
-	    </td>
-		<td>
-		    <!-- This controls how many stacks of advantage a player will have whenever they roll the dice -->
-            <h4>Advantage:</h4>
-		</td>
-		<td>
-            <input type="number" name="attr_advantage" size="3" step="1" value="0">
-	    </td>
-	    <td>
-		    <!-- TODO: If toggled, this will reset the player's stacks of advantage after each roll -->
-	        <h4 class="sheet-template-container" style="display:none;">Hide Roll:</h4>
-		</td>
-		<td>
-	        <input type="checkbox" name="attr_gmroll" value="1" class="sheet-template-container" style="display:none;">
-	    </td>
-	</tr>
-	<tr>
-	    <td>
-		    <h4>Specialty:</h4>
-		</td>
-	    <td>
-		    <input type="number" style="width:40px;" name="attr_specialty" value="0" readonly="true"/>
-		</td>
-		<td>
-		    <!-- A separate field of keeping track of disadvantage -->
-            <h4>Disadvantage:</h4>
-		</td>
-		<td>
-            <input type="number" name="attr_disadvantage" size="3" step="1" value="0">
-	    </td>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
-
-<br>
-<br>
+<br><br>
 
 <!-- Section containing information about the character -->
 <!-- Warning! Each input field must contain a name or else the information is not stored between sessions -->
@@ -181,7 +171,6 @@
             <h4>Name:</h4>
         </td>
         <td>
-			<!-- TODO: Make the rolls include the character's name if possible -->
             <input type="text" name="attr_character_name" />
         </td>
 		
@@ -222,16 +211,39 @@
         </td>
     </tr>
 </table>
-</div>
 
 <br>
 
 <table style="text-align:center;margin:0px auto;">
     <tr>
 	    <td style="padding:8px; border:1px grey solid;">
+            <h4>Trait Advan.:</h4>
+			<br>
+			<input type="number" name="attr_traitadvan" step="1" value="0">
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Attack Advan.:</h4>
+			<br>
+			<input type="number" name="attr_attackadvan" step="1" value="0">
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Defense Advan.:</h4>
+			<br>
+			<input type="number" name="attr_defenseadvan" step="1" value="0">
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<table style="text-align:center;margin:0px auto;">
+    <tr>
+	    <td style="padding:8px; border:1px grey solid;">
+	        <input type="checkbox" name="attr_traitcheck_change">
+		    <br>
 		    <h4>TC</h4>
 			<br>
-            <input type="number" name="attr_traitcheck" readonly="true"/>
+            <input type="number" name="attr_traitcheck"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
 		    <h4>Hit Dice</h4>
@@ -241,6 +253,8 @@
             <input type="text" name="attr_healthdice_type" style="width:50px;"/>
 		</td>
 	    <td style="padding:8px; border:1px grey solid;">
+	        <input type="checkbox" name="attr_health_change">
+		    <br>
 		    <h4>Health</h4>
 			<br>
             <input type="number" name="attr_health" />
@@ -248,48 +262,38 @@
             <input type="number" name="attr_health_max" />
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Temp HP</h4>
+		    <input type="checkbox" name="attr_deathmod_change">
+		    <br>
+		    <h4>Death</h4>
 			<br>
-            <input type="number" name="attr_temphp" />
+            <input type="number" name="attr_death_mod" />
 			<br>
-            <input type="number" name="attr_temphp_max" />
+            <button type="action" style="width:40px;" name="act_deathroll">Roll</button>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
 		    <h4>Death Stacks</h4>
 			<br>
-            <input type="number" name="attr_fatigue" />
+            <input type="number" name="attr_deathstacks" />
 			<br>
-            <input type="number" name="attr_fatigue_max" value="6" readonly="true" style="width:40px"/>
+            <input type="number" name="attr_deathstacks_max" value="6"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
 		    <h4>Nat. Armor</h4>
 			<br>
             <input type="number" name="attr_natarmor" />
 			<br>
-            <input type="number" name="attr_natarmor_max" />
+            <input type="text" name="attr_natarmor_max" style="width:50px;" />
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
 		    <h4>Body Armor</h4>
 			<br>
             <input type="number" name="attr_bodyarmor" />
 			<br>
-            <input type="number" name="attr_bodyarmor_max" />
+            <input type="text" name="attr_bodyarmor_max" style="width:50px;" />
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Shield</h4>
-			<br>
-            <input type="number" name="attr_shield" />
-			<br>
-            <input type="number" name="attr_shield_max" />
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Concentration</h4>
-			<br>
-            <input type="number" name="attr_concentration" />
-			<br>
-            <input type="number" name="attr_concentration_max" readonly="true" />
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
+		    <input type="checkbox" name="attr_mana_change">
+		    <br>
 		    <h4>Mana</h4>
 			<br>
             <input type="number" name="attr_mana" />
@@ -304,68 +308,12 @@
             <input type="text" name="attr_manadice_type" style="width:50px;"/>
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
-			<div style="display: table-cell;">
-				<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
-				<button type="action" name="act_block">Block</button>
-				<br>
-				<input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
-				<button type="action" name="act_dodge">Dodge</button>
-				<br>
-				<input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
-				<button type="action" name="act_parry">Parry</button>
-			</div>
-		</td>
-	</tr>
-</table>
-
-<br>
-
-<table style="text-align:center;margin:0px auto;">
-    <tr>
-	    <td style="padding:8px; border:1px grey solid;">
-            <h4>Walking</h4>
+		    <input type="checkbox" name="attr_equip_change">
+		    <h4>Equip. Slots</h4>
 			<br>
-			<input type="number" name="attr_walking"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Swimming</h4>
+            <input type="number" name="attr_equipslots" />
 			<br>
-			<input type="number" name="attr_swimming"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Flying</h4>
-			<br>
-			<input type="number" name="attr_flying"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Hovering</h4>
-			<br>
-			<input type="number" name="attr_hovering"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Burrow</h4>
-			<br>
-			<input type="number" name="attr_burrow"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Climbing</h4>
-			<br>
-			<input type="number" name="attr_climbing"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Crawling</h4>
-			<br>
-			<input type="number" name="attr_crawling"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Long Jump</h4>
-			<br>
-			<input type="number" name="attr_longjump"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>High Jump</h4>
-			<br>
-			<input type="number" name="attr_highjump"/>
+            <input type="text" name="attr_equipslots_max" style="width:50px;"/>
 		</td>
 	</tr>
 </table>
@@ -378,66 +326,158 @@
             <h4>Blunt</h4>
 			<br>
 			<input type="number" name="attr_tolerance1"/>
+			<br>
+			<input type="checkbox" name="attr_blunt_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Caustic</h4>
 			<br>
 			<input type="number" name="attr_tolerance2"/>
+			<br>
+			<input type="checkbox" name="attr_caustic_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Cold</h4>
 			<br>
 			<input type="number" name="attr_tolerance3"/>
+			<br>
+			<input type="checkbox" name="attr_cold_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Death</h4>
 			<br>
 			<input type="number" name="attr_tolerance4"/>
+			<br>
+			<input type="checkbox" name="attr_death_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Electric</h4>
 			<br>
 			<input type="number" name="attr_tolerance5"/>
+			<br>
+			<input type="checkbox" name="attr_electric_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Heat</h4>
 			<br>
 			<input type="number" name="attr_tolerance6"/>
+			<br>
+			<input type="checkbox" name="attr_heat_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Light</h4>
 			<br>
 			<input type="number" name="attr_tolerance7"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Misc.</h4>
 			<br>
-			<input type="number" name="attr_tolerance8"/>
+			<input type="checkbox" name="attr_light_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Poison</h4>
 			<br>
 			<input type="number" name="attr_tolerance9"/>
+			<br>
+			<input type="checkbox" name="attr_poison_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Psychic</h4>
 			<br>
 			<input type="number" name="attr_tolerance10"/>
+			<br>
+			<input type="checkbox" name="attr_psychic_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Puncture</h4>
 			<br>
 			<input type="number" name="attr_tolerance11"/>
+			<br>
+			<input type="checkbox" name="attr_puncture_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Sharp</h4>
 			<br>
 			<input type="number" name="attr_tolerance12"/>
+			<br>
+			<input type="checkbox" name="attr_sharp_change">
 		</td>
 		<td style="padding:8px; border:1px grey solid;">
             <h4>Sound</h4>
 			<br>
 			<input type="number" name="attr_tolerance13"/>
+			<br>
+			<input type="checkbox" name="attr_sound_change">
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<table style="text-align:center;margin:0px auto;">
+    <tr>
+	    <td style="padding:8px; border:1px grey solid;">
+            <h4>Main Act.</h4>
+			<br>
+			<input type="checkbox" name="attr_ma1">
+			<br>
+			<input type="checkbox" name="attr_ma2">
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Tact Act.</h4>
+			<br>
+			<input type="checkbox" name="attr_ta1">
+			<br>
+			<input type="checkbox" name="attr_ta2">
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Hand 1</h4>
+			<br>
+			<input type="text"  name="attr_hand_1" style="width:90px;"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Hand 2</h4>
+			<br>
+			<input type="text"  name="attr_hand_2" style="width:90px;"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Walking</h4>
+			<br>
+			<input type="number" name="attr_walking"/>
+			<br>
+			<input type="number" name="attr_walking_max"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Swimming</h4>
+			<br>
+			<input type="number" name="attr_swimming"/>
+			<br>
+			<input type="number" name="attr_swimming_max"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Flying</h4>
+			<br>
+			<input type="number" name="attr_flying"/>
+			<br>
+			<input type="number" name="attr_flying_max"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Jumping</h4>
+			<br>
+			<input type="number" name="attr_jumping"/>
+			<br>
+			<input type="number" name="attr_jumping_max"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Burrowing</h4>
+			<br>
+			<input type="number" name="attr_burrowing"/>
+			<br>
+			<input type="number" name="attr_burrowing_max"/>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Hovering</h4>
+			<br>
+			<input type="number" name="attr_hovering"/>
+			<br>
+			<input type="number" name="attr_hovering_max"/>
 		</td>
 	</tr>
 </table>
@@ -446,103 +486,445 @@
 
 <table style="text-align:center;margin:0px auto;padding:5px;">
     <tr>
-	    <td>
+        <td></td>
+		<td>
+		    <h4>Weapon:</h4>
 		</td>
 		<td>
-		    <h4>Weapons:</h4>
-		</td>
-		<td>
-		    <h4>Hit Stat:</h4>
+		    <h4>Attack!</h4>
 		</td>
 		<td>
 		    <h4>Damage:</h4>
 		</td>
 		<td>
-		    <h4>Crit Dmg.<h4>
+		    <h4>Type(s):</h4>
 		</td>
-	<tr>
-	<tr>
 		<td>
-		    <button type="action" name="act_attack1">Attack!</button>
+		    <h4>Range<h4>
 		</td>
+		<td>
+		    <h4>Lethal<h4>
+		</td>
+	<tr>
+	<tr>
 	    <td>
-		    <input type="text" name="attr_attack1name">
+	        <input type="checkbox" name="attr_attack1_load" style="margin-left:5px;">
+	        <input type="checkbox" name="attr_attack1_charge" style="margin-right:5px;">
+	    </td>
+	    <td>
+		    <input type="text" name="attr_attack1_name">
+		</td>
+		<td>
+		    <button type="action" style="width:15px;" name="act_attack1_m">M</button>
+		    <button type="action" style="width:15px;" name="act_attack1_r">R</button>
+		    <button type="action" style="width:15px;" name="act_attack1_t">T</button>
+		    <button type="action" style="width:15px;" name="act_attack1_s">S</button>
 		</td>
 		<td>
 		    <input type="text" name="attr_attack1_damage"/>
+		</td>
+		<td>
 		    <input type="text" name="attr_attack1_damagetypes"/>
 		</td>
-		<td>
-            <input type="number" name="attr_attack1_crit" step="1" value="0"/>
+        <td>
+            <input type="number" name="attr_attack1_range" step="1" value="0"/>
         </td>
         <td>
-            <input type="number" name="attr_attack1_fumble" step="1" value="0"/>
+            <input type="number" name="attr_attack1_crit" step="1" value="0"/>
         </td>
 	</tr>
-	
 	<tr>
-		<td>
-		    <button type="action" name="act_attack2">Attack!</button>
-		</td>
 	    <td>
-		    <input type="text" name="attr_attack2name">
+	        <input type="checkbox" name="attr_attack2_load" style="margin-left:5px;">
+	        <input type="checkbox" name="attr_attack2_charge" style="margin-right:5px;">
+	    </td>
+	    <td>
+		    <input type="text" name="attr_attack2_name">
+		</td>
+		<td>
+		    <button type="action" style="width:15px;" name="act_attack2_m">M</button>
+		    <button type="action" style="width:15px;" name="act_attack2_r">R</button>
+		    <button type="action" style="width:15px;" name="act_attack2_t">T</button>
+		    <button type="action" style="width:15px;" name="act_attack2_s">S</button>
 		</td>
 		<td>
 		    <input type="text" name="attr_attack2_damage"/>
+		</td>
+		<td>
 		    <input type="text" name="attr_attack2_damagetypes"/>
 		</td>
 		<td>
-            <input type="number" name="attr_attack2_crit" step="1" value="0"/>
+            <input type="number" name="attr_attack2_range" step="1" value="0"/>
         </td>
-        <td>
-            <input type="number" name="attr_attack2_fumble" step="1" value="0"/>
+		<td>
+            <input type="number" name="attr_attack2_crit" step="1" value="0"/>
         </td>
 	</tr>
 	<tr>
-		<td>
-		    <button type="action" name="act_attack3">Attack!</button>
-		</td>
 	    <td>
-		    <input type="text" name="attr_attack3name">
+	        <input type="checkbox" name="attr_attack3_load" style="margin-left:5px;">
+	        <input type="checkbox" name="attr_attack3_charge" style="margin-right:5px;">
+	    </td>
+	    <td>
+		    <input type="text" name="attr_attack3_name">
+		</td>
+		<td>
+		    <button type="action" style="width:15px;" name="act_attack3_m">M</button>
+		    <button type="action" style="width:15px;" name="act_attack3_r">R</button>
+		    <button type="action" style="width:15px;" name="act_attack3_t">T</button>
+		    <button type="action" style="width:15px;" name="act_attack3_s">S</button>
 		</td>
 		<td>
 		    <input type="text" name="attr_attack3_damage"/>
+		</td>
+		<td>
 		    <input type="text" name="attr_attack3_damagetypes"/>
 		</td>
 		<td>
+            <input type="number" name="attr_attack3_range" step="1" value="0"/>
+        </td>
+		<td>
             <input type="number" name="attr_attack3_crit" step="1" value="0"/>
         </td>
-        <td>
-            <input type="number" name="attr_attack3_fumble" step="1" value="0"/>
+	</tr>
+	<tr>
+	    <td>
+	        <input type="checkbox" name="attr_attack4_load" style="margin-left:5px;">
+	        <input type="checkbox" name="attr_attack4_charge" style="margin-right:5px;">
+	    </td>
+	    <td>
+		    <input type="text" name="attr_attack4_name">
+		</td>
+		<td>
+		    <button type="action" style="width:15px;" name="act_attack4_m">M</button>
+		    <button type="action" style="width:15px;" name="act_attack4_r">R</button>
+		    <button type="action" style="width:15px;" name="act_attack4_t">T</button>
+		    <button type="action" style="width:15px;" name="act_attack4_s">S</button>
+		</td>
+		<td>
+		    <input type="text" name="attr_attack4_damage"/>
+		</td>
+		<td>
+		    <input type="text" name="attr_attack4_damagetypes"/>
+		</td>
+		<td>
+            <input type="number" name="attr_attack4_range" step="1" value="0"/>
+        </td>
+		<td>
+            <input type="number" name="attr_attack4_crit" step="1" value="0"/>
+        </td>
+	</tr>
+	<tr>
+	    <td>
+	        <input type="checkbox" name="attr_attack5_load" style="margin-left:5px;">
+	        <input type="checkbox" name="attr_attack5_charge" style="margin-right:5px;">
+	    </td>
+	    <td>
+		    <input type="text" name="attr_attack5_name">
+		</td>
+		<td>
+		    <button type="action" style="width:15px;" name="act_attack5_m">M</button>
+		    <button type="action" style="width:15px;" name="act_attack5_r">R</button>
+		    <button type="action" style="width:15px;" name="act_attack5_t">T</button>
+		    <button type="action" style="width:15px;" name="act_attack5_s">S</button>
+		</td>
+		<td>
+		    <input type="text" name="attr_attack5_damage"/>
+		</td>
+		<td>
+		    <input type="text" name="attr_attack5_damagetypes"/>
+		</td>
+		<td>
+            <input type="number" name="attr_attack5_range" step="1" value="0"/>
+        </td>
+		<td>
+            <input type="number" name="attr_attack5_crit" step="1" value="0"/>
         </td>
 	</tr>
 </table>
 
 <br>
 
-<div style="width:45%;text-align:center;display:inline-block;margin-left:3%">
-    <h4>Spells</h4><h4>
+<table style="text-align:center;margin:0px auto;">
+    <tr>
+	    <td style="padding:8px; border:1px grey solid;">
+            <button type="action" name="act_block" style="width:50px;">Block</button>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <button type="action" name="act_dodge" style="width:50px;">Dodge</button>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <button type="action" name="act_parry" style="width:50px;">Parry</button>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Status 1</h4>
+			<br>
+			<select name="attr_status1">
+				<option>None</option>
+				<option>Aggroed</option>
+                <option>Blinded</option>
+                <option>Charmed</option>
+                <option>Confused</option>
+                <option>Deafened</option>
+                <option>Doomed</option>
+                <option>Drunk</option>
+                <option>Entangled</option>
+                <option>Frightened</option>
+                <option>Grappled</option>
+                <option>Environmental</option>
+                <option>Paralyzed</option>
+                <option>Pinned</option>
+                <option>Poisoned</option>
+                <option>Silenced</option>
+                <option>Sleeping</option>
+                <option>Staggered</option>
+                <option>Suffocating</option>
+                <option>Wet</option>
+                <option>Lingering Bruise</option>
+                <option>Lingering Melt</option>
+                <option>Lingering Frostbite</option>
+                <option>Lingering Decay</option>
+                <option>Lingering Shock</option>
+                <option>Lingering Burn</option>
+                <option>Lingering Shine</option>
+                <option>Lingering Bleed</option>
+                <option>Lingering Toxin</option>
+                <option>Lingering Migraine</option>
+                <option>Lingering Pierce</option>
+                <option>Lingering Cut</option>
+                <option>Lingering Noise</option>
+			</select>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Status 2</h4>
+			<br>
+			<select name="attr_status2">
+				<option>None</option>
+				<option>Aggroed</option>
+                <option>Blinded</option>
+                <option>Charmed</option>
+                <option>Confused</option>
+                <option>Deafened</option>
+                <option>Doomed</option>
+                <option>Drunk</option>
+                <option>Entangled</option>
+                <option>Frightened</option>
+                <option>Grappled</option>
+                <option>Environmental</option>
+                <option>Paralyzed</option>
+                <option>Pinned</option>
+                <option>Poisoned</option>
+                <option>Silenced</option>
+                <option>Sleeping</option>
+                <option>Staggered</option>
+                <option>Suffocating</option>
+                <option>Wet</option>
+                <option>Lingering Bruise</option>
+                <option>Lingering Melt</option>
+                <option>Lingering Frostbite</option>
+                <option>Lingering Decay</option>
+                <option>Lingering Shock</option>
+                <option>Lingering Burn</option>
+                <option>Lingering Shine</option>
+                <option>Lingering Bleed</option>
+                <option>Lingering Toxin</option>
+                <option>Lingering Migraine</option>
+                <option>Lingering Pierce</option>
+                <option>Lingering Cut</option>
+                <option>Lingering Noise</option>
+			</select>
+		</td>
+		<td style="padding:8px; border:1px grey solid;">
+            <h4>Status 3</h4>
+			<br>
+			<select name="attr_status3">
+				<option>None</option>
+				<option>Aggroed</option>
+                <option>Blinded</option>
+                <option>Charmed</option>
+                <option>Confused</option>
+                <option>Deafened</option>
+                <option>Doomed</option>
+                <option>Drunk</option>
+                <option>Entangled</option>
+                <option>Frightened</option>
+                <option>Grappled</option>
+                <option>Environmental</option>
+                <option>Paralyzed</option>
+                <option>Pinned</option>
+                <option>Poisoned</option>
+                <option>Silenced</option>
+                <option>Sleeping</option>
+                <option>Staggered</option>
+                <option>Suffocating</option>
+                <option>Wet</option>
+                <option>Lingering Bruise</option>
+                <option>Lingering Melt</option>
+                <option>Lingering Frostbite</option>
+                <option>Lingering Decay</option>
+                <option>Lingering Shock</option>
+                <option>Lingering Burn</option>
+                <option>Lingering Shine</option>
+                <option>Lingering Bleed</option>
+                <option>Lingering Toxin</option>
+                <option>Lingering Migraine</option>
+                <option>Lingering Pierce</option>
+                <option>Lingering Cut</option>
+                <option>Lingering Noise</option>
+			</select>
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<div style="width:45%;text-align:center;display:inline-block;margin-left:3%;vertical-align: top;">
+    <h4>Class Abilities</h4><h4>
     <br>
-    <textarea style="width:100%;" rows="4" name="attr_spells"></textarea>
-    <h4>Equipment<h4>
+    <textarea style="width:100%;" rows="4" name="attr_textbox1"></textarea>
+    <h4>Spells<h4>
 	<br>
-	<textarea style="width:100%;" rows="13" name="attr_equipment"></textarea>
+	<textarea style="width:100%;" rows="13" name="attr_textbox2"></textarea>
 </div>
 
-<div style="width:45%;text-align:center;display:inline-block;margin-left:2%;">
-    <h4>Abilities<h4>
+<div style="width:45%;text-align:center;display:inline-block;margin-left:2%;vertical-align: top;">
+    <h4>Species Abilities<h4>
 	<br>
-	<textarea style="width:100%;" rows="18" name="attr_abilities"></textarea>
-	<h4>Class Levels<h4>
+	<textarea style="width:100%;" rows="18" name="attr_textbox3"></textarea>
+	<h4>Equipment<h4>
 	<br>
-	<textarea style="width:100%;" rows="18" name="attr_classlevels"></textarea>
+	<textarea style="width:100%;" rows="18" name="attr_textbox4"></textarea>
 </div>
-
-<!-- Dirty way of making the background color reach the bottom of the stats sidepane -->
-<!-- TODO: fix -->
-<br><br><br><br><br><br><br><br><br><br>
 
 <!-- End div for main panel -->
+</div>
+
+<div style="margin-left:1000px;position:absolute;">
+    
+    <div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Level</h4>
+	    <input type="number" name="attr_level" style="float:right;"/>
+	</div>
+    <div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Essence</h4>
+	    <input type="number" name="attr_essence" style="float:right;"/>
+	    <input type="number" name="attr_essence_max" style="float:right;" value="0" />
+	</div>
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Short Rest</h4>
+	    <input type="number" name="attr_shortrest" style="float:right;"/>
+	    <input type="number" name="attr_shortrest_max" style="float:right;" value="0" />
+	</div>
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Long Rest</h4>
+	    <input type="number" name="attr_longrest" style="float:right;"/>
+	    <input type="number" name="attr_longrest_max" style="float:right;" value="0" />
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main1"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num1" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max1" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main2"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num2" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max2" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main3"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num3" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max3" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main4"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num4" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max4" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main5"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num5" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max5" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main6"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num6" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max6" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main7"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num7" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max7" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main8"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num8" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max8" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main9"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num9" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max9" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main10"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num10" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max10" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main11"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num11" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max11" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main12"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num12" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max12" style="width:80px;"/>
+	    <br>
+	</div>
+	
+	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
+	    <input type="text" name="attr_abilitytracker_main13"/>
+	    <br>
+	    <input type="number" name="attr_abilitytracker_num13" style="width:80px;"/>
+	    <input type="number" name="attr_abilitytracker_max13" style="width:80px;"/>
+	    <br>
+	</div>
+
 <!-- All HTML code for the character sheet itself is above this. -->
 </div>
 
@@ -558,7 +940,6 @@
     button is checked, the roll template will output a roll set to 'display:none;'. 
     In order for the GM to see the roll, they need to set up a third-party browser extension
     (such as Stylus) with the following snippet of CSS:
-	
     .sheet-template-container {
         display:block !important;
     }
@@ -577,34 +958,30 @@
     <div class="sheet-template-container" style="border-style:groove; padding-left:10px;">
         <h3>{{name}}</h3>
         <div class="sheet-results">
-            <!-- If crit success, show crit roll value in green -->
-            {{#rollGreater() computed::roll1 roll1}}
-                <h4 style="color:#00D300;">{{computed::roll1}}</h4>
-                <!-- If an attack, show damage -->
-                {{#rollTotal() type1 1}}
-                    <h4>Damage = {{damage2}}</h4>
-                {{/rollTotal() type1 1}}
-            {{/rollGreater() computed::roll1 roll1}}
-            <!-- If fumble, show fumble roll value in red -->
-            {{#rollLess() computed::roll1 roll1}}
-                <h4 style="color:red;">{{computed::roll1}}</h4>
-                <!-- If an attack, show damage -->
-                {{#rollTotal() type1 1}}
-                    <h4>Damage = {{damage3}}</h4>
-                {{/rollTotal() type1 1}}
-            {{/rollLess() computed::roll1 roll1}}
-            <!-- Otherwise, show default roll value -->
-            {{#rollTotal() computed::roll1 roll1}}
-                <h4>{{roll1}}</h4>
-                <!-- If an attack, show damage -->
-                {{#rollTotal() type1 1}}
-                    <h4>Damage = {{damage1}}</h4>
-                {{/rollTotal() type1 1}}
-            {{/rollTotal() computed::roll1 roll1}}
+            <h4 style="margin-bottom:3px;">{{character}}</h4>
             
-            <h4>Advantage = {{advan1}}</h4>
-            <h4>Stat = {{stat1}}</h4>
-            <h4>Specialty = {{spec1}}</h4>
+            <!-- If crit success, show crit roll value in green -->
+            {{#rollGreater() computed::roll roll}}
+                <h4 style="color:#00D300;">{{computed::roll}}</h4>
+            {{/rollGreater() computed::roll roll}}
+            
+            <!-- If fumble, show fumble roll value in red -->
+            {{#rollLess() computed::roll roll}}
+                <h4 style="color:red;">{{computed::roll}}</h4>
+            {{/rollLess() computed::roll roll}}
+            
+            <!-- Otherwise, show default roll value -->
+            {{#rollTotal() computed::roll roll}}
+                <h4>{{roll}}</h4>
+            {{/rollTotal() computed::roll roll}}
+            
+            <!-- If an attack, show damage -->
+            {{#rollTotal() rolltype 1}}
+                <h4>Damage: {{damage}}</h4>
+                <h4>Extra: {{crit}}</h4>
+                <h4>Attack Type: {{atktype}}</h4>
+                <h4>Damage Type: {{dmgtype}}</h4>
+            {{/rollTotal() rolltype 1}}
         </div>
     </div>
     {{/rollTotal() hide 0}}
@@ -614,34 +991,30 @@
     <div class="sheet-template-container" style="border-style:groove; padding-left:10px; display:none;">
         <h3>{{name}}</h3>
         <div class="sheet-results">
-            <!-- If crit success, show crit roll value in green -->
-            {{#rollGreater() computed::roll1 roll1}}
-                <h4 style="color:#00D300;">{{computed::roll1}}</h4>
-                <!-- If an attack, show damage -->
-                {{#rollTotal() type1 1}}
-                    <h4>Damage = {{damage2}}</h4>
-                {{/rollTotal() type1 1}}
-            {{/rollGreater() computed::roll1 roll1}}
-            <!-- If fumble, show fumble roll value in red -->
-            {{#rollLess() computed::roll1 roll1}}
-                <h4 style="color:red;">{{computed::roll1}}</h4>
-                <!-- If an attack, show damage -->
-                {{#rollTotal() type1 1}}
-                    <h4>Damage = {{damage3}}</h4>
-                {{/rollTotal() type1 1}}
-            {{/rollLess() computed::roll1 roll1}}
-            <!-- Otherwise, show default roll value -->
-            {{#rollTotal() computed::roll1 roll1}}
-                <h4>{{roll1}}</h4>
-                <!-- If an attack, show damage -->
-                {{#rollTotal() type1 1}}
-                    <h4>Damage = {{damage1}}</h4>
-                {{/rollTotal() type1 1}}
-            {{/rollTotal() computed::roll1 roll1}}
+            <h4 style="margin-bottom:3px;">{{character}}</h4>
             
-            <h4>Advantage = {{advan1}}</h4>
-            <h4>Stat = {{stat1}}</h4>
-            <h4>Specialty = {{spec1}}</h4>
+            <!-- If crit success, show crit roll value in green -->
+            {{#rollGreater() computed::roll roll}}
+                <h4 style="color:#00D300;">{{computed::roll}}</h4>
+            {{/rollGreater() computed::roll roll}}
+            
+            <!-- If fumble, show fumble roll value in red -->
+            {{#rollLess() computed::roll roll}}
+                <h4 style="color:red;">{{computed::roll}}</h4>
+            {{/rollLess() computed::roll roll}}
+            
+            <!-- Otherwise, show default roll value -->
+            {{#rollTotal() computed::roll roll}}
+                <h4>{{roll}}</h4>
+            {{/rollTotal() computed::roll roll}}
+            
+            <!-- If an attack, show damage -->
+            {{#rollTotal() rolltype 1}}
+                <h4>Damage: {{damage}}</h4>
+                <h4>Extra: {{crit}}</h4>
+                <h4>Attack Type: {{atktype}}</h4>
+                <h4>Damage Type: {{dmgtype}}</h4>
+            {{/rollTotal() rolltype 1}}
         </div>
     </div>
     {{/rollTotal() hide 1}}
@@ -649,384 +1022,328 @@
 
 <script type="text/worker">
     
-    //Updates concentration when health is changed or when the sheet is opened
-    on("change:health_max sheet:opened", function() {
-        getAttrs(["health_max"], function(values) {
-            let value = Math.ceil((parseInt(values.health_max)||0)/2)
-            setAttrs({
-                concentration_max: value
+    on("change:detection_mod change:intuition_mod change:wilderness_mod change:convince_mod change:flair_mod change:performance_mod change:agility_mod change:dexterity_mod change:stealth_mod change:constitution_mod change:persistence_mod change:toughness_mod change:engineering_mod change:knowledge_mod change:magic_mod change:grip_mod change:physicality_mod change:presence_mod change:faith_mod change:interaction_mod change:willpower_mod sheet:opened", function() {  
+        getAttrs(["detection_mod","intuition_mod","wilderness_mod","convince_mod","flair_mod","performance_mod","agility_mod","dexterity_mod","stealth_mod","constitution_mod","persistence_mod","toughness_mod","engineering_mod","knowledge_mod","magic_mod","grip_mod","physicality_mod","presence_mod","faith_mod","interaction_mod","willpower_mod"], function(values) {
+            let val = parseInt(values.detection_mod) + parseInt(values.intuition_mod) + parseInt(values.wilderness_mod) + parseInt(values.convince_mod) + parseInt(values.flair_mod) + parseInt(values.performance_mod) + parseInt(values.agility_mod) + parseInt(values.dexterity_mod) + parseInt(values.stealth_mod) + parseInt(values.constitution_mod) + parseInt(values.persistence_mod) + parseInt(values.toughness_mod) + parseInt(values.engineering_mod) + parseInt(values.knowledge_mod) + parseInt(values.magic_mod) + parseInt(values.grip_mod) + parseInt(values.physicality_mod) + parseInt(values.presence_mod) + parseInt(values.faith_mod) + parseInt(values.interaction_mod) + parseInt(values.willpower_mod)
+            setAttrs({                            
+                "totaltrait": val
             });
         });
     });
     
+    on('clicked:deathroll', (info) => {
+        getAttrs(["death_mod"], function(values) {
+			_makeRoll("trait", "Death/Soul Roll", values.death_mod, null, null, null, null);
+        });
+    });
     
-    
-    //Blocks of code to initiate rolls
-	//TODO: actually all of this has to be redone
-    {
-    
-    //advRoll arguments:
-    //advRoll(type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2)
-    //type = "trait" / "attack" / "defense"
-    //name = name of roll to put in chat
-    //stat = stat to use for roll
-    //stat2 = stat to use for damage rolls (if applicable)
-    //damage = damage dice
-    //critdamage = extra damage on a crit
-    //mindamage = minimum damage to do on a fumble
-    //spec_bool = specialization bonus for rolling to hit
-    //spec_bool2 = TODO: delete
-    
-    //Trait rolls
-    {
-    //Awareness
-    {
     on('clicked:detection', (info) => {
-        getAttrs(["awrmod", "detection_spec"], function(values) {
-            advRoll("trait", "Detection", values.awrmod, null, null, null, null, values.detection_spec, null);
+        getAttrs(["detection_mod"], function(values) {
+			_makeRoll("trait", "Detection", values.detection_mod, null, null, null, null);
         });
     });
     
     on('clicked:intuition', (info) => {
-        getAttrs(["awrmod", "intuition_spec"], function(values) {
-            advRoll("trait", "Intuition", values.awrmod, null, null, null, null, values.intuition_spec, null);
+        getAttrs(["intuition_mod"], function(values) {
+			_makeRoll("trait", "Intuition", values.intuition_mod, null, null, null, null);
         });
     });
     
     on('clicked:wilderness', (info) => {
-        getAttrs(["awrmod", "wilderness_spec"], function(values) {
-            advRoll("trait", "Wilderness", values.awrmod, null, null, null, null, values.wilderness_spec, null);
+        getAttrs(["wilderness_mod"], function(values) {
+			_makeRoll("trait", "Wilderness", values.wilderness_mod, null, null, null, null);
         });
     });
-    }
-    //Charisma
-    {
+    
     on('clicked:convince', (info) => {
-        getAttrs(["chamod", "convince_spec"], function(values) {
-            advRoll("trait", "Convince", values.chamod, null, null, null, null, values.convince_spec, null);
+        getAttrs(["convince_mod"], function(values) {
+			_makeRoll("trait", "Convince", values.convince_mod, null, null, null, null);
         });
     });
     
     on('clicked:flair', (info) => {
-        getAttrs(["chamod", "flair_spec"], function(values) {
-            advRoll("trait", "Flair", values.chamod, null, null, null, null, values.flair_spec, null);
+        getAttrs(["flair_mod"], function(values) {
+			_makeRoll("trait", "Flair", values.flair_mod, null, null, null, null);
         });
     });
     
-    on('clicked:interaction', (info) => {
-        getAttrs(["chamod", "interaction_spec"], function(values) {
-            advRoll("trait", "Performance", values.chamod, null, null, null, null, values.interaction_spec, null);
+    on('clicked:performance', (info) => {
+        getAttrs(["performance_mod"], function(values) {
+			_makeRoll("trait", "Performance", values.performance_mod, null, null, null, null);
         });
     });
-    }
-    //Coordination
-    {
+    
     on('clicked:agility', (info) => {
-        getAttrs(["cormod", "agility_spec"], function(values) {
-            advRoll("trait", "Agility", values.cormod, null, null, null, null, values.agility_spec, null);
+        getAttrs(["agility_mod"], function(values) {
+			_makeRoll("trait", "Agility", values.agility_mod, null, null, null, null);
         });
     });
     
     on('clicked:dexterity', (info) => {
-        getAttrs(["cormod", "dexterity_spec"], function(values) {
-            advRoll("trait", "Dexterity", values.cormod, null, null, null, null, values.dexterity_spec, null);
+        getAttrs(["dexterity_mod"], function(values) {
+			_makeRoll("trait", "Dexterity", values.dexterity_mod, null, null, null, null);
         });
     });
     
     on('clicked:stealth', (info) => {
-        getAttrs(["cormod", "stealth_spec"], function(values) {
-            advRoll("trait", "Stealth", values.cormod, null, null, null, null, values.stealth_spec, null);
-        });
-    });
-    }
-    //Intelligence
-    {
-    on('clicked:knowledge', (info) => {
-        getAttrs(["intmod", "knowledge_spec"], function(values) {
-            advRoll("trait", "Knowledge", values.intmod, null, null, null, null, values.knowledge_spec, null);
+        getAttrs(["stealth_mod"], function(values) {
+			_makeRoll("trait", "Stealth", values.stealth_mod, null, null, null, null);
         });
     });
     
-    on('clicked:magic', (info) => {
-        getAttrs(["intmod", "magic_spec"], function(values) {
-            advRoll("trait", "Magic", values.intmod, null, null, null, null, values.magic_spec, null);
+    on('clicked:constitution', (info) => {
+        getAttrs(["constitution_mod"], function(values) {
+			_makeRoll("trait", "Constitution", values.constitution_mod, null, null, null, null);
         });
     });
     
-    on('clicked:medicine', (info) => {
-        getAttrs(["intmod", "medicine_spec"], function(values) {
-            advRoll("trait", "Medicine", values.intmod, null, null, null, null, values.medicine_spec, null);
-        });
-    });
-    }
-    //Strength
-    {
-    on('clicked:grip', (info) => {
-        getAttrs(["strmod", "grip_spec"], function(values) {
-            advRoll("trait", "Grip", values.strmod, null, null, null, null, values.grip_spec, null);
-        });
-    });
-    
-    on('clicked:physicality', (info) => {
-        getAttrs(["strmod", "physicality_spec"], function(values) {
-            advRoll("trait", "Physicality", values.strmod, null, null, null, null, values.physicality_spec, null);
-        });
-    });
-    
-    on('clicked:presence', (info) => {
-        getAttrs(["strmod", "presence_spec"], function(values) {
-            advRoll("trait", "Presence", values.strmod, null, null, null, null, values.presence_spec, null);
-        });
-    });
-    }
-    //Resolve
-    {
-    on('clicked:resistance', (info) => {
-        getAttrs(["resmod", "resistance_spec"], function(values) {
-            advRoll("trait", "Resistance", values.resmod, null, null, null, null, values.resistance_spec, null);
-        });
-    });
-    
-    on('clicked:restore', (info) => {
-        getAttrs(["resmod", "restore_spec"], function(values) {
-            advRoll("trait", "Restore", values.resmod, null, null, null, null, values.restore_spec, null);
-        });
-    });
-    
-    on('clicked:willpower', (info) => {
-        getAttrs(["resmod", "willpower_spec"], function(values) {
-            advRoll("trait", "Willpower", values.resmod, null, null, null, null, values.willpower_spec, null);
-        });
-    });
-    }
-    //Withstand
-    {
-    on('clicked:endure', (info) => {
-        getAttrs(["wsdmod", "endure_spec"], function(values) {
-            advRoll("trait", "Endure", values.wsdmod, null, null, null, null, values.endure_spec, null);
-        });
-    });
-    
-    on('clicked:recovery', (info) => {
-        getAttrs(["wsdmod", "recovery_spec"], function(values) {
-            advRoll("trait", "Recovery", values.wsdmod, null, null, null, null, values.recovery_spec, null);
+    on('clicked:persistence', (info) => {
+        getAttrs(["persistence_mod"], function(values) {
+			_makeRoll("trait", "Persistence", values.persistence_mod, null, null, null, null);
         });
     });
     
     on('clicked:toughness', (info) => {
-        getAttrs(["wsdmod", "toughness_spec"], function(values) {
-            advRoll("trait", "Toughness", values.wsdmod, null, null, null, null, values.toughness_spec, null);
-        });
-    });
-    }
-    }
-    
-    //Attacks
-    {
-    on('clicked:attack1', (info) => {
-        getAttrs(["attack1_hitstat", "attack1_damage", "attack1_crit", "attack1_fumble", "attack1_damstat", "attack1_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
-            let hitmod = 0;
-            if(values.attack1_hitstat == "0"){
-                hitmod = values.awrmod;
-            } else if(values.attack1_hitstat == "1"){
-                hitmod = values.chamod;
-            } else if(values.attack1_hitstat == "2"){
-                hitmod = values.cormod;
-            } else if(values.attack1_hitstat == "3"){
-                hitmod = values.intmod;
-            } else if(values.attack1_hitstat == "4"){
-                hitmod = values.strmod;
-            } else if(values.attack1_hitstat == "5"){
-                hitmod = values.wsdmod;
-            }
-            else{
-                hitmod = values.resmod;
-            }
-            
-            let dammod = 0;
-            if(values.attack1_damstat == "0"){
-                dammod = values.awrmod;
-            } else if(values.attack1_damstat == "1"){
-                dammod = values.chamod;
-            } else if(values.attack1_damstat == "2"){
-                dammod = values.cormod;
-            } else if(values.attack1_damstat == "3"){
-                dammod = values.intmod;
-            } else if(values.attack1_damstat == "4"){
-                dammod = values.strmod;
-            } else if(values.attack1_damstat == "5"){
-                dammod = values.wsdmod;
-            }
-            else{
-                dammod = values.resmod;
-            }
-            
-            advRoll("attack", "Attack", hitmod, dammod, values.attack1_damage, parseInt(values.attack1_crit), parseInt(values.attack1_fumble), values.attack1_spec, values.attack1_spec);
+        getAttrs(["toughness_mod"], function(values) {
+			_makeRoll("trait", "Toughness", values.toughness_mod, null, null, null, null);
         });
     });
     
-    on('clicked:attack2', (info) => {
-        getAttrs(["attack2_hitstat", "attack2_damage", "attack2_crit", "attack2_fumble", "attack2_damstat", "attack2_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
-            let hitmod = 0;
-            if(values.attack2_hitstat == "0"){
-                hitmod = values.awrmod;
-            } else if(values.attack2_hitstat == "1"){
-                hitmod = values.chamod;
-            } else if(values.attack2_hitstat == "2"){
-                hitmod = values.cormod;
-            } else if(values.attack2_hitstat == "3"){
-                hitmod = values.intmod;
-            } else if(values.attack2_hitstat == "4"){
-                hitmod = values.strmod;
-            } else if(values.attack2_hitstat == "5"){
-                hitmod = values.wsdmod;
-            }
-            else{
-                hitmod = values.resmod;
-            }
-            
-            let dammod = 0;
-            if(values.attack2_hitstat == "0"){
-                dammod = values.awrmod;
-            } else if(values.attack2_damstat == "1"){
-                dammod = values.chamod;
-            } else if(values.attack2_damstat == "2"){
-                dammod = values.cormod;
-            } else if(values.attack2_damstat == "3"){
-                dammod = values.intmod;
-            } else if(values.attack2_damstat == "4"){
-                dammod = values.strmod;
-            } else if(values.attack2_damstat == "5"){
-                dammod = values.wsdmod;
-            }
-            else{
-                dammod = values.resmod;
-            }
-            
-            advRoll("attack", "Attack", hitmod, dammod, values.attack2_damage, parseInt(values.attack2_crit), parseInt(values.attack2_fumble), values.attack2_spec, values.attack2_spec);
+    on('clicked:engineering', (info) => {
+        getAttrs(["engineering_mod"], function(values) {
+			_makeRoll("trait", "Engineering", values.engineering_mod, null, null, null, null);
         });
     });
     
-    on('clicked:attack3', (info) => {
-        getAttrs(["attack3_hitstat", "attack3_damage", "attack3_crit", "attack3_fumble", "attack3_damstat", "attack3_spec", "awrmod", "chamod", "cormod", "intmod", "strmod", "wsdmod", "resmod"], function(values) {
-            let hitmod = 0;
-            if(values.attack3_hitstat == "0"){
-                hitmod = values.awrmod;
-            } else if(values.attack3_hitstat == "1"){
-                hitmod = values.chamod;
-            } else if(values.attack3_hitstat == "2"){
-                hitmod = values.cormod;
-            } else if(values.attack3_hitstat == "3"){
-                hitmod = values.intmod;
-            } else if(values.attack3_hitstat == "4"){
-                hitmod = values.strmod;
-            } else if(values.attack3_hitstat == "5"){
-                hitmod = values.wsdmod;
-            }
-            else{
-                hitmod = values.resmod;
-            }
-            
-            let dammod = 0;
-            if(values.attack3_hitstat == "0"){
-                dammod = values.awrmod;
-            } else if(values.attack3_damstat == "1"){
-                dammod = values.chamod;
-            } else if(values.attack3_damstat == "2"){
-                dammod = values.cormod;
-            } else if(values.attack3_damstat == "3"){
-                dammod = values.intmod;
-            } else if(values.attack3_damstat == "4"){
-                dammod = values.strmod;
-            } else if(values.attack3_damstat == "5"){
-                dammod = values.wsdmod;
-            }
-            else{
-                dammod = values.resmod;
-            }
-            
-            advRoll("attack", "Attack", hitmod, dammod, values.attack3_damage, parseInt(values.attack3_crit), parseInt(values.attack3_fumble), values.attack3_spec, values.attack3_spec);
+    on('clicked:knowledge', (info) => {
+        getAttrs(["knowledge_mod"], function(values) {
+			_makeRoll("trait", "Knowledge", values.knowledge_mod, null, null, null, null);
         });
     });
-    }
     
-    //Defensive actions
-    {
+    on('clicked:magic', (info) => {
+        getAttrs(["magic_mod"], function(values) {
+			_makeRoll("trait", "Magic", values.magic_mod, null, null, null, null);
+        });
+    });
+    
+    on('clicked:grip', (info) => {
+        getAttrs(["grip_mod"], function(values) {
+			_makeRoll("trait", "Grip", values.grip_mod, null, null, null, null);
+        });
+    });
+    
+    on('clicked:physicality', (info) => {
+        getAttrs(["physicality_mod"], function(values) {
+			_makeRoll("trait", "Physicality", values.physicality_mod, null, null, null, null);
+        });
+    });
+    
+    on('clicked:presence', (info) => {
+        getAttrs(["presence_mod"], function(values) {
+			_makeRoll("trait", "Presence", values.presence_mod, null, null, null, null);
+        });
+    });
+    
+    on('clicked:faith', (info) => {
+        getAttrs(["faith_mod"], function(values) {
+			_makeRoll("trait", "Faith", values.faith_mod, null, null, null, null);
+        });
+    });
+    
+    on('clicked:interaction', (info) => {
+        getAttrs(["interaction_mod"], function(values) {
+			_makeRoll("trait", "Interaction", values.interaction_mod, null, null, null, null);
+        });
+    });
+    
+    on('clicked:willpower', (info) => {
+        getAttrs(["willpower_mod"], function(values) {
+			_makeRoll("trait", "Willpower", values.willpower_mod, null, null, null, null);
+        });
+    });
+    
+    
+    
     on('clicked:block', (info) => {
-        getAttrs(["strmod", "block_spec"], function(values) {
-            advRoll("defense", "Block", values.strmod, null, null, null, null, values.block_spec, null);
+        getAttrs(["block_mod","shield_mod"], function(values) {
+            _makeRoll("defense", "Block", parseInt(values.block_mod) + parseInt(values.shield_mod), null, null, null, null);
         });
     });
     
     on('clicked:dodge', (info) => {
-        getAttrs(["cormod", "dodge_spec"], function(values) {
-            advRoll("defense", "Dodge", values.cormod, null, null, null, null, values.dodge_spec, null);
+        getAttrs(["dodge_mod","shield_mod"], function(values) {
+            _makeRoll("defense", "Dodge", parseInt(values.dodge_mod) + parseInt(values.shield_mod), null, null, null, null);
         });
     });
     
     on('clicked:parry', (info) => {
-        getAttrs(["awrmod", "parry_spec"], function(values) {
-            advRoll("defense", "Parry", values.awrmod, null, null, null, null, values.parry_spec, null);
+        getAttrs(["parry_mod","shield_mod"], function(values) {
+            _makeRoll("defense", "Parry", parseInt(values.parry_mod) + parseInt(values.shield_mod), null, null, null, null);
         });
     });
-    }
-    }
     
+    
+    
+    on('clicked:attack1_m', (info) => {
+        getAttrs(["melee_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
+            _makeRoll("attack", values.attack1_name, values.melee_mod, "Melee " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
+        });
+    });
+    
+    on('clicked:attack1_r', (info) => {
+        getAttrs(["ranged_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack1_name, values.ranged_mod, "Ranged " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
+        });
+    });
+    
+    on('clicked:attack1_t', (info) => {
+        getAttrs(["thrown_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack1_name, values.thrown_mod, "Thrown " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
+        });
+    });
+    
+    on('clicked:attack1_s', (info) => {
+        getAttrs(["spell_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack1_name, values.spell_mod, "Spell " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
+        });
+    });
+    
+    on('clicked:attack2_m', (info) => {
+        getAttrs(["melee_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack2_name, values.melee_mod, "Melee " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
+        });
+    });
+    
+    on('clicked:attack2_r', (info) => {
+        getAttrs(["ranged_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack2_name, values.ranged_mod, "Ranged " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
+        });
+    });
+    
+    on('clicked:attack2_t', (info) => {
+        getAttrs(["thrown_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack2_name, values.thrown_mod, "Thrown " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
+        });
+    });
+    
+    on('clicked:attack2_s', (info) => {
+        getAttrs(["spell_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack2_name, values.spell_mod, "Spell " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
+        });
+    });
+    
+    on('clicked:attack3_m', (info) => {
+        getAttrs(["melee_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack3_name, values.melee_mod, "Melee " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
+        });
+    });
+    
+    on('clicked:attack3_r', (info) => {
+        getAttrs(["ranged_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack3_name, values.ranged_mod, "Ranged " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
+        });
+    });
+    
+    on('clicked:attack3_t', (info) => {
+        getAttrs(["thrown_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack3_name, values.thrown_mod, "Thrown " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
+        });
+    });
+    
+    on('clicked:attack3_s', (info) => {
+        getAttrs(["spell_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack3_name, values.spell_mod, "Spell " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
+        });
+    });
+    
+    on('clicked:attack4_m', (info) => {
+        getAttrs(["melee_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack4_name, values.melee_mod, "Melee " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
+        });
+    });
+    
+    on('clicked:attack4_r', (info) => {
+        getAttrs(["ranged_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack4_name, values.ranged_mod, "Ranged " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
+        });
+    });
+    
+    on('clicked:attack4_t', (info) => {
+        getAttrs(["thrown_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack4_name, values.thrown_mod, "Thrown " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
+        });
+    });
+    
+    on('clicked:attack4_s', (info) => {
+        getAttrs(["spell_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack4_name, values.spell_mod, "Spell " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
+        });
+    });
+    
+    
+    on('clicked:attack5_m', (info) => {
+        getAttrs(["melee_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack5_name, values.melee_mod, "Melee " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+        });
+    });
+    
+    on('clicked:attack5_r', (info) => {
+        getAttrs(["ranged_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack5_name, values.ranged_mod, "Ranged " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+        });
+    });
+    
+    on('clicked:attack5_t', (info) => {
+        getAttrs(["thrown_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack5_name, values.thrown_mod, "Thrown " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+        });
+    });
+    
+    on('clicked:attack5_s', (info) => {
+        getAttrs(["spell_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+            _makeRoll("attack", values.attack5_name, values.spell_mod, "Spell " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+        });
+    });
     
     
     //Function to make a dice roll
-	//TODO: const _makeRoll = (type, name, stat, stat2, damage, critdamage, mindamage, spec_bool, spec_bool2) => {
-	const _makeRoll = (rollname, rolltype, bonus, rolldice) => {
-        getAttrs(["advantage", "gmroll", "character_name"], function(values) {
-            //get global values
-            let advan = parseInt(values.advantage);
+	const _makeRoll = (rolltype, rollname, bonus, attacktype, damagetype, rolldice, critdmg) => {
+	    getAttrs(["traitadvan", "attackadvan", "defenseadvan", "gmroll", "character_name"], function(values) {
+	        //get global values
             let hiddenroll = parseInt(values.gmroll);
-			let charname = parseInt(values.character_name);
-            
+			let charname = values.character_name;
+			let advan = 0;
+			let damagetext = "0";
+            let crittext = "0";
+            if(rolltype === "attack"){
+                damagetext = `${rolldice}`;
+                crittext = `${rolldice} + ${critdmg}`;
+                rolltype = "1";
+                advan = parseInt(values.attackadvan);
+            }
+            else{
+                if(rolltype === "trait"){
+                    advan = parseInt(values.traitadvan);
+                }
+                else{
+                    advan = parseInt(values.defenseadvan);
+                }
+                rolltype = "0"
+            }
+			
 			//determine dice roll
             let rolltext = "";
             if(advan >= 0){
                 //If player has advantage, take highest
-                rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${bonus}`
+                rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${bonus}`;
             } else {
                 //If player has disadvanatage, take lowest
                 //I have no idea why "2 + ${advan} * -1" works, but "2 - ${advan}" doesn't
-                rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${bonus}`
+                rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${bonus}`;
             }
             
-			
-			
-            let damagetext = "0";
-            let crittext = "0";
-            let mintext = "0";
-            if(type == "attack"){
-                damagetext = `${damage} + ${stat2}`
-                crittext = `${damage} + ${stat2} + ${critdamage}`
-                mintext = `${mindamage}d1 + ${stat2}`
-            }
-            
-            let rolltype = "";
-            if(type == "trait" || type == "defense"){
-                rolltype = "0"
-            }
-            else{
-                rolltype = "1"
-            }
-            
-			//TODO: old
-            //Function to make rolls is part of Roll20's API
-            //name      = name of roll
-            //type1     = type of roll (attack/trait/defense)
-            //advan1    = amount of advantage for the roll
-            //stat1     = stat used for roll
-            //spec1     = specialization bonus added to roll
-            //roll1     = type of dice to roll
-            //damage1   = type of dice to roll for damage
-            //damage2   = extra damage to add on a crit
-            //damage3   = minimum damage to set roll to on a fumble
-            //hide1     = whether the roll should be hidden for only the GM to see
-			
-			//TODO: roll parameters::
+			//TODO: Roll parameters::
 			//>Name of roll
 			//>Name of roll's instigator
 			//>Type of roll (whether should do damage, whether thrown or spellcast, etc.)
@@ -1038,9 +1355,9 @@
 			//>Whether the roll should be hidden
 			//??Can you decompose rolls? Because if so, then it'd be great to show every roll immediately with advantage
 			//??In fact, whether the roll's internals should be shown at all is a legitimate question
-            startRoll(`&{template:r_template} {{name=${name}}} {{type1=[[${rolltype}]]}} {{advan1=${advan}}} {{stat1=${stat}}} {{spec1=${spec}}} {{roll1=[[${rolltext}]]}} {{damage1=[[${damagetext}]]}} {{damage2=[[${crittext}]]}} {{damage3=[[${mintext}]]}} {{hide=[[${hiddenroll}d1]]}}`, (results) => {
-                let original = results.results.roll1.result
-                let computed = original - spec - stat;
+    	    startRoll(`&{template:r_template} {{hide=[[${hiddenroll}d1]]}} {{name=${rollname}}} {{character=${charname}}} {{roll=[[${rolltext}]]}} {{rolltype=[[${rolltype}d1]]}} {{atktype=${attacktype}}} {{dmgtype=${damagetype}}} {{damage=[[${damagetext}]]}} {{crit=${critdmg}}}`, (results) => {
+                let original = results.results.roll.result;
+                let computed = original - bonus;
                 
                 //Determines if the number is a crit
                 //computed cannot be directly compared to an integer using "==", so comparisons are instead made using ">"
@@ -1051,14 +1368,14 @@
                 } else {
                     computed = original;
                 }
-
+    
                 finishRoll(
                     results.rollId,
                     {
-                        roll1: computed
+                        roll: computed
                     }
                 );
             });
-        });
-    }
+	    });
+	}
 </script>
