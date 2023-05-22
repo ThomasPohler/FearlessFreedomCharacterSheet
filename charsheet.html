@@ -154,6 +154,8 @@
 		<input type="number" name="attr_shield_mod" step="1" value="0"/>
 		<h4>Shield</h4>
 	</div>
+	
+	<button type="action" style="width:170px;" name="act_settings">Settings</button>
 </div>
 
 <!-- Main div containing everything else -->
@@ -527,10 +529,10 @@
 		    <input type="text" name="attr_attack1_damagetypes"/>
 		</td>
         <td>
-            <input type="number" name="attr_attack1_range" step="1" value="0"/>
+            <input type="number" name="attr_attack1_crit" step="1" value="0"/>
         </td>
         <td>
-            <input type="number" name="attr_attack1_crit" step="1" value="0"/>
+            <input type="number" name="attr_attack1_range" step="1" value="0"/>
         </td>
 	</tr>
 	<tr>
@@ -554,10 +556,10 @@
 		    <input type="text" name="attr_attack2_damagetypes"/>
 		</td>
 		<td>
-            <input type="number" name="attr_attack2_range" step="1" value="0"/>
-        </td>
-		<td>
             <input type="number" name="attr_attack2_crit" step="1" value="0"/>
+        </td>
+        <td>
+            <input type="number" name="attr_attack2_range" step="1" value="0"/>
         </td>
 	</tr>
 	<tr>
@@ -581,10 +583,10 @@
 		    <input type="text" name="attr_attack3_damagetypes"/>
 		</td>
 		<td>
-            <input type="number" name="attr_attack3_range" step="1" value="0"/>
-        </td>
-		<td>
             <input type="number" name="attr_attack3_crit" step="1" value="0"/>
+        </td>
+        <td>
+            <input type="number" name="attr_attack3_range" step="1" value="0"/>
         </td>
 	</tr>
 	<tr>
@@ -608,10 +610,10 @@
 		    <input type="text" name="attr_attack4_damagetypes"/>
 		</td>
 		<td>
-            <input type="number" name="attr_attack4_range" step="1" value="0"/>
-        </td>
-		<td>
             <input type="number" name="attr_attack4_crit" step="1" value="0"/>
+        </td>
+        <td>
+            <input type="number" name="attr_attack4_range" step="1" value="0"/>
         </td>
 	</tr>
 	<tr>
@@ -635,10 +637,10 @@
 		    <input type="text" name="attr_attack5_damagetypes"/>
 		</td>
 		<td>
-            <input type="number" name="attr_attack5_range" step="1" value="0"/>
-        </td>
-		<td>
             <input type="number" name="attr_attack5_crit" step="1" value="0"/>
+        </td>
+        <td>
+            <input type="number" name="attr_attack5_range" step="1" value="0"/>
         </td>
 	</tr>
 </table>
@@ -955,67 +957,101 @@
     
     <!-- Version of the roll shown to all players -->
     {{#rollTotal() hide 0}}
-    <div class="sheet-template-container" style="border-style:groove; padding-left:10px;">
-        <h3>{{name}}</h3>
-        <div class="sheet-results">
-            <h4 style="margin-bottom:3px;">{{character}}</h4>
+    <div class="sheet-template-container" style="border-style:groove; padding:5px;">
+        <h4 style="width:40%; float:right; text-align: right; margin-top:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{character}}</h4>
+        
+        <div style="width:60%">
+            <div style="position:absolute; margin-top:5px; margin-left:2px;">
+                 <!-- If crit success, show crit roll value in green -->
+                {{#rollGreater() computed::roll roll}}
+                    <h4 style="color:#00D300;">{{computed::roll}}</h4>
+                {{/rollGreater() computed::roll roll}}
+                
+                <!-- If fumble, show fumble roll value in red -->
+                {{#rollLess() computed::roll roll}}
+                    <h4 style="color:red;">{{computed::roll}}</h4>
+                {{/rollLess() computed::roll roll}}
+                
+                <!-- Otherwise, show default roll value -->
+                {{#rollTotal() computed::roll roll}}
+                    <h4>{{computed::roll}}</h4>
+                {{/rollTotal() computed::roll roll}}
+            </div>
             
-            <!-- If crit success, show crit roll value in green -->
-            {{#rollGreater() computed::roll roll}}
-                <h4 style="color:#00D300;">{{computed::roll}}</h4>
-            {{/rollGreater() computed::roll roll}}
+            {{#rollGreater() computed::roll 99}}
+                <h3 style="margin-left:43px;">{{name}}</h3>
+            {{/rollGreater() computed::roll 99}}
             
-            <!-- If fumble, show fumble roll value in red -->
-            {{#rollLess() computed::roll roll}}
-                <h4 style="color:red;">{{computed::roll}}</h4>
-            {{/rollLess() computed::roll roll}}
+            {{#rollBetween() computed::roll 10 99}}
+                <h3 style="margin-left:33px;">{{name}}</h3>
+            {{/rollBetween() computed::roll 10 99}}
             
-            <!-- Otherwise, show default roll value -->
-            {{#rollTotal() computed::roll roll}}
-                <h4>{{roll}}</h4>
-            {{/rollTotal() computed::roll roll}}
+            {{#rollBetween() computed::roll 0 9}}
+                <h3 style="margin-left:24px;">{{name}}</h3>
+            {{/rollBetween() computed::roll 0 9}}
             
-            <!-- If an attack, show damage -->
-            {{#rollTotal() rolltype 1}}
-                <h4>Damage: {{damage}}</h4>
-                <h4>Extra: {{crit}}</h4>
-                <h4>Attack Type: {{atktype}}</h4>
-                <h4>Damage Type: {{dmgtype}}</h4>
-            {{/rollTotal() rolltype 1}}
+            {{#rollLess() computed::roll 0}} <!--TODO: come back to someday-->
+                <h3 style="margin-left:43px;">{{name}}</h3>
+            {{/rollLess() computed::roll 0}}
         </div>
+            
+        <!-- If an attack, show damage -->
+        {{#rollTotal() rolltype 1}}
+        <div style="margin-top:5px;">
+            <h4 style="margin-bottom:3px;">Damage: {{damage}} {{dmgtype}}</h4>
+            <h4>Lethal: +{{crit}}  |  {{atktype}}</h4>
+        </div>
+        {{/rollTotal() rolltype 1}}
     </div>
     {{/rollTotal() hide 0}}
     
     <!-- Version of the roll only shown to players using a third-party application to specifically force it to show -->
     {{#rollTotal() hide 1}}
-    <div class="sheet-template-container" style="border-style:groove; padding-left:10px; display:none;">
-        <h3>{{name}}</h3>
-        <div class="sheet-results">
-            <h4 style="margin-bottom:3px;">{{character}}</h4>
+    <div class="sheet-template-container" style="border-style:groove; padding:5px; display:none;">
+        <h4 style="width:40%; float:right; text-align: right; margin-top:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{character}}</h4>
+        
+        <div style="width:60%">
+            <div style="position:absolute; margin-top:5px; margin-left:2px;">
+                 <!-- If crit success, show crit roll value in green -->
+                {{#rollGreater() computed::roll roll}}
+                    <h4 style="color:#00D300;">{{computed::roll}}</h4>
+                {{/rollGreater() computed::roll roll}}
+                
+                <!-- If fumble, show fumble roll value in red -->
+                {{#rollLess() computed::roll roll}}
+                    <h4 style="color:red;">{{computed::roll}}</h4>
+                {{/rollLess() computed::roll roll}}
+                
+                <!-- Otherwise, show default roll value -->
+                {{#rollTotal() computed::roll roll}}
+                    <h4>{{computed::roll}}</h4>
+                {{/rollTotal() computed::roll roll}}
+            </div>
             
-            <!-- If crit success, show crit roll value in green -->
-            {{#rollGreater() computed::roll roll}}
-                <h4 style="color:#00D300;">{{computed::roll}}</h4>
-            {{/rollGreater() computed::roll roll}}
+            {{#rollGreater() computed::roll 99}}
+                <h3 style="margin-left:43px;">{{name}}</h3>
+            {{/rollGreater() computed::roll 99}}
             
-            <!-- If fumble, show fumble roll value in red -->
-            {{#rollLess() computed::roll roll}}
-                <h4 style="color:red;">{{computed::roll}}</h4>
-            {{/rollLess() computed::roll roll}}
+            {{#rollBetween() computed::roll 10 99}}
+                <h3 style="margin-left:33px;">{{name}}</h3>
+            {{/rollBetween() computed::roll 10 99}}
             
-            <!-- Otherwise, show default roll value -->
-            {{#rollTotal() computed::roll roll}}
-                <h4>{{roll}}</h4>
-            {{/rollTotal() computed::roll roll}}
+            {{#rollBetween() computed::roll 0 9}}
+                <h3 style="margin-left:24px;">{{name}}</h3>
+            {{/rollBetween() computed::roll 0 9}}
             
-            <!-- If an attack, show damage -->
-            {{#rollTotal() rolltype 1}}
-                <h4>Damage: {{damage}}</h4>
-                <h4>Extra: {{crit}}</h4>
-                <h4>Attack Type: {{atktype}}</h4>
-                <h4>Damage Type: {{dmgtype}}</h4>
-            {{/rollTotal() rolltype 1}}
+            {{#rollLess() computed::roll 0}} <!--TODO: come back to someday-->
+                <h3 style="margin-left:43px;">{{name}}</h3>
+            {{/rollLess() computed::roll 0}}
         </div>
+            
+        <!-- If an attack, show damage -->
+        {{#rollTotal() rolltype 1}}
+        <div style="margin-top:5px;">
+            <h4 style="margin-bottom:3px;">Damage: {{damage}} {{dmgtype}}</h4>
+            <h4>Lethal: +{{crit}}  |  {{atktype}}</h4>
+        </div>
+        {{/rollTotal() rolltype 1}}
     </div>
     {{/rollTotal() hide 1}}
 </rolltemplate>
@@ -1192,116 +1228,116 @@
     });
     
     on('clicked:attack1_r', (info) => {
-        getAttrs(["ranged_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes"], function(values) {
+        getAttrs(["ranged_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
             _makeRoll("attack", values.attack1_name, values.ranged_mod, "Ranged " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
         });
     });
     
     on('clicked:attack1_t', (info) => {
-        getAttrs(["thrown_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes"], function(values) {
+        getAttrs(["thrown_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
             _makeRoll("attack", values.attack1_name, values.thrown_mod, "Thrown " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
         });
     });
     
     on('clicked:attack1_s', (info) => {
-        getAttrs(["spell_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes"], function(values) {
+        getAttrs(["spell_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
             _makeRoll("attack", values.attack1_name, values.spell_mod, "Spell " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
         });
     });
     
     on('clicked:attack2_m', (info) => {
-        getAttrs(["melee_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+        getAttrs(["melee_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
             _makeRoll("attack", values.attack2_name, values.melee_mod, "Melee " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
         });
     });
     
     on('clicked:attack2_r', (info) => {
-        getAttrs(["ranged_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+        getAttrs(["ranged_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
             _makeRoll("attack", values.attack2_name, values.ranged_mod, "Ranged " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
         });
     });
     
     on('clicked:attack2_t', (info) => {
-        getAttrs(["thrown_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+        getAttrs(["thrown_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
             _makeRoll("attack", values.attack2_name, values.thrown_mod, "Thrown " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
         });
     });
     
     on('clicked:attack2_s', (info) => {
-        getAttrs(["spell_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes"], function(values) {
+        getAttrs(["spell_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
             _makeRoll("attack", values.attack2_name, values.spell_mod, "Spell " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
         });
     });
     
     on('clicked:attack3_m', (info) => {
-        getAttrs(["melee_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+        getAttrs(["melee_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
             _makeRoll("attack", values.attack3_name, values.melee_mod, "Melee " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
         });
     });
     
     on('clicked:attack3_r', (info) => {
-        getAttrs(["ranged_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+        getAttrs(["ranged_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
             _makeRoll("attack", values.attack3_name, values.ranged_mod, "Ranged " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
         });
     });
     
     on('clicked:attack3_t', (info) => {
-        getAttrs(["thrown_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+        getAttrs(["thrown_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
             _makeRoll("attack", values.attack3_name, values.thrown_mod, "Thrown " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
         });
     });
     
     on('clicked:attack3_s', (info) => {
-        getAttrs(["spell_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes"], function(values) {
+        getAttrs(["spell_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
             _makeRoll("attack", values.attack3_name, values.spell_mod, "Spell " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
         });
     });
     
     on('clicked:attack4_m', (info) => {
-        getAttrs(["melee_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+        getAttrs(["melee_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
             _makeRoll("attack", values.attack4_name, values.melee_mod, "Melee " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
         });
     });
     
     on('clicked:attack4_r', (info) => {
-        getAttrs(["ranged_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+        getAttrs(["ranged_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
             _makeRoll("attack", values.attack4_name, values.ranged_mod, "Ranged " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
         });
     });
     
     on('clicked:attack4_t', (info) => {
-        getAttrs(["thrown_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+        getAttrs(["thrown_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
             _makeRoll("attack", values.attack4_name, values.thrown_mod, "Thrown " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
         });
     });
     
     on('clicked:attack4_s', (info) => {
-        getAttrs(["spell_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes"], function(values) {
+        getAttrs(["spell_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
             _makeRoll("attack", values.attack4_name, values.spell_mod, "Spell " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
         });
     });
     
     
     on('clicked:attack5_m', (info) => {
-        getAttrs(["melee_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+        getAttrs(["melee_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
             _makeRoll("attack", values.attack5_name, values.melee_mod, "Melee " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
         });
     });
     
     on('clicked:attack5_r', (info) => {
-        getAttrs(["ranged_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+        getAttrs(["ranged_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
             _makeRoll("attack", values.attack5_name, values.ranged_mod, "Ranged " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
         });
     });
     
     on('clicked:attack5_t', (info) => {
-        getAttrs(["thrown_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+        getAttrs(["thrown_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
             _makeRoll("attack", values.attack5_name, values.thrown_mod, "Thrown " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
         });
     });
     
     on('clicked:attack5_s', (info) => {
-        getAttrs(["spell_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes"], function(values) {
+        getAttrs(["spell_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
             _makeRoll("attack", values.attack5_name, values.spell_mod, "Spell " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
         });
     });
