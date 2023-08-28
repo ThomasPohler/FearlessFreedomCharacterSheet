@@ -1,933 +1,1218 @@
-<div class="background-type"></div> <!--TODO: make bottom of the page update based on page size using javascript. Might be possible? -->
+<!-- Created for Legends Unbound, from Kurt Knudsen and Thomas Pohler -->
+<!-- Character sheet created by Thomas Pohler -->
+<!-- Warning! Every input field in this document must contain a name attribute, or else the information is not stored between sessions -->
 
-<!-- Left sidebar div containing stats and traits -->
-<div style="width:175px;position:absolute;">
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-		<h4 style="margin:0px; margin-bottom:3px; text-align:center">Trait Total</h4>
-		<input type="number" name="attr_totaltrait" readonly="true" style="float:right;"/>
-		<h4 class="sheet-template-container" style="display:none;">Hide Roll:</h4>
-        <input type="checkbox" name="attr_gmroll" value="1" class="sheet-template-container" style="display:none;">
-	</div>
-
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Awareness</h4>
-		
-		<input type="number" name="attr_detection_mod" step="1" value="0"/>
-		<button type="action" name="act_detection">Detection</button>
-		<input type="checkbox" name="attr_detection_change">
-		<br>
-		<input type="number" name="attr_intuition_mod" step="1" value="0"/>
-		<button type="action" name="act_intuition">Intuition</button>
-		<input type="checkbox" name="attr_intuition_change">
-		<br>
-		<input type="number" name="attr_wilderness_mod" step="1" value="0"/>
-		<button type="action" name="act_wilderness">Wilderness</button>
-		<input type="checkbox" name="attr_wilderness_change">
-	</div>
-
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Charisma</h4>
-		
-		<input type="number" name="attr_convince_mod" step="1" value="0"/>
-		<button type="action" name="act_convince">Convince</button>
-		<input type="checkbox" name="attr_convince_change">
-		<br>
-		<input type="number" name="attr_flair_mod" step="1" value="0"/>
-		<button type="action" name="act_flair">Flair</button>
-		<input type="checkbox" name="attr_flair_change">
-		<br>
-		<input type="number" name="attr_performance_mod" step="1" value="0"/>
-		<button type="action" name="act_performance">Performance</button>
-		<input type="checkbox" name="attr_performance_change">
-	</div>
-
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Coordination</h4>
-		
-		<input type="number" name="attr_agility_mod" step="1" value="0"/>
-		<button type="action" name="act_agility">Agility</button>
-		<input type="checkbox" name="attr_agility_change">
-		<br>
-		<input type="number" name="attr_dexterity_mod" step="1" value="0"/>
-		<button type="action" name="act_dexterity">Dexterity</button>
-		<input type="checkbox" name="attr_dexterity_change">
-		<br>
-		<input type="number" name="attr_stealth_mod" step="1" value="0"/>
-		<button type="action" name="act_stealth">Stealth</button>
-		<input type="checkbox" name="attr_stealth_change">
-	</div>
-
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Endurance</h4>
-		
-		<input type="number" name="attr_constitution_mod" step="1" value="0"/>
-		<button type="action" name="act_constitution">Constitution</button>
-		<input type="checkbox" name="attr_constitution_change">
-		<br>
-		<input type="number" name="attr_persistence_mod" step="1" value="0"/>
-		<button type="action" name="act_persistence">Persistence</button>
-		<input type="checkbox" name="attr_persistence_change">
-		<br>
-		<input type="number" name="attr_toughness_mod" step="1" value="0"/>
-		<button type="action" name="act_toughness">Toughness</button>
-		<input type="checkbox" name="attr_toughness_change">
-	</div>
-
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Intelligence</h4>
-		
-		<input type="number" name="attr_engineering_mod" step="1" value="0"/>
-		<button type="action" name="act_engineering">Engineering</button>
-		<input type="checkbox" name="attr_engineering_change">
-		<br>
-		<input type="number" name="attr_knowledge_mod" step="1" value="0"/>
-		<button type="action" name="act_knowledge">Knowledge</button>
-		<input type="checkbox" name="attr_knowledge_change">
-		<br>
-		<input type="number" name="attr_magic_mod" step="1" value="0"/>
-		<button type="action" name="act_magic">Magic</button>
-		<input type="checkbox" name="attr_magic_change">
-	</div>
-
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Power</h4>
-		
-		<input type="number" name="attr_grip_mod" step="1" value="0"/>
-		<button type="action" name="act_grip">Grip</button>
-		<input type="checkbox" name="attr_grip_change">
-		<br>
-		<input type="number" name="attr_physicality_mod" step="1" value="0"/>
-		<button type="action" name="act_physicality">Physicality</button>
-		<input type="checkbox" name="attr_physicality_change">
-		<br>
-		<input type="number" name="attr_presence_mod" step="1" value="0"/>
-		<button type="action" name="act_presence">Presence</button>
-		<input type="checkbox" name="attr_presence_change">
-	</div>
-	
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-		<h4 style="display:block; margin:0px; margin-bottom:3px; text-align:center">Spirit</h4>
-		
-		<input type="number" name="attr_faith_mod" step="1" value="0"/>
-		<button type="action" name="act_faith">Faith</button>
-		<input type="checkbox" name="attr_faith_change">
-		<br>
-		<input type="number" name="attr_interaction_mod" step="1" value="0"/>
-		<button type="action" name="act_interaction">Interaction</button>
-		<input type="checkbox" name="attr_interaction_change">
-		<br>
-		<input type="number" name="attr_willpower_mod" step="1" value="0"/>
-		<button type="action" name="act_willpower">Willpower</button>
-		<input type="checkbox" name="attr_willpower_change">
-	</div>
-	
-	<div class="stylized-type" style="width:170px; margin-bottom:6px;">
-	    <input type="checkbox" name="attr_mb">
-		<input type="number" name="attr_melee_mod" step="1" value="3"/>
-		<h4>Melee Bonus</h4>
-		<br>
-		<input type="checkbox" name="attr_rb">
-		<input type="number" name="attr_ranged_mod" step="1" value="3"/>
-		<h4>Ranged Bonus</h4>
-		<br>
-		<input type="checkbox" name="attr_tb">
-		<input type="number" name="attr_thrown_mod" step="1" value="3"/>
-		<h4>Thrown Bonus</h4>
-		<br>
-		<input type="checkbox" name="attr_sb">
-		<input type="number" name="attr_spell_mod" step="1" value="3"/>
-		<h4>Spell Bonus</h4>
-		<br>
-		<input type="checkbox" name="attr_bb">
-		<input type="number" name="attr_block_mod" step="1" value="0"/>
-		<h4>Block Bonus</h4>
-		<br>
-		<input type="checkbox" name="attr_db">
-		<input type="number" name="attr_dodge_mod" step="1" value="0"/>
-		<h4>Dodge Bonus</h4>
-		<br>
-		<input type="checkbox" name="attr_pb">
-		<input type="number" name="attr_parry_mod" step="1" value="0"/>
-		<h4>Parry Bonus</h4>
-		<br>
-		<input type="checkbox" name="attr_shield_bonus">
-		<input type="number" name="attr_shield_mod" step="1" value="0"/>
-		<h4>Shield</h4>
-	</div>
-	
-	<button type="action" style="width:170px;" name="act_settings">Settings</button>
+<!-- Controls which page is currently active -->
+<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="main" />
+<div style="margin-bottom:10px;">
+    <button type="action" name="act_main" >Character</button>
+    <button type="action" name="act_gear" >Tolerances</button>
+    <button type="action" name="act_struggles" >Roleplay</button>
+    <button type="action" name="act_cheatsheet" >Techniques</button>
+    <button type="action" name="act_grappling" >Grappling</button>
 </div>
 
-<!-- Main div containing everything else -->
-<div style="margin-left:195px;position:absolute;width:800px;">
-
-<h1 style="margin-left:150px;">Legends Unbound Character Sheet</h1>
-
-<br><br>
-
-<!-- Section containing information about the character -->
-<!-- Warning! Each input field must contain a name or else the information is not stored between sessions -->
-<table style="margin: 0px auto;">
-    <tr>
-        <td>
-            <h4>Name:</h4>
-        </td>
-        <td>
-            <input type="text" name="attr_character_name" />
-        </td>
-		
-        <td>
-            <h4>Alignment:</h4>
-        </td>
-        <td>
-            <input type="text" name="attr_character_alignment" />
-        </td>
-        
-        <td>
-            <h4>Player:</h4>
-        </td>
-        <td>
-            <input type="text" name="attr_character_player" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h4>Species:</h4>
-        </td>
-        <td>
-            <input type="text" name="attr_character_species" />
-        </td>
-        
-        <td>
-            <h4>Size:</h4>
-        </td>
-        <td>
-            <input type="text"  name="attr_character_size" />
-        </td>
-        
-        <td>
-            <h4>Background:</h4>
-        </td>
-        <td>
-            <input type="text" name="attr_character_background" />
-        </td>
-    </tr>
-</table>
-
-<br>
-
-<table style="text-align:center;margin:0px auto;">
-    <tr>
-	    <td style="padding:8px; border:1px grey solid;">
-            <h4>Trait Advan.:</h4>
-			<br>
-			<input type="number" name="attr_traitadvan" step="1" value="0">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Attack Advan.:</h4>
-			<br>
-			<input type="number" name="attr_attackadvan" step="1" value="0">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Defense Advan.:</h4>
-			<br>
-			<input type="number" name="attr_defenseadvan" step="1" value="0">
-		</td>
-	</tr>
-</table>
-
-<br>
-
-<table style="text-align:center;margin:0px auto;">
-    <tr>
-	    <td style="padding:8px; border:1px grey solid;">
-	        <input type="checkbox" name="attr_traitcheck_change">
-		    <br>
-		    <h4>TC</h4>
-			<br>
-            <input type="number" name="attr_traitcheck"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Hit Dice</h4>
-			<br>
-            <input type="number" name="attr_healthdice" />
-			<br>
-            <input type="text" name="attr_healthdice_type" style="width:50px;"/>
-		</td>
-	    <td style="padding:8px; border:1px grey solid;">
-	        <input type="checkbox" name="attr_health_change">
-		    <br>
-		    <h4>Health</h4>
-			<br>
-            <input type="number" name="attr_health" />
-			<br>
-            <input type="number" name="attr_health_max" />
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <input type="checkbox" name="attr_deathmod_change">
-		    <br>
-		    <h4>Death</h4>
-			<br>
-            <input type="number" name="attr_death_mod" />
-			<br>
-            <button type="action" style="width:40px;" name="act_deathroll">Roll</button>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Death Stacks</h4>
-			<br>
-            <input type="number" name="attr_deathstacks" />
-			<br>
-            <input type="number" name="attr_deathstacks_max" value="6"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Nat. Armor</h4>
-			<br>
-            <input type="number" name="attr_natarmor" />
-			<br>
-            <input type="text" name="attr_natarmor_max" style="width:50px;" />
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Body Armor</h4>
-			<br>
-            <input type="number" name="attr_bodyarmor" />
-			<br>
-            <input type="text" name="attr_bodyarmor_max" style="width:50px;" />
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <input type="checkbox" name="attr_mana_change">
-		    <br>
-		    <h4>Mana</h4>
-			<br>
-            <input type="number" name="attr_mana" />
-			<br>
-            <input type="number" name="attr_mana_max" />
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <h4>Mana Dice</h4>
-			<br>
-            <input type="number" name="attr_manadice" />
-			<br>
-            <input type="text" name="attr_manadice_type" style="width:50px;"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-		    <input type="checkbox" name="attr_equip_change">
-		    <h4>Equip. Slots</h4>
-			<br>
-            <input type="number" name="attr_equipslots" />
-			<br>
-            <input type="text" name="attr_equipslots_max" style="width:50px;"/>
-		</td>
-	</tr>
-</table>
-
-<br>
-
-<table style="text-align:center;margin:0px auto;">
-    <tr>
-	    <td style="padding:8px; border:1px grey solid;">
-            <h4>Blunt</h4>
-			<br>
-			<input type="number" name="attr_tolerance1"/>
-			<br>
-			<input type="checkbox" name="attr_blunt_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Caustic</h4>
-			<br>
-			<input type="number" name="attr_tolerance2"/>
-			<br>
-			<input type="checkbox" name="attr_caustic_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Cold</h4>
-			<br>
-			<input type="number" name="attr_tolerance3"/>
-			<br>
-			<input type="checkbox" name="attr_cold_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Death</h4>
-			<br>
-			<input type="number" name="attr_tolerance4"/>
-			<br>
-			<input type="checkbox" name="attr_death_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Electric</h4>
-			<br>
-			<input type="number" name="attr_tolerance5"/>
-			<br>
-			<input type="checkbox" name="attr_electric_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Heat</h4>
-			<br>
-			<input type="number" name="attr_tolerance6"/>
-			<br>
-			<input type="checkbox" name="attr_heat_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Light</h4>
-			<br>
-			<input type="number" name="attr_tolerance7"/>
-			<br>
-			<input type="checkbox" name="attr_light_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Poison</h4>
-			<br>
-			<input type="number" name="attr_tolerance9"/>
-			<br>
-			<input type="checkbox" name="attr_poison_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Psychic</h4>
-			<br>
-			<input type="number" name="attr_tolerance10"/>
-			<br>
-			<input type="checkbox" name="attr_psychic_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Puncture</h4>
-			<br>
-			<input type="number" name="attr_tolerance11"/>
-			<br>
-			<input type="checkbox" name="attr_puncture_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Sharp</h4>
-			<br>
-			<input type="number" name="attr_tolerance12"/>
-			<br>
-			<input type="checkbox" name="attr_sharp_change">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Sound</h4>
-			<br>
-			<input type="number" name="attr_tolerance13"/>
-			<br>
-			<input type="checkbox" name="attr_sound_change">
-		</td>
-	</tr>
-</table>
-
-<br>
-
-<table style="text-align:center;margin:0px auto;">
-    <tr>
-	    <td style="padding:8px; border:1px grey solid;">
-            <h4>Main Act.</h4>
-			<br>
-			<input type="checkbox" name="attr_ma1">
-			<br>
-			<input type="checkbox" name="attr_ma2">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Tact Act.</h4>
-			<br>
-			<input type="checkbox" name="attr_ta1">
-			<br>
-			<input type="checkbox" name="attr_ta2">
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Hand 1</h4>
-			<br>
-			<input type="text"  name="attr_hand_1" style="width:90px;"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Hand 2</h4>
-			<br>
-			<input type="text"  name="attr_hand_2" style="width:90px;"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Walking</h4>
-			<br>
-			<input type="number" name="attr_walking"/>
-			<br>
-			<input type="number" name="attr_walking_max"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Swimming</h4>
-			<br>
-			<input type="number" name="attr_swimming"/>
-			<br>
-			<input type="number" name="attr_swimming_max"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Flying</h4>
-			<br>
-			<input type="number" name="attr_flying"/>
-			<br>
-			<input type="number" name="attr_flying_max"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Jumping</h4>
-			<br>
-			<input type="number" name="attr_jumping"/>
-			<br>
-			<input type="number" name="attr_jumping_max"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Burrowing</h4>
-			<br>
-			<input type="number" name="attr_burrowing"/>
-			<br>
-			<input type="number" name="attr_burrowing_max"/>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Hovering</h4>
-			<br>
-			<input type="number" name="attr_hovering"/>
-			<br>
-			<input type="number" name="attr_hovering_max"/>
-		</td>
-	</tr>
-</table>
-
-<br>
-
-<table style="text-align:center;margin:0px auto;padding:5px;">
-    <tr>
-        <td></td>
-		<td>
-		    <h4>Weapon:</h4>
-		</td>
-		<td>
-		    <h4>Attack!</h4>
-		</td>
-		<td>
-		    <h4>Damage:</h4>
-		</td>
-		<td>
-		    <h4>Type(s):</h4>
-		</td>
-		<td>
-		    <h4>Range<h4>
-		</td>
-		<td>
-		    <h4>Lethal<h4>
-		</td>
-	<tr>
-	<tr>
-	    <td>
-	        <input type="checkbox" name="attr_attack1_load" style="margin-left:5px;">
-	        <input type="checkbox" name="attr_attack1_charge" style="margin-right:5px;">
-	    </td>
-	    <td>
-		    <input type="text" name="attr_attack1_name">
-		</td>
-		<td>
-		    <button type="action" style="width:15px;" name="act_attack1_m">M</button>
-		    <button type="action" style="width:15px;" name="act_attack1_r">R</button>
-		    <button type="action" style="width:15px;" name="act_attack1_t">T</button>
-		    <button type="action" style="width:15px;" name="act_attack1_s">S</button>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack1_damage"/>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack1_damagetypes"/>
-		</td>
-        <td>
-            <input type="number" name="attr_attack1_crit" step="1" value="0"/>
-        </td>
-        <td>
-            <input type="number" name="attr_attack1_range" step="1" value="0"/>
-        </td>
-	</tr>
-	<tr>
-	    <td>
-	        <input type="checkbox" name="attr_attack2_load" style="margin-left:5px;">
-	        <input type="checkbox" name="attr_attack2_charge" style="margin-right:5px;">
-	    </td>
-	    <td>
-		    <input type="text" name="attr_attack2_name">
-		</td>
-		<td>
-		    <button type="action" style="width:15px;" name="act_attack2_m">M</button>
-		    <button type="action" style="width:15px;" name="act_attack2_r">R</button>
-		    <button type="action" style="width:15px;" name="act_attack2_t">T</button>
-		    <button type="action" style="width:15px;" name="act_attack2_s">S</button>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack2_damage"/>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack2_damagetypes"/>
-		</td>
-		<td>
-            <input type="number" name="attr_attack2_crit" step="1" value="0"/>
-        </td>
-        <td>
-            <input type="number" name="attr_attack2_range" step="1" value="0"/>
-        </td>
-	</tr>
-	<tr>
-	    <td>
-	        <input type="checkbox" name="attr_attack3_load" style="margin-left:5px;">
-	        <input type="checkbox" name="attr_attack3_charge" style="margin-right:5px;">
-	    </td>
-	    <td>
-		    <input type="text" name="attr_attack3_name">
-		</td>
-		<td>
-		    <button type="action" style="width:15px;" name="act_attack3_m">M</button>
-		    <button type="action" style="width:15px;" name="act_attack3_r">R</button>
-		    <button type="action" style="width:15px;" name="act_attack3_t">T</button>
-		    <button type="action" style="width:15px;" name="act_attack3_s">S</button>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack3_damage"/>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack3_damagetypes"/>
-		</td>
-		<td>
-            <input type="number" name="attr_attack3_crit" step="1" value="0"/>
-        </td>
-        <td>
-            <input type="number" name="attr_attack3_range" step="1" value="0"/>
-        </td>
-	</tr>
-	<tr>
-	    <td>
-	        <input type="checkbox" name="attr_attack4_load" style="margin-left:5px;">
-	        <input type="checkbox" name="attr_attack4_charge" style="margin-right:5px;">
-	    </td>
-	    <td>
-		    <input type="text" name="attr_attack4_name">
-		</td>
-		<td>
-		    <button type="action" style="width:15px;" name="act_attack4_m">M</button>
-		    <button type="action" style="width:15px;" name="act_attack4_r">R</button>
-		    <button type="action" style="width:15px;" name="act_attack4_t">T</button>
-		    <button type="action" style="width:15px;" name="act_attack4_s">S</button>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack4_damage"/>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack4_damagetypes"/>
-		</td>
-		<td>
-            <input type="number" name="attr_attack4_crit" step="1" value="0"/>
-        </td>
-        <td>
-            <input type="number" name="attr_attack4_range" step="1" value="0"/>
-        </td>
-	</tr>
-	<tr>
-	    <td>
-	        <input type="checkbox" name="attr_attack5_load" style="margin-left:5px;">
-	        <input type="checkbox" name="attr_attack5_charge" style="margin-right:5px;">
-	    </td>
-	    <td>
-		    <input type="text" name="attr_attack5_name">
-		</td>
-		<td>
-		    <button type="action" style="width:15px;" name="act_attack5_m">M</button>
-		    <button type="action" style="width:15px;" name="act_attack5_r">R</button>
-		    <button type="action" style="width:15px;" name="act_attack5_t">T</button>
-		    <button type="action" style="width:15px;" name="act_attack5_s">S</button>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack5_damage"/>
-		</td>
-		<td>
-		    <input type="text" name="attr_attack5_damagetypes"/>
-		</td>
-		<td>
-            <input type="number" name="attr_attack5_crit" step="1" value="0"/>
-        </td>
-        <td>
-            <input type="number" name="attr_attack5_range" step="1" value="0"/>
-        </td>
-	</tr>
-</table>
-
-<br>
-
-<table style="text-align:center;margin:0px auto;">
-    <tr>
-	    <td style="padding:8px; border:1px grey solid;">
-            <button type="action" name="act_block" style="width:50px;">Block</button>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <button type="action" name="act_dodge" style="width:50px;">Dodge</button>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <button type="action" name="act_parry" style="width:50px;">Parry</button>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Status 1</h4>
-			<br>
-			<select name="attr_status1">
-				<option>None</option>
-				<option>Aggroed</option>
-                <option>Blinded</option>
-                <option>Charmed</option>
-                <option>Confused</option>
-                <option>Deafened</option>
-                <option>Doomed</option>
-                <option>Drunk</option>
-                <option>Entangled</option>
-                <option>Frightened</option>
-                <option>Grappled</option>
-                <option>Environmental</option>
-                <option>Paralyzed</option>
-                <option>Pinned</option>
-                <option>Poisoned</option>
-                <option>Silenced</option>
-                <option>Sleeping</option>
-                <option>Staggered</option>
-                <option>Suffocating</option>
-                <option>Wet</option>
-                <option>Lingering Bruise</option>
-                <option>Lingering Melt</option>
-                <option>Lingering Frostbite</option>
-                <option>Lingering Decay</option>
-                <option>Lingering Shock</option>
-                <option>Lingering Burn</option>
-                <option>Lingering Shine</option>
-                <option>Lingering Bleed</option>
-                <option>Lingering Toxin</option>
-                <option>Lingering Migraine</option>
-                <option>Lingering Pierce</option>
-                <option>Lingering Cut</option>
-                <option>Lingering Noise</option>
-			</select>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Status 2</h4>
-			<br>
-			<select name="attr_status2">
-				<option>None</option>
-				<option>Aggroed</option>
-                <option>Blinded</option>
-                <option>Charmed</option>
-                <option>Confused</option>
-                <option>Deafened</option>
-                <option>Doomed</option>
-                <option>Drunk</option>
-                <option>Entangled</option>
-                <option>Frightened</option>
-                <option>Grappled</option>
-                <option>Environmental</option>
-                <option>Paralyzed</option>
-                <option>Pinned</option>
-                <option>Poisoned</option>
-                <option>Silenced</option>
-                <option>Sleeping</option>
-                <option>Staggered</option>
-                <option>Suffocating</option>
-                <option>Wet</option>
-                <option>Lingering Bruise</option>
-                <option>Lingering Melt</option>
-                <option>Lingering Frostbite</option>
-                <option>Lingering Decay</option>
-                <option>Lingering Shock</option>
-                <option>Lingering Burn</option>
-                <option>Lingering Shine</option>
-                <option>Lingering Bleed</option>
-                <option>Lingering Toxin</option>
-                <option>Lingering Migraine</option>
-                <option>Lingering Pierce</option>
-                <option>Lingering Cut</option>
-                <option>Lingering Noise</option>
-			</select>
-		</td>
-		<td style="padding:8px; border:1px grey solid;">
-            <h4>Status 3</h4>
-			<br>
-			<select name="attr_status3">
-				<option>None</option>
-				<option>Aggroed</option>
-                <option>Blinded</option>
-                <option>Charmed</option>
-                <option>Confused</option>
-                <option>Deafened</option>
-                <option>Doomed</option>
-                <option>Drunk</option>
-                <option>Entangled</option>
-                <option>Frightened</option>
-                <option>Grappled</option>
-                <option>Environmental</option>
-                <option>Paralyzed</option>
-                <option>Pinned</option>
-                <option>Poisoned</option>
-                <option>Silenced</option>
-                <option>Sleeping</option>
-                <option>Staggered</option>
-                <option>Suffocating</option>
-                <option>Wet</option>
-                <option>Lingering Bruise</option>
-                <option>Lingering Melt</option>
-                <option>Lingering Frostbite</option>
-                <option>Lingering Decay</option>
-                <option>Lingering Shock</option>
-                <option>Lingering Burn</option>
-                <option>Lingering Shine</option>
-                <option>Lingering Bleed</option>
-                <option>Lingering Toxin</option>
-                <option>Lingering Migraine</option>
-                <option>Lingering Pierce</option>
-                <option>Lingering Cut</option>
-                <option>Lingering Noise</option>
-			</select>
-		</td>
-	</tr>
-</table>
-
-<br>
-
-<div style="width:45%;text-align:center;display:inline-block;margin-left:3%;vertical-align: top;">
-    <h4>Class Abilities</h4><h4>
-    <br>
-    <textarea style="width:100%;" rows="4" name="attr_textbox1"></textarea>
-    <h4>Spells<h4>
-	<br>
-	<textarea style="width:100%;" rows="13" name="attr_textbox2"></textarea>
-</div>
-
-<div style="width:45%;text-align:center;display:inline-block;margin-left:2%;vertical-align: top;">
-    <h4>Species Abilities<h4>
-	<br>
-	<textarea style="width:100%;" rows="18" name="attr_textbox3"></textarea>
-	<h4>Equipment<h4>
-	<br>
-	<textarea style="width:100%;" rows="18" name="attr_textbox4"></textarea>
-</div>
-
-<!-- End div for main panel -->
-</div>
-
-<div style="margin-left:1000px;position:absolute;">
+<div class="sheet-main">
     
-    <div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Level</h4>
-	    <input type="number" name="attr_level" style="float:right;"/>
-	</div>
-    <div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Essence</h4>
-	    <input type="number" name="attr_essence" style="float:right;"/>
-	    <input type="number" name="attr_essence_max" style="float:right;" value="0" />
-	</div>
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Short Rest</h4>
-	    <input type="number" name="attr_shortrest" style="float:right;"/>
-	    <input type="number" name="attr_shortrest_max" style="float:right;" value="0" />
-	</div>
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Long Rest</h4>
-	    <input type="number" name="attr_longrest" style="float:right;"/>
-	    <input type="number" name="attr_longrest_max" style="float:right;" value="0" />
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main1"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num1" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max1" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main2"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num2" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max2" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main3"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num3" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max3" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main4"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num4" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max4" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main5"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num5" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max5" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main6"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num6" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max6" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main7"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num7" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max7" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main8"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num8" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max8" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main9"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num9" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max9" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main10"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num10" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max10" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main11"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num11" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max11" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main12"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num12" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max12" style="width:80px;"/>
-	    <br>
-	</div>
-	
-	<div class="stylized-type" style="width:170px; padding-bottom: 10px; margin-bottom:6px;">
-	    <input type="text" name="attr_abilitytracker_main13"/>
-	    <br>
-	    <input type="number" name="attr_abilitytracker_num13" style="width:80px;"/>
-	    <input type="number" name="attr_abilitytracker_max13" style="width:80px;"/>
-	    <br>
-	</div>
+    <!-- Left sidebar div containing stats and traits -->
+    <div style="width:175px;position:absolute;">
+        <div class="sheet-template-container container-style sidebar-small" style="display:none; padding-bottom: 10px;">
+    		<h4>Hide Roll</h4>
+            <input type="checkbox" name="attr_gmroll" value="1" style="float: right; margin-top: 7px; margin-right: 7px;">
+    	</div>
+        
+    	<div class="container-style sidebar-small">
+    		<h4>Trait Total</h4>
+    		<input type="number" name="attr_totaltrait" readonly="true" style="float:right;"/>
+    	</div>
+    
+    	<div class="container-style sidebar-normal">
+    		<h4>Awareness</h4>
+    		
+    		<input type="number" name="attr_detection_mod" step="1" value="0"/>
+    		<button type="action" name="act_detection">Detection</button>
+    		<input type="checkbox" name="attr_detection_change">
+    		<br>
+    		<input type="number" name="attr_intuition_mod" step="1" value="0"/>
+    		<button type="action" name="act_intuition">Intuition</button>
+    		<input type="checkbox" name="attr_intuition_change">
+    		<br>
+    		<input type="number" name="attr_wilderness_mod" step="1" value="0"/>
+    		<button type="action" name="act_wilderness">Wilderness</button>
+    		<input type="checkbox" name="attr_wilderness_change">
+    	</div>
+    
+    	<div class="container-style sidebar-normal">
+    		<h4>Charisma</h4>
+    		
+    		<input type="number" name="attr_convince_mod" step="1" value="0"/>
+    		<button type="action" name="act_convince">Convince</button>
+    		<input type="checkbox" name="attr_convince_change">
+    		<br>
+    		<input type="number" name="attr_flair_mod" step="1" value="0"/>
+    		<button type="action" name="act_flair">Flair</button>
+    		<input type="checkbox" name="attr_flair_change">
+    		<br>
+    		<input type="number" name="attr_performance_mod" step="1" value="0"/>
+    		<button type="action" name="act_performance">Performance</button>
+    		<input type="checkbox" name="attr_performance_change">
+    	</div>
+    
+    	<div class="container-style sidebar-normal">
+    		<h4>Coordination</h4>
+    		
+    		<input type="number" name="attr_agility_mod" step="1" value="0"/>
+    		<button type="action" name="act_agility">Agility</button>
+    		<input type="checkbox" name="attr_agility_change">
+    		<br>
+    		<input type="number" name="attr_dexterity_mod" step="1" value="0"/>
+    		<button type="action" name="act_dexterity">Dexterity</button>
+    		<input type="checkbox" name="attr_dexterity_change">
+    		<br>
+    		<input type="number" name="attr_stealth_mod" step="1" value="0"/>
+    		<button type="action" name="act_stealth">Stealth</button>
+    		<input type="checkbox" name="attr_stealth_change">
+    	</div>
+    
+    	<div class="container-style sidebar-normal">
+    		<h4>Endurance</h4>
+    		
+    		<input type="number" name="attr_constitution_mod" step="1" value="0"/>
+    		<button type="action" name="act_constitution">Constitution</button>
+    		<input type="checkbox" name="attr_constitution_change">
+    		<br>
+    		<input type="number" name="attr_persistence_mod" step="1" value="0"/>
+    		<button type="action" name="act_persistence">Persistence</button>
+    		<input type="checkbox" name="attr_persistence_change">
+    		<br>
+    		<input type="number" name="attr_toughness_mod" step="1" value="0"/>
+    		<button type="action" name="act_toughness">Toughness</button>
+    		<input type="checkbox" name="attr_toughness_change">
+    	</div>
+    
+    	<div class="container-style sidebar-normal">
+    		<h4>Intelligence</h4>
+    		
+    		<input type="number" name="attr_engineering_mod" step="1" value="0"/>
+    		<button type="action" name="act_engineering">Engineering</button>
+    		<input type="checkbox" name="attr_engineering_change">
+    		<br>
+    		<input type="number" name="attr_knowledge_mod" step="1" value="0"/>
+    		<button type="action" name="act_knowledge">Knowledge</button>
+    		<input type="checkbox" name="attr_knowledge_change">
+    		<br>
+    		<input type="number" name="attr_magic_mod" step="1" value="0"/>
+    		<button type="action" name="act_magic">Magic</button>
+    		<input type="checkbox" name="attr_magic_change">
+    	</div>
+    
+    	<div class="container-style sidebar-normal">
+    		<h4>Power</h4>
+    		
+    		<input type="number" name="attr_grip_mod" step="1" value="0"/>
+    		<button type="action" name="act_grip">Grip</button>
+    		<input type="checkbox" name="attr_grip_change">
+    		<br>
+    		<input type="number" name="attr_physicality_mod" step="1" value="0"/>
+    		<button type="action" name="act_physicality">Physicality</button>
+    		<input type="checkbox" name="attr_physicality_change">
+    		<br>
+    		<input type="number" name="attr_presence_mod" step="1" value="0"/>
+    		<button type="action" name="act_presence">Presence</button>
+    		<input type="checkbox" name="attr_presence_change">
+    	</div>
+    	
+    	<div class="container-style sidebar-normal">
+    		<h4>Spirit</h4>
+    		
+    		<input type="number" name="attr_faith_mod" step="1" value="0"/>
+    		<button type="action" name="act_faith">Faith</button>
+    		<input type="checkbox" name="attr_faith_change">
+    		<br>
+    		<input type="number" name="attr_interaction_mod" step="1" value="0"/>
+    		<button type="action" name="act_interaction">Interaction</button>
+    		<input type="checkbox" name="attr_interaction_change">
+    		<br>
+    		<input type="number" name="attr_willpower_mod" step="1" value="0"/>
+    		<button type="action" name="act_willpower">Willpower</button>
+    		<input type="checkbox" name="attr_willpower_change">
+    	</div>
+    	
+    	<div class="container-style sidebar">
+    	    <input type="checkbox" name="attr_mb">
+    		<input type="number" name="attr_melee_mod" step="1" value="3"/>
+    		<h4>Melee Bonus</h4>
+    		<br>
+    		<input type="checkbox" name="attr_rb">
+    		<input type="number" name="attr_ranged_mod" step="1" value="3"/>
+    		<h4>Ranged Bonus</h4>
+    		<br>
+    		<input type="checkbox" name="attr_tb">
+    		<input type="number" name="attr_thrown_mod" step="1" value="3"/>
+    		<h4>Thrown Bonus</h4>
+    		<br>
+    		<input type="checkbox" name="attr_sb">
+    		<input type="number" name="attr_spell_mod" step="1" value="3"/>
+    		<h4>Spell Bonus</h4>
+    		<br>
+    		<input type="checkbox" name="attr_bb">
+    		<input type="number" name="attr_block_mod" step="1" value="0"/>
+    		<h4>Block Bonus</h4>
+    		<br>
+    		<input type="checkbox" name="attr_db">
+    		<input type="number" name="attr_dodge_mod" step="1" value="0"/>
+    		<h4>Dodge Bonus</h4>
+    		<br>
+    		<input type="checkbox" name="attr_pb">
+    		<input type="number" name="attr_parry_mod" step="1" value="0"/>
+    		<h4>Parry Bonus</h4>
+    		<br>
+    		<input type="checkbox" name="attr_shield_bonus" style="visibility: hidden;">
+    		<input type="number" name="attr_shield_mod" step="1" value="0"/>
+    		<h4>Shield</h4>
+    		<br>
+    		<input type="checkbox" name="attr_critmin_check" style="visibility:hidden;">
+    	    <input type="number" name="attr_critmin" value="20"/>
+    	    <h4>Crit Min</h4>
+    	</div>
+    </div>
 
-<!-- All HTML code for the character sheet itself is above this. -->
+    <!-- Main div containing everything else -->
+    <div style="margin-left:195px; position:absolute; width:800px;">
+    
+        <div style="width: 800px; text-align: center; margin-bottom: 6px;">
+            <h1>Legends Unbound Character Sheet</h1>
+        </div>    
+
+        <!-- Section containing information about the character -->
+        <div id="character_box" class="container-style">
+            <div>
+                <h4>Name:</h4>
+            </div>
+            <div>
+                <input type="text" name="attr_character_name" />
+            </div>
+            <div>
+                <h4>Size:</h4>
+            </div>
+            <div>
+                <input type="text" name="attr_character_size" />
+            </div>
+            <div>
+                <h4>Player:</h4>
+            </div>
+            <div>
+                <input type="text" name="attr_character_player" />
+            </div>
+            <div>
+                <h4>Species:</h4>
+            </div>
+            <div>
+                <input type="text" name="attr_character_species" />
+            </div>
+            <div>
+                <h4>Class:</h4>
+            </div>
+            <div>
+                <input type="text" name="attr_character_class" />
+            </div>
+            <div>
+                <h4>Background:</h4>
+            </div>
+            <div>
+                <input type="text" name="attr_character_background" />
+            </div>
+        </div>
+        
+        <!-- Section containing information about advantage and global modifiers -->
+        <div id="advan_and_mod_box" class="container-style">
+            <!-- Controls which advantage/mod loadout is currently active -->
+            <input type="hidden" class="advmodloadout-tabstoggle" name="attr_advmodLoadout" value="0" />
+            
+            <div>
+                <h4>Trait ADV:</h4>
+            </div>
+            <div>
+                <h4>Attack ADV:</h4>
+            </div>
+            <div>
+                <h4>Defense ADV:</h4>
+            </div>
+            <div>
+                <h4 class="advmod-loadout-0">ADV/Mod A:</h4>
+                <h4 class="advmod-loadout-1">ADV/Mod B:</h4>
+                <h4 class="advmod-loadout-2">ADV/Mod C:</h4>
+                <h4 class="advmod-loadout-3">ADV/Mod D:</h4>
+                <h4 class="advmod-loadout-4">ADV/Mod E:</h4>
+            </div>
+            <div>
+                <h4>Trait Mod:</h4>
+            </div>
+            <div>
+                <h4>Attack Mod:</h4>
+            </div>
+            <div style="border:none;">
+                <h4>Defense Mod:</h4>
+            </div>
+            <div>
+                <input type="number" name="attr_traitadvan_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_traitadvan_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_traitadvan_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_traitadvan_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_traitadvan_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_attackadvan_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_attackadvan_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_attackadvan_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_attackadvan_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_attackadvan_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_defenseadvan_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_defenseadvan_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_defenseadvan_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_defenseadvan_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_defenseadvan_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="radio" name="attr_advan_and_mod_loadout" value="0" checked="checked">
+                <input type="radio" name="attr_advan_and_mod_loadout" value="1">
+                <input type="radio" name="attr_advan_and_mod_loadout" value="2">
+                <input type="radio" name="attr_advan_and_mod_loadout" value="3">
+                <input type="radio" name="attr_advan_and_mod_loadout" value="4">
+            </div>
+            <div>
+                <input type="number" name="attr_traitmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_traitmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_traitmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_traitmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_traitmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_attackmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_attackmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_attackmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_attackmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_attackmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div style="border:none;">
+                <input type="number" name="attr_defensemod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_defensemod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_defensemod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_defensemod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_defensemod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+        </div>
+        
+        <!-- Section containing information about the character's main attributes -->
+        <div id="attribute_box" class="container-style">
+            <div>
+                <input type="checkbox" name="attr_traitcheck_change">
+    		    <h4>TC</h4>
+                <input type="number" name="attr_traitcheck"/>
+                <br />
+            </div>
+            <div>
+                <h4>Health</h4>
+                <input type="number" name="attr_health" />
+                <input type="number" name="attr_health_max" />
+                <h4 class="max-display">Max</h4>
+            </div>
+            <div>
+                <h4>Mana</h4>
+                <input type="number" name="attr_mana" />
+                <input type="number" name="attr_mana_max" />
+                <h4 class="max-display">Max</h4>
+            </div>
+            <div>
+                <input type="checkbox" name="attr_deathmod_change">
+    		    <h4>Death</h4>
+                <input type="number" name="attr_death_mod" />
+                <button type="action" style="width:40px;" name="act_deathroll">Roll</button>
+            </div>
+            <div>
+                <h4>Death Stacks</h4>
+                <input type="number" name="attr_deathstacks" />
+                <input type="number" name="attr_deathstacks_max" value="6"/>
+                <h4 class="max-display">Max</h4>
+            </div>
+            <div>
+                <input type="checkbox" name="attr_equip_change">
+    		    <h4>Equip. Slots</h4>
+                <input type="number" name="attr_equipslots" />
+                <input type="text" name="attr_equipslots_max" style="width:50px;"/>
+            </div>
+            <div style="border: none;">
+        	    <h4>Rest Points</h4>
+        	    <input type="number" name="attr_rest" />
+        	    <input type="number" name="attr_rest_max" value="0" />
+        	    <h4 class="max-display">Max</h4>
+        	</div>
+        </div>
+
+        <!-- Section containing information about the tolerances and weaknesses -->
+        <div class="container-style">
+            <div class="tolerance-box">
+                <div>
+                    <h4>Caustic</h4>
+                </div>
+                <div>
+                    <h4>Cold</h4>
+                </div>
+                <div>
+                    <h4>Electric</h4>
+                </div>
+                <div>
+                    <h4>Death</h4>
+                </div>
+                <div>
+                    <h4>Heat</h4>
+                </div>
+                <div>
+                    <h4>Light</h4>
+                </div>
+                <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
+                    <h4>Physical</h4>
+                </div>
+                <div>
+                    <h4>Psychic</h4>
+                </div>
+                <div style="border: none;">
+                    <h4>Sound</h4>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_caustic"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_cold"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_electric"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_death"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_heat"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_light"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_poison"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_physical"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_psychic"/>
+                </div>
+                <div style="border: none;">
+                    <input type="number" readonly="true" name="attr_tolerance_total_sound"/>
+                </div>
+            </div>
+            <div style="text-align: center; position: relative; top: 5px;">
+                <h4 class="max-display">TOLERANCES/WEAKNESSES SHOULD BE CALCULATED ON THE APPROPRIATE PAGE</h4>
+            </div>
+        </div>
+        
+        <!-- Section containing information about the character's actions -->
+        <div id="action_box" class="container-style">
+            <div>
+                <h4>Main</h4>
+                <br>
+                <h4>Act.</h4>
+        		<br>
+        		<input type="checkbox" name="attr_ma1">
+        		<br>
+        		<input type="checkbox" name="attr_ma2">
+            </div>
+            <div>
+                <h4>Tact</h4>
+                <br>
+                <h4>Act.</h4>
+        		<br>
+        		<input type="checkbox" name="attr_ta1">
+        		<br>
+        		<input type="checkbox" name="attr_ta2">
+            </div>
+            <div>
+                <h4>Hands</h4>
+    			<br>
+    			<input type="text"  name="attr_hand_1" style="width:90px;"/>
+    			<br>
+                <input type="text"  name="attr_hand_2" style="width:90px;"/>
+            </div>
+            <div>
+                <div>
+                    <h4>Armor</h4>
+        			<br>
+        			<input type="text"  name="attr_armor" style="width:90px;"/>
+                </div>
+            </div>
+            <div>
+                <h4>Walking</h4>
+    			<br>
+    			<input type="number" name="attr_walking"/>
+    			<br>
+    			<input type="number" name="attr_walking_max"/>
+            </div>
+            <div>
+                <h4>Swimming</h4>
+    			<br>
+    			<input type="number" name="attr_swimming"/>
+    			<br>
+    			<input type="number" name="attr_swimming_max"/>
+            </div>
+            <div>
+                <h4>Flying</h4>
+    			<br>
+    			<input type="number" name="attr_flying"/>
+    			<br>
+    			<input type="number" name="attr_flying_max"/>
+            </div>
+            <div>
+                <h4>Jumping</h4>
+    			<br>
+    			<input type="number" name="attr_jumping"/>
+    			<br>
+    			<input type="number" name="attr_jumping_max"/>
+            </div>
+            <div>
+                <h4>Burrowing</h4>
+    			<br>
+    			<input type="number" name="attr_burrowing"/>
+    			<br>
+    			<input type="number" name="attr_burrowing_max"/>
+            </div>
+            <div style="border: none;">
+                <h4>Hovering</h4>
+    			<br>
+    			<input type="number" name="attr_hovering"/>
+    			<br>
+    			<input type="number" name="attr_hovering_max"/>
+            </div>
+        </div>
+        
+        <!-- Section containing information about the character's attacks -->
+        <div id="attack_box" class="container-style">
+            <fieldset class="repeating_attacks">
+                <div id="attack_header" style="display: grid; grid-template-columns: 19.36px 19.36px 166.36px 35.36px 35.36px 35.36px 35.36px 161.36px 161.38px 56.88px 56.88px; grid-template-rows: repeat(1, auto);">
+                    <div>
+                	    <h4 title="IS YOUR WEAPON CHARGED?">C</h4>
+                	</div>
+                	<div>
+                	    <h4 title="IS YOUR WEAPON RELOADED?">R</h4>
+                	</div>
+                	<div>
+                	    <h4>ATTACK NAME</h4>
+                	</div>
+                	<div>
+                	    <h4 title="MELEE ATTACK!">M</h4>
+            	    </div>
+            	    <div>
+            		    <h4 title="RANGED ATTACK!">R</h4>
+            		</div>
+            	    <div>
+            		    <h4 title="THROWN ATTACK!">T</h4>
+            		</div>
+            	    <div>
+            		    <h4 title="SPELL ATTACK!">S</h4>
+                	</div>
+                	<div>
+                	    <h4>DAMAGE</h4>
+                	</div>
+                	<div>
+                	    <h4>DMG. TYPE</h4>
+                	</div>
+                	<div>
+                	    <h4>LETHAL</h4>
+                	</div>
+                	<div style="border: none;">
+                	    <h4>RANGE</h4>
+                	</div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(11, auto); grid-template-rows: repeat(1, auto);">
+                	<div>
+                	    <input type="checkbox" name="attr_attack_load" style="margin-top: 7px;">
+                	</div>
+                	<div>
+                	    <input type="checkbox" name="attr_attack_charge" style="margin-top: 7px;">
+                	</div>
+                	<div>
+                	    <input type="text" name="attr_attack_name">
+                	</div>
+                	<div>
+                	    <button type="action" style="width:15px;" name="act_melee">M</button>
+            	    </div>
+            	    <div>
+            		    <button type="action" style="width:15px;" name="act_ranged">R</button>
+            		</div>
+            	    <div>
+            		    <button type="action" style="width:15px;" name="act_thrown">T</button>
+            		</div>
+            	    <div>
+            		    <button type="action" style="width:15px;" name="act_spell">S</button>
+                	</div>
+                	<div>
+                	    <input type="text" name="attr_attack_damage"/>
+                	</div>
+                	<div>
+                	    <input type="text" name="attr_attack_damagetypes"/>
+                	</div>
+                	<div>
+                	    <input type="number" name="attr_attack_crit" step="1" />
+                	</div>
+                	<div style="border: none;">
+                	    <input type="number" name="attr_attack_range" step="1" />
+                	</div>
+            	</div>
+            	<div>
+            	    <textarea name="attr_attack_text" style="width: calc(100% - 15px); height: 46px;"></textarea>
+            	</div>
+        </div>
+        
+        <!-- Section containing further combat information -->
+        <div id="combat_box" class="container-style">
+            <div>
+                <button type="action" name="act_block" style="width:50px;">Block</button>
+            </div>
+            <div>
+                <button type="action" name="act_dodge" style="width:50px;">Dodge</button>
+            </div>
+            <div>
+                <button type="action" name="act_parry" style="width:50px;">Parry</button>
+            </div>
+            <div>
+                <h4>Status 1</h4>
+    			<select name="attr_status1">
+    				<option>None</option>
+    				<option>Aggroed</option>
+                    <option>Blinded</option>
+                    <option>Charmed</option>
+                    <option>Confused</option>
+                    <option>Deafened</option>
+                    <option>Doomed</option>
+                    <option>Drunk</option>
+                    <option>Entangled</option>
+                    <option>Frightened</option>
+                    <option>Grappled</option>
+                    <option>Environmental</option>
+                    <option>Paralyzed</option>
+                    <option>Pinned</option>
+                    <option>Poisoned</option>
+                    <option>Silenced</option>
+                    <option>Sleeping</option>
+                    <option>Staggered</option>
+                    <option>Suffocating</option>
+                    <option>Wet</option>
+                    <option>Lingering Bruise</option>
+                    <option>Lingering Melt</option>
+                    <option>Lingering Frostbite</option>
+                    <option>Lingering Decay</option>
+                    <option>Lingering Shock</option>
+                    <option>Lingering Burn</option>
+                    <option>Lingering Shine</option>
+                    <option>Lingering Bleed</option>
+                    <option>Lingering Toxin</option>
+                    <option>Lingering Migraine</option>
+                    <option>Lingering Pierce</option>
+                    <option>Lingering Cut</option>
+                    <option>Lingering Noise</option>
+    			</select>
+            </div>
+            <div>
+                <h4>Status 2</h4>
+    			<select name="attr_status2">
+    				<option>None</option>
+    				<option>Aggroed</option>
+                    <option>Blinded</option>
+                    <option>Charmed</option>
+                    <option>Confused</option>
+                    <option>Deafened</option>
+                    <option>Doomed</option>
+                    <option>Drunk</option>
+                    <option>Entangled</option>
+                    <option>Frightened</option>
+                    <option>Grappled</option>
+                    <option>Environmental</option>
+                    <option>Paralyzed</option>
+                    <option>Pinned</option>
+                    <option>Poisoned</option>
+                    <option>Silenced</option>
+                    <option>Sleeping</option>
+                    <option>Staggered</option>
+                    <option>Suffocating</option>
+                    <option>Wet</option>
+                    <option>Lingering Bruise</option>
+                    <option>Lingering Melt</option>
+                    <option>Lingering Frostbite</option>
+                    <option>Lingering Decay</option>
+                    <option>Lingering Shock</option>
+                    <option>Lingering Burn</option>
+                    <option>Lingering Shine</option>
+                    <option>Lingering Bleed</option>
+                    <option>Lingering Toxin</option>
+                    <option>Lingering Migraine</option>
+                    <option>Lingering Pierce</option>
+                    <option>Lingering Cut</option>
+                    <option>Lingering Noise</option>
+    			</select>
+            </div>
+            <div style="border: none;">
+                <h4>Status 3</h4>
+    			<select name="attr_status3">
+    				<option>None</option>
+    				<option>Aggroed</option>
+                    <option>Blinded</option>
+                    <option>Charmed</option>
+                    <option>Confused</option>
+                    <option>Deafened</option>
+                    <option>Doomed</option>
+                    <option>Drunk</option>
+                    <option>Entangled</option>
+                    <option>Frightened</option>
+                    <option>Grappled</option>
+                    <option>Environmental</option>
+                    <option>Paralyzed</option>
+                    <option>Pinned</option>
+                    <option>Poisoned</option>
+                    <option>Silenced</option>
+                    <option>Sleeping</option>
+                    <option>Staggered</option>
+                    <option>Suffocating</option>
+                    <option>Wet</option>
+                    <option>Lingering Bruise</option>
+                    <option>Lingering Melt</option>
+                    <option>Lingering Frostbite</option>
+                    <option>Lingering Decay</option>
+                    <option>Lingering Shock</option>
+                    <option>Lingering Burn</option>
+                    <option>Lingering Shine</option>
+                    <option>Lingering Bleed</option>
+                    <option>Lingering Toxin</option>
+                    <option>Lingering Migraine</option>
+                    <option>Lingering Pierce</option>
+                    <option>Lingering Cut</option>
+                    <option>Lingering Noise</option>
+    			</select>
+            </div>
+        </div>
+
+        <!-- Text areas -->
+        <div style="width:45%;text-align:center;display:inline-block;margin-left:3%;vertical-align: top;">
+            <h4>Class Abilities</h4><h4>
+            <br>
+            <textarea style="width:100%;" rows="4" name="attr_textbox1"></textarea>
+            <h4>Spells<h4>
+        	<br>
+        	<textarea style="width:100%;" rows="13" name="attr_textbox2"></textarea>
+        </div>
+        <div style="width:45%;text-align:center;display:inline-block;margin-left:2%;vertical-align: top;">
+            <h4>Species Abilities<h4>
+        	<br>
+        	<textarea style="width:100%;" rows="18" name="attr_textbox3"></textarea>
+        	<h4>Equipment<h4>
+        	<br>
+        	<textarea style="width:100%;" rows="18" name="attr_textbox4"></textarea>
+        </div>
+
+    <!-- End div for main panel -->
+    </div>
+
+    <div style="margin-left: 1003px; position: absolute;">
+        
+        <div class="container-style sidebar-small">
+    	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Level</h4>
+    	    <input type="number" name="attr_level" style="float:right;"/>
+    	</div>
+    	<div class="container-style sidebar-small">
+    	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Gold</h4>
+    	    <input type="number" name="attr_wealth" style="float:right;"/>
+    	</div>
+        <div class="container-style sidebar-small">
+    	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Essence</h4>
+    	    <input type="number" name="attr_essence" style="float:right;"/>
+    	    <input type="number" name="attr_essence_max" style="float:right;" value="0" />
+    	</div>
+    	<div class="container-style sidebar-small">
+    	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Fatigue</h4>
+    	    <input type="number" name="attr_fatigue" style="float:right;" value="0"/>
+    	</div>
+    	
+    	<fieldset class="repeating_ability">
+        	<div class="container-style sidebar-normal">
+            	<input type="text" name="attr_abilitytracker_name" style="display: block; width: 163px;"/>
+                <input type="number" name="attr_abilitytracker_num" style="width:80px;"/>
+                <input type="number" name="attr_abilitytracker_max" style="width:80px;"/>
+                <textarea name="attr_abilitytracker_textbox" style="width: 153px; margin: 0px; height: 36px;"></textarea> 
+        	</div>
+        </fieldset>
+    </div>
+    </div>
+    
+    <div class="sheet-gear">
+        <!-- Totals -->
+        <div class="container-style">
+            <div style="text-align: center;">
+                <h4>TOTAL</h4>
+            </div>
+            <div class="tolerance-box">
+                <div>
+                    <h4>Caustic</h4>
+                </div>
+                <div>
+                    <h4>Cold</h4>
+                </div>
+                <div>
+                    <h4>Electric</h4>
+                </div>
+                <div>
+                    <h4>Death</h4>
+                </div>
+                <div>
+                    <h4>Heat</h4>
+                </div>
+                <div>
+                    <h4>Light</h4>
+                </div>
+                <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
+                    <h4>Physical</h4>
+                </div>
+                <div>
+                    <h4>Psychic</h4>
+                </div>
+                <div style="border: none;">
+                    <h4>Sound</h4>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_caustic"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_cold"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_electric"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_death"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_heat"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_light"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_poison"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_physical"/>
+                </div>
+                <div>
+                    <input type="number" readonly="true" name="attr_tolerance_total_psychic"/>
+                </div>
+                <div style="border: none;">
+                    <input type="number" readonly="true" name="attr_tolerance_total_sound"/>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Natural -->
+        <div class="container-style">
+            <div style="text-align: center;">
+                <h4>NATURAL</h4>
+            </div>
+            <div class="tolerance-box">
+                <div>
+                    <h4>Caustic</h4>
+                </div>
+                <div>
+                    <h4>Cold</h4>
+                </div>
+                <div>
+                    <h4>Electric</h4>
+                </div>
+                <div>
+                    <h4>Death</h4>
+                </div>
+                <div>
+                    <h4>Heat</h4>
+                </div>
+                <div>
+                    <h4>Light</h4>
+                </div>
+                <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
+                    <h4>Physical</h4>
+                </div>
+                <div>
+                    <h4>Psychic</h4>
+                </div>
+                <div style="border: none;">
+                    <h4>Sound</h4>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance2"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance3"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance4"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance5"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance6"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance7"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance9"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_physical"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance10"/>
+                </div>
+                <div style="border: none;">
+                    <input type="number" name="attr_tolerance13"/>
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_caustic_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_cold_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_death_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_electric_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_heat_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_light_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_poison_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_sharp_change">
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_psychic_change">
+                </div>
+                <div style="border: none;">
+                    <input type="checkbox" name="attr_sound_change">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Armor -->
+        <div class="container-style">
+            <div style="text-align: center;">
+                <h4>ARMOR</h4>
+            </div>
+            <div class="tolerance-box">
+                <div>
+                    <h4>Caustic</h4>
+                </div>
+                <div>
+                    <h4>Cold</h4>
+                </div>
+                <div>
+                    <h4>Electric</h4>
+                </div>
+                <div>
+                    <h4>Death</h4>
+                </div>
+                <div>
+                    <h4>Heat</h4>
+                </div>
+                <div>
+                    <h4>Light</h4>
+                </div>
+                <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
+                    <h4>Physical</h4>
+                </div>
+                <div>
+                    <h4>Psychic</h4>
+                </div>
+                <div style="border: none;">
+                    <h4>Sound</h4>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_caustic"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_cold"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_electric"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_death"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_heat"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_light"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_poison"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_physical"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_armor_psychic"/>
+                </div>
+                <div style="border: none;">
+                    <input type="number" name="attr_tolerance_armor_sound"/>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <h4>Active?</h4>
+                <input type="checkbox" name="attr_armor_tolerance_apply" checked="true">
+            </div>
+        </div>
+        
+        <!-- Shield -->
+        <div class="container-style">
+            <div style="text-align: center;">
+                <h4>SHIELD</h4>
+            </div>
+            <div class="tolerance-box">
+                <div>
+                    <h4>Caustic</h4>
+                </div>
+                <div>
+                    <h4>Cold</h4>
+                </div>
+                <div>
+                    <h4>Electric</h4>
+                </div>
+                <div>
+                    <h4>Death</h4>
+                </div>
+                <div>
+                    <h4>Heat</h4>
+                </div>
+                <div>
+                    <h4>Light</h4>
+                </div>
+                <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
+                    <h4>Physical</h4>
+                </div>
+                <div>
+                    <h4>Psychic</h4>
+                </div>
+                <div style="border: none;">
+                    <h4>Sound</h4>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_caustic"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_cold"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_electric"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_death"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_heat"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_light"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_poison"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_physical"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_shield_psychic"/>
+                </div>
+                <div style="border: none;">
+                    <input type="number" name="attr_tolerance_shield_sound"/>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <h4>Active?</h4>
+                <input type="checkbox" name="attr_shield_tolerance_apply" checked="true">
+            </div>
+        </div>
+    </div>
+
+    <div class="sheet-cheatsheet">
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Charging</h3>
+    		<p>Charging allows a creature to try and run through other creatures or objects and push them out of the way.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 1 + the number of size categories you are above the charged target in a direction of your choice.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 5 + the number of size categories you are above the charged target (min 0) in a direction of your choice and they take non-misc. damage equal to your total level.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Disarming</h3>
+    		<p>Disarming allows for a creature to try and remove or disarm 1 item that another creature or target is wearing or holding that can reasonably be removed by an attempt.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 1 + the number of size categories you are above the disarmed target in a direction of your choice.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 5 + the number of size categories you are above the disarmed target in a direction of your choice.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Disengaging</h3>
+    		<p>Disengaging is a technique used to escape the reach or grasp of others.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you are able to move away from all creatures safely until the end of your turn. All creatures cannot target you with an attack or ability as a result of you moving away unless otherwise specified.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana, you can immediately dash and move away from all creatures safely until the end of your turn. All creatures cannot target you with an attack or ability as a result of you moving away unless otherwise specified.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Grounding</h3>
+    		<p>Grounding is used to force a target that is high in the sky to be magically forced to the ground and possibly within striking range.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you can attempt to ground a target you can see or know the position of or cause your next attack to try and ground them. When you do this or if the attack hits, they must make a persistence trait roll vs your TC. On a fail, the creature cannot fly or hover and falls out of the sky and takes an appropriate amount of fall damage if any.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana you can attempt to ground a creature you can see/ know the position of, or cause your next attack to try and ground them. When you do this or if the attack hits, they must make a persistence trait roll with +1 DisADV vs your TC. On a fail, the creature cannot fly or hover and falls out of the sky and takes an appropriate amount of fall damage if any.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Precise Hit</h3>
+    		<p>Precise hits are techniques used to target a specific portion of a creature or thing in order to try and cause some sort of additional effect. For example, if you target the eyes of a creature the FD may cause them to gain the blinded status effect.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you can focus your next attack to hit a specific point on a target. The attack has a +2 DisADV, but on a hit, an additional fair effect occurs based on the FD discretion.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action at the cost of 5 mana, you can focus your next attack to hit a specific point on a target. The attack has +1 DisADV, but on a hit, an additional fair effect occurs based on the FD discretion.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Purifying</h3>
+    		<p>Purifying is a technique a creature can perform to become free of an effect that they don’t want or may be harmful to them.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you can attempt one of the status effect’s trait rolls vs the TC. On a success, the status effect is removed. Status effects that cannot be removed are not affected by this unless otherwise stated.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana, you can automatically remove 1 status effect of your choice. Status effects that cannot be removed are not affected by this unless otherwise stated.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Shoving</h3>
+    		<p>Shoving is a technique used to push or move something to give a creature a more advantageous position.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you can attempt to shove a target within reach or to cause your next block or attack to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove the target up to a number of tiles equal to 1 + the number of size categories you are above the target.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana you can attempt to shove a target within reach or to cause your next block or attack roll to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove them up to a number of tiles equal to 5 + the number of size categories you are above the target and they gain the staggered status effect.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Throwing</h3>
+    		<p>Throwing is a technique used to try and move and throw something to give a more advantageous position.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 1 + the number of size categories you are above the thrown creature. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 5 tiles away.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana, you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 5 + the number of size categories you are above the thrown creature. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 10 tiles away.</p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Tripping</h3>
+    		<p>Tripping is a technique used to knock an opponent down and gain higher ground over them.</p>
+    		<h4>Weak</h4>
+    		<p>As a tactical action you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll for every size category above yours. On a fail, the target falls down and gains the prone status effect.</p>
+    		<h4>Strong</h4>
+    		<p>As a tactical action and at the cost of 5 mana you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll for every size category above yours. On a fail, the target falls down and gains the prone status effect and must spend all of its movement speed in a turn to stand up and remove this status effect.</p>
+    	</div>
+    </div>
+
+    <div class="sheet-grappling">
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Grapple Check</h3>
+    		<p>As a main action, you can attempt to grapple a target within reach. <u>You and the target must make a contested physicality or agility trait roll,</u> and if you win you successfully grapple them. The creature doing the grappling is known as the grappler, and the target being grappled is unknown as the grappled target. <u>Any forced movement will cause any creature that wants to hold on to make a grip trait roll vs the TC of the shove.</u></p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Moving While Grappling</h3>
+    		<p>Unless otherwise stated, both creatures can still move each other whenever they would move. However, the grappler and grappled target have all movement speed halved. <u>When either target attempts to move or dash they both must remake the grappling check and if the target initiating the move wins, they can successfully move with the other target.</u></p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Escaping A Grapple</h3>
+    		<p>While grappled the grappled target can spend a tactical action to attempt to escape the grapple by remaking the grapple check vs the grappler. On a success the grappled target breaks free of the grapple. The grappler can willingly let go or stop grappling as a free action. </p>
+    	</div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Grappling Techniques</h3>
+    		<p>Grappling techniques are different maneuvers and techniques used while grappling to try and gain an advantage in combat. <u>Whenever you use a grappling technique you must remake the contested grapple check to determine whether or not the grappling technique works.</u> If you succeed the grappling technique takes effect. If they succeed the grappling technique does not occur but they remain grappled.</p>
+    		<ul>
+    		    <li><b>Body Block:</b> When you are targeted by an attack or TC that deals damage you can spend 1 main action to attempt to reposition the grappled target between you and the damage source. If successful, the grappled target takes half of the damage and you take the remainder. </li>
+    		    <li><b>Pin:</b> As a main action you can attempt to pin a grappled target into the ground or solid object such as a wall. If you succeed the grappled target's speed is reduced to 0, all attacks against the grappled target have +1 ADV and the grappled target has +1 DisADV on attacks it makes. The grappled target can spend 1 main action to automatically escape the pin. </li>
+    		    <li><b>Slam:</b> As a main action you can attempt to slam a grappled target into something. If you succeed the grappled target takes 1d4 misc. damage.  If the grappled target is slammed into another creature the grappled target takes half the damage, and the other creature takes the remaining damage. </li>
+    		    <li><b>Takedown:</b> As a main action you can attempt to take down or sweep a grappled target. If you succeed, the grappled target falls prone. </li>
+    		    <li><b>Throw:</b>As a main action you can attempt to throw a grappled target up to 5 tiles away + the number of size categories you are above the grappled target. If you succeed the target takes 1d4 misc. damage for each tile it traveled before colliding with something. If the grappled target is thrown into another creature the grappled target takes half the damage, and the other creature takes the remaining damage. You can also choose to throw the grappled target upwards and they become susceptible to fall damage. </li>
+    		</ul>
+    	</div>
+    </div>
+    
+    <div class="sheet-struggles">
+        <div style="width:45%;text-align:center;display:inline-block;margin-left:3%;vertical-align: top;">
+            <div class="stylized-type" style="width:100%; padding-bottom: 10px; margin-bottom:6px; visibility:hidden;">
+        	    <h4 style="margin:0px; margin-bottom:3px;">Consider this an easter egg</h4>
+        	    <input type="number" style="float:right;"/>
+        	</div>
+            <h4>Goals</h4><h4>
+            <br>
+            <textarea style="width:100%;" rows="4" name="attr_roleplay_goals"></textarea>
+            <h4>Bonds<h4>
+        	<br>
+        	<textarea style="width:100%;" rows="13" name="attr_roleplay_bonds"></textarea>
+        	<h4>Flaws<h4>
+        	<br>
+        	<textarea style="width:100%;" rows="13" name="attr_roleplay_flaws"></textarea>
+        </div>
+        
+        <div style="width:45%;text-align:center;display:inline-block;margin-left:2%;vertical-align: top;">
+        	<div class="stylized-type" style="width:100%; padding-bottom: 10px; margin-bottom:6px;">
+        	    <h4 style="margin:0px; margin-bottom:3px;">Current Fated Struggle Value</h4>
+        	    <input type="number" name="attr_struggle" style="float:right;"/>
+        	</div>
+            <h4>Struggles<h4>
+        	<br>
+        	<textarea style="width:100%;" rows="18" name="attr_roleplay_struggles"></textarea>
+        	<h4>Triggers<h4>
+        	<br>
+        	<textarea style="width:100%;" rows="18" name="attr_roleplay_triggers"></textarea>
+        </div>
+    </div>
 </div>
 
 <!-- Displays roll results in Roll20's chat -->
@@ -1056,7 +1341,135 @@
     {{/rollTotal() hide 1}}
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-r_non2d10_template">
+    {{#rollTotal() hide 0}}
+    <div class="sheet-template-container" style="border-style:groove; padding:5px;">
+        <h4>Armor: {{roll}}</h4>
+    </div>
+    {{/rollTotal() hide 0}}
+    
+    <!-- Version of the roll only shown to players using a third-party application to specifically force it to show -->
+    {{#rollTotal() hide 1}}
+    <div class="sheet-template-container" style="border-style:groove; padding:5px; display:none;">
+        <h4>Armor: {{roll}}</h4>
+    </div>
+    {{/rollTotal() hide 1}}
+</rolltemplate>
+
 <script type="text/worker">
+    const buttonlist = ["main","gear","cheatsheet","grappling","struggles"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+    
+    
+    on("change:advan_and_mod_loadout sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(values) {
+            let val = parseInt(values.advan_and_mod_loadout);
+            setAttrs({
+                advmodLoadout: val
+            });
+        });
+    });
+    
+    
+    on("change:tolerance2 change:tolerance_armor_caustic change:tolerance_shield_caustic change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance2","tolerance_armor_caustic","tolerance_shield_caustic","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance2) || 0) + (parseInt(values.tolerance_armor_caustic) * (values.armor_tolerance_apply === "on") || 0) + (parseInt(values.tolerance_shield_caustic) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_caustic": val
+            });
+        });
+    });
+    
+    on("change:tolerance3 change:tolerance_armor_cold change:tolerance_shield_cold change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance3","tolerance_armor_cold","tolerance_shield_cold","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance3) || 0) + (parseInt(values.tolerance_armor_cold) * (values.armor_tolerance_apply === "on")  || 0) + (parseInt(values.tolerance_shield_cold) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_cold": val
+            });
+        });
+    });
+    
+    on("change:tolerance4 change:tolerance_armor_electric change:tolerance_shield_electric change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance4","tolerance_armor_electric","tolerance_shield_electric","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance4) || 0) + (parseInt(values.tolerance_armor_electric) * (values.armor_tolerance_apply === "on")  || 0) + (parseInt(values.tolerance_shield_electric) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_electric": val
+            });
+        });
+    });
+    
+    on("change:tolerance5 change:tolerance_armor_death change:tolerance_shield_death change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance5","tolerance_armor_death","tolerance_shield_death","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance5) || 0) + (parseInt(values.tolerance_armor_death) * (values.armor_tolerance_apply === "on")  || 0) + (parseInt(values.tolerance_shield_death) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_death": val
+            });
+        });
+    });
+    
+    on("change:tolerance6 change:tolerance_armor_heat change:tolerance_shield_heat change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance6","tolerance_armor_heat","tolerance_shield_heat","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance6) || 0) + (parseInt(values.tolerance_armor_heat) * (values.armor_tolerance_apply === "on")  || 0) + (parseInt(values.tolerance_shield_heat) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_heat": val
+            });
+        });
+    });
+    
+    on("change:tolerance7 change:tolerance_armor_light change:tolerance_shield_light change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance7","tolerance_armor_light","tolerance_shield_light","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance7) || 0) + (parseInt(values.tolerance_armor_light) * (values.armor_tolerance_apply === "on")  || 0) + (parseInt(values.tolerance_shield_light) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_light": val
+            });
+        });
+    });
+    
+    on("change:tolerance9 change:tolerance_armor_poison change:tolerance_shield_poison change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance9","tolerance_armor_poison","tolerance_shield_poison","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance9) || 0) + (parseInt(values.tolerance_armor_poison) * (values.armor_tolerance_apply === "on")  || 0) + (parseInt(values.tolerance_shield_poison) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_poison": val
+            });
+        });
+    });
+    
+    on("change:tolerance_physical change:tolerance_armor_physical change:tolerance_shield_physical change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance_physical","tolerance_armor_physical","tolerance_shield_physical","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance_physical) || 0) + (parseInt(values.tolerance_armor_physical) * (values.armor_tolerance_apply === "on")  || 0) + (parseInt(values.tolerance_shield_physical) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_physical": val
+            });
+        });
+    });
+    
+    on("change:tolerance10 change:tolerance_armor_psychic change:tolerance_shield_psychic change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance10","tolerance_armor_psychic","tolerance_shield_psychic","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance10) || 0) + (parseInt(values.tolerance_armor_psychic) || 0) * (values.armor_tolerance_apply === "on")  + (parseInt(values.tolerance_shield_psychic) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_psychic": val
+            });
+        });
+    });
+    
+    on("change:tolerance13 change:tolerance_armor_sound change:tolerance_shield_sound change:armor_tolerance_apply change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["tolerance13","tolerance_armor_sound","tolerance_shield_sound","armor_tolerance_apply","shield_tolerance_apply"], function(values) {
+            let val = (parseInt(values.tolerance13) || 0) + (parseInt(values.tolerance_armor_sound) || 0) * (values.armor_tolerance_apply === "on")  + (parseInt(values.tolerance_shield_sound) * (values.shield_tolerance_apply === "on") || 0)
+            setAttrs({
+                "tolerance_total_sound": val
+            });
+        });
+    });
+    
+    
+    
+    
     
     on("change:detection_mod change:intuition_mod change:wilderness_mod change:convince_mod change:flair_mod change:performance_mod change:agility_mod change:dexterity_mod change:stealth_mod change:constitution_mod change:persistence_mod change:toughness_mod change:engineering_mod change:knowledge_mod change:magic_mod change:grip_mod change:physicality_mod change:presence_mod change:faith_mod change:interaction_mod change:willpower_mod sheet:opened", function() {  
         getAttrs(["detection_mod","intuition_mod","wilderness_mod","convince_mod","flair_mod","performance_mod","agility_mod","dexterity_mod","stealth_mod","constitution_mod","persistence_mod","toughness_mod","engineering_mod","knowledge_mod","magic_mod","grip_mod","physicality_mod","presence_mod","faith_mod","interaction_mod","willpower_mod"], function(values) {
@@ -1219,199 +1632,139 @@
         });
     });
     
-    
-    
-    on('clicked:attack1_m', (info) => {
-        getAttrs(["melee_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
-            _makeRoll("attack", values.attack1_name, values.melee_mod, "Melee " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
-        });
-    });
-    
-    on('clicked:attack1_r', (info) => {
-        getAttrs(["ranged_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
-            _makeRoll("attack", values.attack1_name, values.ranged_mod, "Ranged " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
-        });
-    });
-    
-    on('clicked:attack1_t', (info) => {
-        getAttrs(["thrown_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
-            _makeRoll("attack", values.attack1_name, values.thrown_mod, "Thrown " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
-        });
-    });
-    
-    on('clicked:attack1_s', (info) => {
-        getAttrs(["spell_mod", "attack1_name", "attack1_damage", "attack1_crit", "attack1_damagetypes", "attack1_range"], function(values) {
-            _makeRoll("attack", values.attack1_name, values.spell_mod, "Spell " + values.attack1_range, values.attack1_damagetypes, values.attack1_damage, values.attack1_crit);
-        });
-    });
-    
-    on('clicked:attack2_m', (info) => {
-        getAttrs(["melee_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
-            _makeRoll("attack", values.attack2_name, values.melee_mod, "Melee " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
-        });
-    });
-    
-    on('clicked:attack2_r', (info) => {
-        getAttrs(["ranged_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
-            _makeRoll("attack", values.attack2_name, values.ranged_mod, "Ranged " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
-        });
-    });
-    
-    on('clicked:attack2_t', (info) => {
-        getAttrs(["thrown_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
-            _makeRoll("attack", values.attack2_name, values.thrown_mod, "Thrown " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
-        });
-    });
-    
-    on('clicked:attack2_s', (info) => {
-        getAttrs(["spell_mod", "attack2_name", "attack2_damage", "attack2_crit", "attack2_damagetypes", "attack2_range"], function(values) {
-            _makeRoll("attack", values.attack2_name, values.spell_mod, "Spell " + values.attack2_range, values.attack2_damagetypes, values.attack2_damage, values.attack2_crit);
-        });
-    });
-    
-    on('clicked:attack3_m', (info) => {
-        getAttrs(["melee_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
-            _makeRoll("attack", values.attack3_name, values.melee_mod, "Melee " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
-        });
-    });
-    
-    on('clicked:attack3_r', (info) => {
-        getAttrs(["ranged_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
-            _makeRoll("attack", values.attack3_name, values.ranged_mod, "Ranged " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
-        });
-    });
-    
-    on('clicked:attack3_t', (info) => {
-        getAttrs(["thrown_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
-            _makeRoll("attack", values.attack3_name, values.thrown_mod, "Thrown " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
-        });
-    });
-    
-    on('clicked:attack3_s', (info) => {
-        getAttrs(["spell_mod", "attack3_name", "attack3_damage", "attack3_crit", "attack3_damagetypes", "attack3_range"], function(values) {
-            _makeRoll("attack", values.attack3_name, values.spell_mod, "Spell " + values.attack3_range, values.attack3_damagetypes, values.attack3_damage, values.attack3_crit);
-        });
-    });
-    
-    on('clicked:attack4_m', (info) => {
-        getAttrs(["melee_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
-            _makeRoll("attack", values.attack4_name, values.melee_mod, "Melee " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
-        });
-    });
-    
-    on('clicked:attack4_r', (info) => {
-        getAttrs(["ranged_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
-            _makeRoll("attack", values.attack4_name, values.ranged_mod, "Ranged " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
-        });
-    });
-    
-    on('clicked:attack4_t', (info) => {
-        getAttrs(["thrown_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
-            _makeRoll("attack", values.attack4_name, values.thrown_mod, "Thrown " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
-        });
-    });
-    
-    on('clicked:attack4_s', (info) => {
-        getAttrs(["spell_mod", "attack4_name", "attack4_damage", "attack4_crit", "attack4_damagetypes", "attack4_range"], function(values) {
-            _makeRoll("attack", values.attack4_name, values.spell_mod, "Spell " + values.attack4_range, values.attack4_damagetypes, values.attack4_damage, values.attack4_crit);
+    on('clicked:armor', (info) => {
+        getAttrs(["armor", "gmroll"], function(values) {
+            let armorVal = values.armor;
+            let gmrollVal = parseInt(values.gmroll);
+            startRoll(`&{template:r_non2d10_template} {{hide=[[${parseInt(gmrollVal)}d1]]}} {{roll=[[${armorVal}]]}}`, (results) => {
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: results.results.roll.result
+                    }
+                );
+            });
         });
     });
     
     
-    on('clicked:attack5_m', (info) => {
-        getAttrs(["melee_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
-            _makeRoll("attack", values.attack5_name, values.melee_mod, "Melee " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+    
+    on('clicked:repeating_attacks:melee', function() {
+        getAttrs(["melee_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
+            _makeRoll("attack", values.repeating_attack_attack_name, values.melee_mod, "Melee " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
         });
     });
     
-    on('clicked:attack5_r', (info) => {
-        getAttrs(["ranged_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
-            _makeRoll("attack", values.attack5_name, values.ranged_mod, "Ranged " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+    on('clicked:repeating_attacks:ranged', function() {
+        getAttrs(["ranged_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
+            _makeRoll("attack", values.repeating_attack_attack_name, values.ranged_mod, "Ranged " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
         });
     });
     
-    on('clicked:attack5_t', (info) => {
-        getAttrs(["thrown_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
-            _makeRoll("attack", values.attack5_name, values.thrown_mod, "Thrown " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+    on('clicked:repeating_attacks:thrown', function() {
+        getAttrs(["thrown_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
+            _makeRoll("attack", values.repeating_attack_attack_name, values.thrown_mod, "Thrown " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
         });
     });
     
-    on('clicked:attack5_s', (info) => {
-        getAttrs(["spell_mod", "attack5_name", "attack5_damage", "attack5_crit", "attack5_damagetypes", "attack5_range"], function(values) {
-            _makeRoll("attack", values.attack5_name, values.spell_mod, "Spell " + values.attack5_range, values.attack5_damagetypes, values.attack5_damage, values.attack5_crit);
+    on('clicked:repeating_attacks:spell', function() {
+        getAttrs(["spell_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
+            _makeRoll("attack", values.repeating_attack_attack_name, values.spell_mod, "Spell " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
         });
     });
+    
+    
+    
     
     
     //Function to make a dice roll
 	const _makeRoll = (rolltype, rollname, bonus, attacktype, damagetype, rolldice, critdmg) => {
-	    getAttrs(["traitadvan", "attackadvan", "defenseadvan", "gmroll", "character_name"], function(values) {
-	        //get global values
-            let hiddenroll = parseInt(values.gmroll);
-			let charname = values.character_name;
-			let advan = 0;
-			let damagetext = "0";
-            let crittext = "0";
-            if(rolltype === "attack"){
-                damagetext = `${rolldice}`;
-                crittext = `${rolldice} + ${critdmg}`;
-                rolltype = "1";
-                advan = parseInt(values.attackadvan);
-            }
-            else{
-                if(rolltype === "trait"){
-                    advan = parseInt(values.traitadvan);
+	    getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let traitadvan_getter = "traitadvan_" + loadout.advan_and_mod_loadout;
+	        let traitmod_getter = "traitmod_" + loadout.advan_and_mod_loadout;
+	        let attackadvan_getter = "attackadvan_" + loadout.advan_and_mod_loadout;
+	        let attackmod_getter = "attackmod_" + loadout.advan_and_mod_loadout;
+	        let defenseadvan_getter = "defenseadvan_" + loadout.advan_and_mod_loadout;
+	        let defensemod_getter = "defensemod_" + loadout.advan_and_mod_loadout;
+	        
+    	    getAttrs([traitadvan_getter, traitmod_getter, attackadvan_getter, attackmod_getter, defenseadvan_getter, defensemod_getter, "gmroll", "character_name", "critmin"], function(values) {
+    	        //get global values
+                let hiddenroll = parseInt(values.gmroll);
+    			let charname = values.character_name;
+    			let advan = 0;
+    			let damagetext = "0";
+                let crittext = "0";
+                let critmin = parseInt(values.critmin);
+                if(rolltype === "attack"){
+                    damagetext = `${rolldice}`;
+                    crittext = `${rolldice} + ${critdmg}`;
+                    rolltype = "1";
+                    advan = parseInt(values[attackadvan_getter]);
+                    bonus = parseInt(bonus) + parseInt(values[attackmod_getter]);
                 }
                 else{
-                    advan = parseInt(values.defenseadvan);
-                }
-                rolltype = "0"
-            }
-			
-			//determine dice roll
-            let rolltext = "";
-            if(advan >= 0){
-                //If player has advantage, take highest
-                rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${bonus}`;
-            } else {
-                //If player has disadvanatage, take lowest
-                //I have no idea why "2 + ${advan} * -1" works, but "2 - ${advan}" doesn't
-                rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${bonus}`;
-            }
-            
-			//TODO: Roll parameters::
-			//>Name of roll
-			//>Name of roll's instigator
-			//>Type of roll (whether should do damage, whether thrown or spellcast, etc.)
-			//>Bonus to the roll
-			//>Amount of advantage on the roll
-			//>Type of dice to roll
-			//>Damage required
-			//??Extra damage on a crit
-			//>Whether the roll should be hidden
-			//??Can you decompose rolls? Because if so, then it'd be great to show every roll immediately with advantage
-			//??In fact, whether the roll's internals should be shown at all is a legitimate question
-    	    startRoll(`&{template:r_template} {{hide=[[${hiddenroll}d1]]}} {{name=${rollname}}} {{character=${charname}}} {{roll=[[${rolltext}]]}} {{rolltype=[[${rolltype}d1]]}} {{atktype=${attacktype}}} {{dmgtype=${damagetype}}} {{damage=[[${damagetext}]]}} {{crit=${critdmg}}}`, (results) => {
-                let original = results.results.roll.result;
-                let computed = original - bonus;
-                
-                //Determines if the number is a crit
-                //computed cannot be directly compared to an integer using "==", so comparisons are instead made using ">"
-                if(computed > 19){
-                    computed  = original * 2;
-                }else if(computed < 3) {
-                    computed = Math.ceil(original / 2);
-                } else {
-                    computed = original;
-                }
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: computed
+                    if(rolltype === "trait"){
+                        advan = parseInt(values[traitadvan_getter]);
+                        bonus = parseInt(bonus) + parseInt(values[traitmod_getter]);
+                        rolltype = "0"
                     }
-                );
-            });
+                    else{
+                        advan = parseInt(values[defenseadvan_getter]);
+                        bonus = parseInt(bonus) + parseInt(values[defensemod_getter]);
+                        rolltype = "2"
+                    }
+                }
+    			
+    			//determine dice roll
+                let rolltext = "";
+                if(advan >= 0){
+                    //If player has advantage, take highest
+                    rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${bonus}`;
+                } else {
+                    //If player has disadvanatage, take lowest
+                    //I have no idea why "2 + ${advan} * -1" works, but "2 - ${advan}" doesn't
+                    rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${bonus}`;
+                }
+                
+    			//TODO: Roll parameters::
+    			//>Name of roll
+    			//>Name of roll's instigator
+    			//>Type of roll (whether should do damage, whether thrown or spellcast, etc.)
+    			//>Bonus to the roll
+    			//>Amount of advantage on the roll
+    			//>Type of dice to roll
+    			//>Damage required
+    			//??Extra damage on a crit
+    			//>Whether the roll should be hidden
+    			//??Can you decompose rolls? Because if so, then it'd be great to show every roll immediately with advantage
+    			//??In fact, whether the roll's internals should be shown at all is a legitimate question
+        	    startRoll(`&{template:r_template} {{hide=[[${hiddenroll}d1]]}} {{name=${rollname}}} {{character=${charname}}} {{roll=[[${rolltext}]]}} {{rolltype=[[${rolltype}d1]]}} {{atktype=${attacktype}}} {{dmgtype=${damagetype}}} {{damage=[[${damagetext}]]}} {{crit=${critdmg}}}`, (results) => {
+                    let original = results.results.roll.result;
+                    let computed = original - bonus;
+                    
+                    //Determines if the number is a crit
+                    //computed cannot be directly compared to an integer using "==", so comparisons are instead made using ">"
+                    console.log("breakpoint 1!")
+                    if(computed > (rolltype === "1" ? critmin - 1 : 19)){
+                        console.log("breakpoint 2!")
+                        computed  = original * 2;
+                    }else if(computed < 3) {
+                        console.log("breakpoint 3!")
+                        computed = Math.ceil(original / 2);
+                    } else {
+                        console.log("breakpoint 4!")
+                        computed = original;
+                    }
+                    console.log("breakpoint 5!")
+        
+                    finishRoll(
+                        results.rollId,
+                        {
+                            roll: computed
+                        }
+                    );
+                });
+    	    });
 	    });
 	}
 </script>
