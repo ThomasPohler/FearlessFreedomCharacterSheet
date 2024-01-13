@@ -5,175 +5,135 @@
 <!-- Controls which page is currently active -->
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="main" />
 <div style="margin-bottom:10px;">
-    <button type="action" name="act_main" >Character</button>
-    <button type="action" name="act_gear" >Tolerances</button>
-    <button type="action" name="act_struggles" >Roleplay</button>
-    <button type="action" name="act_cheatsheet" >Techniques</button>
-    <button type="action" name="act_grappling" >Grappling</button>
-</div>
+    <button type="action" name="act_main">Character</button>
+    <button type="action" name="act_level">Level-Up</button>
+    <button type="action" name="act_gear">Gear</button>
+    <button type="action" name="act_struggles">Roleplay</button>
+    <button type="action" name="act_cheatsheet">Techniques</button>
+    <button type="action" name="act_grappling">Grappling</button>
+</div>s
 
 <div class="sheet-main">
     
     <!-- Left sidebar div containing stats and traits -->
     <div style="width:175px;position:absolute;">
-        <div class="sheet-template-container container-style sidebar-small" style="display:none; padding-bottom: 10px;">
-    		<h4>Hide Roll</h4>
-            <input type="checkbox" name="attr_gmroll" value="1" style="float: right; margin-top: 7px; margin-right: 7px;">
+        <div class="container-style sidebar-small" style="padding-bottom: 10px;">
+    		<h4>GM-Only Roll</h4>
+            <input type="checkbox" name="attr_gm_roll" value="1" style="float: right; margin-top: 7px; margin-right: 7px;">
     	</div>
-        
-    	<div class="container-style sidebar-small">
-    		<h4>Trait Total</h4>
-    		<input type="number" name="attr_totaltrait" readonly="true" style="float:right;"/>
-    	</div>
-    
+
     	<div class="container-style sidebar-normal">
     		<h4>Awareness</h4>
     		
-    		<input type="number" name="attr_detection_mod" step="1" value="0"/>
+    		<input type="number" name="attr_detection_mod_ui" id="detection" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_detection">Detection</button>
-    		<input type="checkbox" name="attr_detection_change">
     		<br>
-    		<input type="number" name="attr_intuition_mod" step="1" value="0"/>
+    		<input type="number" name="attr_intuition_mod_ui" id="intuition" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_intuition">Intuition</button>
-    		<input type="checkbox" name="attr_intuition_change">
     		<br>
-    		<input type="number" name="attr_wilderness_mod" step="1" value="0"/>
+    		<input type="number" name="attr_wilderness_mod_ui" id="wilderness" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_wilderness">Wilderness</button>
-    		<input type="checkbox" name="attr_wilderness_change">
     	</div>
     
     	<div class="container-style sidebar-normal">
     		<h4>Charisma</h4>
     		
-    		<input type="number" name="attr_convince_mod" step="1" value="0"/>
+    		<input type="number" name="attr_convince_mod_ui" id="convince" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_convince">Convince</button>
-    		<input type="checkbox" name="attr_convince_change">
     		<br>
-    		<input type="number" name="attr_flair_mod" step="1" value="0"/>
+    		<input type="number" name="attr_flair_mod_ui" id="flair" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_flair">Flair</button>
-    		<input type="checkbox" name="attr_flair_change">
     		<br>
-    		<input type="number" name="attr_performance_mod" step="1" value="0"/>
+    		<input type="number" name="attr_performance_mod_ui" id="performance" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_performance">Performance</button>
-    		<input type="checkbox" name="attr_performance_change">
     	</div>
     
     	<div class="container-style sidebar-normal">
     		<h4>Coordination</h4>
     		
-    		<input type="number" name="attr_agility_mod" step="1" value="0"/>
+    		<input type="number" name="attr_agility_mod_ui" id="agility" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_agility">Agility</button>
-    		<input type="checkbox" name="attr_agility_change">
     		<br>
-    		<input type="number" name="attr_dexterity_mod" step="1" value="0"/>
+    		<input type="number" name="attr_dexterity_mod_ui" id="dexterity" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_dexterity">Dexterity</button>
-    		<input type="checkbox" name="attr_dexterity_change">
     		<br>
-    		<input type="number" name="attr_stealth_mod" step="1" value="0"/>
+    		<input type="number" name="attr_stealth_mod_ui" id="stealth" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_stealth">Stealth</button>
-    		<input type="checkbox" name="attr_stealth_change">
     	</div>
     
     	<div class="container-style sidebar-normal">
     		<h4>Endurance</h4>
     		
-    		<input type="number" name="attr_constitution_mod" step="1" value="0"/>
+    		<input type="number" name="attr_constitution_mod_ui" id="constitution" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_constitution">Constitution</button>
-    		<input type="checkbox" name="attr_constitution_change">
     		<br>
-    		<input type="number" name="attr_persistence_mod" step="1" value="0"/>
+    		<input type="number" name="attr_persistence_mod_ui" id="persistence" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_persistence">Persistence</button>
-    		<input type="checkbox" name="attr_persistence_change">
     		<br>
-    		<input type="number" name="attr_toughness_mod" step="1" value="0"/>
-    		<button type="action" name="act_toughness">Toughness</button>
-    		<input type="checkbox" name="attr_toughness_change">
+    		<input type="number" name="attr_toughness_mod_ui" id="toughness" step="1" value="0" readonly="true"/>
+    		<button type="action" name="act_toughness">Durable</button>
     	</div>
     
     	<div class="container-style sidebar-normal">
     		<h4>Intelligence</h4>
     		
-    		<input type="number" name="attr_engineering_mod" step="1" value="0"/>
+    		<input type="number" name="attr_engineering_mod_ui" id="engineering" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_engineering">Engineering</button>
-    		<input type="checkbox" name="attr_engineering_change">
     		<br>
-    		<input type="number" name="attr_knowledge_mod" step="1" value="0"/>
+    		<input type="number" name="attr_knowledge_mod_ui" id="knowledge" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_knowledge">Knowledge</button>
-    		<input type="checkbox" name="attr_knowledge_change">
     		<br>
-    		<input type="number" name="attr_magic_mod" step="1" value="0"/>
+    		<input type="number" name="attr_magic_mod_ui" id="magic" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_magic">Magic</button>
-    		<input type="checkbox" name="attr_magic_change">
     	</div>
     
     	<div class="container-style sidebar-normal">
     		<h4>Power</h4>
     		
-    		<input type="number" name="attr_grip_mod" step="1" value="0"/>
+    		<input type="number" name="attr_grip_mod_ui" id="grip" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_grip">Grip</button>
-    		<input type="checkbox" name="attr_grip_change">
     		<br>
-    		<input type="number" name="attr_physicality_mod" step="1" value="0"/>
+    		<input type="number" name="attr_physicality_mod_ui" id="physicality" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_physicality">Physicality</button>
-    		<input type="checkbox" name="attr_physicality_change">
     		<br>
-    		<input type="number" name="attr_presence_mod" step="1" value="0"/>
+    		<input type="number" name="attr_presence_mod_ui" id="presence" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_presence">Presence</button>
-    		<input type="checkbox" name="attr_presence_change">
     	</div>
     	
     	<div class="container-style sidebar-normal">
-    		<h4>Spirit</h4>
+    		<h4>Conviction</h4>
     		
-    		<input type="number" name="attr_faith_mod" step="1" value="0"/>
+    		<input type="number" name="attr_faith_mod_ui" id="faith" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_faith">Faith</button>
-    		<input type="checkbox" name="attr_faith_change">
     		<br>
-    		<input type="number" name="attr_interaction_mod" step="1" value="0"/>
+    		<input type="number" name="attr_interaction_mod_ui" id="interaction" step="1" value="0" readonly="true"/>
     		<button type="action" name="act_interaction">Interaction</button>
-    		<input type="checkbox" name="attr_interaction_change">
     		<br>
-    		<input type="number" name="attr_willpower_mod" step="1" value="0"/>
-    		<button type="action" name="act_willpower">Willpower</button>
-    		<input type="checkbox" name="attr_willpower_change">
+    		<input type="number" name="attr_willpower_mod_ui" id="willpower" step="1" value="0" readonly="true"/>
+    		<button type="action" name="act_willpower">Motivation</button>
     	</div>
     	
     	<div class="container-style sidebar">
-    	    <input type="checkbox" name="attr_mb">
-    		<input type="number" name="attr_melee_mod" step="1" value="3"/>
+    		<input type="number" name="attr_melee_mod" step="1" value="3" readonly="true"/>
     		<h4>Melee Bonus</h4>
     		<br>
-    		<input type="checkbox" name="attr_rb">
-    		<input type="number" name="attr_ranged_mod" step="1" value="3"/>
+    		<input type="number" name="attr_ranged_mod" step="1" value="3" readonly="true"/>
     		<h4>Ranged Bonus</h4>
     		<br>
-    		<input type="checkbox" name="attr_tb">
-    		<input type="number" name="attr_thrown_mod" step="1" value="3"/>
+    		<input type="number" name="attr_thrown_mod" step="1" value="3" readonly="true"/>
     		<h4>Thrown Bonus</h4>
     		<br>
-    		<input type="checkbox" name="attr_sb">
-    		<input type="number" name="attr_spell_mod" step="1" value="3"/>
+    		<input type="number" name="attr_spell_mod" step="1" value="3" readonly="true"/>
     		<h4>Spell Bonus</h4>
     		<br>
-    		<input type="checkbox" name="attr_bb">
-    		<input type="number" name="attr_block_mod" step="1" value="0"/>
+    		<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
     		<h4>Block Bonus</h4>
     		<br>
-    		<input type="checkbox" name="attr_db">
-    		<input type="number" name="attr_dodge_mod" step="1" value="0"/>
+    		<input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
     		<h4>Dodge Bonus</h4>
     		<br>
-    		<input type="checkbox" name="attr_pb">
-    		<input type="number" name="attr_parry_mod" step="1" value="0"/>
+    		<input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
     		<h4>Parry Bonus</h4>
-    		<br>
-    		<input type="checkbox" name="attr_shield_bonus" style="visibility: hidden;">
-    		<input type="number" name="attr_shield_mod" step="1" value="0"/>
-    		<h4>Shield</h4>
-    		<br>
-    		<input type="checkbox" name="attr_critmin_check" style="visibility:hidden;">
-    	    <input type="number" name="attr_critmin" value="20"/>
-    	    <h4>Crit Min</h4>
     	</div>
     </div>
 
@@ -303,16 +263,153 @@
                 <input type="number" name="attr_defensemod_3" step="1" value="0" class="advmod-loadout-3">
                 <input type="number" name="attr_defensemod_4" step="1" value="0" class="advmod-loadout-4">
             </div>
+            
+            <div style="margin-top: 7px;">
+                <h4>DC ADV:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>DC Mod:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Damage ADV:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Damage Mod:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Death Mod:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Equip. Mod:</h4>
+            </div>
+            <div style="margin-top:7px; border:none;">
+                <h4>Rest Mod:</h4>
+            </div>
+            <div>
+                <input type="number" name="attr_difficultyadvan_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_difficultyadvan_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_difficultyadvan_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_difficultyadvan_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_difficultyadvan_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_difficultymod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_difficultymod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_difficultymod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_difficultymod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_difficultymod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_damageadvan_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_damageadvan_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_damageadvan_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_damageadvan_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_damageadvan_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_damagemod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_damagemod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_damagemod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_damagemod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_damagemod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_deathmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_deathmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_deathmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_deathmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_deathmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_equipmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_equipmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_equipmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_equipmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_equipmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div style=border:none;>
+                <input type="number" name="attr_restmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_restmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_restmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_restmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_restmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            
+            
+            <div style="margin-top: 7px;">
+                <h4>Reflex Mod:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Strength Mod:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Toughness ADV:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Heart Mod:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Mind Mod:</h4>
+            </div>
+            <div style="margin-top: 7px;">
+                <h4>Soul Mod:</h4>
+            </div>
+            <div style="margin-top:7px; border:none;">
+                <h4>Crit Min.:</h4>
+            </div>
+            <div>
+                <input type="number" name="attr_reflexmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_reflexmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_reflexmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_reflexmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_reflexmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_strengthmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_strengthmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_strengthmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_strengthmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_strengthmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_toughnessmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_toughnessmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_toughnessmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_toughnessmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_toughnessmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_heartmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_heartmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_heartmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_heartmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_heartmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_mindmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_mindmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_mindmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_mindmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_mindmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div>
+                <input type="number" name="attr_soulmod_0" step="1" value="0" class="advmod-loadout-0">
+                <input type="number" name="attr_soulmod_1" step="1" value="0" class="advmod-loadout-1">
+                <input type="number" name="attr_soulmod_2" step="1" value="0" class="advmod-loadout-2">
+                <input type="number" name="attr_soulmod_3" step="1" value="0" class="advmod-loadout-3">
+                <input type="number" name="attr_soulmod_4" step="1" value="0" class="advmod-loadout-4">
+            </div>
+            <div style=border:none;>
+                <input type="number" name="attr_critmin_0" step="1" value="20" class="advmod-loadout-0">
+                <input type="number" name="attr_critmin_1" step="1" value="20" class="advmod-loadout-1">
+                <input type="number" name="attr_critmin_2" step="1" value="20" class="advmod-loadout-2">
+                <input type="number" name="attr_critmin_3" step="1" value="20" class="advmod-loadout-3">
+                <input type="number" name="attr_critmin_4" step="1" value="20" class="advmod-loadout-4">
+            </div>
         </div>
         
         <!-- Section containing information about the character's main attributes -->
         <div id="attribute_box" class="container-style">
-            <div>
-                <input type="checkbox" name="attr_traitcheck_change">
-    		    <h4>TC</h4>
-                <input type="number" name="attr_traitcheck"/>
-                <br />
-            </div>
             <div>
                 <h4>Health</h4>
                 <input type="number" name="attr_health" />
@@ -326,27 +423,57 @@
                 <h4 class="max-display">Max</h4>
             </div>
             <div>
-                <input type="checkbox" name="attr_deathmod_change">
-    		    <h4>Death</h4>
-                <input type="number" name="attr_death_mod" />
-                <button type="action" style="width:40px;" name="act_deathroll">Roll</button>
-            </div>
-            <div>
                 <h4>Death Stacks</h4>
-                <input type="number" name="attr_deathstacks" />
-                <input type="number" name="attr_deathstacks_max" value="6"/>
+                <input type="number" name="attr_deathstacks" value="0"/>
+                <input type="number" name="attr_deathstacks_max" readonly="true" value="5"/>
                 <h4 class="max-display">Max</h4>
             </div>
             <div>
-                <input type="checkbox" name="attr_equip_change">
-    		    <h4>Equip. Slots</h4>
-                <input type="number" name="attr_equipslots" />
-                <input type="text" name="attr_equipslots_max" style="width:50px;"/>
+    		    <h4>Reflex</h4>
+                <input type="number" name="attr_reflex_check" value="0" readonly="true"/>
+                <button type="action" style="width:40px; margin:0px auto;" name="act_reflexroll">Roll</button>
+                <br />
             </div>
-            <div style="border: none;">
+            <div>
+    		    <h4>Strength</h4>
+                <input type="number" name="attr_strength_check" value="0" readonly="true"/>
+                <button type="action" style="width:40px; margin:0px auto;" name="act_strengthroll">Roll</button>
+                <br />
+            </div>
+            <div>
+    		    <h4>Toughness</h4>
+                <input type="number" name="attr_toughness_check" value="0" readonly="true"/>
+                <button type="action" style="width:40px; margin:0px auto;" name="act_toughnessroll">Roll</button>
+                <br />
+            </div>
+            <div>
+    		    <h4>Heart</h4>
+                <input type="number" name="attr_heart_check" value="0" readonly="true"/>
+                <button type="action" style="width:40px; margin:0px auto;" name="act_heartroll">Roll</button>
+                <br />
+            </div>
+            <div>
+    		    <h4>Mind</h4>
+                <input type="number" name="attr_mind_check" value="0" readonly="true"/>
+                <button type="action" style="width:40px; margin:0px auto;" name="act_mindroll">Roll</button>
+                <br />
+            </div>
+            <div>
+    		    <h4>Soul</h4>
+                <input type="number" name="attr_soul_check" value="0" readonly="true"/>
+                <button type="action" style="width:40px; margin:0px auto;" name="act_soulroll">Roll</button>
+                <br />
+            </div>
+            <div>
+    		    <h4>Equip. Slots</h4>
+                <input type="number" name="attr_equipslots" value="0" />
+                <input type="number" name="attr_equipslots_max" readonly="true" style="width:50px;"/>
+                <h4 class="max-display">Max</h4>
+            </div>
+            <div style="border:none;">
         	    <h4>Rest Points</h4>
-        	    <input type="number" name="attr_rest" />
-        	    <input type="number" name="attr_rest_max" value="0" />
+        	    <input type="number" name="attr_rest" value="1" />
+        	    <input type="number" name="attr_rest_max" value="0" readonly="true" />
         	    <h4 class="max-display">Max</h4>
         	</div>
         </div>
@@ -355,34 +482,34 @@
         <div class="container-style">
             <div class="tolerance-box">
                 <div>
-                    <h4>Caustic</h4>
+                    <h4>Acid</h4>
                 </div>
                 <div>
                     <h4>Cold</h4>
                 </div>
                 <div>
-                    <h4>Electric</h4>
-                </div>
-                <div>
                     <h4>Death</h4>
                 </div>
                 <div>
-                    <h4>Heat</h4>
+                    <h4>Electric</h4>
                 </div>
                 <div>
-                    <h4>Light</h4>
+                    <h4>Fire</h4>
                 </div>
                 <div>
-                    <h4>Poison</h4>
+                    <h4>Luminous</h4>
                 </div>
                 <div>
                     <h4>Physical</h4>
                 </div>
                 <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
                     <h4>Psychic</h4>
                 </div>
                 <div style="border: none;">
-                    <h4>Sound</h4>
+                    <h4>Sonic</h4>
                 </div>
                 <div>
                     <input type="number" readonly="true" name="attr_tolerance_total_caustic"/>
@@ -391,10 +518,10 @@
                     <input type="number" readonly="true" name="attr_tolerance_total_cold"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_electric"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_death"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_death"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_electric"/>
                 </div>
                 <div>
                     <input type="number" readonly="true" name="attr_tolerance_total_heat"/>
@@ -403,10 +530,10 @@
                     <input type="number" readonly="true" name="attr_tolerance_total_light"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_poison"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_physical"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_physical"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_poison"/>
                 </div>
                 <div>
                     <input type="number" readonly="true" name="attr_tolerance_total_psychic"/>
@@ -414,9 +541,6 @@
                 <div style="border: none;">
                     <input type="number" readonly="true" name="attr_tolerance_total_sound"/>
                 </div>
-            </div>
-            <div style="text-align: center; position: relative; top: 5px;">
-                <h4 class="max-display">TOLERANCES/WEAKNESSES SHOULD BE CALCULATED ON THE APPROPRIATE PAGE</h4>
             </div>
         </div>
         
@@ -720,6 +844,11 @@
         	<br>
         	<textarea style="width:100%;" rows="18" name="attr_textbox4"></textarea>
         </div>
+        <div style="margin-left:2%;vertical-align: top;">
+            <h4>Language(s)<h4>
+        	<br>
+        	<textarea name="attr_languages"></textarea>
+        </div>
 
     <!-- End div for main panel -->
     </div>
@@ -728,31 +857,472 @@
         
         <div class="container-style sidebar-small">
     	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Level</h4>
-    	    <input type="number" name="attr_level" style="float:right;"/>
-    	</div>
-    	<div class="container-style sidebar-small">
-    	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Gold</h4>
-    	    <input type="number" name="attr_wealth" style="float:right;"/>
-    	</div>
-        <div class="container-style sidebar-small">
-    	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Essence</h4>
-    	    <input type="number" name="attr_essence" style="float:right;"/>
-    	    <input type="number" name="attr_essence_max" style="float:right;" value="0" />
+    	    <input type="number" name="attr_level" style="float:right;" value="1"/>
     	</div>
     	<div class="container-style sidebar-small">
     	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Fatigue</h4>
     	    <input type="number" name="attr_fatigue" style="float:right;" value="0"/>
     	</div>
+    	<div class="container-style sidebar-small">
+    	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Gold</h4>
+    	    <input type="number" name="attr_wealth" style="float:right; width:125px;" value="0"/>
+    	</div>
     	
     	<fieldset class="repeating_ability">
         	<div class="container-style sidebar-normal">
+        	    <input type="hidden" class="sheet-abilitytexttoggle" name="attr_abilityTextToggle" value="1" />
             	<input type="text" name="attr_abilitytracker_name" style="display: block; width: 163px;"/>
                 <input type="number" name="attr_abilitytracker_num" style="width:80px;"/>
                 <input type="number" name="attr_abilitytracker_max" style="width:80px;"/>
-                <textarea name="attr_abilitytracker_textbox" style="width: 153px; margin: 0px; height: 36px;"></textarea> 
+                <div style="width:163px; height:3px; margin-top:2px; margin-bottom:2px; background-color:#B3B3B3; border-radius:5px;">
+                    <button type="action" name="act_abilitytrackertextbutton" style="padding:0px; margin:0px auto; width:22px; height:17px; border-radius:10px; background-color:#B3B3B3; position:relative; bottom:9px; left:70px;"></button>
+                </div>
+                <span class="plus-sign" style="pointer-events:none; position:absolute; color:#333333; font-size:22px; margin-left: 75px; top: 48px">+</span>
+                <span class="minus-sign" style="pointer-events:none; position:absolute; color:#333333; font-size:22px; margin-left: 78px; top: 46px">-</span>
+                <textarea class="text-box" name="attr_abilitytracker_textbox" style="width: 153px; margin: 0px;"></textarea> 
         	</div>
         </fieldset>
     </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <!-- Div containing level-up information -->
+    <div class="sheet-level">
+        <div style="display: grid; grid-template-columns: repeat(3, auto); width: 475px;">
+            <div class="container-style sidebar-small" style="padding-bottom: 10px; width: 250px;">
+        		<h4>Remaining Combat Essence</h4>
+                <input type="number" name="attr_totalessence_combat" value="0" style="float: right;" readonly="true">
+        	</div>
+        	<div class="container-style sidebar-small" style="padding-bottom: 10px; width: 250px;">
+        		<h4>Remaining Roleplay Essence</h4>
+                <input type="number" name="attr_totalessence_roleplay" value="0" style="float: right;" readonly="true">
+        	</div>
+        	
+        	<div class="container-style sidebar-small" style="padding-bottom: 10px;">
+        		<h4>Max Essence</h4>
+                <input type="number" name="attr_maxessence" value="1" style="float: right;" readonly="true">
+        	</div>
+        </div>
+        
+        <div class="container-style" style="min-width:1400px;">
+            <div style="text-align: center;">
+                <h4>TRAITS AT CHARACTER CREATION</h4>
+                <input type="number" name="attr_totaltrait" readonly="true">
+            </div>
+            <div class="all-traits">
+                <div>
+            		<h4 style="display:block;">Awareness</h4>
+            		
+            		<select name="attr_detection_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Detection</h4>
+            		<br>
+            		<select name="attr_intuition_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Intuition</h4>
+            		<br>
+            		<select name="attr_wilderness_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Wilderness</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Charisma</h4>
+            		
+            		<select name="attr_convince_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Convince</h4>
+            		<br>
+            		<select name="attr_flair_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Flair</h4>
+            		<br>
+            		<select name="attr_performance_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Performance</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Coordination</h4>
+            		
+            		<select name="attr_agility_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Agility</h4>
+            		<br>
+            		<select name="attr_dexterity_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Dexterity</h4>
+            		<br>
+            		<select name="attr_stealth_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Stealth</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Endurance</h4>
+            		
+            		<select name="attr_constitution_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Constitution</h4>
+            		<br>
+            		<select name="attr_persistence_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Persistence</h4>
+            		<br>
+            		<select name="attr_toughness_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Durable</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Intelligence</h4>
+            		
+            		<select name="attr_engineering_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Engineering</h4>
+            		<br>
+            		<select name="attr_knowledge_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Knowledge</h4>
+            		<br>
+            		<select name="attr_magic_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Magic</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Power</h4>
+            		
+            		<select name="attr_grip_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Grip</h4>
+            		<br>
+            		<select name="attr_physicality_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Physicality</h4>
+            		<br>
+            		<select name="attr_presence_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Presence</h4>
+            	</div>
+            	
+            	<div>
+            		<h4 style="display:block;">Conviction</h4>
+            		
+            		<select name="attr_faith_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Faith</h4>
+            		<br>
+            		<select name="attr_interaction_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Interaction</h4>
+            		<br>
+            		<select name="attr_willpower_mod" style="width:90px;">
+        				<option value="0">None</option>
+        				<option value="1">ADV</option>
+        				<option value="-1">DisADV</option>
+        			</select>
+            		<h4>Motivation</h4>
+            	</div>
+            </div>
+        </div>
+        
+        <div class="container-style" style="min-width:1400px;">
+            <div style="text-align: center;">
+                <h4>TRAITS FROM LEVELING UP</h4>
+            </div>
+            <div class="all-traits">
+                <div>
+            		<h4 style="display:block;">Awareness</h4>
+            		
+            		<input type="number" name="attr_detection_mod_lu" step="1" value="0"/>
+            		<h4>Detection</h4>
+            		<br>
+            		<input type="number" name="attr_intuition_mod_lu" step="1" value="0"/>
+            		<h4>Intuition</h4>
+            		<br>
+            		<input type="number" name="attr_wilderness_mod_lu" step="1" value="0"/>
+            		<h4>Wilderness</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Charisma</h4>
+            		
+            		<input type="number" name="attr_convince_mod_lu" step="1" value="0"/>
+            		<h4>Convince</h4>
+            		<br>
+            		<input type="number" name="attr_flair_mod_lu" step="1" value="0"/>
+            		<h4>Flair</h4>
+            		<br>
+            		<input type="number" name="attr_performance_mod_lu" step="1" value="0"/>
+            		<h4>Performance</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Coordination</h4>
+            		
+            		<input type="number" name="attr_agility_mod_lu" step="1" value="0"/>
+            		<h4>Agility</h4>
+            		<br>
+            		<input type="number" name="attr_dexterity_mod_lu" step="1" value="0"/>
+            		<h4>Dexterity</h4>
+            		<br>
+            		<input type="number" name="attr_stealth_mod_lu" step="1" value="0"/>
+            		<h4>Stealth</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Endurance</h4>
+            		
+            		<input type="number" name="attr_constitution_mod_lu" step="1" value="0"/>
+            		<h4>Constitution</h4>
+            		<br>
+            		<input type="number" name="attr_persistence_mod_lu" step="1" value="0"/>
+            		<h4>Persistence</h4>
+            		<br>
+            		<input type="number" name="attr_toughness_mod_lu" step="1" value="0"/>
+            		<h4>Durable</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Intelligence</h4>
+            		
+            		<input type="number" name="attr_engineering_mod_lu" step="1" value="0"/>
+            		<h4>Engineering</h4>
+            		<br>
+            		<input type="number" name="attr_knowledge_mod_lu" step="1" value="0"/>
+            		<h4>Knowledge</h4>
+            		<br>
+            		<input type="number" name="attr_magic_mod_lu" step="1" value="0"/>
+            		<h4>Magic</h4>
+            	</div>
+            
+            	<div>
+            		<h4 style="display:block;">Power</h4>
+            		
+            		<input type="number" name="attr_grip_mod_lu" step="1" value="0"/>
+            		<h4>Grip</h4>
+            		<br>
+            		<input type="number" name="attr_physicality_mod_lu" step="1" value="0"/>
+            		<h4>Physicality</h4>
+            		<br>
+            		<input type="number" name="attr_presence_mod_lu" step="1" value="0"/>
+            		<h4>Presence</h4>
+            	</div>
+            	
+            	<div>
+            		<h4 style="display:block;">Conviction</h4>
+            		
+            		<input type="number" name="attr_faith_mod_lu" step="1" value="0"/>
+            		<h4>Faith</h4>
+            		<br>
+            		<input type="number" name="attr_interaction_mod_lu" step="1" value="0"/>
+            		<h4>Interaction</h4>
+            		<br>
+            		<input type="number" name="attr_willpower_mod_lu" step="1" value="0"/>
+            		<h4>Motivation</h4>
+            	</div>
+            </div>
+        </div>
+    	
+        <div id="attribute_box_lu" class="container-style">
+            <div>
+    		    <h4>Equip. Slots</h4>
+                <input type="number" name="attr_equipslots_lu" value="0"/>
+            </div>
+            <div>
+        	    <h4>Rest Points</h4>
+        	    <input type="number" name="attr_rest_lu" value="0"/>
+        	</div>
+        	<div>
+    		    <h4>Reflex</h4>
+                <input type="number" name="attr_reflex_check_lu" value="0"/>
+            </div>
+            <div>
+    		    <h4>Strength</h4>
+                <input type="number" name="attr_strength_check_lu" value="0"/>
+            </div>
+            <div>
+    		    <h4>Toughness</h4>
+                <input type="number" name="attr_toughness_check_lu" value="0"/>
+            </div>
+            <div>
+    		    <h4>Heart</h4>
+                <input type="number" name="attr_heart_check_lu" value="0"/>
+            </div>
+            <div>
+    		    <h4>Mind</h4>
+                <input type="number" name="attr_mind_check_lu" value="0"/>
+            </div>
+            <div style="border:none;">
+    		    <h4>Soul</h4>
+                <input type="number" name="attr_soul_check_lu" value="0"/>
+            </div>
+        </div>
+        
+        <div class="container-style">
+            <div class="tolerance-box">
+                <div>
+                    <h4>Acid</h4>
+                </div>
+                <div>
+                    <h4>Cold</h4>
+                </div>
+                <div>
+                    <h4>Death</h4>
+                </div>
+                <div>
+                    <h4>Electric</h4>
+                </div>
+                <div>
+                    <h4>Fire</h4>
+                </div>
+                <div>
+                    <h4>Luminous</h4>
+                </div>
+                <div>
+                    <h4>Physical</h4>
+                </div>
+                <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
+                    <h4>Psychic</h4>
+                </div>
+                <div style="border: none;">
+                    <h4>Sonic</h4>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance2" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance3" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance5" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance4" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance6" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance7" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance_physical" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance9" value="0"/>
+                </div>
+                <div>
+                    <input type="number" name="attr_tolerance10" value="0"/>
+                </div>
+                <div style="border: none;">
+                    <input type="number" name="attr_tolerance13" value="0"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-style sidebar">
+    		<input type="number" name="attr_melee_mod_lu" step="1" value="0"/>
+    		<h4>Melee Bonus</h4>
+    		<br>
+    		<input type="number" name="attr_ranged_mod_lu" step="1" value="0"/>
+    		<h4>Ranged Bonus</h4>
+    		<br>
+    		<input type="number" name="attr_thrown_mod_lu" step="1" value="0"/>
+    		<h4>Thrown Bonus</h4>
+    		<br>
+    		<input type="number" name="attr_spell_mod_lu" step="1" value="0"/>
+    		<h4>Spell Bonus</h4>
+    		<br>
+    		<input type="number" name="attr_block_mod_lu" step="1" value="0"/>
+    		<h4>Block Bonus</h4>
+    		<br>
+    		<input type="number" name="attr_dodge_mod_lu" step="1" value="0"/>
+    		<h4>Dodge Bonus</h4>
+    		<br>
+    		<input type="number" name="attr_parry_mod_lu" step="1" value="0"/>
+    		<h4>Parry Bonus</h4>
+    		<br>
+    	</div>
+    	
+    	<h4>Language(s)<h4>
+    	<br>
+    	<textarea name="attr_languages"></textarea>
+    	<br>
+    	<h4>Language LEs</h4>
+    	<input type="number" name="attr_language_lu" step="1" value="0"/>
+    </div>
+    
+    
     </div>
     
     <div class="sheet-gear">
@@ -763,34 +1333,34 @@
             </div>
             <div class="tolerance-box">
                 <div>
-                    <h4>Caustic</h4>
+                    <h4>Acid</h4>
                 </div>
                 <div>
                     <h4>Cold</h4>
                 </div>
                 <div>
-                    <h4>Electric</h4>
-                </div>
-                <div>
                     <h4>Death</h4>
                 </div>
                 <div>
-                    <h4>Heat</h4>
+                    <h4>Electric</h4>
                 </div>
                 <div>
-                    <h4>Light</h4>
+                    <h4>Fire</h4>
                 </div>
                 <div>
-                    <h4>Poison</h4>
+                    <h4>Luminous</h4>
                 </div>
                 <div>
                     <h4>Physical</h4>
                 </div>
                 <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
                     <h4>Psychic</h4>
                 </div>
                 <div style="border: none;">
-                    <h4>Sound</h4>
+                    <h4>Sonic</h4>
                 </div>
                 <div>
                     <input type="number" readonly="true" name="attr_tolerance_total_caustic"/>
@@ -799,10 +1369,10 @@
                     <input type="number" readonly="true" name="attr_tolerance_total_cold"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_electric"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_death"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_death"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_electric"/>
                 </div>
                 <div>
                     <input type="number" readonly="true" name="attr_tolerance_total_heat"/>
@@ -811,115 +1381,16 @@
                     <input type="number" readonly="true" name="attr_tolerance_total_light"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_poison"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_physical"/>
                 </div>
                 <div>
-                    <input type="number" readonly="true" name="attr_tolerance_total_physical"/>
+                    <input type="number" readonly="true" name="attr_tolerance_total_poison"/>
                 </div>
                 <div>
                     <input type="number" readonly="true" name="attr_tolerance_total_psychic"/>
                 </div>
                 <div style="border: none;">
                     <input type="number" readonly="true" name="attr_tolerance_total_sound"/>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Natural -->
-        <div class="container-style">
-            <div style="text-align: center;">
-                <h4>NATURAL</h4>
-            </div>
-            <div class="tolerance-box">
-                <div>
-                    <h4>Caustic</h4>
-                </div>
-                <div>
-                    <h4>Cold</h4>
-                </div>
-                <div>
-                    <h4>Electric</h4>
-                </div>
-                <div>
-                    <h4>Death</h4>
-                </div>
-                <div>
-                    <h4>Heat</h4>
-                </div>
-                <div>
-                    <h4>Light</h4>
-                </div>
-                <div>
-                    <h4>Poison</h4>
-                </div>
-                <div>
-                    <h4>Physical</h4>
-                </div>
-                <div>
-                    <h4>Psychic</h4>
-                </div>
-                <div style="border: none;">
-                    <h4>Sound</h4>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance2"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance3"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance4"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance5"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance6"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance7"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance9"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance_physical"/>
-                </div>
-                <div>
-                    <input type="number" name="attr_tolerance10"/>
-                </div>
-                <div style="border: none;">
-                    <input type="number" name="attr_tolerance13"/>
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_caustic_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_cold_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_death_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_electric_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_heat_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_light_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_poison_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_sharp_change">
-                </div>
-                <div>
-                    <input type="checkbox" name="attr_psychic_change">
-                </div>
-                <div style="border: none;">
-                    <input type="checkbox" name="attr_sound_change">
                 </div>
             </div>
         </div>
@@ -931,64 +1402,64 @@
             </div>
             <div class="tolerance-box">
                 <div>
-                    <h4>Caustic</h4>
+                    <h4>Acid</h4>
                 </div>
                 <div>
                     <h4>Cold</h4>
                 </div>
                 <div>
-                    <h4>Electric</h4>
-                </div>
-                <div>
                     <h4>Death</h4>
                 </div>
                 <div>
-                    <h4>Heat</h4>
+                    <h4>Electric</h4>
                 </div>
                 <div>
-                    <h4>Light</h4>
+                    <h4>Fire</h4>
                 </div>
                 <div>
-                    <h4>Poison</h4>
+                    <h4>Luminous</h4>
                 </div>
                 <div>
                     <h4>Physical</h4>
                 </div>
                 <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
                     <h4>Psychic</h4>
                 </div>
                 <div style="border: none;">
-                    <h4>Sound</h4>
+                    <h4>Sonic</h4>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_caustic"/>
+                    <input type="number" name="attr_tolerance_armor_caustic" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_cold"/>
+                    <input type="number" name="attr_tolerance_armor_cold" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_electric"/>
+                    <input type="number" name="attr_tolerance_armor_death" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_death"/>
+                    <input type="number" name="attr_tolerance_armor_electric" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_heat"/>
+                    <input type="number" name="attr_tolerance_armor_heat" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_light"/>
+                    <input type="number" name="attr_tolerance_armor_light" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_poison"/>
+                    <input type="number" name="attr_tolerance_armor_physical" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_physical"/>
+                    <input type="number" name="attr_tolerance_armor_poison" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_armor_psychic"/>
+                    <input type="number" name="attr_tolerance_armor_psychic" value="0"/>
                 </div>
                 <div style="border: none;">
-                    <input type="number" name="attr_tolerance_armor_sound"/>
+                    <input type="number" name="attr_tolerance_armor_sound" value="0"/>
                 </div>
             </div>
             <div style="text-align: center;">
@@ -1004,67 +1475,69 @@
             </div>
             <div class="tolerance-box">
                 <div>
-                    <h4>Caustic</h4>
+                    <h4>Acid</h4>
                 </div>
                 <div>
                     <h4>Cold</h4>
                 </div>
                 <div>
-                    <h4>Electric</h4>
-                </div>
-                <div>
                     <h4>Death</h4>
                 </div>
                 <div>
-                    <h4>Heat</h4>
+                    <h4>Electric</h4>
                 </div>
                 <div>
-                    <h4>Light</h4>
+                    <h4>Fire</h4>
                 </div>
                 <div>
-                    <h4>Poison</h4>
+                    <h4>Luminous</h4>
                 </div>
                 <div>
                     <h4>Physical</h4>
                 </div>
                 <div>
+                    <h4>Poison</h4>
+                </div>
+                <div>
                     <h4>Psychic</h4>
                 </div>
                 <div style="border: none;">
-                    <h4>Sound</h4>
+                    <h4>Sonic</h4>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_caustic"/>
+                    <input type="number" name="attr_tolerance_shield_caustic" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_cold"/>
+                    <input type="number" name="attr_tolerance_shield_cold" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_electric"/>
+                    <input type="number" name="attr_tolerance_shield_death" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_death"/>
+                    <input type="number" name="attr_tolerance_shield_electric" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_heat"/>
+                    <input type="number" name="attr_tolerance_shield_heat" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_light"/>
+                    <input type="number" name="attr_tolerance_shield_light" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_poison"/>
+                    <input type="number" name="attr_tolerance_shield_physical" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_physical"/>
+                    <input type="number" name="attr_tolerance_shield_poison" value="0"/>
                 </div>
                 <div>
-                    <input type="number" name="attr_tolerance_shield_psychic"/>
+                    <input type="number" name="attr_tolerance_shield_psychic" value="0"/>
                 </div>
                 <div style="border: none;">
-                    <input type="number" name="attr_tolerance_shield_sound"/>
+                    <input type="number" name="attr_tolerance_shield_sound" value="0"/>
                 </div>
             </div>
             <div style="text-align: center;">
+                <h4>Shield Bonus</h4>
+    		    <input type="number" name="attr_shield_mod" step="1" value="0" style="margin-right:10px;"/>
                 <h4>Active?</h4>
                 <input type="checkbox" name="attr_shield_tolerance_apply" checked="true">
             </div>
@@ -1076,18 +1549,18 @@
     		<h3>Charging</h3>
     		<p>Charging allows a creature to try and run through other creatures or objects and push them out of the way.</p>
     		<h4>Weak</h4>
-    		<p>As a tactical action, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 1 + the number of size categories you are above the charged target in a direction of your choice.</p>
+    		<p>As a tactical action, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 1 + your size advantage in a direction of your choice.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 5 + the number of size categories you are above the charged target (min 0) in a direction of your choice and they take non-misc. damage equal to your total level.</p>
+    		<p>As a tactical action and at the cost of 2 MP, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 5 + your size advantage in a direction of your choice and they take physical damage equal to ¼ your total level.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
     		<h3>Disarming</h3>
     		<p>Disarming allows for a creature to try and remove or disarm 1 item that another creature or target is wearing or holding that can reasonably be removed by an attempt.</p>
     		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 1 + the number of size categories you are above the disarmed target in a direction of your choice.</p>
+    		<p>As a tactical action you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 1 + your size advantage in a direction of your choice.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 5 + the number of size categories you are above the disarmed target in a direction of your choice.</p>
+    		<p>As a tactical action and at the cost of 2 MP you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 5 + your size advantage in a direction of your choice.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
@@ -1096,7 +1569,7 @@
     		<h4>Weak</h4>
     		<p>As a tactical action you are able to move away from all creatures safely until the end of your turn. All creatures cannot target you with an attack or ability as a result of you moving away unless otherwise specified.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana, you can immediately dash and move away from all creatures safely until the end of your turn. All creatures cannot target you with an attack or ability as a result of you moving away unless otherwise specified.</p>
+    		<p>As a tactical action and at the cost of 2 MP, you can immediately dash and move away from all creatures safely until the end of your turn. All creatures cannot target you with an attack or ability as a result of you moving away unless otherwise specified.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
@@ -1105,7 +1578,7 @@
     		<h4>Weak</h4>
     		<p>As a tactical action you can attempt to ground a target you can see or know the position of or cause your next attack to try and ground them. When you do this or if the attack hits, they must make a persistence trait roll vs your TC. On a fail, the creature cannot fly or hover and falls out of the sky and takes an appropriate amount of fall damage if any.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana you can attempt to ground a creature you can see/ know the position of, or cause your next attack to try and ground them. When you do this or if the attack hits, they must make a persistence trait roll with +1 DisADV vs your TC. On a fail, the creature cannot fly or hover and falls out of the sky and takes an appropriate amount of fall damage if any.</p>
+    		<p>As a tactical action and at the cost of 2 MP you can attempt to ground a creature you can see/ know the position of, or cause your next attack to try and ground them. When you do this or if the attack hits, they must make a persistence trait roll with +1 DisADV vs your TC. On a fail, the creature cannot fly or hover and falls out of the sky and takes an appropriate amount of fall damage if any.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
@@ -1114,7 +1587,7 @@
     		<h4>Weak</h4>
     		<p>As a tactical action you can focus your next attack to hit a specific point on a target. The attack has a +2 DisADV, but on a hit, an additional fair effect occurs based on the FD discretion.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action at the cost of 5 mana, you can focus your next attack to hit a specific point on a target. The attack has +1 DisADV, but on a hit, an additional fair effect occurs based on the FD discretion.</p>
+    		<p>As a tactical action at the cost of 2 MP, you can focus your next attack to hit a specific point on a target. The attack has +1 DisADV, but on a hit, an additional fair effect occurs based on the FD discretion.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
@@ -1123,34 +1596,34 @@
     		<h4>Weak</h4>
     		<p>As a tactical action you can attempt one of the status effect’s trait rolls vs the TC. On a success, the status effect is removed. Status effects that cannot be removed are not affected by this unless otherwise stated.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana, you can automatically remove 1 status effect of your choice. Status effects that cannot be removed are not affected by this unless otherwise stated.</p>
+    		<p>As a tactical action and at the cost of 2 MP, you can automatically remove 1 status effect of your choice. Status effects that cannot be removed are not affected by this unless otherwise stated.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
     		<h3>Shoving</h3>
     		<p>Shoving is a technique used to push or move something to give a creature a more advantageous position.</p>
     		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to shove a target within reach or to cause your next block or attack to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove the target up to a number of tiles equal to 1 + the number of size categories you are above the target.</p>
+    		<p>As a tactical action you can attempt to shove a target within reach or to cause your next attack to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove the target up to a number of tiles equal to 1 + your size advantage in a direction of your choice.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana you can attempt to shove a target within reach or to cause your next block or attack roll to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove them up to a number of tiles equal to 5 + the number of size categories you are above the target and they gain the staggered status effect.</p>
+    		<p>As a tactical action and at the cost of 2 MP you can attempt to shove a target within reach or to cause your next block or attack roll to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove them up to a number of tiles equal to 5 + your size advantage in a direction of your choice and they gain the staggered status effect.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
     		<h3>Throwing</h3>
     		<p>Throwing is a technique used to try and move and throw something to give a more advantageous position.</p>
     		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 1 + the number of size categories you are above the thrown creature. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 5 tiles away.</p>
+    		<p>As a tactical action you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 1 + your size advantage in a direction of your choice. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 5 tiles away.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana, you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 5 + the number of size categories you are above the thrown creature. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 10 tiles away.</p>
+    		<p>As a tactical action and at the cost of 2 MP, you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 5 + your size advantage in a direction of your choice. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 10 tiles away.</p>
     	</div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
     		<h3>Tripping</h3>
     		<p>Tripping is a technique used to knock an opponent down and gain higher ground over them.</p>
     		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll for every size category above yours. On a fail, the target falls down and gains the prone status effect.</p>
+    		<p>As a tactical action you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll based on its size advantage. On a fail, the target falls down and gains the prone status effect.</p>
     		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 5 mana you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll for every size category above yours. On a fail, the target falls down and gains the prone status effect and must spend all of its movement speed in a turn to stand up and remove this status effect.</p>
+    		<p>As a tactical action and at the cost of 2 MP you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll based on its size advantage. On a fail, the target falls down and becomes prone and must spend all of its movement speed in a turn to stand up and remove this status effect.</p>
     	</div>
     </div>
 
@@ -1245,7 +1718,7 @@
     <div class="sheet-template-container" style="border-style:groove; padding:5px;">
         <h4 style="width:40%; float:right; text-align: right; margin-top:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{character}}</h4>
         
-        <div style="width:60%">
+        <div style="width:100%">
             <div style="position:absolute; margin-top:5px; margin-left:2px;">
                  <!-- If crit success, show crit roll value in green -->
                 {{#rollGreater() computed::roll roll}}
@@ -1295,7 +1768,7 @@
     <div class="sheet-template-container" style="border-style:groove; padding:5px; display:none;">
         <h4 style="width:40%; float:right; text-align: right; margin-top:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{character}}</h4>
         
-        <div style="width:60%">
+        <div style="width:100%">
             <div style="position:absolute; margin-top:5px; margin-left:2px;">
                  <!-- If crit success, show crit roll value in green -->
                 {{#rollGreater() computed::roll roll}}
@@ -1357,11 +1830,21 @@
 </rolltemplate>
 
 <script type="text/worker">
-    const buttonlist = ["main","gear","cheatsheet","grappling","struggles"];
+    const buttonlist = ["main","level","gear","cheatsheet","grappling","struggles"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({
                 sheetTab: button
+            });
+        });
+    });
+    
+    /* Controls the ability to hide the description in the ability trackers */
+    on('clicked:repeating_ability:abilitytrackertextbutton', function() {
+        getAttrs(["repeating_ability_abilityTextToggle"], function(values) {
+            let val = (values.repeating_ability_abilityTextToggle == "1" ? "0" : "1");
+            setAttrs({
+                repeating_ability_abilityTextToggle: val
             });
         });
     });
@@ -1372,6 +1855,15 @@
             let val = parseInt(values.advan_and_mod_loadout);
             setAttrs({
                 advmodLoadout: val
+            });
+        });
+    });
+    
+    on("change:level sheet:opened", function() {  
+        getAttrs(["level"], function(values) {
+            let val = Math.ceil(parseInt(values.level)/4);
+            setAttrs({                            
+                "maxessence": val
             });
         });
     });
@@ -1473,6 +1965,13 @@
     
     on("change:detection_mod change:intuition_mod change:wilderness_mod change:convince_mod change:flair_mod change:performance_mod change:agility_mod change:dexterity_mod change:stealth_mod change:constitution_mod change:persistence_mod change:toughness_mod change:engineering_mod change:knowledge_mod change:magic_mod change:grip_mod change:physicality_mod change:presence_mod change:faith_mod change:interaction_mod change:willpower_mod sheet:opened", function() {  
         getAttrs(["detection_mod","intuition_mod","wilderness_mod","convince_mod","flair_mod","performance_mod","agility_mod","dexterity_mod","stealth_mod","constitution_mod","persistence_mod","toughness_mod","engineering_mod","knowledge_mod","magic_mod","grip_mod","physicality_mod","presence_mod","faith_mod","interaction_mod","willpower_mod"], function(values) {
+            console.log(parseInt(values.detection_mod) + parseInt(values.intuition_mod) + parseInt(values.wilderness_mod));
+            console.log(parseInt(values.convince_mod) + parseInt(values.flair_mod) + parseInt(values.performance_mod));
+            console.log(parseInt(values.agility_mod) + parseInt(values.dexterity_mod) + parseInt(values.stealth_mod));
+            console.log(parseInt(values.constitution_mod) + parseInt(values.persistence_mod) + parseInt(values.toughness_mod));
+            console.log(parseInt(values.engineering_mod) + parseInt(values.knowledge_mod) + parseInt(values.magic_mod));
+            console.log(parseInt(values.grip_mod) + parseInt(values.physicality_mod) + parseInt(values.presence_mod));
+            console.log(parseInt(values.faith_mod) + parseInt(values.interaction_mod) + parseInt(values.willpower_mod));
             let val = parseInt(values.detection_mod) + parseInt(values.intuition_mod) + parseInt(values.wilderness_mod) + parseInt(values.convince_mod) + parseInt(values.flair_mod) + parseInt(values.performance_mod) + parseInt(values.agility_mod) + parseInt(values.dexterity_mod) + parseInt(values.stealth_mod) + parseInt(values.constitution_mod) + parseInt(values.persistence_mod) + parseInt(values.toughness_mod) + parseInt(values.engineering_mod) + parseInt(values.knowledge_mod) + parseInt(values.magic_mod) + parseInt(values.grip_mod) + parseInt(values.physicality_mod) + parseInt(values.presence_mod) + parseInt(values.faith_mod) + parseInt(values.interaction_mod) + parseInt(values.willpower_mod)
             setAttrs({                            
                 "totaltrait": val
@@ -1480,158 +1979,676 @@
         });
     });
     
-    on('clicked:deathroll', (info) => {
-        getAttrs(["death_mod"], function(values) {
-			_makeRoll("trait", "Death/Soul Roll", values.death_mod, null, null, null, null);
+    
+    
+    
+    
+    on("change:reflex_check_lu change:strength_check_lu change:toughness_check_lu change:heart_check_lu change:mind_check_lu change:soul_check_lu change:level change:rest_lu change:tolerance2 change:tolerance3 change:tolerance4 change:tolerance5 change:tolerance6 change:tolerance7 change:tolerance9 change:tolerance_physical change:tolerance10 change:tolerance13 change:equipslots_lu change:melee_mod_lu change:ranged_mod_lu change:thrown_mod_lu change:spell_mod_lu change:block_mod change:dodge_mod change:parry_mod sheet:opened", function() {  
+        getAttrs(["reflex_check_lu","strength_check_lu","toughness_check_lu","heart_check_lu","mind_check_lu","soul_check_lu","level","rest_lu","tolerance2","tolerance3","tolerance4","tolerance5","tolerance6","tolerance7","tolerance9","tolerance_physical","tolerance10","tolerance13","equipslots_lu","melee_mod_lu","ranged_mod_lu","thrown_mod_lu","spell_mod_lu","block_mod","dodge_mod","parry_mod"], function(values) {
+            let val = parseInt(values.reflex_check_lu) + parseInt(values.strength_check_lu) + parseInt(values.toughness_check_lu) + parseInt(values.heart_check_lu) + parseInt(values.mind_check_lu) + parseInt(values.soul_check_lu) + parseInt(values.rest_lu) + parseInt(values.tolerance2) + parseInt(values.tolerance3) + parseInt(values.tolerance4) + parseInt(values.tolerance5) + parseInt(values.tolerance6) + parseInt(values.tolerance7) + parseInt(values.tolerance9) + parseInt(values.tolerance_physical) + parseInt(values.tolerance10) + parseInt(values.tolerance13) + parseInt(values.equipslots_lu) + parseInt(values.melee_mod_lu) + parseInt(values.ranged_mod_lu) + parseInt(values.thrown_mod_lu) + parseInt(values.spell_mod_lu) + parseInt(values.block_mod) + parseInt(values.dodge_mod) + parseInt(values.parry_mod)
+            setAttrs({                            
+                "totalessence_combat": (10 + 2 * parseInt(values.level)) - val
+            });
         });
     });
     
+    on("change:language_lu change:level change:rest_lu change:equipslots_lu change:detection_mod_lu change:intuition_mod_lu change:wilderness_mod_lu change:convince_mod_lu change:flair_mod_lu change:performance_mod_lu change:agility_mod_lu change:dexterity_mod_lu change:stealth_mod_lu change:constitution_mod_lu change:persistence_mod_lu change:toughness_mod_lu change:engineering_mod_lu change:knowledge_mod_lu change:magic_mod_lu change:grip_mod_lu change:physicality_mod_lu change:presence_mod_lu change:faith_mod_lu change:interaction_mod_lu change:willpower_mod_lu sheet:opened", function() {  
+        getAttrs(["language_lu","level","rest_lu","equipslots_lu","detection_mod_lu","intuition_mod_lu","wilderness_mod_lu","convince_mod_lu","flair_mod_lu","performance_mod_lu","agility_mod_lu","dexterity_mod_lu","stealth_mod_lu","constitution_mod_lu","persistence_mod_lu","toughness_mod_lu","engineering_mod_lu","knowledge_mod_lu","magic_mod_lu","grip_mod_lu","physicality_mod_lu","presence_mod_lu","faith_mod_lu","interaction_mod_lu","willpower_mod_lu"], function(values) {
+            let val = parseInt(values.language_lu) + parseInt(values.equipslots_lu) + parseInt(values.detection_mod_lu) + parseInt(values.intuition_mod_lu) + parseInt(values.wilderness_mod_lu) + parseInt(values.convince_mod_lu) + parseInt(values.flair_mod_lu) + parseInt(values.performance_mod_lu) + parseInt(values.agility_mod_lu) + parseInt(values.dexterity_mod_lu) + parseInt(values.stealth_mod_lu) + parseInt(values.constitution_mod_lu) + parseInt(values.persistence_mod_lu) + parseInt(values.toughness_mod_lu) + parseInt(values.engineering_mod_lu) + parseInt(values.knowledge_mod_lu) + parseInt(values.magic_mod_lu) + parseInt(values.grip_mod_lu) + parseInt(values.physicality_mod_lu) + parseInt(values.presence_mod_lu) + parseInt(values.faith_mod_lu) + parseInt(values.interaction_mod_lu) + parseInt(values.willpower_mod_lu)
+            setAttrs({                            
+                "totalessence_roleplay": (10 + 2 * parseInt(values.level)) - val
+            });
+        });
+    });
+    
+    
+    
+    
+    
+    on("change:detection_mod change:detection_mod_lu sheet:opened", function() {  
+        getAttrs(["detection_mod","detection_mod_lu"], function(values) {
+            setAttrs({                            
+                "detection_mod_ui": parseInt(values.detection_mod_lu)
+            });
+            $20("#detection").removeClass("advantaged-trait");
+            $20("#detection").removeClass("disadvantaged-trait");
+            if(parseInt(values.detection_mod) === 1){
+                $20("#detection").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.detection_mod) === -1){
+                $20("#detection").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:intuition_mod change:intuition_mod_lu sheet:opened", function() {  
+        getAttrs(["intuition_mod","intuition_mod_lu"], function(values) {
+            setAttrs({                            
+                "intuition_mod_ui": parseInt(values.intuition_mod_lu)
+            });
+            $20("#intuition").removeClass("advantaged-trait");
+            $20("#intuition").removeClass("disadvantaged-trait");
+            if(parseInt(values.intuition_mod) === 1){
+                $20("#intuition").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.intuition_mod) === -1){
+                $20("#intuition").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:wilderness_mod change:wilderness_mod_lu sheet:opened", function() {  
+        getAttrs(["wilderness_mod","wilderness_mod_lu"], function(values) {
+            setAttrs({                            
+                "wilderness_mod_ui": parseInt(values.wilderness_mod_lu)
+            });
+            $20("#wilderness").removeClass("advantaged-trait");
+            $20("#wilderness").removeClass("disadvantaged-trait");
+            if(parseInt(values.wilderness_mod) === 1){
+                $20("#wilderness").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.wilderness_mod) === -1){
+                $20("#wilderness").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:convince_mod change:convince_mod_lu sheet:opened", function() {  
+        getAttrs(["convince_mod","convince_mod_lu"], function(values) {
+            setAttrs({                            
+                "convince_mod_ui": parseInt(values.convince_mod_lu)
+            });
+            $20("#convince").removeClass("advantaged-trait");
+            $20("#convince").removeClass("disadvantaged-trait");
+            if(parseInt(values.convince_mod) === 1){
+                $20("#convince").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.convince_mod) === -1){
+                $20("#convince").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:flair_mod change:flair_mod_lu sheet:opened", function() {  
+        getAttrs(["flair_mod","flair_mod_lu"], function(values) {
+            setAttrs({                            
+                "flair_mod_ui": parseInt(values.flair_mod_lu)
+            });
+            $20("#flair").removeClass("advantaged-trait");
+            $20("#flair").removeClass("disadvantaged-trait");
+            if(parseInt(values.flair_mod) === 1){
+                $20("#flair").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.flair_mod) === -1){
+                $20("#flair").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:performance_mod change:performance_mod_lu sheet:opened", function() {  
+        getAttrs(["performance_mod","performance_mod_lu"], function(values) {
+            setAttrs({                            
+                "performance_mod_ui": parseInt(values.performance_mod_lu)
+            });
+            $20("#performance").removeClass("advantaged-trait");
+            $20("#performance").removeClass("disadvantaged-trait");
+            if(parseInt(values.performance_mod) === 1){
+                $20("#performance").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.performance_mod) === -1){
+                $20("#performance").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:agility_mod change:agility_mod_lu sheet:opened", function() {  
+        getAttrs(["agility_mod","agility_mod_lu"], function(values) {
+            setAttrs({                            
+                "agility_mod_ui": parseInt(values.agility_mod_lu)
+            });
+            $20("#agility").removeClass("advantaged-trait");
+            $20("#agility").removeClass("disadvantaged-trait");
+            if(parseInt(values.agility_mod) === 1){
+                $20("#agility").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.agility_mod) === -1){
+                $20("#agility").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:dexterity_mod change:dexterity_mod_lu sheet:opened", function() {  
+        getAttrs(["dexterity_mod","dexterity_mod_lu"], function(values) {
+            setAttrs({
+                "dexterity_mod_ui": parseInt(values.dexterity_mod_lu)
+            });
+            $20("#dexterity").removeClass("advantaged-trait");
+            $20("#dexterity").removeClass("disadvantaged-trait");
+            if(parseInt(values.dexterity_mod) === 1){
+                $20("#dexterity").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.dexterity_mod) === -1){
+                $20("#dexterity").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:stealth_mod change:stealth_mod_lu sheet:opened", function() {  
+        getAttrs(["stealth_mod","stealth_mod_lu"], function(values) {
+            setAttrs({
+                "stealth_mod_ui": parseInt(values.stealth_mod_lu)
+            });
+            $20("#stealth").removeClass("advantaged-trait");
+            $20("#stealth").removeClass("disadvantaged-trait");
+            if(parseInt(values.stealth_mod) === 1){
+                $20("#stealth").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.stealth_mod) === -1){
+                $20("#stealth").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:constitution_mod change:constitution_mod_lu sheet:opened", function() {  
+        getAttrs(["constitution_mod","constitution_mod_lu"], function(values) {
+            setAttrs({
+                "constitution_mod_ui": parseInt(values.constitution_mod_lu)
+            });
+            $20("#constitution").removeClass("advantaged-trait");
+            $20("#constitution").removeClass("disadvantaged-trait");
+            if(parseInt(values.constitution_mod) === 1){
+                $20("#constitution").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.constitution_mod) === -1){
+                $20("#constitution").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:persistence_mod change:persistence_mod_lu sheet:opened", function() {  
+        getAttrs(["persistence_mod","persistence_mod_lu"], function(values) {
+            setAttrs({
+                "persistence_mod_ui": parseInt(values.persistence_mod_lu)
+            });
+            $20("#persistence").removeClass("advantaged-trait");
+            $20("#persistence").removeClass("disadvantaged-trait");
+            if(parseInt(values.persistence_mod) === 1){
+                $20("#persistence").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.persistence_mod) === -1){
+                $20("#persistence").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:toughness_mod change:toughness_mod_lu sheet:opened", function() {  
+        getAttrs(["toughness_mod","toughness_mod_lu"], function(values) {
+            setAttrs({
+                "toughness_mod_ui": parseInt(values.toughness_mod_lu)
+            });
+            $20("#toughness").removeClass("advantaged-trait");
+            $20("#toughness").removeClass("disadvantaged-trait");
+            if(parseInt(values.toughness_mod) === 1){
+                $20("#toughness").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.toughness_mod) === -1){
+                $20("#toughness").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:engineering_mod change:engineering_mod_lu sheet:opened", function() {  
+        getAttrs(["engineering_mod","engineering_mod_lu"], function(values) {
+            setAttrs({
+                "engineering_mod_ui": parseInt(values.engineering_mod_lu)
+            });
+            $20("#engineering").removeClass("advantaged-trait");
+            $20("#engineering").removeClass("disadvantaged-trait");
+            if(parseInt(values.engineering_mod) === 1){
+                $20("#engineering").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.engineering_mod) === -1){
+                $20("#engineering").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:knowledge_mod change:knowledge_mod_lu sheet:opened", function() {  
+        getAttrs(["knowledge_mod","knowledge_mod_lu"], function(values) {
+            setAttrs({
+                "knowledge_mod_ui": parseInt(values.knowledge_mod_lu)
+            });
+            $20("#knowledge").removeClass("advantaged-trait");
+            $20("#knowledge").removeClass("disadvantaged-trait");
+            if(parseInt(values.knowledge_mod) === 1){
+                $20("#knowledge").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.knowledge_mod) === -1){
+                $20("#knowledge").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:magic_mod change:magic_mod_lu sheet:opened", function() {  
+        getAttrs(["magic_mod","magic_mod_lu"], function(values) {
+            setAttrs({
+                "magic_mod_ui": parseInt(values.magic_mod_lu)
+            });
+            $20("#magic").removeClass("advantaged-trait");
+            $20("#magic").removeClass("disadvantaged-trait");
+            if(parseInt(values.magic_mod) === 1){
+                $20("#magic").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.magic_mod) === -1){
+                $20("#magic").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:grip_mod change:grip_mod_lu sheet:opened", function() {  
+        getAttrs(["grip_mod","grip_mod_lu"], function(values) {
+            setAttrs({
+                "grip_mod_ui": parseInt(values.grip_mod_lu)
+            });
+            $20("#grip").removeClass("advantaged-trait");
+            $20("#grip").removeClass("disadvantaged-trait");
+            if(parseInt(values.grip_mod) === 1){
+                $20("#grip").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.grip_mod) === -1){
+                $20("#grip").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:physicality_mod change:physicality_mod_lu sheet:opened", function() {  
+        getAttrs(["physicality_mod","physicality_mod_lu"], function(values) {
+            setAttrs({
+                "physicality_mod_ui": parseInt(values.physicality_mod_lu)
+            });
+            $20("#physicality").removeClass("advantaged-trait");
+            $20("#physicality").removeClass("disadvantaged-trait");
+            if(parseInt(values.physicality_mod) === 1){
+                $20("#physicality").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.physicality_mod) === -1){
+                $20("#physicality").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:presence_mod change:presence_mod_lu sheet:opened", function() {  
+        getAttrs(["presence_mod","presence_mod_lu"], function(values) {
+            setAttrs({
+                "presence_mod_ui": parseInt(values.presence_mod_lu)
+            });
+            $20("#presence").removeClass("advantaged-trait");
+            $20("#presence").removeClass("disadvantaged-trait");
+            if(parseInt(values.presence_mod) === 1){
+                $20("#presence").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.presence_mod) === -1){
+                $20("#presence").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:faith_mod change:faith_mod_lu sheet:opened", function() {  
+        getAttrs(["faith_mod","faith_mod_lu"], function(values) {
+            setAttrs({
+                "faith_mod_ui": parseInt(values.faith_mod_lu)
+            });
+            $20("#faith").removeClass("advantaged-trait");
+            $20("#faith").removeClass("disadvantaged-trait");
+            if(parseInt(values.faith_mod) === 1){
+                $20("#faith").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.faith_mod) === -1){
+                $20("#faith").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:interaction_mod change:interaction_mod_lu sheet:opened", function() {  
+        getAttrs(["interaction_mod","interaction_mod_lu"], function(values) {
+            setAttrs({
+                "interaction_mod_ui": parseInt(values.interaction_mod_lu)
+            });
+            $20("#interaction").removeClass("advantaged-trait");
+            $20("#interaction").removeClass("disadvantaged-trait");
+            if(parseInt(values.interaction_mod) === 1){
+                $20("#interaction").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.interaction_mod) === -1){
+                $20("#interaction").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:willpower_mod change:willpower_mod_lu sheet:opened", function() {  
+        getAttrs(["willpower_mod","willpower_mod_lu"], function(values) {
+            setAttrs({
+                "willpower_mod_ui": parseInt(values.willpower_mod_lu)
+            });
+            $20("#willpower").removeClass("advantaged-trait");
+            $20("#willpower").removeClass("disadvantaged-trait");
+            if(parseInt(values.willpower_mod) === 1){
+                $20("#willpower").addClass("advantaged-trait");
+            }
+            else if(parseInt(values.willpower_mod) === -1){
+                $20("#willpower").addClass("disadvantaged-trait");
+            }
+        });
+    });
+    
+    on("change:equipslots_lu change:advan_and_mod_loadout change:equipmod_0 change:equipmod_1 change:equipmod_2 change:equipmod_3 change:equipmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["equipslots_lu","equipmod_" + L], function(values) {
+                let val = parseInt(values.equipslots_lu) + parseInt(values["equipmod_" + L]) + 5;
+                setAttrs({
+                    "equipslots_max": val
+                });
+            });
+        });
+    });
+    
+    on("change:rest_lu change:level change:advan_and_mod_loadout change:restmod_0 change:restmod_1 change:restmod_2 change:restmod_3 change:restmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["rest_lu","level","restmod_" + L], function(values) {
+                let val = parseInt(values.rest_lu) + parseInt(values["restmod_" + L]) + Math.ceil(parseInt(values.level)/2);
+                setAttrs({
+                    "rest_max": val
+                });
+            });
+        });
+    });
+    
+    on("change:advan_and_mod_loadout change:deathmod_0 change:deathmod_1 change:deathmod_2 change:deathmod_3 change:deathmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["deathmod_" + L], function(values) {
+                let val = parseInt(values["deathmod_" + L]) + 3;
+                setAttrs({
+                    "deathstacks_max": val
+                });
+            });
+        });
+    });
+    
+    on("change:reflex_check_lu change:advan_and_mod_loadout change:reflexmod_0 change:reflexmod_1 change:reflexmod_2 change:reflexmod_3 change:reflexmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["reflex_check_lu","reflexmod_" + L], function(values) {
+                let val = parseInt(values["reflexmod_" + L]) + parseInt(values.reflex_check_lu);
+                setAttrs({
+                    "reflex_check": val
+                });
+            });
+        });
+    });
+    
+    on("change:strength_check_lu change:advan_and_mod_loadout change:strengthmod_0 change:strengthmod_1 change:strengthmod_2 change:strengthmod_3 change:strengthmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["strength_check_lu","strengthmod_" + L], function(values) {
+                let val = parseInt(values["strengthmod_" + L]) + parseInt(values.strength_check_lu);
+                setAttrs({
+                    "strength_check": val
+                });
+            });
+        });
+    });
+    
+    on("change:toughness_check_lu change:advan_and_mod_loadout change:toughnessmod_0 change:toughnessmod_1 change:toughnessmod_2 change:toughnessmod_3 change:toughnessmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["toughness_check_lu","toughnessmod_" + L], function(values) {
+                let val = parseInt(values["toughnessmod_" + L]) + parseInt(values.toughness_check_lu);
+                setAttrs({
+                    "toughness_check": val
+                });
+            });
+        });
+    });
+    
+    on("change:heart_check_lu change:advan_and_mod_loadout change:heartmod_0 change:heartmod_1 change:heartmod_2 change:heartmod_3 change:heartmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["heart_check_lu","heartmod_" + L], function(values) {
+                let val = parseInt(values["heartmod_" + L]) + parseInt(values.heart_check_lu);
+                setAttrs({
+                    "heart_check": val
+                });
+            });
+        });
+    });
+    
+    on("change:mind_check_lu change:advan_and_mod_loadout change:mindmod_0 change:mindmod_1 change:mindmod_2 change:mindmod_3 change:mindmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["mind_check_lu","mindmod_" + L], function(values) {
+                let val = parseInt(values["mindmod_" + L]) + parseInt(values.mind_check_lu);
+                setAttrs({
+                    "mind_check": val
+                });
+            });
+        });
+    });
+    
+    on("change:soul_check_lu change:advan_and_mod_loadout change:soulmod_0 change:soulmod_1 change:soulmod_2 change:soulmod_3 change:soulmod_4 sheet:opened", function() {
+        getAttrs(["advan_and_mod_loadout"], function(loadout) {
+	        let L = loadout.advan_and_mod_loadout;
+            getAttrs(["soul_check_lu","soulmod_" + L], function(values) {
+                let val = parseInt(values["soulmod_" + L]) + parseInt(values.soul_check_lu);
+                setAttrs({
+                    "soul_check": val
+                });
+            });
+        });
+    });
+    
+    on("change:melee_mod_lu sheet:opened", function() {  
+        getAttrs(["melee_mod_lu"], function(values) {
+            let val = parseInt(values.melee_mod_lu) + 3;
+            setAttrs({
+                "melee_mod": val
+            });
+        });
+    });
+    
+    on("change:ranged_mod_lu sheet:opened", function() {  
+        getAttrs(["ranged_mod_lu"], function(values) {
+            let val = parseInt(values.ranged_mod_lu) + 3;
+            setAttrs({
+                "ranged_mod": val
+            });
+        });
+    });
+    
+    on("change:thrown_mod_lu sheet:opened", function() {  
+        getAttrs(["thrown_mod_lu"], function(values) {
+            let val = parseInt(values.thrown_mod_lu) + 3;
+            setAttrs({
+                "thrown_mod": val
+            });
+        });
+    });
+    
+    on("change:spell_mod_lu sheet:opened", function() {  
+        getAttrs(["spell_mod_lu"], function(values) {
+            let val = parseInt(values.spell_mod_lu) + 3;
+            setAttrs({
+                "spell_mod": val
+            });
+        });
+    });
+    
+    on("change:block_mod_lu change:shield_mod change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["block_mod_lu","shield_mod","shield_tolerance_apply"], function(values) {
+            let val = parseInt(values.block_mod_lu) + parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on");
+            setAttrs({
+                "block_mod": val
+            });
+        });
+    });
+    
+    on("change:dodge_mod_lu change:shield_mod change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["dodge_mod_lu","shield_mod","shield_tolerance_apply"], function(values) {
+            let val = parseInt(values.dodge_mod_lu) + parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on");
+            setAttrs({
+                "dodge_mod": val
+            });
+        });
+    });
+    
+    on("change:parry_mod_lu change:shield_mod change:shield_tolerance_apply sheet:opened", function() {  
+        getAttrs(["parry_mod_lu","shield_mod","shield_tolerance_apply"], function(values) {
+            let val = parseInt(values.parry_mod_lu) + parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on");
+            setAttrs({
+                "parry_mod": val
+            });
+        });
+    });
+    
+    
+    
+    //Function to make a difficulty check
+    const _makeDifficultyCheck = (difficultyCheck) => {
+        getAttrs([difficultyCheck + "_check"], function(values) {
+            /* rollType, rollName, bonus, advantage, attackName, damageType, damage, critDamage */
+            _makeRoll("difficulty", difficultyCheck.charAt(0).toUpperCase() + difficultyCheck.slice(1) + " Check", parseInt(values[difficultyCheck + "_check"]), 0);
+        });
+    }
+    on('clicked:reflexroll', (info) => {
+        _makeDifficultyCheck("reflex");
+    });
+    on('clicked:strengthroll', (info) => {
+        _makeDifficultyCheck("strength");
+    });
+    on('clicked:toughnessroll', (info) => {
+        _makeDifficultyCheck("toughness");
+    });
+    on('clicked:heartroll', (info) => {
+        _makeDifficultyCheck("heart");
+    });
+    on('clicked:mindroll', (info) => {
+        _makeDifficultyCheck("mind");
+    });
+    on('clicked:soulroll', (info) => {
+        _makeDifficultyCheck("soul");
+    });
+    
+    
+    
+    
+    
+    
+    //Function to make a trait roll
+    const _makeTraitRoll = (traitName) => {
+        getAttrs([traitName + "_mod", traitName + "_mod_lu"], function(values) {
+            //Can't change the attribute names without deleting data out of the character sheets currently in-use
+            //Thus, the workaround is to change the roll names manually here
+            let fixedTraitName;
+            if(traitName === "toughness"){
+                fixedTraitName = "Durable";
+            }
+            else if(traitName === "willpower"){
+                fixedTraitName = "Motivation";
+            }
+            else{
+                fixedTraitName = traitName.charAt(0).toUpperCase() + traitName.slice(1);
+            }
+            /* rollType, rollName, bonus, advantage, attackName, damageType, damage, critDamage */
+            _makeRoll("trait", fixedTraitName, values[traitName + "_mod_lu"], values[traitName + "_mod"]);
+        })
+    }
     on('clicked:detection', (info) => {
-        getAttrs(["detection_mod"], function(values) {
-			_makeRoll("trait", "Detection", values.detection_mod, null, null, null, null);
-        });
+        _makeTraitRoll("detection");
     });
-    
     on('clicked:intuition', (info) => {
-        getAttrs(["intuition_mod"], function(values) {
-			_makeRoll("trait", "Intuition", values.intuition_mod, null, null, null, null);
-        });
+        _makeTraitRoll("intuition");
     });
-    
     on('clicked:wilderness', (info) => {
-        getAttrs(["wilderness_mod"], function(values) {
-			_makeRoll("trait", "Wilderness", values.wilderness_mod, null, null, null, null);
-        });
+        _makeTraitRoll("wilderness");
     });
-    
     on('clicked:convince', (info) => {
-        getAttrs(["convince_mod"], function(values) {
-			_makeRoll("trait", "Convince", values.convince_mod, null, null, null, null);
-        });
+        _makeTraitRoll("convince");
     });
-    
     on('clicked:flair', (info) => {
-        getAttrs(["flair_mod"], function(values) {
-			_makeRoll("trait", "Flair", values.flair_mod, null, null, null, null);
-        });
+        _makeTraitRoll("flair");
     });
-    
     on('clicked:performance', (info) => {
-        getAttrs(["performance_mod"], function(values) {
-			_makeRoll("trait", "Performance", values.performance_mod, null, null, null, null);
-        });
+        _makeTraitRoll("performance");
     });
-    
     on('clicked:agility', (info) => {
-        getAttrs(["agility_mod"], function(values) {
-			_makeRoll("trait", "Agility", values.agility_mod, null, null, null, null);
-        });
+        _makeTraitRoll("agility");
     });
-    
     on('clicked:dexterity', (info) => {
-        getAttrs(["dexterity_mod"], function(values) {
-			_makeRoll("trait", "Dexterity", values.dexterity_mod, null, null, null, null);
-        });
+        _makeTraitRoll("dexterity");
     });
-    
     on('clicked:stealth', (info) => {
-        getAttrs(["stealth_mod"], function(values) {
-			_makeRoll("trait", "Stealth", values.stealth_mod, null, null, null, null);
-        });
+        _makeTraitRoll("stealth");
     });
-    
     on('clicked:constitution', (info) => {
-        getAttrs(["constitution_mod"], function(values) {
-			_makeRoll("trait", "Constitution", values.constitution_mod, null, null, null, null);
-        });
+        _makeTraitRoll("constitution");
     });
-    
     on('clicked:persistence', (info) => {
-        getAttrs(["persistence_mod"], function(values) {
-			_makeRoll("trait", "Persistence", values.persistence_mod, null, null, null, null);
-        });
+        _makeTraitRoll("persistence");
     });
-    
     on('clicked:toughness', (info) => {
-        getAttrs(["toughness_mod"], function(values) {
-			_makeRoll("trait", "Toughness", values.toughness_mod, null, null, null, null);
-        });
+        _makeTraitRoll("toughness");
     });
-    
     on('clicked:engineering', (info) => {
-        getAttrs(["engineering_mod"], function(values) {
-			_makeRoll("trait", "Engineering", values.engineering_mod, null, null, null, null);
-        });
+        _makeTraitRoll("engineering");
     });
-    
     on('clicked:knowledge', (info) => {
-        getAttrs(["knowledge_mod"], function(values) {
-			_makeRoll("trait", "Knowledge", values.knowledge_mod, null, null, null, null);
-        });
+        _makeTraitRoll("knowledge");
     });
-    
     on('clicked:magic', (info) => {
-        getAttrs(["magic_mod"], function(values) {
-			_makeRoll("trait", "Magic", values.magic_mod, null, null, null, null);
-        });
+        _makeTraitRoll("magic");
     });
-    
     on('clicked:grip', (info) => {
-        getAttrs(["grip_mod"], function(values) {
-			_makeRoll("trait", "Grip", values.grip_mod, null, null, null, null);
-        });
+        _makeTraitRoll("grip");
     });
-    
     on('clicked:physicality', (info) => {
-        getAttrs(["physicality_mod"], function(values) {
-			_makeRoll("trait", "Physicality", values.physicality_mod, null, null, null, null);
-        });
+        _makeTraitRoll("physicality");
     });
-    
     on('clicked:presence', (info) => {
-        getAttrs(["presence_mod"], function(values) {
-			_makeRoll("trait", "Presence", values.presence_mod, null, null, null, null);
-        });
+        _makeTraitRoll("presence");
     });
-    
     on('clicked:faith', (info) => {
-        getAttrs(["faith_mod"], function(values) {
-			_makeRoll("trait", "Faith", values.faith_mod, null, null, null, null);
-        });
+        _makeTraitRoll("faith");
     });
-    
     on('clicked:interaction', (info) => {
-        getAttrs(["interaction_mod"], function(values) {
-			_makeRoll("trait", "Interaction", values.interaction_mod, null, null, null, null);
-        });
+        _makeTraitRoll("interaction");
     });
-    
     on('clicked:willpower', (info) => {
-        getAttrs(["willpower_mod"], function(values) {
-			_makeRoll("trait", "Willpower", values.willpower_mod, null, null, null, null);
-        });
+        _makeTraitRoll("willpower");
     });
     
     
-    
+    //Function to make a defense roll
+    const _makeDefenseRoll = (defenseType) => {
+        getAttrs([defenseType + "_mod","shield_mod", "shield_tolerance_apply"], function(values) {
+            /* rollType, rollName, bonus, advantage, attackName, damageType, damage, critDamage */
+            _makeRoll("defense", defenseType.charAt(0).toUpperCase() + defenseType.slice(1), parseInt(values[defenseType + "_mod"]) + parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on"), 0);
+        });
+    }
     on('clicked:block', (info) => {
-        getAttrs(["block_mod","shield_mod"], function(values) {
-            _makeRoll("defense", "Block", parseInt(values.block_mod) + parseInt(values.shield_mod), null, null, null, null);
-        });
+        _makeDefenseRoll("block");
     });
-    
     on('clicked:dodge', (info) => {
-        getAttrs(["dodge_mod","shield_mod"], function(values) {
-            _makeRoll("defense", "Dodge", parseInt(values.dodge_mod) + parseInt(values.shield_mod), null, null, null, null);
-        });
+        _makeDefenseRoll("dodge");
     });
-    
     on('clicked:parry', (info) => {
-        getAttrs(["parry_mod","shield_mod"], function(values) {
-            _makeRoll("defense", "Parry", parseInt(values.parry_mod) + parseInt(values.shield_mod), null, null, null, null);
-        });
+        _makeDefenseRoll("parry");
     });
     
+    
+    
+    /* no longer in use */
     on('clicked:armor', (info) => {
         getAttrs(["armor", "gmroll"], function(values) {
             let armorVal = values.armor;
@@ -1648,84 +2665,82 @@
     });
     
     
-    
+    //Function to make an attack roll
+    const _makeAttackRoll = (attackType) => {
+        getAttrs([attackType + "_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
+            /* rollType, rollName, bonus, advantage, attackName, damageType, damage, critDamage */
+            _makeRoll("attack", values.repeating_attack_attack_name, values[attackType + "_mod"], 0, attackType.charAt(0).toUpperCase() + attackType.slice(1) + " " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
+        })
+    }
     on('clicked:repeating_attacks:melee', function() {
-        getAttrs(["melee_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
-            _makeRoll("attack", values.repeating_attack_attack_name, values.melee_mod, "Melee " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
-        });
+        _makeAttackRoll("melee");
     });
-    
     on('clicked:repeating_attacks:ranged', function() {
-        getAttrs(["ranged_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
-            _makeRoll("attack", values.repeating_attack_attack_name, values.ranged_mod, "Ranged " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
-        });
+        _makeAttackRoll("ranged");
     });
-    
     on('clicked:repeating_attacks:thrown', function() {
-        getAttrs(["thrown_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
-            _makeRoll("attack", values.repeating_attack_attack_name, values.thrown_mod, "Thrown " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
-        });
+        _makeAttackRoll("thrown");
     });
-    
     on('clicked:repeating_attacks:spell', function() {
-        getAttrs(["spell_mod", "repeating_attack_attack_name", "repeating_attack_attack_damage", "repeating_attack_attack_crit", "repeating_attack_attack_damagetypes", "repeating_attack_attack_range"], function(values) {
-            _makeRoll("attack", values.repeating_attack_attack_name, values.spell_mod, "Spell " + values.repeating_attack_attack_range, values.repeating_attack_attack_damagetypes, values.repeating_attack_attack_damage, values.repeating_attack_attack_crit);
-        });
+        _makeAttackRoll("spell");
     });
-    
-    
-    
     
     
     //Function to make a dice roll
-	const _makeRoll = (rolltype, rollname, bonus, attacktype, damagetype, rolldice, critdmg) => {
+	const _makeRoll = (rollType, rollName, bonus, advantage, attackName = null, damageType = null, damage = null, critDamage = null) => {
 	    getAttrs(["advan_and_mod_loadout"], function(loadout) {
-	        let traitadvan_getter = "traitadvan_" + loadout.advan_and_mod_loadout;
-	        let traitmod_getter = "traitmod_" + loadout.advan_and_mod_loadout;
-	        let attackadvan_getter = "attackadvan_" + loadout.advan_and_mod_loadout;
-	        let attackmod_getter = "attackmod_" + loadout.advan_and_mod_loadout;
-	        let defenseadvan_getter = "defenseadvan_" + loadout.advan_and_mod_loadout;
-	        let defensemod_getter = "defensemod_" + loadout.advan_and_mod_loadout;
-	        
-    	    getAttrs([traitadvan_getter, traitmod_getter, attackadvan_getter, attackmod_getter, defenseadvan_getter, defensemod_getter, "gmroll", "character_name", "critmin"], function(values) {
-    	        //get global values
-                let hiddenroll = parseInt(values.gmroll);
-    			let charname = values.character_name;
-    			let advan = 0;
-    			let damagetext = "0";
-                let crittext = "0";
-                let critmin = parseInt(values.critmin);
-                if(rolltype === "attack"){
-                    damagetext = `${rolldice}`;
-                    crittext = `${rolldice} + ${critdmg}`;
-                    rolltype = "1";
-                    advan = parseInt(values[attackadvan_getter]);
-                    bonus = parseInt(bonus) + parseInt(values[attackmod_getter]);
+	        let L = loadout.advan_and_mod_loadout;
+    	    getAttrs(["traitadvan_" + L, "traitmod_" + L, "attackadvan_" + L, "attackmod_" + L, "defenseadvan_" + L, "defensemod_" + L, "difficultyadvan_" + L, "difficultymod_" + L, "damageadvan_" + L, "damagemod_" + L, "critmin_" + L, "gm_roll", "character_name"], function(values) {
+    	        
+    	        //Get global values
+                let hiddenRoll = parseInt(values.gm_roll);
+    			let charName = values.character_name;
+                let critMin = parseInt(values["critmin_" + L]);
+                
+                //We'll need to define these now even if we don't end up using them
+                let damageText = "0"
+                let critText = "0"
+                
+                if(rollType === "attack"){
+                    damageText = `${damage}`;
+                    critText = `${critDamage}`;
+                    rollType = "1";
+                    advantage = parseInt(advantage) + parseInt(values["attackadvan_" + L]);
+                    bonus = parseInt(bonus) + parseInt(values["attackmod_" + L]);
                 }
-                else{
-                    if(rolltype === "trait"){
-                        advan = parseInt(values[traitadvan_getter]);
-                        bonus = parseInt(bonus) + parseInt(values[traitmod_getter]);
-                        rolltype = "0"
+                else if(rollType === "trait"){
+                    advantage = parseInt(advantage) + parseInt(values["traitadvan_" + L]);
+                    bonus = parseInt(bonus) + parseInt(values["traitmod_" + L]);
+                    rollType = "0"
+                    if(rollName === "Intuition"){
+                        hiddenRoll = 1;
                     }
-                    else{
-                        advan = parseInt(values[defenseadvan_getter]);
-                        bonus = parseInt(bonus) + parseInt(values[defensemod_getter]);
-                        rolltype = "2"
-                    }
+                }
+                else if(rollType === "difficulty"){
+                    advantage = parseInt(advantage) + parseInt(values["difficultyadvan_" + L]);
+                    bonus = parseInt(bonus) + parseInt(values["difficultymod_" + L]);
+                    rollType = "0"
+                }
+                else if(rollType === "defense"){
+                    advantage = parseInt(advantage) + parseInt(values["defenseadvan_" + L]);
+                    bonus = parseInt(bonus) + parseInt(values["defensemod_" + L]);
+                    rollType = "0"
+                }
+                else {
+                    console.error("Unsupported roll type: " + rollType);
                 }
     			
     			//determine dice roll
-                let rolltext = "";
-                if(advan >= 0){
+                let rollText;
+                if(advantage >= 0){
                     //If player has advantage, take highest
-                    rolltext = `[[2 + ${advan}]]d10kh2cs>21cf<0 + ${bonus}`;
+                    rollText = `[[2 + ${advantage}]]d10kh2cs>21cf<0 + ${bonus}`;
                 } else {
                     //If player has disadvanatage, take lowest
                     //I have no idea why "2 + ${advan} * -1" works, but "2 - ${advan}" doesn't
-                    rolltext = `[[2 + ${advan} * -1]]d10kl2cs>21cf<0 + ${bonus}`;
+                    rollText = `[[2 + ${advantage} * -1]]d10kl2cs>21cf<0 + ${bonus}`;
                 }
-                
+    
     			//TODO: Roll parameters::
     			//>Name of roll
     			//>Name of roll's instigator
@@ -1738,24 +2753,32 @@
     			//>Whether the roll should be hidden
     			//??Can you decompose rolls? Because if so, then it'd be great to show every roll immediately with advantage
     			//??In fact, whether the roll's internals should be shown at all is a legitimate question
-        	    startRoll(`&{template:r_template} {{hide=[[${hiddenroll}d1]]}} {{name=${rollname}}} {{character=${charname}}} {{roll=[[${rolltext}]]}} {{rolltype=[[${rolltype}d1]]}} {{atktype=${attacktype}}} {{dmgtype=${damagetype}}} {{damage=[[${damagetext}]]}} {{crit=${critdmg}}}`, (results) => {
+    			
+    			if(false){
+    			    console.log(hiddenRoll);
+        			console.log(rollName);
+        			console.log(charName);
+        			console.log(rollText);
+        			console.log(attackName);
+        			console.log(damageType);
+        			console.log(damageText);
+        			console.log(critDamage);
+    			}
+    			
+    			
+        	    startRoll(`&{template:r_template} {{hide=[[${hiddenRoll}d1]]}} {{name=${rollName}}} {{character=${charName}}} {{roll=[[${rollText}]]}} {{rolltype=[[${rollType}d1]]}} {{atktype=${attackName}}} {{dmgtype=${damageType}}} {{damage=[[${damageText}]]}} {{crit=${critDamage}}}`, (results) => {
                     let original = results.results.roll.result;
                     let computed = original - bonus;
                     
                     //Determines if the number is a crit
                     //computed cannot be directly compared to an integer using "==", so comparisons are instead made using ">"
-                    console.log("breakpoint 1!")
-                    if(computed > (rolltype === "1" ? critmin - 1 : 19)){
-                        console.log("breakpoint 2!")
+                    if(computed > (rollType === "1" ? critMin - 1 : 19)){
                         computed  = original * 2;
                     }else if(computed < 3) {
-                        console.log("breakpoint 3!")
                         computed = Math.ceil(original / 2);
                     } else {
-                        console.log("breakpoint 4!")
                         computed = original;
                     }
-                    console.log("breakpoint 5!")
         
                     finishRoll(
                         results.rollId,
