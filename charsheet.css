@@ -1,8 +1,33 @@
+.hidden {
+    display: none;
+}
+
+
+
+
+.text-box,
+.minus-sign,
+.plus-sign {
+    display: none;
+}
+
+.sheet-abilitytexttoggle[value="1"] ~ textarea.text-box,
+.sheet-abilitytexttoggle[value="1"] ~ span.minus-sign {
+    display: block;
+}
+
+.sheet-abilitytexttoggle[value="0"] ~ span.plus-sign {
+    display: block;
+}
+
+
+
 /*****************************/
 /* Used when switching pages */
 /*****************************/
 
 .sheet-main,
+.sheet-level,
 .sheet-gear,
 .sheet-cheatsheet,
 .sheet-grappling,
@@ -11,6 +36,7 @@
 }
 
 .sheet-tabstoggle[value="main"] ~ div.sheet-main,
+.sheet-tabstoggle[value="level"] ~ div.sheet-level,
 .sheet-tabstoggle[value="gear"] ~ div.sheet-gear,
 .sheet-tabstoggle[value="cheatsheet"] ~ div.sheet-cheatsheet,
 .sheet-tabstoggle[value="grappling"] ~ div.sheet-grappling,
@@ -245,7 +271,7 @@ body.sheet-darkmode .container-style {
 #advan_and_mod_box {
     display: grid;
     grid-template-columns: repeat(7, auto);
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
 }
 
 #advan_and_mod_box > div {
@@ -298,11 +324,21 @@ body.sheet-darkmode .container-style {
 
 #attribute_box {
     display: grid;
-    grid-template-columns: repeat(7, auto);
+    grid-template-columns: repeat(11, auto);
+    grid-template-rows: repeat(1, auto);
+}
+
+#attribute_box_lu {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
     grid-template-rows: repeat(1, auto);
 }
 
 #attribute_box > div {
+   height: 80px; 
+}
+
+#attribute_box > div, #attribute_box_lu > div {
     border-right: 1px solid black;
     align-items: center;
     display: inherit;
@@ -310,9 +346,10 @@ body.sheet-darkmode .container-style {
     justify-content: center;
 }
 
-#attribute_box > div > input {
+#attribute_box > div > input, #attribute_box_lu > div > input {
     margin: 0px auto;
 }
+
 
 .repcontrol_add {
     width: 65px;
@@ -324,7 +361,7 @@ body.sheet-darkmode .container-style {
 
 body.sheet-darkmode #attribute_box > div,
 body.sheet-darkmode #combat_box > div,
-body.sheet-darkmode #tolerance_box > div,
+body.sheet-darkmode .tolerance_box > div,
 body.sheet-darkmode #action_box > div,
 body.sheet-darkmode #advan_and_mod_box > div {
     border-right: 1px solid #3F3F3F;
@@ -332,9 +369,9 @@ body.sheet-darkmode #advan_and_mod_box > div {
 
 .max-display {
     font-size: 10px;
-    height: 12px;
+    height: 10px;
     position: relative;
-    bottom: 1px;
+    bottom: 3.5px;
     color: #999999;
 }
 
@@ -344,4 +381,28 @@ body.sheet-darkmode .max-display {
 
 #attack_header {
     text-align: center;
+}
+
+.all-traits {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(1, auto);
+    min-width:1400px;
+}
+.all-traits > div {
+    min-width:200px;
+}
+
+
+
+
+.disadvantaged-trait {
+    border-color: red !important;
+    background-color: red !important;
+    color: white !important;
+}
+.advantaged-trait {
+    border-color: green !important;
+    background-color: green !important;
+    color: white !important;
 }
