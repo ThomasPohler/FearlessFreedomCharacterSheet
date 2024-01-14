@@ -1,9 +1,32 @@
+  /********/
+ /* MISC */
+/********/
+
 .hidden {
     display: none;
 }
 
+button {
+    width: 80px;
+	background-color: #F9F9F9;
+	border: 1px #3F3F3F solid;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	border-radius: 6px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+button:hover {
+    background-color: #F2F2F2;
+}
+button:active {
+    background-color: #E5E5E5;
+}
 
-
+div.single-line-holder {
+    display: flex;
+    flex-wrap: nowrap;
+}
 
 .text-box,
 .minus-sign,
@@ -22,9 +45,9 @@
 
 
 
-/*****************************/
-/* Used when switching pages */
-/*****************************/
+  /*****************/
+ /* PAGE: CONTROL */
+/*****************/
 
 .sheet-main,
 .sheet-level,
@@ -34,7 +57,6 @@
 .sheet-struggles {
     display: none;
 }
-
 .sheet-tabstoggle[value="main"] ~ div.sheet-main,
 .sheet-tabstoggle[value="level"] ~ div.sheet-level,
 .sheet-tabstoggle[value="gear"] ~ div.sheet-gear,
@@ -51,21 +73,7 @@
 /* Used when switching advantage/mod loadouts */
 /**********************************************/
 
-.advmod-loadout-0,
-.advmod-loadout-1,
-.advmod-loadout-2,
-.advmod-loadout-3,
-.advmod-loadout-4 {
-    display: none;
-}
 
-.advmodloadout-tabstoggle[value="0"] ~ div > .advmod-loadout-0,
-.advmodloadout-tabstoggle[value="1"] ~ div > .advmod-loadout-1,
-.advmodloadout-tabstoggle[value="2"] ~ div > .advmod-loadout-2,
-.advmodloadout-tabstoggle[value="3"] ~ div > .advmod-loadout-3,
-.advmodloadout-tabstoggle[value="4"] ~ div > .advmod-loadout-4 {
-    display: block;
-}
 
 
 
@@ -89,6 +97,160 @@ body.sheet-darkmode #dialog-window {
 body.sheet-darkmode .tab-pane {
     background-color: #333333;
 }
+
+  /**************/
+ /* PAGE: MAIN */
+/**************/
+
+
+
+/* ADVAN AND MOD LOADOUTS */
+.advmod-loadout-0,
+.advmod-loadout-1,
+.advmod-loadout-2,
+.advmod-loadout-3,
+.advmod-loadout-4 {
+    display: none;
+}
+.advmodloadout-tabstoggle[value="0"] ~ div > .advmod-loadout-0,
+.advmodloadout-tabstoggle[value="1"] ~ div > .advmod-loadout-1,
+.advmodloadout-tabstoggle[value="2"] ~ div > .advmod-loadout-2,
+.advmodloadout-tabstoggle[value="3"] ~ div > .advmod-loadout-3,
+.advmodloadout-tabstoggle[value="4"] ~ div > .advmod-loadout-4 {
+    display: block;
+}
+
+
+
+/* MAIN DIV */
+
+.sheet-main #main_div {
+    margin-left:169px;
+    position:absolute;
+    width:800px;
+    transition: 0.3s;
+}
+.sheet-main #left_sidebar.collapsed ~ #main_div {
+    margin-left:71px;
+}
+
+
+
+/* SIDEBARS */
+
+.sidebar-normal,
+.sidebar-small {
+    width: 148px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+
+
+.sidebar-normal > h4 {
+    display: block;
+    margin: 0px;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+
+
+.sidebar-small {
+    padding-bottom: 10px;
+}
+.sidebar-small > h4 {
+    position: relative;
+    top: 4px;
+}
+.sidebar-small > input {
+    float: right;
+    margin-top: 7px;
+    margin-right: 7px;
+}
+
+
+
+.sheet-main #left_sidebar {
+    position: absolute;
+}
+
+.sheet-main #left_sidebar.collapsed > .sidebar-small, .sheet-main #left_sidebar.collapsed > .sidebar-normal {
+    width: 51px;
+}
+
+.sheet-main #left_sidebar > div > h4 {
+    white-space: nowrap;
+}
+.sheet-main #left_sidebar > .sidebar-small > h4 {
+    position: absolute;
+}
+.sheet-main #left_sidebar.collapsed > .sidebar-small > h4.collapsed {
+    display: inline;
+}
+.sheet-main #left_sidebar.collapsed > .sidebar-normal > h4.collapsed {
+    position: relative;
+    right: 4px;
+}
+
+.sheet-main #left_sidebar > div > .single-line-holder > .left-sidebar-input-holder {
+    transition: 0s;
+    display: inline;
+}
+.sheet-main #left_sidebar.collapsed > div > .single-line-holder  > .left-sidebar-input-holder {
+    opacity: 0%;
+    position: absolute;
+}
+.sheet-main #left_sidebar > div > .single-line-holder > .left-sidebar-input-holder > input {
+    transition: 0.3s;
+    width: 3.5em;
+}
+.sheet-main #left_sidebar.collapsed > div > .single-line-holder > .left-sidebar-input-holder > input {
+    width: 0em;
+}
+
+.sheet-main #left_sidebar > div > .single-line-holder > button {
+    transition: 0.3s;
+}
+.sheet-main #left_sidebar.collapsed > div > .single-line-holder > button {
+    width: 30px;
+    transition: 0.3s;
+}
+
+.sheet-main #left_sidebar > * .collapsed, .sheet-main #left_sidebar.collapsed > * .expanded {
+    display: none;
+}
+.sheet-main #left_sidebar.collapsed > * .collapsed {
+    display: block;
+}
+
+.sheet-main #left_sidebar_view {
+    width: 12px !important;
+    height: 12px;
+    padding: 0px;
+    border-radius: 3px;
+    float: right;
+    margin-right: 7px;
+    margin-top: 4px;
+}
+
+
+
+.sheet-main #right_sidebar {
+    position: absolute;
+    margin-left: 972px;
+    transition: 0.3s;
+}
+.sheet-main #left_sidebar.collapsed ~ #right_sidebar {
+    margin-left: 874px;
+}
+
+
+
+
+
+
+
 
 /* This controls the color of the tabs above the character sheet */
 .nav.nav-tabs {
@@ -183,21 +345,6 @@ input[readonly='true']{
 	border-radius:2px;
 }
 
-button {
-    width: 80px;
-	background-color:#F9F9F9;
-	border:1px #3F3F3F solid;
-	padding-bottom:2px;
-	padding-top:2px;
-	border-radius:6px;
-}
-button:hover {
-    background-color: #F2F2F2;
-}
-button:active {
-    background-color: #E5E5E5;
-}
-
 select {
     width: 120px;
 }
@@ -213,32 +360,11 @@ div.sheet-template-container {
 	padding-left: 10px;
 	border-radius:5px;
 	margin-bottom: 6px;
-}
-
-.sidebar,
-.sidebar-small,
-.sidebar-normal {
-    width: 170px;
+    position: relative;
 }
 
 body.sheet-darkmode .container-style {
     background-color: #1F1F1F;
-}
-
-.sidebar-small {
-    padding-bottom: 10px;
-}
-
-.sidebar-small > h4 {
-    position: relative;
-    top: 4px;
-}
-
-.sidebar-normal > h4 {
-    display: block;
-    margin: 0px;
-    margin-bottom: 3px;
-    text-align: center
 }
 
 .background-type {
