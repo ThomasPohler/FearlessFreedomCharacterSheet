@@ -1,3 +1,27 @@
+  /********************/
+ /* BACKGROUND COLOR */
+/********************/
+
+#dialog-window {
+    background-color: #F2F2F2;
+}
+body.sheet-darkmode #dialog-window {
+    background-color: #333333;
+}
+
+
+
+.tab-pane {
+    background-color: #F2F2F2;
+}
+body.sheet-darkmode .tab-pane {
+    background-color: #333333;
+}
+
+
+
+
+
   /********/
  /* MISC */
 /********/
@@ -6,27 +30,87 @@
     display: none;
 }
 
+
+
 button {
     width: 80px;
-	background-color: #F9F9F9;
+    height: 20px;
+	background-color: #D8D8D8;
 	border: 1px #3F3F3F solid;
 	padding-bottom: 2px;
 	padding-top: 2px;
 	border-radius: 6px;
-    transition: 0.3s;
+    transition: all 0.3s, background-color 0s, border-color 0s;
     overflow: hidden;
 }
 button:hover {
+    transition: background-color 0.3s; /* TPTODO make the light and dark mode colors equal to you can have the background color transition */
     background-color: #F2F2F2;
 }
 button:active {
+    transition: background-color 0.3s;
     background-color: #E5E5E5;
 }
+body.sheet-darkmode button {
+    border-color: black;
+}
+
+
+
+input[type='checkbox'] {
+    background-color: white !important;
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 3px;
+    border: 1px #3F3F3F solid;
+}
+body.sheet-darkmode input[type='checkbox'] {
+    border-color: black;
+}
+/* input[type='checkbox'] {
+    background-color: #0075FF;
+} */
+
 
 div.single-line-holder {
     display: flex;
     flex-wrap: nowrap;
+    height: 28px;
 }
+div.single-line-holder > button {
+    margin-top: 1px;
+}
+
+
+
+.container-style {
+	border: 2px solid #666666;
+	background-color: #E5E5E5;
+	padding: 3px;
+	padding-left: 10px;
+	border-radius: 5px;
+	margin-bottom: 6px;
+    position: relative;
+}
+
+body.sheet-darkmode .container-style {
+    border-color: black;
+    background-color: #1F1F1F;
+}
+
+
+
+.hr {
+    background-color: #666666;
+    height: 1px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+body.sheet-darkmode .hr {
+    background-color: #B3B3B3;
+}
+
+
 
 .text-box,
 .minus-sign,
@@ -42,6 +126,8 @@ div.single-line-holder {
 .sheet-abilitytexttoggle[value="0"] ~ span.plus-sign {
     display: block;
 }
+
+
 
 
 
@@ -69,34 +155,6 @@ div.single-line-holder {
 
 
 
-/**********************************************/
-/* Used when switching advantage/mod loadouts */
-/**********************************************/
-
-
-
-
-
-
-/********************/
-/* Background color */
-/********************/
-
-#dialog-window {
-    background-color: #F2F2F2;
-}
-
-body.sheet-darkmode #dialog-window {
-    background-color: #333333;
-}
-
-.tab-pane {
-    background-color: #F2F2F2;
-}
-
-body.sheet-darkmode .tab-pane {
-    background-color: #333333;
-}
 
   /**************/
  /* PAGE: MAIN */
@@ -125,13 +183,13 @@ body.sheet-darkmode .tab-pane {
 /* MAIN DIV */
 
 .sheet-main #main_div {
-    margin-left:169px;
-    position:absolute;
-    width:800px;
+    margin-left: 172px;
+    position: absolute;
+    width: 800px;
     transition: 0.3s;
 }
 .sheet-main #left_sidebar.collapsed ~ #main_div {
-    margin-left:71px;
+    margin-left: 64px;
 }
 
 
@@ -140,9 +198,9 @@ body.sheet-darkmode .tab-pane {
 
 .sidebar-normal,
 .sidebar-small {
-    width: 148px;
+    width: 149px;
     overflow: hidden;
-    transition: 0.3s;
+    transition: all 0.3s, background-color 0s, border-color 0s;
 }
 
 
@@ -157,7 +215,7 @@ body.sheet-darkmode .tab-pane {
 
 
 .sidebar-small {
-    padding-bottom: 10px;
+    height: 20px;
 }
 .sidebar-small > h4 {
     position: relative;
@@ -165,18 +223,47 @@ body.sheet-darkmode .tab-pane {
 }
 .sidebar-small > input {
     float: right;
-    margin-top: 7px;
-    margin-right: 7px;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+.sidebar-small button.checkbox.top-right {
+    float: right;
+    margin-right: 3px;
+    margin-top: 3px;
 }
 
 
+
+/* TRAITS */
+
+input.disadvantaged-trait {
+    background-color: #F2B8B8 !important;
+}
+input.advantaged-trait {
+    background-color: #ACE5AC !important;
+}
+body.sheet-darkmode input.disadvantaged-trait {
+    background-color: #BF0000 !important;
+}
+body.sheet-darkmode input.advantaged-trait {
+    background-color: green !important;
+}
+
+
+
+/* LEFT SIDEBAR */
 
 .sheet-main #left_sidebar {
     position: absolute;
 }
 
+.sheet-main #left_sidebar > .sidebar-normal {
+    padding-bottom: 5px;
+}
+
 .sheet-main #left_sidebar.collapsed > .sidebar-small, .sheet-main #left_sidebar.collapsed > .sidebar-normal {
-    width: 51px;
+    width: 46px;
+    padding-left: 5px;
 }
 
 .sheet-main #left_sidebar > div > h4 {
@@ -190,31 +277,42 @@ body.sheet-darkmode .tab-pane {
 }
 .sheet-main #left_sidebar.collapsed > .sidebar-normal > h4.collapsed {
     position: relative;
-    right: 4px;
+    right: 3px;
 }
 
-.sheet-main #left_sidebar > div > .single-line-holder > .left-sidebar-input-holder {
+.sheet-main #left_sidebar .left-sidebar-input-holder {
     transition: 0s;
     display: inline;
 }
-.sheet-main #left_sidebar.collapsed > div > .single-line-holder  > .left-sidebar-input-holder {
+.sheet-main #left_sidebar.collapsed .left-sidebar-input-holder {
     opacity: 0%;
     position: absolute;
 }
-.sheet-main #left_sidebar > div > .single-line-holder > .left-sidebar-input-holder > input {
-    transition: 0.3s;
+.sheet-main #left_sidebar .left-sidebar-input-holder > input {
+    transition: all 0.3s, background-color 0s, border-color 0s, color 0s;
     width: 3.5em;
+    margin-right: 2px;
 }
-.sheet-main #left_sidebar.collapsed > div > .single-line-holder > .left-sidebar-input-holder > input {
+.sheet-main #left_sidebar.collapsed .left-sidebar-input-holder > input {
     width: 0em;
 }
 
-.sheet-main #left_sidebar > div > .single-line-holder > button {
-    transition: 0.3s;
+.sheet-main #left_sidebar .skill-container {
+    transition: all 0.3s, background-color 0s, border-color 0s;
 }
-.sheet-main #left_sidebar.collapsed > div > .single-line-holder > button {
+.sheet-main #left_sidebar.collapsed .skill-container {
+    padding-left: 4px;
+}
+
+.sheet-main #left_sidebar.collapsed .single-line-holder > button {
     width: 30px;
-    transition: 0.3s;
+}
+
+.sheet-main #left_sidebar.collapsed button.advantaged-trait {
+    background-color: #66CC66;
+}
+.sheet-main #left_sidebar.collapsed button.disadvantaged-trait {
+    background-color: #E59595;
 }
 
 .sheet-main #left_sidebar > * .collapsed, .sheet-main #left_sidebar.collapsed > * .expanded {
@@ -224,25 +322,17 @@ body.sheet-darkmode .tab-pane {
     display: block;
 }
 
-.sheet-main #left_sidebar_view {
-    width: 12px !important;
-    height: 12px;
-    padding: 0px;
-    border-radius: 3px;
-    float: right;
-    margin-right: 7px;
-    margin-top: 4px;
-}
 
 
+/* RIGHT SIDEBAR */
 
 .sheet-main #right_sidebar {
     position: absolute;
-    margin-left: 972px;
+    margin-left: 978px;
     transition: 0.3s;
 }
 .sheet-main #left_sidebar.collapsed ~ #right_sidebar {
-    margin-left: 874px;
+    margin-left: 870px;
 }
 
 
@@ -338,11 +428,11 @@ input[type='text']{
 }
 
 input[readonly='true']{
-	background-color:#EDEDED;
-	text-align:center;
+	background-color: #EDEDED;
+	text-align: center;
     width: 30px;
 	border: 1px #3F3F3F solid;
-	border-radius:2px;
+	border-radius: 2px;
 }
 
 select {
@@ -351,20 +441,6 @@ select {
 
 div.sheet-template-container {
     display:none;
-}
-
-.container-style {
-	border: 2px solid black;
-	background-color:#E5E5E5;
-	padding: 3px;
-	padding-left: 10px;
-	border-radius:5px;
-	margin-bottom: 6px;
-    position: relative;
-}
-
-body.sheet-darkmode .container-style {
-    background-color: #1F1F1F;
 }
 
 .background-type {
@@ -517,18 +593,4 @@ body.sheet-darkmode .max-display {
 }
 .all-traits > div {
     min-width:200px;
-}
-
-
-
-
-.disadvantaged-trait {
-    border-color: red !important;
-    background-color: red !important;
-    color: white !important;
-}
-.advantaged-trait {
-    border-color: green !important;
-    background-color: green !important;
-    color: white !important;
 }

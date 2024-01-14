@@ -1,6 +1,10 @@
 <!-- Character sheet created by Thomas Pohler for the TTRPG Legends Unbound, created by Kurt Knudsen and co-created by Thomas Pohler -->
 <!-- Warning! Every input field in this document must contain a name attribute, or else the information is not stored between sessions -->
 
+
+
+
+
 <!-- PAGE: CONTROL -->
 <!-- Controls which page is currently active -->
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="main" />
@@ -15,246 +19,257 @@
 
 
 
+
+
 <!-- PAGE: MAIN -->
 <div class="sheet-main">
     
     <!-- Left sidebar div containing stats and traits -->
     <div id="left_sidebar">
+        <!-- expands and collapses the sidebar -->
         <div class="container-style sidebar-small">
-    		<h4 class="expanded">&#62; &#60;</h4> <!-- contains "> <" -->
-            <h4 class="collapsed">&#60; &#62;</h4> <!-- contains "< >" -->
-            <button type="action" id="left_sidebar_view" name="act_left_sidebar_view">
+    		<h4 class="expanded">&#62;&#60;</h4> <!-- contains "><" -->
+            <h4 class="collapsed">&#60;&#62;</h4> <!-- contains "<>" -->
+            <input type="checkbox" class="top-right" name="attr_left_sidebar_view" id="left_sidebar_view" value="0">
     	</div>
         
+        <!-- controls the FD-only roll -->
         <div class="container-style sidebar-small">
     		<h4 class="expanded">FD-Only Roll</h4>
             <h4 class="collapsed">FD</h4>
             <input type="checkbox" name="attr_gm_roll" value="0">
     	</div>
         
+        <!-- TRAIT: AWARENESS -->
     	<div class="container-style sidebar-normal">
     		<h4 class="expanded">Awareness</h4>
             <h4 class="collapsed">AWR</h4>
     		
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_detection_mod_ui" id="detection" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_detection_mod_ui" class="detection" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_detection">
+                <button class="detection" type="action" name="act_detection">
                     <span class="expanded">Detection</span>
                     <span class="collapsed">DET</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_intuition_mod_ui" id="intuition" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_intuition_mod_ui" class="intuition" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_intuition">
+                <button class="intuition" type="action" name="act_intuition">
                     <span class="expanded">Intuition</span>
                     <span class="collapsed">INT</span>
                 </button>
     		</div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_wilderness_mod_ui" id="wilderness" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_wilderness_mod_ui" class="wilderness" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_wilderness">
+                <button class="wilderness" type="action" name="act_wilderness">
                     <span class="expanded">Wilderness</span>
                     <span class="collapsed">WIL</span>
                 </button>
             </div>
     	</div>
         
+        <!-- TRAIT: CHARISMA -->
     	<div class="container-style sidebar-normal">
     		<h4 class="expanded">Charisma</h4>
             <h4 class="collapsed">CHA</h4>
     		
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_convince_mod_ui" id="convince" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_convince_mod_ui" class="convince" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_convince">
+                <button class="convince" type="action" name="act_convince">
                     <span class="expanded">Convince</span>
                     <span class="collapsed">CON</span>
                 </button>
     		</div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_flair_mod_ui" id="flair" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_flair_mod_ui" class="flair" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_flair">
+                <button class="flair" type="action" name="act_flair">
                     <span class="expanded">Flair</span>
                     <span class="collapsed">FLA</span>
                 </button>
     		</div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_performance_mod_ui" id="performance" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_performance_mod_ui" class="performance" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_performance">
+                <button class="performance" type="action" name="act_performance">
                     <span class="expanded">Performance</span>
                     <span class="collapsed">PER</span>
                 </button>
             </div>
     	</div>
         
+        <!-- TRAIT: CONVICTION -->
         <div class="container-style sidebar-normal">
     		<h4 class="expanded">Conviction</h4>
             <h4 class="collapsed">CNV</h4>
     		
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_faith_mod_ui" id="faith" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_faith_mod_ui" class="faith" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_faith">
+                <button class="faith" type="action" name="act_faith">
                     <span class="expanded">Faith</span>
                     <span class="collapsed">FAI</span>
                 </button>
     		</div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_interaction_mod_ui" id="interaction" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_interaction_mod_ui" class="interaction" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_interaction">
+                <button class="interaction" type="action" name="act_interaction">
                     <span class="expanded">Interaction</span>
                     <span class="collapsed">INT</span>
                 </button>
     		</div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_willpower_mod_ui" id="willpower" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_willpower_mod_ui" class="willpower" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_willpower">
+                <button class="willpower" type="action" name="act_willpower">
                     <span class="expanded">Motivation</span>
                     <span class="collapsed">MOT</span>
                 </button>
             </div>
     	</div>
         
+        <!-- TRAIT: COORDINATION -->
     	<div class="container-style sidebar-normal">
     		<h4 class="expanded">Coordination</h4>
             <h4 class="collapsed">COR</h4>
     		
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_agility_mod_ui" id="agility" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_agility_mod_ui" class="agility" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_agility">
+                <button class="agility" type="action" name="act_agility">
                     <span class="expanded">Agility</span>
                     <span class="collapsed">AGI</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_dexterity_mod_ui" id="dexterity" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_dexterity_mod_ui" class="dexterity" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_dexterity">
+                <button class="dexterity" type="action" name="act_dexterity">
                     <span class="expanded">Dexterity</span>
                     <span class="collapsed">DEX</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_stealth_mod_ui" id="stealth" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_stealth_mod_ui" class="stealth" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_stealth">
+                <button class="stealth" type="action" name="act_stealth">
                     <span class="expanded">Stealth</span>
                     <span class="collapsed">STE</span>
                 </button>
             </div>
     	</div>
         
+        <!-- TRAIT: ENDURANCE -->
     	<div class="container-style sidebar-normal">
     		<h4 class="expanded">Endurance</h4>
             <h4 class="collapsed">END</h4>
             
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_constitution_mod_ui" id="constitution" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_constitution_mod_ui" class="constitution" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_constitution">
+                <button class="constitution" type="action" name="act_constitution">
                     <span class="expanded">Constitution</span>
                     <span class="collapsed">CON</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_persistence_mod_ui" id="persistence" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_persistence_mod_ui" class="persistence" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_persistence">
+                <button class="persistence" type="action" name="act_persistence">
                     <span class="expanded">Persistence</span>
                     <span class="collapsed">PER</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_toughness_mod_ui" id="toughness" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_toughness_mod_ui" class="toughness" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_toughness">
+                <button class="toughness" type="action" name="act_toughness">
                     <span class="expanded">Durable</span>
                     <span class="collapsed">DUR</span>
                 </button>
             </div>
     	</div>
         
+        <!-- TRAIT: INTELLIGENCE -->
     	<div class="container-style sidebar-normal">
     		<h4 class="expanded">Intelligence</h4>
             <h4 class="collapsed">INT</h4>
             
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_engineering_mod_ui" id="engineering" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_engineering_mod_ui" class="engineering" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_engineering">
+                <button class="engineering" type="action" name="act_engineering">
                     <span class="expanded">Engineering</span>
                     <span class="collapsed">ENG</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_knowledge_mod_ui" id="knowledge" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_knowledge_mod_ui" class="knowledge" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_knowledge">
+                <button class="knowledge" type="action" name="act_knowledge">
                     <span class="expanded">Knowledge</span>
                     <span class="collapsed">KNO</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_magic_mod_ui" id="magic" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_magic_mod_ui" class="magic" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_magic">
+                <button class="magic" type="action" name="act_magic">
                     <span class="expanded">Magic</span>
                     <span class="collapsed">MAG</span>
                 </button>
             </div>
     	</div>
         
+        <!-- TRAIT: POWER -->
     	<div class="container-style sidebar-normal">
     		<h4 class="expanded">Power</h4>
             <h4 class="collapsed">PWR</h4>
     		
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_grip_mod_ui" id="grip" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_grip_mod_ui" class="grip" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_grip">
+                <button class="grip" type="action" name="act_grip">
                     <span class="expanded">Grip</span>
                     <span class="collapsed">GRI</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_physicality_mod_ui" id="physicality" step="1" value="0" readonly="true"/>
+                    <input type="number" name="attr_physicality_mod_ui" class="physicality" step="1" value="0" readonly="true"/>
                 </div>
-                <button type="action" name="act_physicality">
+                <button class="physicality" type="action" name="act_physicality">
                     <span class="expanded">Physicality</span>
                     <span class="collapsed">PHY</span>
                 </button>
             </div>
             <div class="single-line-holder">
                 <div class="left-sidebar-input-holder">
-                    <input type="number" name="attr_presence_mod_ui" id="presence" step="1" value="0" readonly="true"/>
+                    <input class="presence" type="number" name="attr_presence_mod_ui" class="presence" step="1" value="0" readonly="true"/>
                 </div>
                 <button type="action" name="act_presence">
                     <span class="expanded">Presence</span>
@@ -263,7 +278,8 @@
             </div>
     	</div>
     	
-    	<div class="container-style sidebar expanded">
+        <!-- LEFT SKILL CONTAINER -->
+    	<div class="container-style skill-container">
     		<input type="number" name="attr_melee_mod" step="1" value="3" readonly="true"/>
     		<h4 class="expanded">Melee Bonus</h4>
     		<br>
@@ -276,6 +292,7 @@
     		<input type="number" name="attr_spell_mod" step="1" value="3" readonly="true"/>
     		<h4 class="expanded">Spell Bonus</h4>
     		<br>
+            <div class="hr"></div>
     		<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
     		<h4 class="expanded">Block Bonus</h4>
     		<br>
@@ -804,7 +821,7 @@
                 	    <h4>DMG. TYPE</h4>
                 	</div>
                 	<div>
-                	    <h4>LETHAL</h4>
+                	    <h4>BRUTAL</h4>
                 	</div>
                 	<div style="border: none;">
                 	    <h4>RANGE</h4>
@@ -1019,15 +1036,15 @@
     	</div>
     	<div class="container-style sidebar-small">
     	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Gold</h4>
-    	    <input type="number" name="attr_wealth" style="float:right; width:125px;" value="0"/>
+    	    <input type="number" name="attr_wealth" style="float:right; width:105px;" value="0"/>
     	</div>
     	
     	<fieldset class="repeating_ability">
         	<div class="container-style sidebar-normal">
         	    <input type="hidden" class="sheet-abilitytexttoggle" name="attr_abilityTextToggle" value="1" />
             	<input type="text" name="attr_abilitytracker_name" style="display: block; width: 163px;"/>
-                <input type="number" name="attr_abilitytracker_num" style="width:80px;"/>
-                <input type="number" name="attr_abilitytracker_max" style="width:80px;"/>
+                <input type="number" name="attr_abilitytracker_num" style="width:70px;"/>
+                <input type="number" name="attr_abilitytracker_max" style="width:70px;"/>
                 <div style="width:163px; height:3px; margin-top:2px; margin-bottom:2px; background-color:#B3B3B3; border-radius:5px;">
                     <button type="action" name="act_abilitytrackertextbutton" style="padding:0px; margin:0px auto; width:22px; height:17px; border-radius:10px; background-color:#B3B3B3; position:relative; bottom:9px; left:70px;"></button>
                 </div>
@@ -1699,86 +1716,77 @@
     </div>
 
     <div class="sheet-cheatsheet">
+        <div class="container-style" style="padding: 5px; margin-bottom:6px;">
+    		<p>Simple techniques cost a tactical action. Advanced techniques cost a tactical action and 2 MP.</p>
+    	</div>
+        
+        <div class="container-style" style="margin-top: 6px;  margin-bottom:6px;">
+    		<h3>SIMPLE:</h3>
+    	</div>
+        
         <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Charging</h3>
-    		<p>Charging allows a creature to try and run through other creatures or objects and push them out of the way.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 1 + your size advantage in a direction of your choice.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP, you can move up to your remaining movement speed in a straight line. You can move through other creatures' spaces and it is not considered difficult terrain. Any creature you charge through must make a toughness trait roll vs your TC. On a success, they collide with you and stop your charge. On a fail, they are pushed a number of tiles up to 5 + your size advantage in a direction of your choice and they take physical damage equal to ¼ your total level.</p>
-    	</div>
+    		<h3>Cleanse</h3>
+    		<p>The cleanse technique will allow you to remove afflictions. When you use this technique, you may try to choose a status effect from yourself or an ally of your choice within your reach. Remake the contested DC roll with your appropriate DC versus a new DC roll of your opponent’s choice; on a success, that status effect is removed. Certain status effects are not affected by this, which will be listed in the status effect itself.</p>
+        </div>
     	
     	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Disarming</h3>
-    		<p>Disarming allows for a creature to try and remove or disarm 1 item that another creature or target is wearing or holding that can reasonably be removed by an attempt.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 1 + your size advantage in a direction of your choice.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP you can attempt to disarm a target within reach or cause your next attack to try and disarm them. If you attempt to disarm or hit the target they must make a grip trait roll vs your TC. On a fail, they lose the thing you tried to disarm, and that thing is moved a number of tiles up to 5 + your size advantage in a direction of your choice.</p>
-    	</div>
-    	
-    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Disengaging</h3>
-    		<p>Disengaging is a technique used to escape the reach or grasp of others.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you are able to move away from all creatures safely until the end of your turn. All creatures cannot target you with an attack or ability as a result of you moving away unless otherwise specified.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP, you can immediately dash and move away from all creatures safely until the end of your turn. All creatures cannot target you with an attack or ability as a result of you moving away unless otherwise specified.</p>
-    	</div>
-    	
-    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Grounding</h3>
-    		<p>Grounding is used to force a target that is high in the sky to be magically forced to the ground and possibly within striking range.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to ground a target you can see or know the position of or cause your next attack to try and ground them. When you do this or if the attack hits, they must make a persistence trait roll vs your TC. On a fail, the creature cannot fly or hover and falls out of the sky and takes an appropriate amount of fall damage if any.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP you can attempt to ground a creature you can see/ know the position of, or cause your next attack to try and ground them. When you do this or if the attack hits, they must make a persistence trait roll with +1 DisADV vs your TC. On a fail, the creature cannot fly or hover and falls out of the sky and takes an appropriate amount of fall damage if any.</p>
-    	</div>
-    	
-    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Precise Hit</h3>
-    		<p>Precise hits are techniques used to target a specific portion of a creature or thing in order to try and cause some sort of additional effect. For example, if you target the eyes of a creature the FD may cause them to gain the blinded status effect.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you can focus your next attack to hit a specific point on a target. The attack has a +2 DisADV, but on a hit, an additional fair effect occurs based on the FD discretion.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action at the cost of 2 MP, you can focus your next attack to hit a specific point on a target. The attack has +1 DisADV, but on a hit, an additional fair effect occurs based on the FD discretion.</p>
-    	</div>
-    	
-    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Purifying</h3>
-    		<p>Purifying is a technique a creature can perform to become free of an effect that they don’t want or may be harmful to them.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt one of the status effect’s trait rolls vs the TC. On a success, the status effect is removed. Status effects that cannot be removed are not affected by this unless otherwise stated.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP, you can automatically remove 1 status effect of your choice. Status effects that cannot be removed are not affected by this unless otherwise stated.</p>
-    	</div>
-    	
-    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Shoving</h3>
-    		<p>Shoving is a technique used to push or move something to give a creature a more advantageous position.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to shove a target within reach or to cause your next attack to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove the target up to a number of tiles equal to 1 + your size advantage in a direction of your choice.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP you can attempt to shove a target within reach or to cause your next block or attack roll to attempt to shove them. You must be able to directly hit or reach them in order to do this. They must make a physicality trait roll vs your TC. On a fail, you shove them up to a number of tiles equal to 5 + your size advantage in a direction of your choice and they gain the staggered status effect.</p>
-    	</div>
-    	
-    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
-    		<h3>Throwing</h3>
-    		<p>Throwing is a technique used to try and move and throw something to give a more advantageous position.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 1 + your size advantage in a direction of your choice. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 5 tiles away.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP, you can attempt to throw a creature that’s within your reach. The creature must make a grip trait roll vs your TC. On a fail, you can throw the creature up to a number of tiles equal to 5 + your size advantage in a direction of your choice. If you throw an item or object that is not an attack and is your size or smaller, it can be thrown up to 10 tiles away.</p>
-    	</div>
-    	
-    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Disengage</h3>
+            <p>The disengage technique will allow you to leave adjacency with your enemies at no penalty until your next action reset. (Without using this technique, creatures cannot leave adjacency with their enemies through normal movement, as detailed in the “movement” section.)</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Help</h3>
+            <p>The help technique will allow you to assist others with their actions. When a target within your reach is about to make a roll, you may immediately spend a tactical action before the roll is made to use this technique and give them +1 ADV on that roll. Creatures cannot benefit from more than one help action on a single roll.</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Shove</h3>
+            <p>The shove technique will allow you to reposition your enemies. When you use this technique, select one creature that is within your reach. That enemy must make a strength DC versus your chosen DC, and on a failure will be moved 2 tiles in any direction of your choice. If you are holding a shield when you shove an enemy, you may choose to perform a shield bash and additionally stagger the target if they fail the DC.</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
     		<h3>Tripping</h3>
-    		<p>Tripping is a technique used to knock an opponent down and gain higher ground over them.</p>
-    		<h4>Weak</h4>
-    		<p>As a tactical action you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll based on its size advantage. On a fail, the target falls down and gains the prone status effect.</p>
-    		<h4>Strong</h4>
-    		<p>As a tactical action and at the cost of 2 MP you can attempt to trip a target within reach or cause the next attack roll you make until the end of your next turn to attempt to trip the target. They must make an agility trait roll vs your TC. A target gains +1 ADV on this trait roll based on its size advantage. On a fail, the target falls down and becomes prone and must spend all of its movement speed in a turn to stand up and remove this status effect.</p>
+            <p>The tripping technique will allow you to trip creatures that are airborne, or standing on the ground. When you use this technique, select one creature that you can see. That creature must make a strength DC versus your chosen DC, and on a failure is magically forced prone. Airborne targets will be violently ripped out of the sky and immediately sent groundward, becoming prone and taking the appropriate amount of fall damage in the process.</p>
+        </div>
+        
+        <div class="container-style" style="margin-top: 6px; margin-bottom:6px;">
+    		<h3>ADVANCED:</h3>
     	</div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Charge</h3>
+    		<p> The charge technique will allow you to charge through your enemies. When you use this technique, you are immediately allowed (even on enemy turns) to move up to your remaining movement speed in a straight line. While charging, you may move through enemies with no movement penalty, and you may move out of adjacency with enemies as if you had used the disengage technique (although you cannot end your movement on a tile that is occupied by another creature). Any creature that you move through must at your choice make a toughness DC versus your chosen DC, and on a failure will take physical damage equal to ½ your total level and be moved up to one tile in a direction of your choice. Each creature only makes this DC once per charge, even if they end up in your path again.</p>
+        </div>
+    	
+    	<div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Disarm</h3>
+            <p>The disarm technique will allow you to remove items from your enemies’ hands. When you use this technique, select one creature that is within your reach. That enemy must make a reflex DC versus your chosen DC, and on a failure, they will lose one held item of your choice. You may choose to begin holding the item yourself if you have a hand free, or alternatively, you may throw it up to 5 tiles in any direction; if you throw it at a creature, that creature is allowed to catch the item out of midair as a tactical action if they have a hand free. The disarm technique will have no effect on targets that are not holding anything.</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Guarding</h3>
+            <p>The guarding technique will allow you to act defensively when you are attacked. When you use this technique, gain +1 ADV to defend and +1 DisADV to attack. Each time you have an action reset, you must spend an additional 2 MP to maintain your guard. You may cancel your guard by not paying mana or at any time as a tactical action.</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Purify</h3>
+            <p>The purify technique will allow you to remove afflictions. When you use this technique, you may immediately remove one status effect from either yourself or any other creature within your reach. Certain status effects are not affected by this, which will be listed in the status effect itself.</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Scaring</h3>
+            <p>The scaring technique will allow you to frighten a target. As a tactical action, you can cause a target of your choice that can see/hear you to roll a soul DC vs your chosen DC; on a fail, they become scared of you and gain the frightened status effect.</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Target</h3>
+            <p>The target technique will allow you to aim your attacks. After using this technique, your first attack before your next action reset will have +1 DisADV and you may choose which part of your enemy you wish to target. You should state what you have chosen as well as the intended goal (i.e., “I attack the eyes in order to blind the creature”), and then depending on how successful the attack is, the FD may choose to give your chosen status effect to the creature that you attacked.</p>
+        </div>
+        
+        <div class="container-style" style="padding-bottom: 10px; margin-bottom:6px;">
+    		<h3>Throw</h3>
+            <p>The throw technique will allow you to reposition your allies or objects that are your size category or smaller. When you use this technique, select one willing creature or object that is within your reach, you may throw them up to 5 tiles away from yourself in the direction of your choice. The distance you can throw an ally or object is increased by +1 tile based on your size advantage. The throw itself does no damage and the target is assumed to successfully land on their feet, unless they were already prone in which case they will remain prone after landing. Note that most handheld objects can be thrown using only a tactical action, as detailed in the “tactical action” section.</p>
+        </div>
     </div>
 
     <div class="sheet-grappling">
@@ -2003,9 +2011,23 @@
         });
     });
     
-    on("clicked:left_sidebar_view", (info) => {
-        $20("#left_sidebar").toggleClass("collapsed");
+    /* Handles the left sidebar collapsible button */
+    on("sheet:opened", (info) => {
+        getAttrs(["left_sidebar_view"], function(values) {
+            if(parseInt(values.left_sidebar_view) === 1){
+                $20("#left_sidebar").addClass("collapsed");
+            }
+        });
+        $20("#left_sidebar_view").on("click", function() {
+            $20("#left_sidebar").toggleClass("collapsed");
+            getAttrs(["left_sidebar_view"], function(values) {
+                setAttrs({
+                    left_sidebar_view: (parseInt(values.left_sidebar_view) === 1 ? 0 : 1)
+                });
+            });
+        });
     });
+    
     
     on("change:advan_and_mod_loadout sheet:opened", function() {
         getAttrs(["advan_and_mod_loadout"], function(values) {
@@ -2018,7 +2040,7 @@
     
     on("change:level sheet:opened", function() {  
         getAttrs(["level"], function(values) {
-            let val = Math.ceil(parseInt(values.level)/4);
+            let val = Math.ceil(1 + parseInt(values.level)/5);
             setAttrs({                            
                 "maxessence": val
             });
@@ -2167,13 +2189,13 @@
             setAttrs({                            
                 "detection_mod_ui": parseInt(values.detection_mod_lu)
             });
-            $20("#detection").removeClass("advantaged-trait");
-            $20("#detection").removeClass("disadvantaged-trait");
+            $20(".detection").removeClass("advantaged-trait");
+            $20(".detection").removeClass("disadvantaged-trait");
             if(parseInt(values.detection_mod) === 1){
-                $20("#detection").addClass("advantaged-trait");
+                $20(".detection").addClass("advantaged-trait");
             }
             else if(parseInt(values.detection_mod) === -1){
-                $20("#detection").addClass("disadvantaged-trait");
+                $20(".detection").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2183,13 +2205,13 @@
             setAttrs({                            
                 "intuition_mod_ui": parseInt(values.intuition_mod_lu)
             });
-            $20("#intuition").removeClass("advantaged-trait");
-            $20("#intuition").removeClass("disadvantaged-trait");
+            $20(".intuition").removeClass("advantaged-trait");
+            $20(".intuition").removeClass("disadvantaged-trait");
             if(parseInt(values.intuition_mod) === 1){
-                $20("#intuition").addClass("advantaged-trait");
+                $20(".intuition").addClass("advantaged-trait");
             }
             else if(parseInt(values.intuition_mod) === -1){
-                $20("#intuition").addClass("disadvantaged-trait");
+                $20(".intuition").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2199,13 +2221,13 @@
             setAttrs({                            
                 "wilderness_mod_ui": parseInt(values.wilderness_mod_lu)
             });
-            $20("#wilderness").removeClass("advantaged-trait");
-            $20("#wilderness").removeClass("disadvantaged-trait");
+            $20(".wilderness").removeClass("advantaged-trait");
+            $20(".wilderness").removeClass("disadvantaged-trait");
             if(parseInt(values.wilderness_mod) === 1){
-                $20("#wilderness").addClass("advantaged-trait");
+                $20(".wilderness").addClass("advantaged-trait");
             }
             else if(parseInt(values.wilderness_mod) === -1){
-                $20("#wilderness").addClass("disadvantaged-trait");
+                $20(".wilderness").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2215,13 +2237,13 @@
             setAttrs({                            
                 "convince_mod_ui": parseInt(values.convince_mod_lu)
             });
-            $20("#convince").removeClass("advantaged-trait");
-            $20("#convince").removeClass("disadvantaged-trait");
+            $20(".convince").removeClass("advantaged-trait");
+            $20(".convince").removeClass("disadvantaged-trait");
             if(parseInt(values.convince_mod) === 1){
-                $20("#convince").addClass("advantaged-trait");
+                $20(".convince").addClass("advantaged-trait");
             }
             else if(parseInt(values.convince_mod) === -1){
-                $20("#convince").addClass("disadvantaged-trait");
+                $20(".convince").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2231,13 +2253,13 @@
             setAttrs({                            
                 "flair_mod_ui": parseInt(values.flair_mod_lu)
             });
-            $20("#flair").removeClass("advantaged-trait");
-            $20("#flair").removeClass("disadvantaged-trait");
+            $20(".flair").removeClass("advantaged-trait");
+            $20(".flair").removeClass("disadvantaged-trait");
             if(parseInt(values.flair_mod) === 1){
-                $20("#flair").addClass("advantaged-trait");
+                $20(".flair").addClass("advantaged-trait");
             }
             else if(parseInt(values.flair_mod) === -1){
-                $20("#flair").addClass("disadvantaged-trait");
+                $20(".flair").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2247,13 +2269,13 @@
             setAttrs({                            
                 "performance_mod_ui": parseInt(values.performance_mod_lu)
             });
-            $20("#performance").removeClass("advantaged-trait");
-            $20("#performance").removeClass("disadvantaged-trait");
+            $20(".performance").removeClass("advantaged-trait");
+            $20(".performance").removeClass("disadvantaged-trait");
             if(parseInt(values.performance_mod) === 1){
-                $20("#performance").addClass("advantaged-trait");
+                $20(".performance").addClass("advantaged-trait");
             }
             else if(parseInt(values.performance_mod) === -1){
-                $20("#performance").addClass("disadvantaged-trait");
+                $20(".performance").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2263,13 +2285,13 @@
             setAttrs({                            
                 "agility_mod_ui": parseInt(values.agility_mod_lu)
             });
-            $20("#agility").removeClass("advantaged-trait");
-            $20("#agility").removeClass("disadvantaged-trait");
+            $20(".agility").removeClass("advantaged-trait");
+            $20(".agility").removeClass("disadvantaged-trait");
             if(parseInt(values.agility_mod) === 1){
-                $20("#agility").addClass("advantaged-trait");
+                $20(".agility").addClass("advantaged-trait");
             }
             else if(parseInt(values.agility_mod) === -1){
-                $20("#agility").addClass("disadvantaged-trait");
+                $20(".agility").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2279,13 +2301,13 @@
             setAttrs({
                 "dexterity_mod_ui": parseInt(values.dexterity_mod_lu)
             });
-            $20("#dexterity").removeClass("advantaged-trait");
-            $20("#dexterity").removeClass("disadvantaged-trait");
+            $20(".dexterity").removeClass("advantaged-trait");
+            $20(".dexterity").removeClass("disadvantaged-trait");
             if(parseInt(values.dexterity_mod) === 1){
-                $20("#dexterity").addClass("advantaged-trait");
+                $20(".dexterity").addClass("advantaged-trait");
             }
             else if(parseInt(values.dexterity_mod) === -1){
-                $20("#dexterity").addClass("disadvantaged-trait");
+                $20(".dexterity").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2295,13 +2317,13 @@
             setAttrs({
                 "stealth_mod_ui": parseInt(values.stealth_mod_lu)
             });
-            $20("#stealth").removeClass("advantaged-trait");
-            $20("#stealth").removeClass("disadvantaged-trait");
+            $20(".stealth").removeClass("advantaged-trait");
+            $20(".stealth").removeClass("disadvantaged-trait");
             if(parseInt(values.stealth_mod) === 1){
-                $20("#stealth").addClass("advantaged-trait");
+                $20(".stealth").addClass("advantaged-trait");
             }
             else if(parseInt(values.stealth_mod) === -1){
-                $20("#stealth").addClass("disadvantaged-trait");
+                $20(".stealth").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2311,13 +2333,13 @@
             setAttrs({
                 "constitution_mod_ui": parseInt(values.constitution_mod_lu)
             });
-            $20("#constitution").removeClass("advantaged-trait");
-            $20("#constitution").removeClass("disadvantaged-trait");
+            $20(".constitution").removeClass("advantaged-trait");
+            $20(".constitution").removeClass("disadvantaged-trait");
             if(parseInt(values.constitution_mod) === 1){
-                $20("#constitution").addClass("advantaged-trait");
+                $20(".constitution").addClass("advantaged-trait");
             }
             else if(parseInt(values.constitution_mod) === -1){
-                $20("#constitution").addClass("disadvantaged-trait");
+                $20(".constitution").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2327,13 +2349,13 @@
             setAttrs({
                 "persistence_mod_ui": parseInt(values.persistence_mod_lu)
             });
-            $20("#persistence").removeClass("advantaged-trait");
-            $20("#persistence").removeClass("disadvantaged-trait");
+            $20(".persistence").removeClass("advantaged-trait");
+            $20(".persistence").removeClass("disadvantaged-trait");
             if(parseInt(values.persistence_mod) === 1){
-                $20("#persistence").addClass("advantaged-trait");
+                $20(".persistence").addClass("advantaged-trait");
             }
             else if(parseInt(values.persistence_mod) === -1){
-                $20("#persistence").addClass("disadvantaged-trait");
+                $20(".persistence").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2343,13 +2365,13 @@
             setAttrs({
                 "toughness_mod_ui": parseInt(values.toughness_mod_lu)
             });
-            $20("#toughness").removeClass("advantaged-trait");
-            $20("#toughness").removeClass("disadvantaged-trait");
+            $20(".toughness").removeClass("advantaged-trait");
+            $20(".toughness").removeClass("disadvantaged-trait");
             if(parseInt(values.toughness_mod) === 1){
-                $20("#toughness").addClass("advantaged-trait");
+                $20(".toughness").addClass("advantaged-trait");
             }
             else if(parseInt(values.toughness_mod) === -1){
-                $20("#toughness").addClass("disadvantaged-trait");
+                $20(".toughness").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2359,13 +2381,13 @@
             setAttrs({
                 "engineering_mod_ui": parseInt(values.engineering_mod_lu)
             });
-            $20("#engineering").removeClass("advantaged-trait");
-            $20("#engineering").removeClass("disadvantaged-trait");
+            $20(".engineering").removeClass("advantaged-trait");
+            $20(".engineering").removeClass("disadvantaged-trait");
             if(parseInt(values.engineering_mod) === 1){
-                $20("#engineering").addClass("advantaged-trait");
+                $20(".engineering").addClass("advantaged-trait");
             }
             else if(parseInt(values.engineering_mod) === -1){
-                $20("#engineering").addClass("disadvantaged-trait");
+                $20(".engineering").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2375,13 +2397,13 @@
             setAttrs({
                 "knowledge_mod_ui": parseInt(values.knowledge_mod_lu)
             });
-            $20("#knowledge").removeClass("advantaged-trait");
-            $20("#knowledge").removeClass("disadvantaged-trait");
+            $20(".knowledge").removeClass("advantaged-trait");
+            $20(".knowledge").removeClass("disadvantaged-trait");
             if(parseInt(values.knowledge_mod) === 1){
-                $20("#knowledge").addClass("advantaged-trait");
+                $20(".knowledge").addClass("advantaged-trait");
             }
             else if(parseInt(values.knowledge_mod) === -1){
-                $20("#knowledge").addClass("disadvantaged-trait");
+                $20(".knowledge").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2391,13 +2413,13 @@
             setAttrs({
                 "magic_mod_ui": parseInt(values.magic_mod_lu)
             });
-            $20("#magic").removeClass("advantaged-trait");
-            $20("#magic").removeClass("disadvantaged-trait");
+            $20(".magic").removeClass("advantaged-trait");
+            $20(".magic").removeClass("disadvantaged-trait");
             if(parseInt(values.magic_mod) === 1){
-                $20("#magic").addClass("advantaged-trait");
+                $20(".magic").addClass("advantaged-trait");
             }
             else if(parseInt(values.magic_mod) === -1){
-                $20("#magic").addClass("disadvantaged-trait");
+                $20(".magic").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2407,13 +2429,13 @@
             setAttrs({
                 "grip_mod_ui": parseInt(values.grip_mod_lu)
             });
-            $20("#grip").removeClass("advantaged-trait");
-            $20("#grip").removeClass("disadvantaged-trait");
+            $20(".grip").removeClass("advantaged-trait");
+            $20(".grip").removeClass("disadvantaged-trait");
             if(parseInt(values.grip_mod) === 1){
-                $20("#grip").addClass("advantaged-trait");
+                $20(".grip").addClass("advantaged-trait");
             }
             else if(parseInt(values.grip_mod) === -1){
-                $20("#grip").addClass("disadvantaged-trait");
+                $20(".grip").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2423,13 +2445,13 @@
             setAttrs({
                 "physicality_mod_ui": parseInt(values.physicality_mod_lu)
             });
-            $20("#physicality").removeClass("advantaged-trait");
-            $20("#physicality").removeClass("disadvantaged-trait");
+            $20(".physicality").removeClass("advantaged-trait");
+            $20(".physicality").removeClass("disadvantaged-trait");
             if(parseInt(values.physicality_mod) === 1){
-                $20("#physicality").addClass("advantaged-trait");
+                $20(".physicality").addClass("advantaged-trait");
             }
             else if(parseInt(values.physicality_mod) === -1){
-                $20("#physicality").addClass("disadvantaged-trait");
+                $20(".physicality").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2439,13 +2461,13 @@
             setAttrs({
                 "presence_mod_ui": parseInt(values.presence_mod_lu)
             });
-            $20("#presence").removeClass("advantaged-trait");
-            $20("#presence").removeClass("disadvantaged-trait");
+            $20(".presence").removeClass("advantaged-trait");
+            $20(".presence").removeClass("disadvantaged-trait");
             if(parseInt(values.presence_mod) === 1){
-                $20("#presence").addClass("advantaged-trait");
+                $20(".presence").addClass("advantaged-trait");
             }
             else if(parseInt(values.presence_mod) === -1){
-                $20("#presence").addClass("disadvantaged-trait");
+                $20(".presence").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2455,13 +2477,13 @@
             setAttrs({
                 "faith_mod_ui": parseInt(values.faith_mod_lu)
             });
-            $20("#faith").removeClass("advantaged-trait");
-            $20("#faith").removeClass("disadvantaged-trait");
+            $20(".faith").removeClass("advantaged-trait");
+            $20(".faith").removeClass("disadvantaged-trait");
             if(parseInt(values.faith_mod) === 1){
-                $20("#faith").addClass("advantaged-trait");
+                $20(".faith").addClass("advantaged-trait");
             }
             else if(parseInt(values.faith_mod) === -1){
-                $20("#faith").addClass("disadvantaged-trait");
+                $20(".faith").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2471,13 +2493,13 @@
             setAttrs({
                 "interaction_mod_ui": parseInt(values.interaction_mod_lu)
             });
-            $20("#interaction").removeClass("advantaged-trait");
-            $20("#interaction").removeClass("disadvantaged-trait");
+            $20(".interaction").removeClass("advantaged-trait");
+            $20(".interaction").removeClass("disadvantaged-trait");
             if(parseInt(values.interaction_mod) === 1){
-                $20("#interaction").addClass("advantaged-trait");
+                $20(".interaction").addClass("advantaged-trait");
             }
             else if(parseInt(values.interaction_mod) === -1){
-                $20("#interaction").addClass("disadvantaged-trait");
+                $20(".interaction").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2487,13 +2509,13 @@
             setAttrs({
                 "willpower_mod_ui": parseInt(values.willpower_mod_lu)
             });
-            $20("#willpower").removeClass("advantaged-trait");
-            $20("#willpower").removeClass("disadvantaged-trait");
+            $20(".willpower").removeClass("advantaged-trait");
+            $20(".willpower").removeClass("disadvantaged-trait");
             if(parseInt(values.willpower_mod) === 1){
-                $20("#willpower").addClass("advantaged-trait");
+                $20(".willpower").addClass("advantaged-trait");
             }
             else if(parseInt(values.willpower_mod) === -1){
-                $20("#willpower").addClass("disadvantaged-trait");
+                $20(".willpower").addClass("disadvantaged-trait");
             }
         });
     });
@@ -2789,9 +2811,8 @@
     //Function to make a defense roll
     const _makeDefenseRoll = (defenseType) => {
         getAttrs([defenseType + "_mod","shield_mod", "shield_tolerance_apply"], function(values) {
-            console.log(parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on"));
             /* rollType, rollName, bonus, advantage, attackName, damageType, damage, critDamage */
-            _makeRoll("defense", defenseType.charAt(0).toUpperCase() + defenseType.slice(1), parseInt(values[defenseType + "_mod"]) + parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on"), 0);
+            _makeRoll("defense", defenseType.charAt(0).toUpperCase() + defenseType.slice(1), parseInt(values[defenseType + "_mod"]), 0);
         });
     }
     on('clicked:block', (info) => {
