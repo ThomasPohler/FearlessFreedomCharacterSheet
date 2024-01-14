@@ -1,7 +1,7 @@
-<!-- Created for Legends Unbound, from Kurt Knudsen and Thomas Pohler -->
-<!-- Character sheet created by Thomas Pohler -->
+<!-- Character sheet created by Thomas Pohler for the TTRPG Legends Unbound, created by Kurt Knudsen and co-created by Thomas Pohler -->
 <!-- Warning! Every input field in this document must contain a name attribute, or else the information is not stored between sessions -->
 
+<!-- PAGE: CONTROL -->
 <!-- Controls which page is currently active -->
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="main" />
 <div style="margin-bottom:10px;">
@@ -11,134 +11,284 @@
     <button type="action" name="act_struggles">Roleplay</button>
     <button type="action" name="act_cheatsheet">Techniques</button>
     <button type="action" name="act_grappling">Grappling</button>
-</div>s
+</div>
 
+
+
+<!-- PAGE: MAIN -->
 <div class="sheet-main">
     
     <!-- Left sidebar div containing stats and traits -->
-    <div style="width:175px;position:absolute;">
-        <div class="container-style sidebar-small" style="padding-bottom: 10px;">
-    		<h4>GM-Only Roll</h4>
-            <input type="checkbox" name="attr_gm_roll" value="1" style="float: right; margin-top: 7px; margin-right: 7px;">
+    <div id="left_sidebar">
+        <div class="container-style sidebar-small">
+    		<h4 class="expanded">&#62; &#60;</h4> <!-- contains "> <" -->
+            <h4 class="collapsed">&#60; &#62;</h4> <!-- contains "< >" -->
+            <button type="action" id="left_sidebar_view" name="act_left_sidebar_view">
     	</div>
-
-    	<div class="container-style sidebar-normal">
-    		<h4>Awareness</h4>
-    		
-    		<input type="number" name="attr_detection_mod_ui" id="detection" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_detection">Detection</button>
-    		<br>
-    		<input type="number" name="attr_intuition_mod_ui" id="intuition" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_intuition">Intuition</button>
-    		<br>
-    		<input type="number" name="attr_wilderness_mod_ui" id="wilderness" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_wilderness">Wilderness</button>
+        
+        <div class="container-style sidebar-small">
+    		<h4 class="expanded">FD-Only Roll</h4>
+            <h4 class="collapsed">FD</h4>
+            <input type="checkbox" name="attr_gm_roll" value="0">
     	</div>
-    
+        
     	<div class="container-style sidebar-normal">
-    		<h4>Charisma</h4>
+    		<h4 class="expanded">Awareness</h4>
+            <h4 class="collapsed">AWR</h4>
     		
-    		<input type="number" name="attr_convince_mod_ui" id="convince" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_convince">Convince</button>
-    		<br>
-    		<input type="number" name="attr_flair_mod_ui" id="flair" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_flair">Flair</button>
-    		<br>
-    		<input type="number" name="attr_performance_mod_ui" id="performance" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_performance">Performance</button>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_detection_mod_ui" id="detection" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_detection">
+                    <span class="expanded">Detection</span>
+                    <span class="collapsed">DET</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_intuition_mod_ui" id="intuition" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_intuition">
+                    <span class="expanded">Intuition</span>
+                    <span class="collapsed">INT</span>
+                </button>
+    		</div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_wilderness_mod_ui" id="wilderness" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_wilderness">
+                    <span class="expanded">Wilderness</span>
+                    <span class="collapsed">WIL</span>
+                </button>
+            </div>
     	</div>
-    
+        
     	<div class="container-style sidebar-normal">
-    		<h4>Coordination</h4>
+    		<h4 class="expanded">Charisma</h4>
+            <h4 class="collapsed">CHA</h4>
     		
-    		<input type="number" name="attr_agility_mod_ui" id="agility" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_agility">Agility</button>
-    		<br>
-    		<input type="number" name="attr_dexterity_mod_ui" id="dexterity" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_dexterity">Dexterity</button>
-    		<br>
-    		<input type="number" name="attr_stealth_mod_ui" id="stealth" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_stealth">Stealth</button>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_convince_mod_ui" id="convince" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_convince">
+                    <span class="expanded">Convince</span>
+                    <span class="collapsed">CON</span>
+                </button>
+    		</div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_flair_mod_ui" id="flair" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_flair">
+                    <span class="expanded">Flair</span>
+                    <span class="collapsed">FLA</span>
+                </button>
+    		</div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_performance_mod_ui" id="performance" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_performance">
+                    <span class="expanded">Performance</span>
+                    <span class="collapsed">PER</span>
+                </button>
+            </div>
     	</div>
-    
-    	<div class="container-style sidebar-normal">
-    		<h4>Endurance</h4>
+        
+        <div class="container-style sidebar-normal">
+    		<h4 class="expanded">Conviction</h4>
+            <h4 class="collapsed">CNV</h4>
     		
-    		<input type="number" name="attr_constitution_mod_ui" id="constitution" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_constitution">Constitution</button>
-    		<br>
-    		<input type="number" name="attr_persistence_mod_ui" id="persistence" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_persistence">Persistence</button>
-    		<br>
-    		<input type="number" name="attr_toughness_mod_ui" id="toughness" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_toughness">Durable</button>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_faith_mod_ui" id="faith" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_faith">
+                    <span class="expanded">Faith</span>
+                    <span class="collapsed">FAI</span>
+                </button>
+    		</div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_interaction_mod_ui" id="interaction" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_interaction">
+                    <span class="expanded">Interaction</span>
+                    <span class="collapsed">INT</span>
+                </button>
+    		</div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_willpower_mod_ui" id="willpower" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_willpower">
+                    <span class="expanded">Motivation</span>
+                    <span class="collapsed">MOT</span>
+                </button>
+            </div>
     	</div>
-    
+        
     	<div class="container-style sidebar-normal">
-    		<h4>Intelligence</h4>
+    		<h4 class="expanded">Coordination</h4>
+            <h4 class="collapsed">COR</h4>
     		
-    		<input type="number" name="attr_engineering_mod_ui" id="engineering" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_engineering">Engineering</button>
-    		<br>
-    		<input type="number" name="attr_knowledge_mod_ui" id="knowledge" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_knowledge">Knowledge</button>
-    		<br>
-    		<input type="number" name="attr_magic_mod_ui" id="magic" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_magic">Magic</button>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_agility_mod_ui" id="agility" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_agility">
+                    <span class="expanded">Agility</span>
+                    <span class="collapsed">AGI</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_dexterity_mod_ui" id="dexterity" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_dexterity">
+                    <span class="expanded">Dexterity</span>
+                    <span class="collapsed">DEX</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_stealth_mod_ui" id="stealth" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_stealth">
+                    <span class="expanded">Stealth</span>
+                    <span class="collapsed">STE</span>
+                </button>
+            </div>
     	</div>
-    
+        
     	<div class="container-style sidebar-normal">
-    		<h4>Power</h4>
+    		<h4 class="expanded">Endurance</h4>
+            <h4 class="collapsed">END</h4>
+            
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_constitution_mod_ui" id="constitution" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_constitution">
+                    <span class="expanded">Constitution</span>
+                    <span class="collapsed">CON</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_persistence_mod_ui" id="persistence" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_persistence">
+                    <span class="expanded">Persistence</span>
+                    <span class="collapsed">PER</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_toughness_mod_ui" id="toughness" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_toughness">
+                    <span class="expanded">Durable</span>
+                    <span class="collapsed">DUR</span>
+                </button>
+            </div>
+    	</div>
+        
+    	<div class="container-style sidebar-normal">
+    		<h4 class="expanded">Intelligence</h4>
+            <h4 class="collapsed">INT</h4>
+            
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_engineering_mod_ui" id="engineering" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_engineering">
+                    <span class="expanded">Engineering</span>
+                    <span class="collapsed">ENG</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_knowledge_mod_ui" id="knowledge" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_knowledge">
+                    <span class="expanded">Knowledge</span>
+                    <span class="collapsed">KNO</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_magic_mod_ui" id="magic" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_magic">
+                    <span class="expanded">Magic</span>
+                    <span class="collapsed">MAG</span>
+                </button>
+            </div>
+    	</div>
+        
+    	<div class="container-style sidebar-normal">
+    		<h4 class="expanded">Power</h4>
+            <h4 class="collapsed">PWR</h4>
     		
-    		<input type="number" name="attr_grip_mod_ui" id="grip" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_grip">Grip</button>
-    		<br>
-    		<input type="number" name="attr_physicality_mod_ui" id="physicality" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_physicality">Physicality</button>
-    		<br>
-    		<input type="number" name="attr_presence_mod_ui" id="presence" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_presence">Presence</button>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_grip_mod_ui" id="grip" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_grip">
+                    <span class="expanded">Grip</span>
+                    <span class="collapsed">GRI</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_physicality_mod_ui" id="physicality" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_physicality">
+                    <span class="expanded">Physicality</span>
+                    <span class="collapsed">PHY</span>
+                </button>
+            </div>
+            <div class="single-line-holder">
+                <div class="left-sidebar-input-holder">
+                    <input type="number" name="attr_presence_mod_ui" id="presence" step="1" value="0" readonly="true"/>
+                </div>
+                <button type="action" name="act_presence">
+                    <span class="expanded">Presence</span>
+                    <span class="collapsed">PRE</span>
+                </button>
+            </div>
     	</div>
     	
-    	<div class="container-style sidebar-normal">
-    		<h4>Conviction</h4>
-    		
-    		<input type="number" name="attr_faith_mod_ui" id="faith" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_faith">Faith</button>
-    		<br>
-    		<input type="number" name="attr_interaction_mod_ui" id="interaction" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_interaction">Interaction</button>
-    		<br>
-    		<input type="number" name="attr_willpower_mod_ui" id="willpower" step="1" value="0" readonly="true"/>
-    		<button type="action" name="act_willpower">Motivation</button>
-    	</div>
-    	
-    	<div class="container-style sidebar">
+    	<div class="container-style sidebar expanded">
     		<input type="number" name="attr_melee_mod" step="1" value="3" readonly="true"/>
-    		<h4>Melee Bonus</h4>
+    		<h4 class="expanded">Melee Bonus</h4>
     		<br>
     		<input type="number" name="attr_ranged_mod" step="1" value="3" readonly="true"/>
-    		<h4>Ranged Bonus</h4>
+    		<h4 class="expanded">Ranged Bonus</h4>
     		<br>
     		<input type="number" name="attr_thrown_mod" step="1" value="3" readonly="true"/>
-    		<h4>Thrown Bonus</h4>
+    		<h4 class="expanded">Thrown Bonus</h4>
     		<br>
     		<input type="number" name="attr_spell_mod" step="1" value="3" readonly="true"/>
-    		<h4>Spell Bonus</h4>
+    		<h4 class="expanded">Spell Bonus</h4>
     		<br>
     		<input type="number" name="attr_block_mod" step="1" value="0" readonly="true"/>
-    		<h4>Block Bonus</h4>
+    		<h4 class="expanded">Block Bonus</h4>
     		<br>
     		<input type="number" name="attr_dodge_mod" step="1" value="0" readonly="true"/>
-    		<h4>Dodge Bonus</h4>
+    		<h4 class="expanded">Dodge Bonus</h4>
     		<br>
     		<input type="number" name="attr_parry_mod" step="1" value="0" readonly="true"/>
-    		<h4>Parry Bonus</h4>
+    		<h4 class="expanded">Parry Bonus</h4>
     	</div>
     </div>
 
     <!-- Main div containing everything else -->
-    <div style="margin-left:195px; position:absolute; width:800px;">
+    <div id="main_div">
     
         <div style="width: 800px; text-align: center; margin-bottom: 6px;">
             <h1>Legends Unbound Character Sheet</h1>
@@ -852,8 +1002,12 @@
 
     <!-- End div for main panel -->
     </div>
-
-    <div style="margin-left: 1003px; position: absolute;">
+    
+    
+    
+    
+    
+    <div id="right_sidebar">
         
         <div class="container-style sidebar-small">
     	    <h4 style="margin:0px; margin-bottom:3px; text-align:center">Level</h4>
@@ -1849,6 +2003,9 @@
         });
     });
     
+    on("clicked:left_sidebar_view", (info) => {
+        $20("#left_sidebar").toggleClass("collapsed");
+    });
     
     on("change:advan_and_mod_loadout sheet:opened", function() {
         getAttrs(["advan_and_mod_loadout"], function(values) {
@@ -2632,6 +2789,7 @@
     //Function to make a defense roll
     const _makeDefenseRoll = (defenseType) => {
         getAttrs([defenseType + "_mod","shield_mod", "shield_tolerance_apply"], function(values) {
+            console.log(parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on"));
             /* rollType, rollName, bonus, advantage, attackName, damageType, damage, critDamage */
             _makeRoll("defense", defenseType.charAt(0).toUpperCase() + defenseType.slice(1), parseInt(values[defenseType + "_mod"]) + parseInt(values.shield_mod) * (values.shield_tolerance_apply === "on"), 0);
         });
@@ -2730,6 +2888,8 @@
                     console.error("Unsupported roll type: " + rollType);
                 }
     			
+                console.log(bonus);
+                
     			//determine dice roll
                 let rollText;
                 if(advantage >= 0){
